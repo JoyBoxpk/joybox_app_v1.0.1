@@ -36,14 +36,14 @@ class CommonElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 105.w,
-      height: 48.h,
+      width:width?? 105.w,
+      height:height?? 48.h,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0),
           ),
-          textStyle: Theme.of(context).textTheme.displaySmall!.copyWith(
+          textStyle: buttonTextStyle?? Theme.of(context).textTheme.displaySmall!.copyWith(
             fontSize: 15.sp,
             fontWeight: FontWeight.w500,
           ),

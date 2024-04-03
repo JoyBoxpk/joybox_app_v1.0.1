@@ -3,18 +3,21 @@ import 'dart:ffi';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../common_widgets/custom_image_view.dart';
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({Key? key}) : super(key: key);
+  const ProfileScreen({super.key});
+
+  static const String routeName = 'Profile-Screen';
 
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
     final screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: Container(
+      body: SingleChildScrollView(
         child: Column(
           children: [
             Stack(
@@ -27,8 +30,8 @@ class ProfileScreen extends StatelessWidget {
                     Align(
                       alignment: Alignment.centerLeft,
                       child: CustomImageView(
-                        fit: BoxFit.cover,
-                        imagePath: "assets/images/settings_screen_img5.svg",
+                        fit: BoxFit.fill,
+                        imagePath: "assets/images/profile_screen_img2 (2).svg",
                       ),
                     )
                   ],
@@ -45,9 +48,75 @@ class ProfileScreen extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            const _RewardsWidget()
+            const _RewardsWidget(),
+            const _MyPhotosWidget()
           ],
         ),
+      ),
+    );
+  }
+}
+
+class _MyPhotosWidget extends StatelessWidget {
+  const _MyPhotosWidget();
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(boxShadow: [
+        BoxShadow(
+          color: Colors.grey.shade100,
+          spreadRadius: 1,
+        )
+      ]),
+      child: Stack(
+        children: [
+          Align(
+            alignment: Alignment.bottomRight,
+            child: CustomImageView(
+                          fit: BoxFit.contain,
+                          imagePath: "assets/images/profile_screen_img4 (2).svg",
+                        ),
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
+                child: Text(
+                  "My Photos",
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
+                ),
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 30.w, vertical: 20.h),
+                  child: Row(
+                    children: [
+                      CustomImageView(
+                        fit: BoxFit.contain,
+                        imagePath: "assets/images/profile_screen_img3 (2).png",
+                      ),
+                      SizedBox(
+                        width: 20.w,
+                      ),
+                      CustomImageView(
+                        fit: BoxFit.contain,
+                        imagePath: "assets/images/profile_screen_img3 (2).png",
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+          
+        ],
       ),
     );
   }
@@ -68,12 +137,14 @@ class _RewardsWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: 20, vertical: 3),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20, vertical: 3),
               child: Text(
                 "My rewards",
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
               ),
             ),
             Stack(
@@ -84,9 +155,20 @@ class _RewardsWidget extends StatelessWidget {
                   fit: BoxFit.contain,
                   imagePath: "assets/images/settings_screen_img6.svg",
                 ),
-                CustomImageView(
-                  // fit: BoxFit.contain,
-                  imagePath: "assets/images/settings_screen_img8.png",
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    children: [
+                      CustomImageView(
+                        // fit: BoxFit.contain,
+                        imagePath: "assets/images/settings_screen_img8.png",
+                      ),
+                      CustomImageView(
+                        // fit: BoxFit.contain,
+                        imagePath: "assets/images/settings_screen_img8.png",
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
@@ -118,9 +200,9 @@ class AppBarWidget extends StatelessWidget {
               child: Container(
                 height: screenHeight * 0.04,
                 decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(13),
-                    ),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(13),
+                ),
                 child: Center(
                   child: IconButton(
                     icon: const Icon(
@@ -275,8 +357,8 @@ class Profile_Stack_widget extends StatelessWidget {
           top: 200,
           child: Container(
             padding: const EdgeInsets.all(10),
-            height: 100,
-            width: 300,
+            height: 110.h,
+            width: 280.w,
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(18),
@@ -297,11 +379,15 @@ class Profile_Stack_widget extends StatelessWidget {
                     ),
                   ],
                 ),
-                const Center(
+                Center(
                   child: Text(
                     "It is a long established fact that a reader will be distracted by the readable content.",
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
+                    style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w300,
+                        ),
                   ),
                 )
               ],

@@ -134,7 +134,7 @@ class PaymentdetailsInnerWidget extends StatelessWidget {
         ),
         Text(
           text_2,
-          style: textstyle.bodyMedium?.copyWith(
+          style: textstyle.bodyMedium!.copyWith(
             color: Colors.red
           ),
         )

@@ -32,6 +32,12 @@ class OfferItemModel {
       imageUrl: "assets/images/img21_home_screen.png.png",
       color: AppColor.orange,
     ),
+    OfferItemModel(
+      title: "Get 49% Off",
+      subTitle: "Rosati Bistro",
+      offerLabel: "Day Night Offer",
+      imageUrl: "assets/images/img21_home_screen.png.png",
+      color: AppColor.blue,
+    ),
   ];
 }
-

@@ -137,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               itemBuilder: (context, index) {
                 final item =
-                YourFavouriteMealItemModel.favouriteItemList[index];
+                    YourFavouriteMealItemModel.favouriteItemList[index];
                 return YourFavouriteMealItem(
                   itemModel: item,
                 );
@@ -215,22 +215,30 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Text(
+            "All Restaurants",
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                  fontSize: 22.sp,
+                  fontWeight: FontWeight.w600,
+                ),
+          ),
+          SizedBox(height: 20.h),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 "Popular Restaurants",
                 style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.w700,
-                ),
+                      fontSize: 22.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
               ),
               Text(
                 "See all",
-                style: Theme.of(context)
-                    .textTheme
-                    .labelLarge!
-                    .copyWith(fontSize: 12.sp, fontWeight: FontWeight.bold),
+                style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                    ),
               ),
             ],
           ),
@@ -242,6 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 PopularResItem(title: "Lachine"),
                 PopularResItem(title: "Movenpick"),
+                PopularResItem(title: "PC Hotel"),
               ],
             ),
           ),
@@ -343,7 +352,7 @@ class _HomeScreenState extends State<HomeScreen> {
       height: 480.h,
       padding: EdgeInsets.symmetric(vertical: 20.h),
       width: double.infinity,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -385,6 +394,8 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 Image.asset("assets/images/img19_home_screen.png"),
                 Image.asset("assets/images/img20_home_screen.png.png"),
+                Image.asset("assets/images/img19_home_screen.png"),
+                Image.asset("assets/images/img20_home_screen.png.png"),
               ],
             ),
           ),
@@ -419,16 +430,20 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("Traditional Restaurants",
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge!
-                      .copyWith(color: Colors.black, fontSize: 20.sp)),
-              Text("See all",
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelLarge!
-                      .copyWith(color: Colors.black, fontSize: 12.sp))
+              Text(
+                "Traditional Restaurants",
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                      color: Colors.black,
+                      fontSize: 20.sp,
+                    ),
+              ),
+              Text(
+                "See all",
+                style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      color: Colors.black,
+                      fontSize: 12.sp,
+                    ),
+              )
             ],
           ),
           SizedBox(height: 80.h),
@@ -488,16 +503,19 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("Menu",
-                  style: Theme.of(context).textTheme.titleLarge!.copyWith(
+              Text(
+                "Menu",
+                style: Theme.of(context).textTheme.titleLarge!.copyWith(
                     color: AppColor.white,
-                  )),
+                    fontWeight: FontWeight.w500,
+                    fontSize: 20.sp),
+              ),
               Text(
                 "See all",
                 style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                  color: AppColor.white,
-                  fontSize: 12.sp,
-                ),
+                    color: AppColor.white,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 14.sp),
               )
             ],
           ),
@@ -567,7 +585,6 @@ class _HomeScreenState extends State<HomeScreen> {
           CustomIconButton(
               onPressed: () {
                 _scaffoldKey.currentState?.openDrawer();
-
               },
               imagePath: "assets/images/img1_home_screen.png"),
           Column(
@@ -578,9 +595,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text(
                     "Deliver to",
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      fontSize: 14.sp,
-                      color: AppColor.red1,
-                    ),
+                          fontSize: 14.sp,
+                          color: AppColor.red1,
+                        ),
                   ),
                   const Icon(
                     Icons.arrow_drop_down,
@@ -591,9 +608,9 @@ class _HomeScreenState extends State<HomeScreen> {
               Text(
                 "4102 Pretty View Lane",
                 style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                  fontSize: 14.sp,
-                  fontWeight: FontWeight.w400,
-                ),
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
               ),
             ],
           ),

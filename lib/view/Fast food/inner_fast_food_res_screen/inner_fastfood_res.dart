@@ -5,6 +5,7 @@ import 'package:joy_box_app/view/checkout_presentation/checkout_screen.dart';
 
 import '../../../common_widgets/custom_checkbox_button.dart';
 import '../../../common_widgets/custom_image_view.dart';
+import '../../../res/color.dart';
 
 class InnerFastFoodResScreen extends StatelessWidget {
   const InnerFastFoodResScreen({Key? key}) : super(key: key);
@@ -41,12 +42,12 @@ class InnerFastFoodResScreen extends StatelessWidget {
                       Text(
                         'Sliders Party in the Box',
                         style: textstyle.bodyMedium
-                            ?.copyWith(fontWeight: FontWeight.bold),
+                            !.copyWith(fontWeight: FontWeight.bold),
                       ),
                       Text(
                         "RS. 1599.00",
                         style: textstyle.bodyMedium
-                            ?.copyWith(fontWeight: FontWeight.bold),
+                            !.copyWith(fontWeight: FontWeight.bold),
                       )
                     ],
                   ),
@@ -170,7 +171,7 @@ class cart_navbar extends StatelessWidget {
                   child: Center(
                       child: Text(
                     "Add to cart",
-                    style: textstyle.bodyMedium?.copyWith(
+                    style: textstyle.bodyMedium!.copyWith(
                         fontWeight: FontWeight.bold,
                         color: Colors.black,
                         fontSize: 15.h),
@@ -207,8 +208,12 @@ class Increment_Decrement_Widget extends StatelessWidget {
           border: Border.all(color: Border_Color!, strokeAlign: 1)),
       child: Center(
           child: Text(
-        text,
-        style: const TextStyle(color: Colors.white),
+        text,style: 
+        Theme.of(context).textTheme.bodyMedium!.copyWith(
+                          //fontSize: 14.sp,
+                          fontWeight: FontWeight.bold,
+                          color: AppColor.white,
+                        ),
       )),
     );
   }
@@ -232,7 +237,7 @@ class RemoveProductWidget extends StatelessWidget {
             style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
           ),
           SizedBox(
-            height: 20.w,
+            height: 10.h,
           ),
           Container(
             width: double.infinity,
@@ -240,11 +245,16 @@ class RemoveProductWidget extends StatelessWidget {
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.amberAccent),
                 borderRadius: BorderRadius.circular(5)),
-            child: const Row(
+            child:  Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Remove it from my order"),
-                Icon(
+                Text("Remove it from my order",
+                 style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.normal,
+                    color: AppColor.black,
+                  ),),
+                const Icon(
                   Icons.arrow_right_sharp,
                   color: Colors.amberAccent,
                 )
@@ -276,7 +286,7 @@ class PurchuseDetails extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(10),
-      height: 330.w,
+      height: 250.w,
       decoration: BoxDecoration(
         color: iscompeleted ? Colors.red : const Color(0XFFFFD726),
         borderRadius: BorderRadius.circular(10),
@@ -298,7 +308,7 @@ class PurchuseDetails extends StatelessWidget {
                   Text(
                     iscompeleted ? "Done" : 'Select one',
                     style: iscompeleted
-                        ? textstyle.bodyMedium?.copyWith(color: Colors.white)
+                        ? textstyle.bodyMedium!.copyWith(color: Colors.white)
                         : textstyle.bodyMedium,
                   )
                 ],
@@ -311,7 +321,7 @@ class PurchuseDetails extends StatelessWidget {
                 child: Text(state,
                     style: iscompeleted
                         ? textstyle.bodyMedium
-                        : textstyle.bodyMedium?.copyWith(color: Colors.white)),
+                        : textstyle.bodyMedium!.copyWith(color: Colors.white)),
               )
             ],
           ),
@@ -358,15 +368,21 @@ class PurchuseDetailsSection extends StatelessWidget {
         children: [
           Row(
             children: [
-              CustomCheckboxButton(
-                onChange: (p0) => (""),
-              ),
+               CustomCheckboxButton(
+                bordercolor: Colors.white,
+              initialValue: false, // Set initial value of checkbox
+              onChanged: (value) {
+                // Handle checkbox value change here
+                print('Checkbox value: $value');
+              },
+            ),
+            SizedBox(width: 5.w,),
               Text(
                 text,
                 style: isCompleted
                     ? textstyle.bodyMedium
-                        ?.copyWith(color: Colors.white, fontSize: 12.h)
-                    : textstyle.bodyMedium?.copyWith(fontSize: 12.h),
+                        !.copyWith(color: Colors.white, fontSize: 12.h)
+                    : textstyle.bodyMedium!.copyWith(fontSize: 12.h),
                 maxLines: 2,
               )
             ],
@@ -375,8 +391,8 @@ class PurchuseDetailsSection extends StatelessWidget {
             "Free",
             style: isCompleted
                 ? textstyle.bodyMedium
-                    ?.copyWith(color: Colors.white, fontSize: 12.h)
-                : textstyle.bodyMedium?.copyWith(fontSize: 12.h),
+                    !.copyWith(color: Colors.white, fontSize: 12.h)
+                : textstyle.bodyMedium!.copyWith(fontSize: 12.h),
           )
         ],
       ),
@@ -471,7 +487,11 @@ class Frequently_bought extends StatelessWidget {
                   ),
                   child: Text(
                     "Optional",
-                    style: textstyle.bodyMedium?.copyWith(color: Colors.white),
+                     style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.normal,
+                    color: AppColor.white,
+                  ),
                   ),
                 ),
               )
@@ -496,18 +516,22 @@ class Frequently_bought extends StatelessWidget {
           SizedBox(
             height: 20.w,
           ),
-          const Row(
+           Row(
             children: [
-              Icon(
+              const Icon(
                 Icons.arrow_drop_down,
                 color: Colors.red,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               Text(
                 "View 7 more",
-                style: TextStyle(color: Colors.red),
+                 style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.normal,
+                    color: AppColor.red1,
+                  ),
               ),
             ],
           ),
@@ -540,8 +564,12 @@ class InstrctionsWidget extends StatelessWidget {
           SizedBox(
             height: 20.w,
           ),
-          const Text(
-            "Please let us know if you are allergic to anything or if we need to avoid anything",
+           Text(
+            "Please let us know if you are allergic to anything or if we need to avoid anything", style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.normal,
+                    color: AppColor.black,
+                  ),
             maxLines: 2,
           ),
           SizedBox(
@@ -581,9 +609,15 @@ class FrequentRowSection extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            CustomCheckboxButton(
-              onChange: (p0) => (""),
+             CustomCheckboxButton(
+              bordercolor: Colors.red,
+              initialValue: false, // Set initial value of checkbox
+              onChanged: (value) {
+                // Handle checkbox value change here
+                print('Checkbox value: $value');
+              },
             ),
+            SizedBox(width: 5.w,),
             CustomImageView(
               imagePath: imagpath,
               fit: BoxFit.cover,

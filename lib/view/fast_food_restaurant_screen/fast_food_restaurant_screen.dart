@@ -1,8 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/res/color.dart';
 import 'package:joy_box_app/view/Fast%20food/inner_fast_food_res_screen/inner_fastfood_res.dart';
+import 'package:joy_box_app/view/fast_food_restaurant_screen/model/fast_food_rest_tab_model.dart';
+import 'package:joy_box_app/view/fast_food_restaurant_screen/widgets/fast_food_restaurant_tab.dart';
 
 import '../../common_widgets/common_elevated_button.dart';
 import '../Fast food/fast_food/fast_food_main/fast_food_main.dart';
@@ -25,15 +29,15 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: 15.w),
+            SizedBox(height: 15.h),
             Image.asset(
               "assets/images/img1_fast_food_restaurant.png",
               width: 806.w,
               height: 126.h,
             ),
-            SizedBox(height: 22.w),
+            SizedBox(height: 22.h),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 20.w),
+              margin: EdgeInsets.symmetric(horizontal: 25.w),
               width: double.infinity,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -43,7 +47,7 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                   _buildSecondRow(context),
                   SizedBox(height: 20.h),
                   _buildTabs(),
-                  SizedBox(height: 20.w),
+                  SizedBox(height: 20.h),
                   Text(
                     "Most ordered right now",
                     style: Theme.of(context).textTheme.displaySmall!.copyWith(
@@ -51,30 +55,28 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                           fontWeight: FontWeight.w600,
                         ),
                   ),
-                  SizedBox(height: 8.h),
+                  SizedBox(height: 15.h),
                   Stack(
                     children: [
                       Image.asset(
                           "assets/images/img2_fast_food_restaurant.png"),
                       Positioned.fill(
                         child: Center(
-                          child: SizedBox(
-                            height: 70.w,
-                            width: 180.h,
-                            child: CommonElevatedButton(
-                              onPressed: () {},
-                              text: 'Rs. 699',
-                              decoration: BoxDecoration(
-                                color: const Color(0xFFF14530),
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
+                          child: CommonElevatedButton(
+                            width: 180.w,
+                            height: 52.h,
+                            onPressed: () {},
+                            text: 'Rs. 699',
+                            decoration: BoxDecoration(
+                              color: const Color(0xFFF14530),
+                              borderRadius: BorderRadius.circular(10.0),
                             ),
                           ),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 40.w),
+                  SizedBox(height: 35.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -82,137 +84,185 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                         clipBehavior: Clip.none,
                         children: [
                           Image.asset(
-                              "assets/images/img3_fast_food_restaurant.png"),
+                            "assets/images/img3_fast_food_restaurant.png",
+                            width: 200.w,
+                            height: 310.h,
+                            fit: BoxFit.cover,
+                          ),
                           Positioned.fill(
                             child: Center(
                               child: Image.asset(
-                                  "assets/images/img4_fast_food_restaurant.png"),
+                                "assets/images/img4_fast_food_restaurant.png",
+                                width: 200.w,
+                                height: 230.h,
+                                fit: BoxFit.contain,
+                              ),
                             ),
                           ),
                           Positioned(
-                            bottom: -16,
-                            right: -30,
+                            bottom: -12.h,
+                            right: -25.w,
                             child: Image.asset(
-                                "assets/images/img5_fast_food_restaurant.png"),
+                              "assets/images/img5_fast_food_restaurant.png",
+                              width: 240.w,
+                              height: 240.h,
+                            ),
                           ),
                           Positioned.fill(
                             child: Center(
-                              child: SizedBox(
-                                height: 35.w,
-                                width: 85.h,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      foregroundColor: Colors.white,
-                                      backgroundColor: const Color(0xFFF14530),
-                                      textStyle: const TextStyle(
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w500,
-                                      )),
-                                  onPressed: () {},
-                                  child: const Text("Rs. 799"),
-                                ),
+                              child: CommonElevatedButton(
+                                onPressed: () {},
+                                text: "Rs. 799",
+                                buttonTextStyle: Theme.of(context)
+                                    .textTheme
+                                    .displaySmall!
+                                    .copyWith(
+                                      fontSize: 13.sp,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                height: 35.h,
+                                width: 100.w,
                               ),
                             ),
                           ),
-                          const Positioned(
-                            top: 8,
-                            left: 14,
+                          Positioned(
+                            top: 10.h,
+                            left: 16.w,
                             child: Text(
                               "Deal 1",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                              ),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displaySmall!
+                                  .copyWith(
+                                    fontSize: 15.sp,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                             ),
                           ),
                         ],
                       ),
+                      SizedBox(width: 5.w),
                       Column(
                         children: [
                           Stack(
                             clipBehavior: Clip.none,
                             children: [
                               Image.asset(
-                                  "assets/images/img6_fast_food_restaurant.png"),
-                              Image.asset(
-                                  "assets/images/img7_fast_food_restaurant.png"),
-                              Positioned(
-                                bottom: -18,
-                                child: Image.asset(
-                                    "assets/images/img8_fast_food_restaurant.png"),
+                                "assets/images/img6_fast_food_restaurant.png",
+                                width: 130.w,
+                                height: 140.h,
+                                fit: BoxFit.cover,
                               ),
-                              Positioned(
-                                top: 32,
-                                left: 15,
-                                child: SizedBox(
-                                  height: 35.w,
-                                  width: 100.h,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                        foregroundColor: Colors.white,
-                                        backgroundColor:
-                                            const Color(0xFFF14530),
-                                        textStyle: const TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w500,
-                                        )),
-                                    onPressed: () {},
-                                    child: const Text("Rs. 1599"),
+                              Positioned.fill(
+                                child: Center(
+                                  child: Image.asset(
+                                    "assets/images/img7_fast_food_restaurant.png",
+                                    width: 135.w,
+                                    height: 145.h,
+                                    fit: BoxFit.contain,
                                   ),
                                 ),
                               ),
-                              const Positioned(
-                                top: 8,
-                                left: 14,
+                              Positioned(
+                                bottom: -40.h,
+                                child: Image.asset(
+                                  "assets/images/img8_fast_food_restaurant.png",
+                                  width: 135.w,
+                                  height: 135.h,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                              Positioned(
+                                top: 40.h,
+                                left: 20.w,
+                                child: CommonElevatedButton(
+                                  onPressed: () {},
+                                  text: "Rs. 1599",
+                                  buttonTextStyle: Theme.of(context)
+                                      .textTheme
+                                      .displaySmall!
+                                      .copyWith(
+                                        fontSize: 10.sp,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                  height: 34.h,
+                                  width: 90.w,
+                                ),
+                              ),
+                              Positioned(
+                                top: 10.h,
+                                left: 16.w,
                                 child: Text(
                                   "Deal 2",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .displaySmall!
+                                      .copyWith(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 22.w),
+                          SizedBox(height: 22.h),
                           Stack(
                             clipBehavior: Clip.none,
                             children: [
                               Image.asset(
-                                  "assets/images/img6_fast_food_restaurant.png"),
-                              Image.asset(
-                                  "assets/images/img7_fast_food_restaurant.png"),
-                              Positioned(
-                                bottom: -18,
-                                child: Image.asset(
-                                    "assets/images/img9_fast_food_restaurant.png"),
+                                "assets/images/img6_fast_food_restaurant.png",
+                                width: 130.w,
+                                height: 140.h,
+                                fit: BoxFit.cover,
                               ),
-                              Positioned(
-                                top: 32,
-                                left: 15,
-                                child: SizedBox(
-                                  height: 35.w,
-                                  width: 100.h,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                        foregroundColor: Colors.white,
-                                        backgroundColor:
-                                            const Color(0xFFF14530),
-                                        textStyle: const TextStyle(
-                                          fontSize: 15.0,
-                                          fontWeight: FontWeight.w500,
-                                        )),
-                                    onPressed: () {},
-                                    child: const Text("Rs. 1199"),
+                              Positioned.fill(
+                                child: Center(
+                                  child: Image.asset(
+                                    "assets/images/img7_fast_food_restaurant.png",
+                                    width: 135.w,
+                                    height: 145.h,
+                                    fit: BoxFit.contain,
                                   ),
                                 ),
                               ),
-                              const Positioned(
-                                top: 8,
-                                left: 14,
+                              Positioned(
+                                bottom: -40.h,
+                                child: Image.asset(
+                                  "assets/images/img9_fast_food_restaurant.png",
+                                  width: 135.w,
+                                  height: 135.h,
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                              Positioned(
+                                top: 40.h,
+                                left: 20.w,
+                                child: CommonElevatedButton(
+                                  onPressed: () {},
+                                  text: "Rs. 1199",
+                                  buttonTextStyle: Theme.of(context)
+                                      .textTheme
+                                      .displaySmall!
+                                      .copyWith(
+                                        fontSize: 10.sp,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                  height: 34.h,
+                                  width: 90.w,
+                                ),
+                              ),
+                              Positioned(
+                                top: 10.h,
+                                left: 16.w,
                                 child: Text(
                                   "Deal 3",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .displaySmall!
+                                      .copyWith(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w600,
+                                      ),
                                 ),
                               ),
                             ],
@@ -221,174 +271,329 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 32.w),
-                  const Text(
+                  SizedBox(height: 30.h),
+                  Text(
                     "Super Saver Deals",
-                    style:
-                        TextStyle(fontWeight: FontWeight.w600, fontSize: 15.0),
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
                   ),
-                  SizedBox(height: 32.w),
-                  Stack(clipBehavior: Clip.none, children: [
-                    Row(
+                  SizedBox(height: 30.h),
+                  SingleChildScrollView(
+                    clipBehavior: Clip.none,
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
                       children: [
-                        Image.asset(
-                            "assets/images/img10_fast_food_restaurant.png"),
-                        Container(
-                          alignment: Alignment.center,
-                          height: 145,
-                          width: 220,
-                          decoration: const BoxDecoration(
-                              color: Color(0XFFFFD726),
-                              borderRadius: BorderRadius.only(
-                                bottomRight: Radius.circular(8.0),
-                                topRight: Radius.circular(8.0),
-                              )),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        Stack(clipBehavior: Clip.none, children: [
+                          Row(
                             children: [
-                              const Text(
-                                "Super Saver Deal 1",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 15.0),
+                              Image.asset(
+                                "assets/images/img10_fast_food_restaurant.png",
+                                width: 140.w,
+                                height: 140.h,
+                                fit: BoxFit.cover,
                               ),
-                              // SizedBox(height: 10.v),
-                              const Text(
-                                "Any One Wrap from creamy,\nfiery, and smokey with 1 drink",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12.0),
-                              ),
-                              // SizedBox(height: 10.v),
-                              SizedBox(
-                                width: 100.0,
-                                height: 30.0,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(14.0)),
-                                      foregroundColor: Colors.white,
-                                      backgroundColor: const Color(0xFFF14530),
-                                      textStyle: const TextStyle(
-                                        fontSize: 15.0,
+                              Container(
+                                alignment: Alignment.center,
+                                height: 140.h,
+                                width: 200.w,
+                                decoration: const BoxDecoration(
+                                    color: Color(0XFFFFD726),
+                                    borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(8.0),
+                                      topRight: Radius.circular(8.0),
+                                    )),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Text(
+                                      "Super Saver Deal 1",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displaySmall!
+                                          .copyWith(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    // SizedBox(height: 10.v),
+                                    Text(
+                                      "Any One Wrap from creamy,\nfiery, and smokey with 1 drink",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displaySmall!
+                                          .copyWith(
+                                        fontSize: 13.sp,
                                         fontWeight: FontWeight.w500,
-                                      )),
-                                  onPressed: () {},
-                                  child: const Text("Rs. 559"),
+                                      ),
+                                    ),
+                                    // SizedBox(height: 10.v),
+                                    CommonElevatedButton(
+                                      onPressed: () {},
+                                      text: "Rs. 559",
+                                      buttonTextStyle: Theme.of(context)
+                                          .textTheme
+                                          .displaySmall!
+                                          .copyWith(
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                      height: 34.h,
+                                      width: 95.w,
+                                    ),
+                                  ],
                                 ),
                               ),
                             ],
                           ),
-                        ),
+                          Positioned(
+                            top: -20.h,
+                            left: 120.w,
+                            child: Container(
+                              alignment: Alignment.center,
+                              width: 50.w,
+                              height: 50.h,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color(0xFFF14530),
+                              ),
+                              child: Text(
+                                "18% OFF",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displaySmall!
+                                    .copyWith(
+                                  fontSize: 10.sp,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColor.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ]),
+                        SizedBox(width: 15.w),
+                        Stack(clipBehavior: Clip.none, children: [
+                          Row(
+                            children: [
+                              Image.asset(
+                                "assets/images/img10_fast_food_restaurant.png",
+                                width: 140.w,
+                                height: 140.h,
+                                fit: BoxFit.cover,
+                              ),
+                              Container(
+                                alignment: Alignment.center,
+                                height: 140.h,
+                                width: 200.w,
+                                decoration: const BoxDecoration(
+                                    color: Color(0XFFFFD726),
+                                    borderRadius: BorderRadius.only(
+                                      bottomRight: Radius.circular(8.0),
+                                      topRight: Radius.circular(8.0),
+                                    )),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Text(
+                                      "Super Saver Deal 2",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displaySmall!
+                                          .copyWith(
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    // SizedBox(height: 10.v),
+                                    Text(
+                                      "Any One Burger from creamy,\nzinger, and smokey with 1 drink",
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .displaySmall!
+                                          .copyWith(
+                                        fontSize: 13.sp,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                    // SizedBox(height: 10.v),
+                                    CommonElevatedButton(
+                                      onPressed: () {},
+                                      text: "Rs. 789",
+                                      buttonTextStyle: Theme.of(context)
+                                          .textTheme
+                                          .displaySmall!
+                                          .copyWith(
+                                        fontSize: 12.sp,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                      height: 34.h,
+                                      width: 95.w,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                          Positioned(
+                            top: -20.h,
+                            left: 120.w,
+                            child: Container(
+                              alignment: Alignment.center,
+                              width: 50.w,
+                              height: 50.h,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color(0xFFF14530),
+                              ),
+                              child: Text(
+                                "25% OFF",
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displaySmall!
+                                    .copyWith(
+                                  fontSize: 10.sp,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColor.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ]),
                       ],
                     ),
-                    Positioned(
-                      top: -20,
-                      left: 125,
-                      child: Container(
-                        alignment: Alignment.center,
-                        width: 52,
-                        height: 52,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color(0xFFF14530),
-                        ),
-                        child: const Text(
-                          "18% OFF",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 10.0,
-                              fontWeight: FontWeight.w600),
-                        ),
-                      ),
-                    ),
-                  ]),
-                  SizedBox(height: 40.w),
+                  ),
+                  SizedBox(height: 30.h),
                   Align(
-                      alignment: Alignment.center,
-                      child: Image.asset(
-                          "assets/images/img12_fast_food_restaurant.png")),
-                  SizedBox(height: 10.w),
+                    alignment: Alignment.center,
+                    child: Image.asset(
+                        "assets/images/img12_fast_food_restaurant.png"),
+                  ),
+                  SizedBox(height: 20.h),
                 ],
               ),
             ),
             Container(
               width: double.infinity,
-              height: 240,
-              color: const Color(0XFFF14530),
+              height: 240.h,
+              color: AppColor.red2,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   // SizedBox(height: 25.v),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
-                      const Text(
+                      Text(
                         "What our foodies say",
-                        style: TextStyle(
-                            fontSize: 16.0,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500),
+                        style:
+                            Theme.of(context).textTheme.displaySmall!.copyWith(
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColor.white,
+                                ),
                       ),
                       SizedBox(height: 15.h),
-                      const Text(
+                      Text(
                         "See all",
-                        style: TextStyle(
-                            color: Color(0xFFFFD726),
-                            fontWeight: FontWeight.w600),
+                        style:
+                            Theme.of(context).textTheme.displaySmall!.copyWith(
+                                  fontSize: 15.sp,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColor.white,
+                                ),
                       ),
                     ],
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Image.asset(
-                          "assets/images/img13_fast_food_restaurant.png"),
-                      Stack(
-                        children: [
-                          Image.asset(
-                              "assets/images/img14_fast_food_restaurant.png"),
-                          Positioned(
-                              top: 10,
-                              right: 10,
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Image.asset(
+                          "assets/images/img13_fast_food_restaurant.png",
+                          height: 155.h,
+                          fit: BoxFit.cover,
+                        ),
+                        SizedBox(width: 10.w),
+                        Stack(
+                          children: [
+                            Image.asset(
+                              "assets/images/img14_fast_food_restaurant.png",
+                              height: 150.h,
+                              // width: 310.w,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              top: 10.h,
+                              right: 10.w,
                               child: Image.asset(
-                                  "assets/images/img16_fast_food_restaurant.png")),
-                        ],
-                      ),
-                      Image.asset(
-                          "assets/images/img15_fast_food_restaurant.png"),
-                    ],
+                                "assets/images/img16_fast_food_restaurant.png",
+                                width: 35.w,
+                                height: 35.h,
+                              ),
+                            ),
+                          ],
+                        ),
+                        SizedBox(width: 10.w),
+                        Stack(
+                          children: [
+                            Image.asset(
+                              "assets/images/img14_fast_food_restaurant.png",
+                              height: 150.h,
+                              // width: 310.w,
+                              fit: BoxFit.cover,
+                            ),
+                            Positioned(
+                              top: 10.h,
+                              right: 10.w,
+                              child: Image.asset(
+                                "assets/images/img16_fast_food_restaurant.png",
+                                width: 35.w,
+                                height: 35.h,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 30.w),
+            SizedBox(height: 30.h),
             Container(
               width: double.infinity,
-              margin: EdgeInsets.symmetric(horizontal: 20.h),
+              margin: EdgeInsets.symmetric(horizontal: 25.w),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const Text(
+                  Text(
                     "Cricket Craze Deals",
-                    style:
-                        TextStyle(fontSize: 14.0, fontWeight: FontWeight.w600),
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
                   ),
-                  SizedBox(height: 30.w),
+                  SizedBox(height: 30.h),
                   Stack(clipBehavior: Clip.none, children: [
                     Row(
                       children: [
                         Image.asset(
-                            "assets/images/img17_fast_food_restaurant.png"),
+                          "assets/images/img17_fast_food_restaurant.png",
+                          width: 145.w,
+                          height: 145.h,
+                          fit: BoxFit.contain,
+                        ),
                         Container(
                           alignment: Alignment.center,
-                          height: 145,
-                          width: 220,
+                          height: 145.h,
+                          width: 195.w,
                           decoration: const BoxDecoration(
-                              color: Color(0XFFFFD726),
+                              color: AppColor.amber,
                               borderRadius: BorderRadius.only(
                                 bottomRight: Radius.circular(8.0),
                                 topRight: Radius.circular(8.0),
@@ -396,90 +601,122 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              const Text(
+                              Text(
                                 "Cricket Craze Deal 1",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 15.0),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displaySmall!
+                                    .copyWith(
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                               ),
                               // SizedBox(height: 10.v),
-                              const Text(
+                              Text(
                                 "1 Firebird burgery with\n1 soft drink",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 12.0),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displaySmall!
+                                    .copyWith(
+                                      fontSize: 14.sp,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                              ),
+
+                              CommonElevatedButton(
+                                onPressed: () {},
+                                text: "Rs. 699",
+                                width: 100.w,
+                                height: 40.h,
+                                buttonTextStyle: Theme.of(context)
+                                    .textTheme
+                                    .displaySmall!
+                                    .copyWith(
+                                      fontSize: 12.sp,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                               ),
                               // SizedBox(height: 10.v),
-                              SizedBox(
-                                width: 100.0,
-                                height: 30.0,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(14.0)),
-                                      foregroundColor: Colors.white,
-                                      backgroundColor: const Color(0xFFF14530),
-                                      textStyle: const TextStyle(
-                                        fontSize: 15.0,
-                                        fontWeight: FontWeight.w500,
-                                      )),
-                                  onPressed: () {},
-                                  child: const Text("Rs. 699"),
-                                ),
-                              ),
                             ],
                           ),
                         ),
                       ],
                     ),
                     Positioned(
-                      top: -20,
-                      left: 125,
+                      top: -20.h,
+                      left: 110.w,
                       child: Container(
                         alignment: Alignment.center,
-                        width: 58,
-                        height: 55,
+                        width: 55.w,
+                        height: 55.h,
                         decoration: const BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Color(0xFFF14530),
+                          color: AppColor.red2,
                         ),
-                        child: const Text(
+                        child: Text(
                           "25% OFF",
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 10.0,
-                              fontWeight: FontWeight.w600),
+                          style: Theme.of(context)
+                              .textTheme
+                              .displaySmall!
+                              .copyWith(
+                                fontSize: 10.sp,
+                                fontWeight: FontWeight.w600,
+                                color: AppColor.white,
+                              ),
                         ),
                       ),
                     ),
                   ]),
-                  SizedBox(height: 30.w),
+                  SizedBox(height: 30.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
+                          Text(
                             "Sliders Party in the Box",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 14.0),
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
                           ),
-                          SizedBox(height: 10.w),
-                          const Text(
+                          SizedBox(height: 10.h),
+                          Text(
                             "Chicken Sliders",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 14.0),
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
-                          SizedBox(height: 8.w),
-                          const Text(
-                              "Any 4 chicken sliders with 1\ngourmet fries from mayo garlic or\nwild fries and 2 soft drinks"),
-                          SizedBox(height: 25.w),
-                          const Text(
+                          SizedBox(height: 8.h),
+                          Text(
+                            "Any 4 chicken sliders with 1\ngourmet fries from mayo garlic or\nwild fries and 2 soft drinks",
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                                  fontSize: 13.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
+                          ),
+                          SizedBox(height: 25.h),
+                          Text(
                             "Rs. 1599.00",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 14.0),
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
                         ],
                       ),
@@ -487,106 +724,100 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                         clipBehavior: Clip.none,
                         children: [
                           Image.asset(
-                              "assets/images/img18_fast_food_restaurant.png"),
-                          Positioned(
-                              top: -18,
-                              right: -2,
-                              child: Image.asset(
-                                  "assets/images/img19_fast_food_restaurant.png")),
-                          Positioned(
-                              bottom: 5,
-                              right: 2,
-                              child: Image.asset(
-                                  "assets/images/img20_fast_food_restaurant.png")),
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 10.w),
-                  const Divider(
-                    color: Color(0xFFFFD726),
-                    thickness: 1.2,
-                  ),
-                  SizedBox(height: 35.w),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            "Sliders Party in the Box",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 14.0),
+                            "assets/images/img18_fast_food_restaurant.png",
+                            width: 135.w,
+                            height: 142.h,
+                            fit: BoxFit.cover,
                           ),
-                          SizedBox(height: 10.w),
-                          const Text(
-                            "Chicken Sliders",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 14.0),
-                          ),
-                          SizedBox(height: 8.w),
-                          const Text(
-                              "Any 4 chicken sliders with 1\ngourmet fries from mayo garlic or\nwild fries and 2 soft drinks"),
-                          SizedBox(height: 25.w),
-                          const Text(
-                            "Rs. 1599.00",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 14.0),
-                          ),
-                        ],
-                      ),
-                      Stack(
-                        clipBehavior: Clip.none,
-                        children: [
-                          Image.asset(
-                              "assets/images/img18_fast_food_restaurant.png"),
                           Positioned(
-                              top: -18,
-                              right: -2,
-                              child: Image.asset(
-                                  "assets/images/img19_fast_food_restaurant.png")),
-                          Positioned(
-                            bottom: 5,
-                            right: 2,
+                            top: -18.h,
+                            right: -2.w,
                             child: Image.asset(
-                                "assets/images/img20_fast_food_restaurant.png"),
+                              "assets/images/img19_fast_food_restaurant.png",
+                              width: 40.w,
+                              height: 40.h,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 5.h,
+                            right: 3.w,
+                            child: Image.asset(
+                              "assets/images/img20_fast_food_restaurant.png",
+                              width: 40.w,
+                              height: 40.h,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 5.h,
+                            right: 3.w,
+                            child: Image.asset(
+                              "assets/images/img20_fast_food_restaurant.png",
+                              width: 40.w,
+                              height: 40.h,
+                              fit: BoxFit.contain,
+                            ),
                           ),
                         ],
                       ),
                     ],
                   ),
-                  SizedBox(height: 10.w),
-                  const Divider(
-                    color: Color(0xFFFFD726),
-                    thickness: 1.2,
+                  SizedBox(height: 10.h),
+                   Divider(
+                    color: AppColor.amber,
+                    thickness: 1.2.h,
                   ),
-                  SizedBox(height: 35.w),
+                  SizedBox(height: 35.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          const Text(
+                          Text(
                             "Sliders Party in the Box",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 14.0),
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
-                          SizedBox(height: 10.w),
-                          const Text(
+                          SizedBox(height: 10.h),
+                          Text(
                             "Chicken Sliders",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w500, fontSize: 14.0),
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                          SizedBox(height: 8.w),
-                          const Text(
-                              "Any 4 chicken sliders with 1\ngourmet fries from mayo garlic or\nwild fries and 2 soft drinks"),
-                          SizedBox(height: 25.w),
-                          const Text(
+                          SizedBox(height: 8.h),
+                          Text(
+                            "Any 4 chicken sliders with 1\ngourmet fries from mayo garlic or\nwild fries and 2 soft drinks",
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          SizedBox(height: 25.h),
+                          Text(
                             "Rs. 1599.00",
-                            style: TextStyle(
-                                fontWeight: FontWeight.w600, fontSize: 14.0),
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
                         ],
                       ),
@@ -594,17 +825,122 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                         clipBehavior: Clip.none,
                         children: [
                           Image.asset(
-                              "assets/images/img18_fast_food_restaurant.png"),
+                            "assets/images/img18_fast_food_restaurant.png",
+                            width: 135.w,
+                            height: 142.h,
+                            fit: BoxFit.cover,
+                          ),
                           Positioned(
-                              top: -18,
-                              right: -2,
-                              child: Image.asset(
-                                  "assets/images/img19_fast_food_restaurant.png")),
+                            top: -18.h,
+                            right: -2.w,
+                            child: Image.asset(
+                              "assets/images/img19_fast_food_restaurant.png",
+                              width: 40.w,
+                              height: 40.h,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
                           Positioned(
-                              bottom: 5,
-                              right: 2,
-                              child: Image.asset(
-                                  "assets/images/img20_fast_food_restaurant.png")),
+                            bottom: 5.h,
+                            right: 3.w,
+                            child: Image.asset(
+                              "assets/images/img20_fast_food_restaurant.png",
+                              width: 40.w,
+                              height: 40.h,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 10.h),
+                  const Divider(
+                    color: AppColor.amber,
+                    thickness: 1.2,
+                  ),
+                  SizedBox(height: 35.h),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Sliders Party in the Box",
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          SizedBox(height: 10.h),
+                          Text(
+                            "Chicken Sliders",
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          SizedBox(height: 8.h),
+                          Text(
+                            "Any 4 chicken sliders with 1\ngourmet fries from mayo garlic or\nwild fries and 2 soft drinks",
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                              fontSize: 13.sp,
+                              fontWeight: FontWeight.w400,
+                            ),
+                          ),
+                          SizedBox(height: 25.h),
+                          Text(
+                            "Rs. 1599.00",
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                              fontSize: 18.sp,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Stack(
+                        clipBehavior: Clip.none,
+                        children: [
+                          Image.asset(
+                            "assets/images/img18_fast_food_restaurant.png",
+                            width: 135.w,
+                            height: 142.h,
+                            fit: BoxFit.cover,
+                          ),
+                          Positioned(
+                            top: -18.h,
+                            right: -2.w,
+                            child: Image.asset(
+                              "assets/images/img19_fast_food_restaurant.png",
+                              width: 40.w,
+                              height: 40.h,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                          Positioned(
+                            bottom: 5.h,
+                            right: 3.w,
+                            child: Image.asset(
+                              "assets/images/img20_fast_food_restaurant.png",
+                              width: 40.w,
+                              height: 40.h,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
                         ],
                       ),
                     ],
@@ -623,7 +959,7 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
     );
   }
 
-  Row _buildSecondRow(BuildContext context) {
+  Widget _buildSecondRow(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -798,27 +1134,22 @@ PreferredSizeWidget? CustomAppBar() {
 }
 
 Widget _buildTabs() {
-  return SingleChildScrollView(
-    scrollDirection: Axis.horizontal,
-    child: Row(
-      children: [
-        Container(
-            decoration: BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: buildTabItem("Popular")),
-        const SizedBox(width: 10), // Add space between tabs
-        buildTabItem("Pizza"),
-        const SizedBox(width: 10), // Add space between tabs
-        buildTabItem("Wings"),
-        const SizedBox(width: 10), // Add space between tabs
-        buildTabItem("Rolls"),
-        const SizedBox(width: 10), // Add space between tabs
-        buildTabItem("Sandwich"),
-        const SizedBox(width: 10), // Add space between tabs
-        buildTabItem("Nuggets"),
-      ],
+  return SizedBox(
+    height: 50.h,
+    width: double.infinity,
+    child: ListView.separated(
+      scrollDirection: Axis.horizontal,
+      itemCount: FastFoodRestaurantTabModel.fastFoodItemList.length,
+      separatorBuilder: (context, index) {
+        return SizedBox(width: 5.h);
+      },
+      itemBuilder: (context, index) {
+        final tab = FastFoodRestaurantTabModel.fastFoodItemList[index];
+        return FastFoodRestaurantTab(
+          index: index,
+          tab: tab,
+        );
+      },
     ),
   );
 }

@@ -1,0 +1,109 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../res/color.dart';
+
+class ChatMessage extends StatelessWidget {
+  final String? messageLeft;
+  final String? timeLeft;
+  final String? messageRight;
+  final String? timeRight;
+
+  const ChatMessage({
+    super.key,
+    this.messageLeft,
+    this.timeLeft,
+    this.messageRight,
+    this.timeRight,
+  });
+
+  @override
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        if (messageLeft != null)
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 5.h),
+                  margin: EdgeInsets.symmetric(vertical: 5.h),
+                  width: 180.w,
+                  decoration: BoxDecoration(
+                    color: AppColor.skin,
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(15.0),
+                      bottomLeft: Radius.circular(15.0),
+                      topRight: Radius.circular(15.0),
+                    ),
+                  ),
+                  child: Text(
+                    messageLeft!,
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+                if (timeLeft != null)
+                  Padding(
+                    padding: EdgeInsets.only(left: 15.w),
+                    child: Text(
+                      timeLeft!,
+                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                        fontSize: 11.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+        if (messageRight != null)
+          Align(
+            alignment: Alignment.centerRight,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 5.h),
+                  margin: EdgeInsets.symmetric(vertical: 5.h),
+                  width: 180.w,
+                  decoration: BoxDecoration(
+                    color: AppColor.amber4,
+                    borderRadius: BorderRadius.only(
+                      bottomRight: Radius.circular(15.0),
+                      bottomLeft: Radius.circular(15.0),
+                      topLeft: Radius.circular(15.0),
+                    ),
+                  ),
+                  child: Text(
+                    messageRight!,
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    textAlign: TextAlign.right,
+                  ),
+                ),
+                if (timeRight != null)
+                  Padding(
+                    padding: EdgeInsets.only(right: 15.w),
+                    child: Text(
+                      timeRight!,
+                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                        fontSize: 11.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+      ],
+    );
+  }
+}

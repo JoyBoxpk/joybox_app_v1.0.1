@@ -2,8 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/common_widgets/custom_image_view.dart';
+import 'package:joy_box_app/view/Jb_pro_screen/jb_pro_screen.dart';
+import 'package:joy_box_app/view/chat_screen/chat_screen.dart';
+import 'package:joy_box_app/view/ordering_recording/ordering_reordering.dart';
+import 'package:joy_box_app/view/profile_screen/Profile.dart';
+import 'package:joy_box_app/view/reviews_screen/reviews_screen.dart';
 import 'package:joy_box_app/view/settings_screen/settings_screen.dart';
 import 'package:joy_box_app/view/support/support_screen.dart';
+import 'package:joy_box_app/view/transaction_screen/transactions_screen.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -195,8 +201,24 @@ void _navigateToScreen(BuildContext context, String title) {
     case "Support":
       context.goNamed(SupportScreen.routeName);
       break;
-    case "Notifications":
+    case "Transactions":
+      context.goNamed(TransactionsScreen.routeName);
       break;
+    case "Profile":
+      context.goNamed(ProfileScreen.routeName);
+      break;
+    case "Become JB Pro":
+      context.goNamed(JbProScreen.routeName);
+    case "Ordering & reordering":
+      context.goNamed(OrderingReordering.routeName);
+      break;
+    case "Inbox":
+      context.goNamed(ChatScreen.routeName);
+      break;
+    case "Language":
+      context.goNamed(ReviewsScreen.routeName);
+      break;
+    
     // Add more cases for other screens
     default:
       // Do nothing or handle other cases

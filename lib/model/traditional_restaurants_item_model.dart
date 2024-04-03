@@ -26,6 +26,13 @@ class TraditionalRestaurantsItemModel {
       title: "Lotus Court",
       imagePath: "assets/images/img18_home_screen.png",
     ),
-
+    TraditionalRestaurantsItemModel(
+      title: "Coconut Grove",
+      imagePath: "assets/images/img16_home_screen.png",
+    ),
+    TraditionalRestaurantsItemModel(
+      title: "Cafe Mist",
+      imagePath: "assets/images/img18_home_screen.png",
+    ),
   ];
 }

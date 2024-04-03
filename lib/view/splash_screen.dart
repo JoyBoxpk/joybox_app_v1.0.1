@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:joy_box_app/view/aboutus_screen/about_us_screen.dart';
+import 'package:joy_box_app/view/transaction_screen/transactions_screen.dart';
 
 import 'get_started_screen.dart';
+import 'ordering_recording/ordering_reordering.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

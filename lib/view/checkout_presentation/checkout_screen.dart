@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/view/checkout_presentation/widgets/Payment_details_widget.dart';
 import 'package:joy_box_app/view/checkout_presentation/widgets/Progress_Indicator.dart';
@@ -8,6 +9,7 @@ import 'package:joy_box_app/view/checkout_presentation/widgets/Progress_Indicato
 import '../../common_widgets/common_appbar.dart';
 import '../../common_widgets/common_elevated_button.dart';
 import '../../common_widgets/custom_image_view.dart';
+import '../../res/color.dart';
 import 'widgets/Delivery_widget.dart';
 import 'widgets/Order_summary_widget.dart';
 
@@ -248,12 +250,15 @@ class TotalPayWidget extends StatelessWidget {
       width: screenWidth,
       height: screenHeight * 0.080,
       decoration: const BoxDecoration(color: Colors.amberAccent),
-      child: const Center(
+      child:  Center(
           child: Text(
         "Total Rs. 2.059",
         maxLines: 3,
-        style: TextStyle(
-            fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black),
+        style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w600,
+                    color: AppColor.black,
+                  ),
       )),
     );
   }

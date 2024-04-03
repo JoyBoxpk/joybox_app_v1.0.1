@@ -5,6 +5,7 @@ import '../../common_widgets/common_switch_widget.dart';
 import '../../common_widgets/custom_image_view.dart';
 
 class SettingScreen extends StatelessWidget {
+  // ignore: use_super_parameters
   const SettingScreen({Key? key}) : super(key: key);
   static const String routeName = 'settingscreen';
 
@@ -89,17 +90,22 @@ class SettingScreen extends StatelessWidget {
 class SettingColumnItemButton extends StatelessWidget {
   final List<SettingsItem> settingsItems;
   final main_settingtitle;
+  // ignore: prefer_typing_uninitialized_variables
   final settingiconimg;
 
   const SettingColumnItemButton({
     super.key,
     required this.settingsItems,
+    // ignore: non_constant_identifier_names
     this.main_settingtitle,
     this.settingiconimg,
   });
 
   @override
   Widget build(BuildContext context) {
+        final textstyle = Theme.of(context).textTheme;
+
+    
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 40.0),
       //padding: EdgeInsets.symmetric(vertical: 10),
@@ -111,7 +117,7 @@ class SettingColumnItemButton extends StatelessWidget {
                 imagePath: settingiconimg,
               ),
               const SizedBox(width: 20),
-              Text(main_settingtitle),
+              Text(main_settingtitle,style: textstyle.bodyMedium,),
             ],
           ),
           const SizedBox(height: 10),
@@ -132,12 +138,15 @@ class SettingColumnItemButton extends StatelessWidget {
 }
 
 class SettingsRowItemButton extends StatelessWidget {
+  
   final SettingsItem item;
 
   const SettingsRowItemButton({Key? key, required this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+        final textstyle = Theme.of(context).textTheme;
+
     final _controller = ValueNotifier<bool>(false);
 
     return Container(
@@ -145,7 +154,7 @@ class SettingsRowItemButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(item.text),
+          Text(item.text,style: textstyle.bodyMedium,),
 
           // Display either an icon or a switch based on the 'hasSwitch' property
           item.hasSwitch

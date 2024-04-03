@@ -1,26 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../res/color.dart';
 
 class OrderSummaryWidget extends StatelessWidget {
   const OrderSummaryWidget({
     Key? key,
-    required this.screenHeight, required this.bgcolor,required this.elevation, required this.Delivery_cintainercolor,
+    required this.screenHeight,
+    required this.bgcolor,
+    required this.elevation,
+    required this.Delivery_cintainercolor,
   }) : super(key: key);
 
   final double screenHeight;
-  final Color bgcolor,Delivery_cintainercolor;
+  final Color bgcolor, Delivery_cintainercolor;
   final double elevation;
-  
 
   @override
   Widget build(BuildContext context) {
-  final textstyle = Theme.of(context).textTheme;
+    final textstyle = Theme.of(context).textTheme;
 
     return Material(
       color: bgcolor,
       shape: RoundedRectangleBorder(
-        
         borderRadius: BorderRadius.circular(10),
         side: const BorderSide(color: Colors.amberAccent, width: 1),
       ),
@@ -32,16 +35,19 @@ class OrderSummaryWidget extends StatelessWidget {
           Container(
             //height: 400,
             //width: 300,
-            margin:
-                const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-    
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
                   "Order summary",
-                  style: textstyle.bodyMedium,
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w600,
+                        color: AppColor.black,
+                      ),
                 ),
                 const SummaryRowTextWidget(
                   keytxt: "1 x Chicken Sliders",
@@ -56,13 +62,12 @@ class OrderSummaryWidget extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.symmetric(vertical: 10),
-            margin:
-                const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-    
+
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    
+
               //crossAxisAlignment: CrossAxisAlignment.start,
               //mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -76,22 +81,47 @@ class OrderSummaryWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Row(
-                      mainAxisAlignment:
-                          MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text("Delivery Fee"),
+                        Text(
+                          "Delivery Fee",
+                          style: Theme.of(context)
+                              .textTheme
+                              .displaySmall!
+                              .copyWith(
+                                fontSize: 14.sp,
+                                fontWeight: FontWeight.w600,
+                                color: AppColor.black,
+                              ),
+                        ),
                         Container(
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10, vertical: 6),
                           decoration: BoxDecoration(
-                              borderRadius:
-                                  BorderRadius.circular(13),
+                              borderRadius: BorderRadius.circular(13),
                               color: Delivery_cintainercolor),
-                          child: const Text("Free"),
+                          child: Text(
+                            "Free",
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColor.black,
+                                ),
+                          ),
                         )
                       ],
                     ),
-                    const Text("Welcome gift: free delivery")
+                    Text(
+                      "Welcome gift: free delivery",
+                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                            fontSize: 14.sp,
+                            fontWeight: FontWeight.w600,
+                            color: AppColor.black,
+                          ),
+                    )
                   ],
                 ),
                 const SummaryRowTextWidget(
@@ -124,7 +154,24 @@ class SummaryRowTextWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [Text(keytxt), Text(valuetxt)],
+      children: [
+        Text(
+          keytxt,
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w600,
+                color: AppColor.black,
+              ),
+        ),
+        Text(
+          valuetxt,
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w600,
+                color: AppColor.black,
+              ),
+        )
+      ],
     );
   }
 }

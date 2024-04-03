@@ -1,6 +1,9 @@
+// ignore_for_file: dead_code
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:joy_box_app/common_widgets/common_appbar.dart';
 import 'package:joy_box_app/res/color.dart';
 import 'package:joy_box_app/view/fast_food_restaurant_screen/fast_food_restaurant_screen.dart';
 
@@ -16,11 +19,11 @@ class FastFoodMainScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: const CommonAppBar(text: "Fast Food",),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            BuildTabs(),
+            BuildTabs(context),
             BuildTabWithIcon(context),
             BuildRestContainer(context),
             BuildRestContainer2(context),
@@ -134,17 +137,11 @@ Widget BuildRestContainer(BuildContext context) {
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 120),
+              const Padding(
+                padding: EdgeInsets.only(top: 120),
                 child: Align(
                   alignment: Alignment.center,
-                  child: CommonElevatedButton(
-                    onPressed: () =>
-                        context.goNamed(FastFoodRestaurantScreen.routeName),
-                    alignment: Alignment.center,
-                    //width: 200.w,
-                    text: "Order Now",
-                  ),
+                  child: Order_now_button(),
                 ),
               ),
             ],
@@ -214,9 +211,16 @@ Widget BuildRestContainer(BuildContext context) {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Red Apple - Lucky One Mall",
-                  style: textstyle.bodySmall!.copyWith(fontSize: 15)),
+              Text(
+                "Red Apple - Lucky One Mall",
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.black,
+                    ),
+              ),
               Row(
                 children: [
                   const Icon(
@@ -225,11 +229,19 @@ Widget BuildRestContainer(BuildContext context) {
                   ),
                   Text(
                     "3.9 ",
-                    style: textstyle.bodyMedium,
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.normal,
+                          color: AppColor.black,
+                        ),
                   ),
                   Text(
                     "(3000+)",
-                    style: textstyle.bodyMedium,
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.normal,
+                          color: AppColor.black,
+                        ),
                   )
                 ],
               )
@@ -255,13 +267,19 @@ Widget BuildRestContainer(BuildContext context) {
                       width: 3,
                     ),
                     Text("Free Delivery",
-                        style: textstyle.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.w600, color: Colors.red)),
+                        style:
+                            Theme.of(context).textTheme.displaySmall!.copyWith(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColor.red2,
+                                ))
                   ],
                 ),
                 Text("Opening 12pm - 2am",
-                    style: textstyle.bodyMedium
-                        ?.copyWith(fontWeight: FontWeight.w600))
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w600,
+                        ))
               ],
             ),
           )
@@ -269,6 +287,42 @@ Widget BuildRestContainer(BuildContext context) {
       ),
     ],
   );
+}
+
+class Order_now_button extends StatelessWidget {
+  const Order_now_button({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ButtonStyle(
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
+        ),
+        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
+          const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        ),
+        backgroundColor: MaterialStateProperty.all<Color>(
+          Colors.red.withOpacity(
+              0.7), // Adjust opacity here (0.6 for 60% opacity)
+        ),
+      ),
+      onPressed: () =>
+          context.goNamed(FastFoodRestaurantScreen.routeName),
+      child: Text(
+        "Order Now",
+        style: Theme.of(context).textTheme.displaySmall!.copyWith(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.normal,
+              color: AppColor.white,
+            ),
+      ),
+    );
+  }
 }
 
 // ignore: non_constant_identifier_names
@@ -309,25 +363,24 @@ Widget BuildRestContainer2(BuildContext context) {
                               borderRadius: BorderRadius.circular(6),
                               color: AppColor.amber),
                           child: Text("Burger O’Clock",
-                              style:
-                                  textstyle.bodySmall!.copyWith(fontSize: 15)),
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displaySmall!
+                                  .copyWith(
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w600,
+                                  )),
                         ),
                       ],
                     ),
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(top: 120),
+              const Padding(
+                padding: EdgeInsets.only(top: 120),
                 child: Align(
                   alignment: Alignment.center,
-                  child: CommonElevatedButton(
-                    onPressed: () =>
-                        context.goNamed(FastFoodRestaurantScreen.routeName),
-                    alignment: Alignment.center,
-                    //width: 200.w,
-                    text: "Order Now",
-                  ),
+                  child: Order_now_button()
                 ),
               ),
             ],
@@ -356,7 +409,7 @@ Widget BuildRestContainer2(BuildContext context) {
                   padding: EdgeInsets.all(34.w),
                   child: Text(
                     "Burgers, Wraps and Rolls",
-                    style: textstyle.bodyMedium?.copyWith(color: Colors.white),
+                    style: textstyle.bodyMedium!.copyWith(color: Colors.white),
                   )),
             ),
           ),
@@ -397,11 +450,15 @@ Widget BuildRestContainer2(BuildContext context) {
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 "Red Apple - Lucky One Mall",
-                style:
-                    textstyle.bodyMedium?.copyWith(fontWeight: FontWeight.w800),
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w600,
+                      color: AppColor.black,
+                    ),
               ),
               Row(
                 children: [
@@ -411,11 +468,19 @@ Widget BuildRestContainer2(BuildContext context) {
                   ),
                   Text(
                     "3.9 ",
-                    style: textstyle.bodyMedium,
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.normal,
+                          color: AppColor.black,
+                        ),
                   ),
                   Text(
                     "(3000+)",
-                    style: textstyle.bodyMedium,
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w500,
+                          color: AppColor.black,
+                        ),
                   )
                 ],
               )
@@ -441,13 +506,20 @@ Widget BuildRestContainer2(BuildContext context) {
                       width: 3,
                     ),
                     Text("Free Delivery",
-                        style: textstyle.bodyMedium?.copyWith(
-                            fontWeight: FontWeight.w600, color: Colors.red)),
+                        style:
+                            Theme.of(context).textTheme.displaySmall!.copyWith(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.w600,
+                                  color: AppColor.red2,
+                                )),
                   ],
                 ),
                 Text("Opening 12pm - 2am",
-                    style: textstyle.bodyMedium
-                        ?.copyWith(fontWeight: FontWeight.w600))
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.w600,
+                          color: AppColor.black,
+                        ))
               ],
             ),
           )
@@ -457,6 +529,7 @@ Widget BuildRestContainer2(BuildContext context) {
   );
 }
 
+// ignore: non_constant_identifier_names
 Widget BuildTabWithIcon(BuildContext context) {
   return SingleChildScrollView(
     scrollDirection: Axis.horizontal,
@@ -502,12 +575,15 @@ Widget buildIconTabItem(TabItem tabItem, BuildContext context) {
         children: [
           if (tabItem.text != null)
             Text(tabItem.text!,
-                style: textstyle.bodyMedium?.copyWith(
-                  color: isSelected
-                      ? Colors.white
-                      : Colors.black, // Set text color based on selection
-                  fontWeight: FontWeight.bold,
-                )),
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                      fontSize: 14.sp,
+
+                      /// fontWeight: FontWeight.w600,
+                      color: isSelected
+                          ? Colors.white
+                          : Colors.black, // Set text color based on selection
+                      fontWeight: FontWeight.normal,
+                    )),
           if (tabItem.text != null && tabItem.icon != null)
             const SizedBox(width: 10), // Add space between text and icon
           if (tabItem.icon != null)
@@ -523,7 +599,8 @@ Widget buildIconTabItem(TabItem tabItem, BuildContext context) {
   );
 }
 
-Widget BuildTabs() {
+// ignore: non_constant_identifier_names
+Widget BuildTabs(BuildContext context) {
   return SingleChildScrollView(
     scrollDirection: Axis.horizontal,
     child: Padding(
@@ -534,24 +611,24 @@ Widget BuildTabs() {
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(6),
                   color: AppColor.amber),
-              child: buildTabItem("Burger")),
+              child: buildTabItem("Burger", context)),
           const SizedBox(width: 10), // Add space between tabs
-          buildTabItem("Pizza"),
+          buildTabItem("Pizza", context),
           const SizedBox(width: 10), // Add space between tabs
-          buildTabItem("Sandwich"),
+          buildTabItem("Sandwich", context),
           const SizedBox(width: 10), // Add space between tabs
-          buildTabItem("Rolls"),
+          buildTabItem("Rolls", context),
           const SizedBox(width: 10), // Add space between tabs
-          buildTabItem("Nuggets"),
+          buildTabItem("Nuggets", context),
           const SizedBox(width: 10), // Add space between tabs
-          buildTabItem("Burger"),
+          buildTabItem("Burger", context),
         ],
       ),
     ),
   );
 }
 
-Widget buildTabItem(String text) {
+Widget buildTabItem(String text, BuildContext context) {
   bool isSelected = false; // Set this to true for selected tab
   return GestureDetector(
     onTap: () {
@@ -567,53 +644,24 @@ Widget buildTabItem(String text) {
       ),
       child: Text(
         text,
-        style: TextStyle(
-          color: isSelected
-              ? Colors.white
-              : Colors.black, // Set text color based on selection
-          fontWeight: FontWeight.bold,
-        ),
+        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+              color: isSelected
+                  // ignore: dead_code
+                  ? Colors.white
+                  : Colors.black, // Set text color based on selection
+              fontWeight: FontWeight.normal,
+              fontSize: 14.sp,
+
+              // color: isSelected
+              //     ? Colors.white
+              //     : Colors.black, // Set text color based on selection
+              // fontWeight: FontWeight.bold,
+            ),
       ),
     ),
   );
 }
 
-PreferredSizeWidget? CustomAppBar() {
-  return AppBar(
-    backgroundColor: const Color(0xFFFFD726),
-    elevation: 0,
-    toolbarHeight: 60,
-    automaticallyImplyLeading: false,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.only(
-        bottomLeft: Radius.circular(20),
-        bottomRight: Radius.circular(20),
-      ),
-    ),
-    title: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        children: [
-          Container(
-            height: 38,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(13),
-            ),
-            child: IconButton(
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                // Add your navigation logic here
-              },
-            ),
-          ),
-          const SizedBox(width: 20),
-          const Text("FastFood"),
-        ],
-      ),
-    ),
-  );
-}
 
 class TabItem {
   final String? text;

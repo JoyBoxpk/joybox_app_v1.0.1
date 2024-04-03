@@ -25,6 +25,15 @@ class YourFavouriteMealItemModel {
       subTitle: "Gulshan block 6",
       imageUrl: "assets/images/img25_home_screen.png",
     ),
+    YourFavouriteMealItemModel(
+      title: "Kababjess",
+      subTitle: "Jauhar",
+      imageUrl: "assets/images/img24_home_screen.png",
+    ),
+    YourFavouriteMealItemModel(
+      title: "Hardees",
+      subTitle: "UNiversity Road",
+      imageUrl: "assets/images/img25_home_screen.png",
+    ),
   ];
 }
-

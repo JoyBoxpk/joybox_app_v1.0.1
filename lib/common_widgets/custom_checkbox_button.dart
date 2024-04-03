@@ -1,108 +1,60 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
-class CustomCheckboxButton extends StatelessWidget {
-  CustomCheckboxButton({
-    super.key,
-    required this.onChange,
-    this.decoration,
-    this.alignment,
-    this.isRightCheck,
-    this.iconSize,
-    this.value,
-    this.text,
-    this.width,
-    this.padding,
-    this.textStyle,
-    this.textAlignment,
-    this.isExpandedText = false,
-  });
+class CustomCheckboxButton extends StatefulWidget {
+  final bool initialValue;
+  final ValueChanged<bool>? onChanged;
+  final Color bordercolor;
 
-  final BoxDecoration? decoration;
+  const CustomCheckboxButton({
+    Key? key,
+    this.initialValue = false,
+    this.onChanged, required this.bordercolor,
+  }) : super(key: key);
 
-  final Alignment? alignment;
+  @override
+  _CustomCheckboxButtonState createState() => _CustomCheckboxButtonState();
+}
 
-  final bool? isRightCheck;
+class _CustomCheckboxButtonState extends State<CustomCheckboxButton> {
+  late bool _value;
 
-  final double? iconSize;
-
-  bool? value;
-
-  final Function(bool) onChange;
-
-  final String? text;
-
-  final double? width;
-
-  final EdgeInsetsGeometry? padding;
-
-  final TextStyle? textStyle;
-
-  final TextAlign? textAlignment;
-
-  final bool isExpandedText;
+  @override
+  void initState() {
+    super.initState();
+    _value = widget.initialValue;
+  }
 
   @override
   Widget build(BuildContext context) {
-    final textstyle = Theme.of(context).textTheme;
-
-    return alignment != null
-        ? Align(
-            alignment: alignment ?? Alignment.center,
-            child: buildCheckBoxWidget,
-          )
-        : buildCheckBoxWidget;
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _value = !_value;
+        });
+        widget.onChanged?.call(_value);
+      },
+      child: Container(
+        width: 24, // Adjust width as needed
+        height: 24, // Adjust height as needed
+        decoration: BoxDecoration(
+          // border: Border.all(
+            color: _value ? Colors.amberAccent : Colors.white,
+          //   color: _value ? Colors.green : Colors.grey,
+          // ),
+          border: Border.all(
+            color: widget.bordercolor,
+          ),
+          borderRadius: BorderRadius.circular(4),
+        ),
+        // child: _value
+        //     ? Icon(
+        //         Icons.check,
+        //         size: 20,
+        //         color: Colors.green,
+        //       )
+        //     : null,
+      ),
+    );
   }
-
-  Widget get buildCheckBoxWidget => InkWell(
-        onTap: () {
-          value = !(value!);
-          onChange(value!);
-        },
-        child: Container(
-          decoration: decoration,
-          width: width,
-          child: (isRightCheck ?? false) ? rightSideCheckbox : leftSideCheckbox,
-        ),
-      );
-  Widget get leftSideCheckbox => Row(
-        children: [
-          Padding(
-            child: checkboxWidget,
-            padding: const EdgeInsets.only(right: 8),
-          ),
-          isExpandedText ? Expanded(child: textWidget) : textWidget,
-        ],
-      );
-  Widget get rightSideCheckbox => Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          isExpandedText ? Expanded(child: textWidget) : textWidget,
-          Padding(
-            padding: const EdgeInsets.only(left: 8),
-            child: checkboxWidget,
-          ),
-        ],
-      );
-  Widget get textWidget => Text(
-  text ?? "",
-  textAlign: textAlignment ?? TextAlign.center,
-  style: textStyle ?? TextStyle(), // Provide a fallback value if textStyle is null
-);
-  Widget get checkboxWidget => SizedBox(
-        height: iconSize,
-        width: iconSize,
-        child: Checkbox(
-          visualDensity: const VisualDensity(
-            vertical: -4,
-            horizontal: -4,
-          ),
-          value: value ?? false,
-          checkColor:Colors.white, // Change checkbox color
-
-          onChanged: (value) {
-            onChange(value!);
-          },
-        ),
-      );
 }
-
