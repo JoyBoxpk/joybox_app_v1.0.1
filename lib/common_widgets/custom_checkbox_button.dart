@@ -5,11 +5,14 @@ class CustomCheckboxButton extends StatefulWidget {
   final bool initialValue;
   final ValueChanged<bool>? onChanged;
   final Color bordercolor;
+  final Color checkColor;
 
   const CustomCheckboxButton({
     Key? key,
     this.initialValue = false,
-    this.onChanged, required this.bordercolor,
+    this.onChanged,
+    required this.bordercolor,
+    required this.checkColor,
   }) : super(key: key);
 
   @override
@@ -38,22 +41,19 @@ class _CustomCheckboxButtonState extends State<CustomCheckboxButton> {
         width: 24, // Adjust width as needed
         height: 24, // Adjust height as needed
         decoration: BoxDecoration(
-          // border: Border.all(
-            color: _value ? Colors.amberAccent : Colors.white,
-          //   color: _value ? Colors.green : Colors.grey,
-          // ),
+          color: _value ? widget.checkColor : Colors.transparent,
           border: Border.all(
             color: widget.bordercolor,
           ),
           borderRadius: BorderRadius.circular(4),
         ),
-        // child: _value
-        //     ? Icon(
-        //         Icons.check,
-        //         size: 20,
-        //         color: Colors.green,
-        //       )
-        //     : null,
+        child: _value
+            ? Icon(
+                Icons.check,
+                size: 20,
+                color: Colors.white,
+              )
+            : null,
       ),
     );
   }

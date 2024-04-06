@@ -19,6 +19,7 @@ import 'package:joy_box_app/view/settings_screen/settings_screen.dart';
 import 'package:joy_box_app/view/signup_screen.dart';
 import 'package:joy_box_app/view/splash_screen.dart';
 import 'package:joy_box_app/view/support/support_screen.dart';
+import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_screen.dart';
 import 'package:joy_box_app/view/transaction_screen/transactions_screen.dart';
 import 'view/fast_food_restaurant_screen/fast_food_restaurant_screen.dart';
 
@@ -33,6 +34,7 @@ final _router = GoRouter(
       name: SplashScreen.routeName,
       builder: (context, state) => const SplashScreen(),
     ),
+    
     GoRoute(
       path: GetStartedScreen.routeName,
       name: GetStartedScreen.routeName,
@@ -53,6 +55,11 @@ final _router = GoRouter(
       name: HomeScreen.routeName,
       builder: (context, state) => const HomeScreen(),
       routes: [
+        GoRoute(
+      path: TraditionalRestaurant.routeName,
+      name: TraditionalRestaurant.routeName,
+      builder: (context, state) =>  TraditionalRestaurant(),
+    ),
         GoRoute(
           path: ReviewsScreen.routeName,
           name: ReviewsScreen.routeName,
@@ -141,6 +148,7 @@ class MyApp extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(393, 852),
       builder: (context, child) => MaterialApp.router(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: appTheme,
         routerConfig: _router,

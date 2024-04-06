@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/view/aboutus_screen/about_us_screen.dart';
@@ -28,24 +29,30 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SizedBox(
-          height: 100.w,
-          width: double.maxFinite,
-          child: Stack(
-            clipBehavior: Clip.none,
-            alignment: Alignment.topCenter,
-            children: [
-              Image.asset(
+      body: Container(
+        //height: 100.w,
+        width: double.infinity,
+        child: Stack(
+          //clipBehavior: Clip.none,
+          //alignment: Alignment.topCenter,
+          children: [
+            Positioned(
+              
+              child: Image.asset(
                 "assets/images/img1_splash_screen.png",
-                fit: BoxFit.contain,
+                // height:MediaQuery.of(context).size.height/2,
+                fit: BoxFit.cover,
+                width: double.infinity,
+                //fit: BoxFit.cover,
               ),
-              Positioned(
-                  bottom: 06,
-                  child: Image.asset("assets/images/img2_splash_screen.png",
-                      fit: BoxFit.cover)),
-            ],
-          ),
+            ),
+            Align(
+              alignment: Alignment.bottomLeft,
+              child: Image.asset("assets/images/img2_splash_screen.png",
+              width: double.infinity,
+                  fit: BoxFit.fitWidth),
+            ),
+          ],
         ),
       ),
     );

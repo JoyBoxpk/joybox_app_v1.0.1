@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:joy_box_app/common_widgets/common_appbar.dart';
 import 'package:joy_box_app/view/checkout_presentation/checkout_screen.dart';
 
 import '../../../common_widgets/custom_checkbox_button.dart';
@@ -17,7 +18,31 @@ class InnerFastFoodResScreen extends StatelessWidget {
     final textstyle = Theme.of(context).textTheme;
 
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar: CommonAppBar(
+        backgroundColor: Colors.red,
+        backArrowColor: Colors.red,
+        
+        actions: [
+      IconButton(
+        icon: const Icon(
+          Icons.share,
+          color: Colors.white,
+        ),
+        onPressed: () {
+          // Add your navigation logic here
+        },
+      ),
+      IconButton(
+        icon: const Icon(
+          Icons.search,
+          color: Colors.white,
+        ),
+        onPressed: () {
+          // Add your navigation logic here
+        },
+      ),
+    ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -369,6 +394,7 @@ class PurchuseDetailsSection extends StatelessWidget {
           Row(
             children: [
                CustomCheckboxButton(
+                checkColor: isCompleted ? AppColor.amber : AppColor.red1,
                 bordercolor: Colors.white,
               initialValue: false, // Set initial value of checkbox
               onChanged: (value) {
@@ -398,65 +424,6 @@ class PurchuseDetailsSection extends StatelessWidget {
       ),
     );
   }
-}
-
-PreferredSizeWidget? CustomAppBar() {
-  return AppBar(
-    backgroundColor: const Color((0xFFF14530)),
-    elevation: 0,
-    toolbarHeight: 60,
-    automaticallyImplyLeading: false,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.only(
-        bottomLeft: Radius.circular(20),
-        bottomRight: Radius.circular(20),
-      ),
-    ),
-    title: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        children: [
-          Container(
-            height: 38.h,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(13),
-            ),
-            child: IconButton(
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.red,
-              ),
-              onPressed: () {
-                // Add your navigation logic here
-              },
-            ),
-          ),
-          const SizedBox(width: 20),
-        ],
-      ),
-    ),
-    actions: [
-      IconButton(
-        icon: const Icon(
-          Icons.share,
-          color: Colors.white,
-        ),
-        onPressed: () {
-          // Add your navigation logic here
-        },
-      ),
-      IconButton(
-        icon: const Icon(
-          Icons.search,
-          color: Colors.white,
-        ),
-        onPressed: () {
-          // Add your navigation logic here
-        },
-      ),
-    ],
-  );
 }
 
 class Frequently_bought extends StatelessWidget {
@@ -610,6 +577,7 @@ class FrequentRowSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
              CustomCheckboxButton(
+              checkColor: AppColor.amber,
               bordercolor: Colors.red,
               initialValue: false, // Set initial value of checkbox
               onChanged: (value) {

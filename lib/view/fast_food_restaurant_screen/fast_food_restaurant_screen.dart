@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:joy_box_app/common_widgets/common_appbar.dart';
 import 'package:joy_box_app/res/color.dart';
 import 'package:joy_box_app/view/Fast%20food/inner_fast_food_res_screen/inner_fastfood_res.dart';
 import 'package:joy_box_app/view/fast_food_restaurant_screen/model/fast_food_rest_tab_model.dart';
@@ -25,7 +26,29 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(),
+      appBar:  CommonAppBar(
+        text: "Restaurant",
+        actions: [
+      IconButton(
+        icon:  const Icon(
+          Icons.share,
+          color: Color(0xFFF14530),
+        ),
+        onPressed: () {
+          // Add your navigation logic here
+        },
+      ),
+      IconButton(
+        icon:  const Icon(
+          Icons.search,
+          color: Color(0xFFF14530),
+        ),
+        onPressed: () {
+          // Add your navigation logic here
+        },
+      ),
+    ],
+      ),
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -1068,69 +1091,6 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
       ],
     );
   }
-}
-
-PreferredSizeWidget? CustomAppBar() {
-  return AppBar(
-    backgroundColor: const Color((0xFFFFD726)),
-    elevation: 0,
-    toolbarHeight: 60,
-    automaticallyImplyLeading: false,
-    shape: const RoundedRectangleBorder(
-      borderRadius: BorderRadius.only(
-        bottomLeft: Radius.circular(20),
-        bottomRight: Radius.circular(20),
-      ),
-    ),
-    title: Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        children: [
-          Container(
-            height: 38.h,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(13),
-            ),
-            child: IconButton(
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.black,
-              ),
-              onPressed: () {
-                // Add your navigation logic here
-              },
-            ),
-          ),
-          const SizedBox(width: 20),
-          const Text(
-            "Restaurant",
-            style: TextStyle(fontSize: 20.0),
-          )
-        ],
-      ),
-    ),
-    actions: [
-      IconButton(
-        icon: const Icon(
-          Icons.share,
-          color: Color(0xFFF14530),
-        ),
-        onPressed: () {
-          // Add your navigation logic here
-        },
-      ),
-      IconButton(
-        icon: const Icon(
-          Icons.search,
-          color: Color(0xFFF14530),
-        ),
-        onPressed: () {
-          // Add your navigation logic here
-        },
-      ),
-    ],
-  );
 }
 
 Widget _buildTabs() {

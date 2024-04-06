@@ -125,6 +125,7 @@ class TransactionBalanceWidget extends StatelessWidget {
                   ],
                 ),
               )
+            
             ],
           ),
         ),

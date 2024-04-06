@@ -127,22 +127,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                   ],
                 ),
               ),
-              Positioned(
-                bottom: 90,
-                left: 150,
-                child: AnimatedSmoothIndicator(
-                  activeIndex: 0,
-                  count: 3,
-                  effect: ScrollingDotsEffect(
-                    spacing: 6,
-                    activeDotColor: AppColor.blue,
-                    dotColor: AppColor.blueGrey,
-                    activeDotScale: 1.3,
-                    dotHeight: 8.w,
-                    dotWidth: 6.w,
-                  ),
-                ),
-              ),
+              
             ],
           ),
         ),
