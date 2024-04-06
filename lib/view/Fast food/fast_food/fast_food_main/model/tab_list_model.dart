@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 
 class TabListModel {
   final String imagePath;
+  final double rating;
   final String title1;
   final String title2;
   final String subTitle;
@@ -9,8 +10,9 @@ class TabListModel {
   final String? welcomeGift; // Nullable welcomeGift
   final VoidCallback onPressed;
 
-   TabListModel({
+  TabListModel({
     required this.imagePath,
+    required this.rating,
     required this.title1,
     required this.title2,
     required this.subTitle,
@@ -22,6 +24,7 @@ class TabListModel {
 
   static final List<TabListModel> burgersRestaurantList = [
     TabListModel(
+      rating: 3.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Red Apple",
       title2: "Burgers, Wraps and Rolls",
@@ -31,6 +34,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 2.5,
       imagePath: "assets/images/hotel_img.png",
       title1: "Red Apple",
       title2: "Burgers, Wraps and Rolls",
@@ -40,6 +44,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 2.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Burger Lab",
       title2: "Burgers, Wraps and Rolls",
@@ -47,6 +52,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 3.5,
       imagePath: "assets/images/hotel_img.png",
       title1: "Red Apple",
       title2: "Burgers, Wraps and Rolls",
@@ -56,6 +62,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 1.5,
       imagePath: "assets/images/hotel_img.png",
       title1: "Burger Lab",
       title2: "Burgers, Wraps and Rolls",
@@ -63,6 +70,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 4.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Red Apple",
       title2: "Burgers, Wraps and Rolls",
@@ -75,6 +83,7 @@ class TabListModel {
 
   static final List<TabListModel> pizzaRestaurantList = [
     TabListModel(
+      rating: 4.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Pizza Max",
       title2: "Fajita Pizza",
@@ -84,6 +93,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 3.5,
       imagePath: "assets/images/hotel_img.png",
       title1: "Pizza 360",
       title2: "Fajita Pizza",
@@ -93,6 +103,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 3.5,
       imagePath: "assets/images/hotel_img.png",
       title1: "Broadway",
       title2: "Chicken Spicy Pizza",
@@ -100,6 +111,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 3.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Pizza Hut",
       title2: "Chicken Mayo Garlic Pizza",
@@ -109,6 +121,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 2.5,
       imagePath: "assets/images/hotel_img.png",
       title1: "Broadway",
       title2: "Chicken Spicy Pizza",
@@ -116,6 +129,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 2.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Pizza Hut",
       title2: "Chicken Mayo Garlic Pizza",
@@ -128,6 +142,7 @@ class TabListModel {
 
   static final List<TabListModel> wingsRestaurantList = [
     TabListModel(
+      rating: 2.5,
       imagePath: "assets/images/hotel_img.png",
       title1: "Red Apple",
       title2: "Burgers, Wraps and Rolls",
@@ -137,6 +152,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 4.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Red Apple",
       title2: "Burgers, Wraps and Rolls",
@@ -146,6 +162,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 1.5,
       imagePath: "assets/images/hotel_img.png",
       title1: "Burger Lab",
       title2: "Burgers, Wraps and Rolls",
@@ -153,6 +170,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 3.5,
       imagePath: "assets/images/hotel_img.png",
       title1: "Red Apple",
       title2: "Burgers, Wraps and Rolls",
@@ -162,6 +180,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 3.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Burger Lab",
       title2: "Burgers, Wraps and Rolls",
@@ -169,6 +188,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 2.5,
       imagePath: "assets/images/hotel_img.png",
       title1: "Red Apple",
       title2: "Burgers, Wraps and Rolls",
@@ -181,6 +201,7 @@ class TabListModel {
 
   static final List<TabListModel> rollsRestaurantList = [
     TabListModel(
+      rating: 1.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Pizza Max",
       title2: "Fajita Pizza",
@@ -190,6 +211,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 2.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Pizza 360",
       title2: "Fajita Pizza",
@@ -199,6 +221,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 1.5,
       imagePath: "assets/images/hotel_img.png",
       title1: "Broadway",
       title2: "Chicken Spicy Pizza",
@@ -206,6 +229,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 2.5,
       imagePath: "assets/images/hotel_img.png",
       title1: "Pizza Hut",
       title2: "Chicken Mayo Garlic Pizza",
@@ -215,6 +239,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 3.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Broadway",
       title2: "Chicken Spicy Pizza",
@@ -222,6 +247,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 3.5,
       imagePath: "assets/images/hotel_img.png",
       title1: "Pizza Hut",
       title2: "Chicken Mayo Garlic Pizza",
@@ -234,6 +260,7 @@ class TabListModel {
 
   static final List<TabListModel> sandwichRestaurantList = [
     TabListModel(
+      rating: 3.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Red Apple",
       title2: "Burgers, Wraps and Rolls",
@@ -243,6 +270,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 2.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Red Apple",
       title2: "Burgers, Wraps and Rolls",
@@ -252,6 +280,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 4.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Burger Lab",
       title2: "Burgers, Wraps and Rolls",
@@ -259,6 +288,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 1.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Red Apple",
       title2: "Burgers, Wraps and Rolls",
@@ -268,6 +298,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 2.5,
       imagePath: "assets/images/hotel_img.png",
       title1: "Burger Lab",
       title2: "Burgers, Wraps and Rolls",
@@ -275,6 +306,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 1.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Red Apple",
       title2: "Burgers, Wraps and Rolls",
@@ -287,6 +319,7 @@ class TabListModel {
 
   static final List<TabListModel> nuggetsRestaurantList = [
     TabListModel(
+      rating: 3.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Pizza Max",
       title2: "Fajita Pizza",
@@ -296,6 +329,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 3.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Pizza 360",
       title2: "Fajita Pizza",
@@ -305,6 +339,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 4.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Broadway",
       title2: "Chicken Spicy Pizza",
@@ -312,6 +347,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 2.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Pizza Hut",
       title2: "Chicken Mayo Garlic Pizza",
@@ -321,6 +357,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 4.0,
       imagePath: "assets/images/hotel_img.png",
       title1: "Broadway",
       title2: "Chicken Spicy Pizza",
@@ -328,6 +365,7 @@ class TabListModel {
       onPressed: (){},
     ),
     TabListModel(
+      rating: 2.5,
       imagePath: "assets/images/hotel_img.png",
       title1: "Pizza Hut",
       title2: "Chicken Mayo Garlic Pizza",
