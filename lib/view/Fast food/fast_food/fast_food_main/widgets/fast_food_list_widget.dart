@@ -4,20 +4,19 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/view/Fast%20food/fast_food/fast_food_main/model/tab_list_model.dart';
 
-
 import '../../../../../common_widgets/common_elevated_button.dart';
 import '../../../../../common_widgets/custom_image_view.dart';
 import '../../../../../core/utils/image_constant.dart';
 import '../../../../../res/color.dart';
 import '../../../inner_fast_food_res_screen/inner_fastfood_res.dart';
 
-
 class FastFoodListWidget extends StatelessWidget {
   final TabListModel tabListItem;
 
-  const FastFoodListWidget(
-      {super.key,
-      required this.tabListItem}); // Added super call with key parameter
+  const FastFoodListWidget({
+    super.key,
+    required this.tabListItem,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class FastFoodListWidget extends StatelessWidget {
           children: [
             Image.asset(
               tabListItem.imagePath,
-              height: 240.h,
+              height: 250.h,
               fit: BoxFit.contain,
             ),
             Positioned(
@@ -194,7 +193,7 @@ class FastFoodListWidget extends StatelessWidget {
                         fontWeight: FontWeight.w600,
                       ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Row(
                   children: [
                     Icon(
