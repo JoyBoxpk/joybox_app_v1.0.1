@@ -45,8 +45,8 @@ class CommonPassTextFieldState extends State<CommonPasswordTextField> {
             });
           },
           icon: isPassVisible
-              ? const Icon(Icons.visibility)
-              : const Icon(Icons.visibility_off),
+              ? const Icon(Icons.visibility_outlined)
+              : const Icon(Icons.visibility_off_outlined),
         ),
       ),
     );

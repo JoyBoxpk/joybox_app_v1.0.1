@@ -16,7 +16,7 @@ import 'package:joy_box_app/view/ordering_recording/ordering_reordering.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
 import 'package:joy_box_app/view/reviews_screen/reviews_screen.dart';
 import 'package:joy_box_app/view/settings_screen/settings_screen.dart';
-import 'package:joy_box_app/view/signup_screen.dart';
+import 'package:joy_box_app/view/authentication/sign_up_screen/sign_up_screen.dart';
 import 'package:joy_box_app/view/splash_screen.dart';
 import 'package:joy_box_app/view/support/support_screen.dart';
 import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_screen.dart';
