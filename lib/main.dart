@@ -6,12 +6,12 @@ import 'package:joy_box_app/view/Fast%20food/fast_food/fast_food_main/fast_food_
 import 'package:joy_box_app/view/Fast%20food/inner_fast_food_res_screen/inner_fastfood_res.dart';
 import 'package:joy_box_app/view/Jb_pro_screen/jb_pro_screen.dart';
 import 'package:joy_box_app/view/aboutus_screen/about_us_screen.dart';
+import 'package:joy_box_app/view/authentication/login_screen/login_screen.dart';
 import 'package:joy_box_app/view/cart_screen/cart_screen.dart';
 import 'package:joy_box_app/view/chat_screen/chat_screen.dart';
 import 'package:joy_box_app/view/checkout_presentation/checkout_screen.dart';
 import 'package:joy_box_app/view/get_started_screen.dart';
 import 'package:joy_box_app/view/home_screen/home_screen.dart';
-import 'package:joy_box_app/view/login_screen.dart';
 import 'package:joy_box_app/view/ordering_recording/ordering_reordering.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
 import 'package:joy_box_app/view/reviews_screen/reviews_screen.dart';
