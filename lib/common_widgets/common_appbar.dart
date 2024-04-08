@@ -10,7 +10,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actionsColor,
     this.text,
     this.actions,
-    this.toolbarHeight = 100, // Specify the toolbar height here
+    this.toolbarHeight = 80, // Specify the toolbar height here
     this.elevation = 0, // Specify the elevation here
   });
 

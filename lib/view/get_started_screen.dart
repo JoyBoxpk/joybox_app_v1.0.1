@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:joy_box_app/view/signup_screen.dart';
+import 'package:joy_box_app/view/authentication/sign_up_screen/sign_up_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../res/color.dart';
 

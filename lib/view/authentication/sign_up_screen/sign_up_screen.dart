@@ -5,10 +5,10 @@ import 'package:joy_box_app/core/utils/field_validator.dart';
 import 'package:joy_box_app/view/authentication/widgets/common_email_textfield.dart';
 import 'package:joy_box_app/view/authentication/widgets/common_password_textfield.dart';
 import 'package:joy_box_app/view/authentication/widgets/switch_screen_option.dart';
-import '../common_widgets/common_elevated_button.dart';
-import '../res/color.dart';
-import 'authentication/login_screen/login_screen.dart';
-import 'authentication/widgets/social_buttons.dart';
+import '../../../common_widgets/common_elevated_button.dart';
+import '../../../res/color.dart';
+import '../login_screen/login_screen.dart';
+import '../widgets/social_buttons.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -78,7 +78,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     gradient: LinearGradient(
                       colors: [
                         AppColor.blue,
-                        AppColor.white,
+                        AppColor.white1,
                       ],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
@@ -134,6 +134,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                           SizedBox(height: 18.h),
                           Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Checkbox(
                                 checkColor: AppColor.white,
@@ -173,7 +174,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                           SizedBox(height: 30.h),
                           const SocialButtons(),
-                          SizedBox(height: 50.h),
+                          SizedBox(height: 40.h),
                           const SwitchScreenOption(
                             text1: "Already have an account?",
                             text2: "Log in",
