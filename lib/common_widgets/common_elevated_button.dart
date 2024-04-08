@@ -37,14 +37,14 @@ class CommonElevatedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width:width?? 105.w,
-      height:height?? 48.h,
+      height:height?? 46.h,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
+            borderRadius: BorderRadius.circular(10.0),
           ),
           textStyle: buttonTextStyle?? Theme.of(context).textTheme.displaySmall!.copyWith(
-            fontSize: 15.sp,
+            fontSize: 16.sp,
             fontWeight: FontWeight.w500,
           ),
           backgroundColor: AppColor.red1,

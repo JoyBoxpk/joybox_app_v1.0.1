@@ -5,12 +5,14 @@ class CommonTextFormField extends StatelessWidget {
   final String? hintText;
   final Widget? suffixIcon;
   final bool isPassword;
+  final TextEditingController? controller;
 
 
   const CommonTextFormField({super.key,
     this.hintText,
     this.suffixIcon,
     this.isPassword = false,
+    this.controller,
   });
 
   @override
@@ -18,11 +20,11 @@ class CommonTextFormField extends StatelessWidget {
     return SizedBox(
       height: 60.h,
       child: TextFormField(
-        style: TextStyle(fontSize: 15.sp),
+        style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w500),
         obscureText: isPassword,
         decoration: InputDecoration(
           hintText: hintText,
-          hintStyle: TextStyle(fontSize: 12.sp),
+          hintStyle: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w300),
           fillColor: Colors.white,
           filled: true,
           border: OutlineInputBorder(
