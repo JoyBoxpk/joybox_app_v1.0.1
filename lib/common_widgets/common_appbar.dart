@@ -38,12 +38,12 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       title: Padding(
-        padding: EdgeInsets.only(left: 12.w, bottom: 10.h),
+        padding: EdgeInsets.only(left: 12.w, bottom: 6.h),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: 40.h,
+              height: 38.h,
               width: 38.w,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -71,7 +71,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
                 },
               ),
             ),
-            SizedBox(width: 30.w),
+            SizedBox(width: 20.w),
             Text(
               text ?? "",
               style: Theme.of(context).textTheme.displaySmall!.copyWith(

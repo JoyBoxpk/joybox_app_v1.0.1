@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -14,6 +15,7 @@ import 'package:joy_box_app/view/home_screen/widgets/offer_item_widget.dart';
 import 'package:joy_box_app/view/home_screen/widgets/popular_res_item.dart';
 import 'package:joy_box_app/view/home_screen/widgets/taditional_item_widget.dart';
 import 'package:joy_box_app/view/home_screen/widgets/your_favourite_meal_item.dart';
+import 'package:joy_box_app/view/popular_restaurants_screen/popular_restaurants_screen.dart';
 import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -64,43 +66,12 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SizedBox(height: 20.h),
                 _buildCentreBlock(context),
-                SizedBox(height: 30.h),
-                // SizedBox(
-                //   height: 9.h,
-                //   child: AnimatedSmoothIndicator(
-                //     activeIndex: 0,
-                //     count: 3,
-                //     effect: ScrollingDotsEffect(
-                //       spacing: 7,
-                //       activeDotColor: AppColor.red1,
-                //       dotColor: AppColor.blueGrey,
-                //       dotHeight: 9.h,
-                //       dotWidth: 9.w,
-                //     ),
-                //   ),
-                // ),
                 SizedBox(height: 40.h),
                 _popularRestaurantRow(context),
-                // SizedBox(height: 20.h),
-                // SizedBox(
-                //   height: 9.h,
-                //   child: AnimatedSmoothIndicator(
-                //     activeIndex: 0,
-                //     count: 3,
-                //     effect: ScrollingDotsEffect(
-                //       spacing: 7,
-                //       activeDotColor: AppColor.red1,
-                //       dotColor: AppColor.blueGrey,
-                //       dotHeight: 9.h,
-                //       dotWidth: 9.w,
-                //     ),
-                //   ),
-                // ),
                 SizedBox(height: 60.h),
                 _buildMenu(context),
                 SizedBox(height: 50.h),
                 _traditionalRestaurant(context),
-               
                 _buildJoyBoxChoice(context),
                 SizedBox(height: 20.h),
                 _buildOfferRow(context),
@@ -255,12 +226,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       fontWeight: FontWeight.w600,
                     ),
               ),
-              Text(
-                "See all",
-                style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
-                    ),
+              GestureDetector(
+                onTap: ()=> context.goNamed(PopularRestaurantsScreen.routeName),
+                child: Text(
+                  "See all",
+                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w500,
+                      ),
+                ),
               ),
             ],
           ),

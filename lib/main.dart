@@ -13,6 +13,7 @@ import 'package:joy_box_app/view/checkout_presentation/checkout_screen.dart';
 import 'package:joy_box_app/view/get_started_screen.dart';
 import 'package:joy_box_app/view/home_screen/home_screen.dart';
 import 'package:joy_box_app/view/ordering_recording/ordering_reordering.dart';
+import 'package:joy_box_app/view/popular_restaurants_screen/popular_restaurants_screen.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
 import 'package:joy_box_app/view/reviews_screen/reviews_screen.dart';
 import 'package:joy_box_app/view/settings_screen/settings_screen.dart';
@@ -34,7 +35,6 @@ final _router = GoRouter(
       name: SplashScreen.routeName,
       builder: (context, state) => const SplashScreen(),
     ),
-    
     GoRoute(
       path: GetStartedScreen.routeName,
       name: GetStartedScreen.routeName,
@@ -94,6 +94,11 @@ final _router = GoRouter(
           path: TransactionsScreen.routeName,
           name: TransactionsScreen.routeName,
           builder: (context, state) => const TransactionsScreen(),
+        ),
+        GoRoute(
+          path: PopularRestaurantsScreen.routeName,
+          name: PopularRestaurantsScreen.routeName,
+          builder: (context, state) => const PopularRestaurantsScreen(),
         ),
         GoRoute(
             path: FastFoodMainScreen.routeName,
