@@ -41,7 +41,7 @@ class PopularRestaurantsScreenWidget extends StatelessWidget {
                       alignment: Alignment.centerLeft,
                       padding: EdgeInsets.only(left: 8.w),
                       width: 200.w,
-                      height: 42.h,
+                      height: 40.h,
                       decoration: BoxDecoration(
                         color: Colors.amber,
                         borderRadius: BorderRadius.only(
