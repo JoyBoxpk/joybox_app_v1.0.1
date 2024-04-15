@@ -179,7 +179,7 @@ class _JbProScreenState extends State<JbProScreen> {
                 Container(
                   margin: EdgeInsets.symmetric(horizontal: 25.w),
                   width: double.infinity,
-                  height: 420.h,
+                  height: 440.h,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -196,7 +196,7 @@ class _JbProScreenState extends State<JbProScreen> {
                         items: itemsList2,
                         options: CarouselOptions(
                           viewportFraction: 0.95,
-                          height: 300.h,
+                          height: 315.h,
                           autoPlay: false,
                           enlargeCenterPage: true,
                           enableInfiniteScroll: true,

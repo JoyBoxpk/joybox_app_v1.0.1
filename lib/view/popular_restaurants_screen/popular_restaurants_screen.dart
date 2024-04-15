@@ -1,11 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:joy_box_app/common_widgets/common_appbar.dart';
-import 'package:joy_box_app/common_widgets/common_elevated_button.dart';
 import 'package:joy_box_app/res/color.dart';
 import 'package:joy_box_app/view/popular_restaurants_screen/model/popular_restaurants_screen_model.dart';
 import 'package:joy_box_app/view/popular_restaurants_screen/widgets/popular_restaurants_screen_widget.dart';
