@@ -77,7 +77,7 @@ class _PopularRestaurantsScreenState extends State<PopularRestaurantsScreen> {
                       child: SvgPicture.asset(
                           "assets/images/fast_food_screen_img1.svg"),
                     ),
-                    SizedBox(width: 5.w),
+                    SizedBox(width: 3.w),
                     for (String hintText in tabList)
                       Container(
                           padding: EdgeInsets.symmetric(horizontal: 3.w),

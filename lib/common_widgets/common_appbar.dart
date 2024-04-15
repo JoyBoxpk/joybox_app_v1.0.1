@@ -38,7 +38,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       title: Padding(
-        padding: EdgeInsets.only(left: 12.w, bottom: 6.h),
+        padding: EdgeInsets.only(left: 12.w, bottom: 4.h),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

@@ -14,7 +14,7 @@ class CommonDropdownButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 14.w),
+      padding: EdgeInsets.symmetric(horizontal: 15.w),
       alignment: Alignment.center,
       height: 48.h,
       decoration: BoxDecoration(
@@ -43,21 +43,19 @@ class CommonDropdownButton extends StatelessWidget {
           }).toList();
         },
         onSelected: (_) {},
-        child: Container(
-          alignment: Alignment.center,
-          child: Row(
-            children: [
-              Text(
-                hintText,
-                style: Theme.of(context)
-                    .textTheme
-                    .displaySmall!
-                    .copyWith(fontSize: 16.sp),
-              ),
-              SizedBox(width: 2.w),
-              Icon(Icons.keyboard_arrow_down_outlined, size: 20.sp),
-            ],
-          ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              hintText,
+              style: Theme.of(context)
+                  .textTheme
+                  .displaySmall!
+                  .copyWith(fontSize: 16.sp),
+            ),
+            SizedBox(width: 1.w),
+            Icon(Icons.keyboard_arrow_down_outlined, size: 20.sp),
+          ],
         ),
       ),
     );
