@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/model/custom_item_model.dart';
@@ -15,6 +16,7 @@ import 'package:joy_box_app/view/home_screen/widgets/offer_item_widget.dart';
 import 'package:joy_box_app/view/home_screen/widgets/popular_res_item.dart';
 import 'package:joy_box_app/view/home_screen/widgets/taditional_item_widget.dart';
 import 'package:joy_box_app/view/home_screen/widgets/your_favourite_meal_item.dart';
+import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/popular_restaurants_screen/popular_restaurants_screen.dart';
 import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -149,11 +151,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       .textTheme
                       .titleLarge!
                       .copyWith(color: Colors.black, fontSize: 20.sp)),
-              Text("View all",
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelLarge!
-                      .copyWith(color: Colors.black, fontSize: 12.sp))
+              GestureDetector(
+                onTap: () => context.goNamed(OffersScreen.routeName),
+                child: Text("View all",
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelLarge!
+                        .copyWith(color: Colors.black, fontSize: 12.sp)),
+              )
             ],
           ),
           SizedBox(height: 10.h),

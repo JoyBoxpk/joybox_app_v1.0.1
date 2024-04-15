@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
+import 'package:joy_box_app/res/color.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CommonAppBar({
     super.key,
     this.backgroundColor,
+    this.titleColor,
     this.backArrowColor,
     this.actionsColor,
     this.text,
@@ -16,6 +18,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   final Color? backgroundColor;
   final Color? backArrowColor;
+  final Color? titleColor;
   final Color? actionsColor;
   final String? text;
   final List<Widget>? actions;
@@ -43,7 +46,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: 38.h,
+              height: 39.h,
               width: 38.w,
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -63,7 +66,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
                   grade: 10.0,
                   Icons.arrow_back_sharp,
                   weight: 20.0,
-                  color: backArrowColor ?? Colors.black,
+                  color: backArrowColor ?? AppColor.black,
                 ),
                 onPressed: () {
                   context.pop();
@@ -77,6 +80,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
               style: Theme.of(context).textTheme.displaySmall!.copyWith(
                     fontSize: 18.sp,
                     fontWeight: FontWeight.w600,
+                    color: titleColor ?? AppColor.black,
                   ),
             )
           ],

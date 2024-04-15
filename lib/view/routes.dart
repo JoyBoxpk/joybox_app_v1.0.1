@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
 import 'package:joy_box_app/view/reviews_screen/reviews_screen.dart';
 import 'package:joy_box_app/view/splash_screen.dart';
@@ -76,7 +77,7 @@ final List<RouteBase> appRoutes = [
       GoRoute(
         path: ProfileScreen.routeName,
         name: ProfileScreen.routeName,
-        builder: (context, state) => ProfileScreen(),
+        builder: (context, state) => const ProfileScreen(),
       ),
       GoRoute(
         path: JbProScreen.routeName,
@@ -92,6 +93,11 @@ final List<RouteBase> appRoutes = [
         path: PopularRestaurantsScreen.routeName,
         name: PopularRestaurantsScreen.routeName,
         builder: (context, state) => const PopularRestaurantsScreen(),
+      ),
+      GoRoute(
+        path: OffersScreen.routeName,
+        name: OffersScreen.routeName,
+        builder: (context, state) => const OffersScreen(),
       ),
       GoRoute(
           path: FastFoodMainScreen.routeName,

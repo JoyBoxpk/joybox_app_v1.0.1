@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:joy_box_app/common_widgets/common_icon_button.dart';
 import 'package:joy_box_app/model/offer_item_model.dart';
 
 import '../../../res/color.dart';
@@ -18,8 +19,8 @@ class OfferItemWidget extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Container(
-          width: 340.w,
-          height: 160.h,
+          width: 350.w,
+          height: 168.h,
           decoration: BoxDecoration(
             color: offerItem.color,
             borderRadius: BorderRadius.circular(10.0),
@@ -46,7 +47,7 @@ class OfferItemWidget extends StatelessWidget {
                       color: AppColor.white,
                     ),
               ),
-              SizedBox(height: 2.h),
+              SizedBox(height: 15.h),
               Text(
                 offerItem.offerLabel,
                 style: Theme.of(context).textTheme.displayLarge!.copyWith(
@@ -55,39 +56,24 @@ class OfferItemWidget extends StatelessWidget {
                     ),
               ),
               SizedBox(height: 15.h),
-              SizedBox(
-                height: 42.h,
-                width: 145.w,
-                child: Directionality(
-                  textDirection: TextDirection.rtl,
-                  child: ElevatedButton.icon(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.arrow_back_ios,
-                      size: 20.sp,
-                      color: AppColor.red3,
-                    ),
-                    label: Text(
-                      "Grab Offer",
-                      style: TextStyle(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w600,
-                        color: AppColor.red3,
-                      ),
-                    ),
-                  ),
-                ),
+              CommonIconButton(
+                iconColor: AppColor.red3,
+                textColor: AppColor.red3,
+                buttonColor: AppColor.white,
+                padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 10.h),
+                onPressed: (){},
               ),
             ],
           ),
         ),
         Positioned(
-          right: -50,
-          top: -20,
+          right: -20.w,
+          top: -20.h,
           child: Image.asset(
             offerItem.imageUrl,
-            width: 230.w,
-            height: 230.h,
+            width: 225.w,
+            height: 225.h,
+            fit: BoxFit.cover,
           ),
         ),
       ],
