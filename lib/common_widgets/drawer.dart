@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/common_widgets/custom_image_view.dart';
 import 'package:joy_box_app/view/Jb_pro_screen/jb_pro_screen.dart';
 import 'package:joy_box_app/view/chat_screen/chat_screen.dart';
+import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/ordering_recording/ordering_reordering.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
 import 'package:joy_box_app/view/reviews_screen/reviews_screen.dart';
@@ -217,6 +218,9 @@ void _navigateToScreen(BuildContext context, String title) {
       break;
     case "Language":
       context.goNamed(ReviewsScreen.routeName);
+      break;
+    case "Offers & Voucher":
+      context.goNamed(OffersScreen.routeName);
       break;
     
     // Add more cases for other screens
