@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/view/aboutus_screen/about_us_screen.dart';
+import 'package:joy_box_app/view/all_restaurents_screen/all_restaurents_screen.dart';
 import 'package:joy_box_app/view/transaction_screen/transactions_screen.dart';
 
 import 'get_started_screen.dart';
@@ -22,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(milliseconds: 3000), () {
-      context.goNamed(GetStartedScreen.routeName);
+      context.goNamed(AllRestaurentScreen.routeName);
     });
   }
 

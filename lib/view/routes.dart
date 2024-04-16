@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:joy_box_app/view/all_restaurents_screen/all_restaurents_screen.dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
 import 'package:joy_box_app/view/reviews_screen/reviews_screen.dart';
@@ -43,6 +44,11 @@ final List<RouteBase> appRoutes = [
     path: LoginScreen.routeName,
     name: LoginScreen.routeName,
     builder: (context, state) => const LoginScreen(),
+  ),
+  GoRoute(
+    path: AllRestaurentScreen.routeName,
+    name: AllRestaurentScreen.routeName,
+    builder: (context, state) => const AllRestaurentScreen(),
   ),
   GoRoute(
     path: HomeScreen.routeName,

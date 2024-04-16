@@ -70,9 +70,7 @@ final ThemeData appTheme = ThemeData(
       fontFamily: 'Montserrat',
       fontWeight: FontWeight.w700,
     ),
-    
-
   ),
-  colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+  colorScheme: ColorScheme.fromSeed(seedColor: Colors.amberAccent),
   useMaterial3: true,
 );
