@@ -1,37 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:joy_box_app/common_widgets/common_appbar.dart';
+import 'package:joy_box_app/common_widgets/common_dropdown_button.dart';
 import 'package:joy_box_app/common_widgets/custom_image_view.dart';
 import 'package:joy_box_app/common_widgets/custom_rating_bar.dart';
 import 'package:joy_box_app/core/utils/image_constant.dart';
 import 'package:joy_box_app/res/color.dart';
-
-class Restaurant {
-  final String name;
-  final double rating;
-  final int reviewCount;
-  final bool isFree;
-  final String imageAsset;
-  final String imageUrl;
-
-  Restaurant({
-    required this.name,
-    required this.rating,
-    required this.reviewCount,
-    required this.isFree,
-    required this.imageAsset,
-    required this.imageUrl,
-  });
-}
+import 'package:joy_box_app/view/traditional_restaurant/model/traditional_restaurant_model.dart';
 
 class TraditionalRestaurant extends StatelessWidget {
   TraditionalRestaurant({super.key});
 
   static const String routeName = 'Traditional-Restaurant-Screen';
 
-  final List<Restaurant> restaurants = [
-    Restaurant(
+  final List<String> tablist = [
+    "Sort",
+    "Rating",
+    "Offers",
+  ];
+
+  Map<String, List<String>> dropdownItems = {
+    "Sort": ["By Name", "By Distance", "By Price"],
+    "Rating": ["5 Stars", "4 Stars", "3 Stars", "2 Stars", "1 Star"],
+    "Offers": ["Discounts", "Buy One Get One", "Happy Hours"],
+  };
+
+  final List<TraditionalRestaurantModel> restaurants = [
+    TraditionalRestaurantModel(
       name: 'LalQila',
       rating: 4.9,
       reviewCount: 3000,
@@ -39,7 +35,7 @@ class TraditionalRestaurant extends StatelessWidget {
       imageAsset: "assets/images/lal-qila-restaurant-in.jpg",
       imageUrl: "https://example.com/lalqila_image.jpg",
     ),
-    Restaurant(
+    TraditionalRestaurantModel(
       name: 'LalQila',
       rating: 4.9,
       reviewCount: 3000,
@@ -47,7 +43,7 @@ class TraditionalRestaurant extends StatelessWidget {
       imageAsset: "assets/images/lal-qila-restaurant-in.jpg",
       imageUrl: "https://example.com/lalqila_image.jpg",
     ),
-    Restaurant(
+    TraditionalRestaurantModel(
       name: 'LalQila',
       rating: 4.9,
       reviewCount: 3000,
@@ -84,15 +80,56 @@ class TraditionalRestaurant extends StatelessWidget {
           ),
         ],
       ),
-      body:   Container(
+      body: Container(
         margin: const EdgeInsets.all(20),
         child: Column(
           children: [
+            Container(
+              width: double.infinity,
+              height: 50.h,
+              margin: EdgeInsets.symmetric(horizontal: 15.w),
+              child: CustomScrollView(
+                slivers: <Widget>[
+                  SliverToBoxAdapter(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          Container(
+                            alignment: Alignment.center,
+                            width: 65.w,
+                            height: 48.h,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(6.0),
+                              border: Border.all(
+                                color: const Color(0xFFB3B3B3),
+                                width: 1,
+                              ),
+                            ),
+                            child: SvgPicture.asset(
+                                "assets/images/fast_food_screen_img1.svg"),
+                          ),
+                          SizedBox(width: 5.w),
+                          for (String hintText in tablist)
+                            Container(
+                                padding: EdgeInsets.symmetric(horizontal: 3.w),
+                                child: CommonDropdownButton(
+                                  hintText: hintText,
+                                  items: dropdownItems[hintText]!,
+                                )),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+           
             Expanded(
               child: ListView.builder(
                 itemCount: restaurants.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return _buildRestaurantCard(restaurants[index]);
+                  return _buildRestaurantCard(restaurants[index], context);
                 },
               ),
             ),
@@ -102,7 +139,8 @@ class TraditionalRestaurant extends StatelessWidget {
     );
   }
 
-  Widget _buildRestaurantCard(Restaurant restaurant) {
+  Widget _buildRestaurantCard(
+      TraditionalRestaurantModel restaurant, BuildContext context) {
     return Container(
       height: 240.h,
       width: 400.w,
@@ -116,7 +154,7 @@ class TraditionalRestaurant extends StatelessWidget {
         children: [
           Row(
             children: [
-              _buildRestaurantDetails(restaurant),
+              _buildRestaurantDetails(restaurant, context),
               SizedBox(width: 50.w),
               _buildRestaurantImage(restaurant),
             ],
@@ -130,7 +168,8 @@ class TraditionalRestaurant extends StatelessWidget {
     );
   }
 
-  Widget _buildRestaurantDetails(Restaurant restaurant) {
+  Widget _buildRestaurantDetails(
+      TraditionalRestaurantModel restaurant, BuildContext context) {
     return Container(
       child: Align(
         alignment: Alignment.centerLeft,
@@ -141,9 +180,16 @@ class TraditionalRestaurant extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
               decoration: const BoxDecoration(
                 color: AppColor.amber,
-                borderRadius: BorderRadius.horizontal(right: Radius.circular(8)),
+                borderRadius:
+                    BorderRadius.horizontal(right: Radius.circular(8)),
               ),
-              child: Text(restaurant.name),
+              child: Text(
+                restaurant.name,
+                style: Theme.of(context)
+                    .textTheme
+                    .bodySmall!
+                    .copyWith(fontSize: 12.sp),
+              ),
             ),
             SizedBox(height: 10.h),
             Row(
@@ -202,7 +248,7 @@ class TraditionalRestaurant extends StatelessWidget {
     );
   }
 
-  Widget _buildRestaurantImage(Restaurant restaurant) {
+  Widget _buildRestaurantImage(TraditionalRestaurantModel restaurant) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
