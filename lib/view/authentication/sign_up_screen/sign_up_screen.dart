@@ -169,6 +169,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ),
                           SizedBox(height: 30.h),
                           CommonElevatedButton(
+                            borderRadius: 12.0,
+                            width: 105.w,
+                            height: 50.h,
                             onPressed: _singUpFunction,
                             text: "Signup",
                           ),

@@ -3,15 +3,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../res/color.dart';
 
 class CommonElevatedButton extends StatelessWidget {
-  const CommonElevatedButton(
-      {super.key,
-      required this.onPressed,
-      this.height,
-      this.width,
-      required this.text,
-      this.textColor,
-      this.buttonColor,
-      this.fontSize});
+  const CommonElevatedButton({
+    super.key,
+    required this.onPressed,
+    this.height,
+    this.width,
+    required this.text,
+    this.textColor,
+    this.buttonColor,
+    this.fontSize,
+    this.borderRadius, // Nullable border radius property
+  });
 
   final VoidCallback onPressed;
   final double? height;
@@ -20,6 +22,7 @@ class CommonElevatedButton extends StatelessWidget {
   final Color? buttonColor;
   final Color? textColor;
   final double? fontSize;
+  final double? borderRadius; // Nullable border radius property
 
   @override
   Widget build(BuildContext context) {
@@ -30,15 +33,16 @@ class CommonElevatedButton extends StatelessWidget {
         width: width ?? 50.w,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(6.0),
+          borderRadius: BorderRadius.circular(borderRadius ?? 6.0),
           color: buttonColor ?? AppColor.red2,
         ),
         child: Text(
           text,
           style: Theme.of(context).textTheme.bodySmall!.copyWith(
-              fontSize: fontSize ?? 15.sp,
-              color: textColor ?? AppColor.white,
-              fontWeight: FontWeight.w500),
+            fontSize: fontSize ?? 15.sp,
+            color: textColor ?? AppColor.white,
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
     );

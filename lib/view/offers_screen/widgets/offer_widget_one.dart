@@ -15,8 +15,8 @@ class OfferWidgetOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 5.h),
-      height: 355.h,
+      padding: EdgeInsets.symmetric(vertical: 10.h),
+      height: 340.h,
       width: 230.w,
       decoration: BoxDecoration(
         color: AppColor.yellow,
@@ -66,8 +66,9 @@ class OfferWidgetOne extends StatelessWidget {
           CommonElevatedButton(
             onPressed: () {},
             text: "Add to Cart",
-            height: 60.h,
-            width: 140.w,
+            height: 50.h,
+            width: 120.w,
+            fontSize: 17.sp,
           ),
         ],
       ),
