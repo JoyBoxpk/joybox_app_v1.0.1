@@ -21,13 +21,15 @@ class JoyBoxChoiceWidgetOne extends StatelessWidget {
       child: Stack(
         clipBehavior: Clip.none,
         children: [
-          CircleAvatar(
-            backgroundColor: AppColor.white,
-            radius: 110.w,
-          ),
-          Positioned(
-            top: 30.h,
-            left: 40.w,
+          Container(
+            padding: EdgeInsets.only(top: 20.h),
+            // alignment: Alignment.center,
+            width: 200.w,
+            height: 200.h,
+            decoration: const BoxDecoration(
+              color: AppColor.white,
+              shape: BoxShape.circle,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
@@ -36,26 +38,28 @@ class JoyBoxChoiceWidgetOne extends StatelessWidget {
                   textAlign: TextAlign.center,
                   item.dealName,
                   style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w600,
-                      ),
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
                 Text(
                   "Burger+Fries+Drink",
                   style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
+                    fontSize: 14.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
                 Text(
                   "Rs.${item.price.toString()}",
                   style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.w600,
-                      ),
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
+                SizedBox(height: 5.h),
                 CommonElevatedButton(
-                  width: 22.w,
+                  height: 38.h,
+                  width: 105.w,
                   onPressed: () {},
                   text: "Add to Cart",
                 ),
@@ -64,7 +68,7 @@ class JoyBoxChoiceWidgetOne extends StatelessWidget {
           ),
           Positioned(
             right: -18.w,
-            bottom: -52.h,
+            bottom: -40.h,
             child: Image.asset(
               item.imagePath,
               width: 270.w,

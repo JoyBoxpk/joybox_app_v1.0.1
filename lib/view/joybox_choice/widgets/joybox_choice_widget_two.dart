@@ -15,7 +15,7 @@ class JoyBoxChoiceWidgetTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      elevation: 3.0,
+      elevation: 4.0,
       borderRadius: BorderRadius.circular(6.0),
       child: Container(
         width: 300.w,
@@ -35,44 +35,45 @@ class JoyBoxChoiceWidgetTwo extends StatelessWidget {
             Container(
               alignment: Alignment.center,
               width: 200.w,
-              height: 150.h,
+              height: 180.h,
               child: Stack(
                 clipBehavior: Clip.none,
                 children: [
                   CircleAvatar(
                     backgroundColor: AppColor.white,
-                    radius: 75.w,
+                    radius: 80.w,
                   ),
                   Positioned(
                     top: 10.h,
-                    left: 20.w,
-                    child: Text(
-                      textAlign: TextAlign.center,
-                      "Life is better with",
-                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    right: -2.w,
-                    top: 19.h,
-                    child: Text(
-                      item.itemName,
-                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        fontSize: 38.sp,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: -140.h,
+                    left: 1.w,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-
+                        Text(
+                          textAlign: TextAlign.center,
+                          "Life is better with",
+                          style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                            fontSize: 15.sp,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        Text(
+                          item.itemName,
+                          style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                            fontSize: 38.sp,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Positioned(
+                    bottom: -115.h,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
                         Image.asset(
                           item.imageTwoPath,
                           width: 160.w,
@@ -87,7 +88,8 @@ class JoyBoxChoiceWidgetTwo extends StatelessWidget {
                           ),
                         ),
                         CommonElevatedButton(
-                          width: 18.w,
+                          width: 98.w,
+                          height: 45.h,
                           onPressed: () {},
                           text: "Add to Cart",
                         ),
