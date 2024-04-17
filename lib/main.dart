@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/res/app_theme.dart';
 import 'package:joy_box_app/view/routes.dart';
 
-
 void main() {
   runApp(const MyApp());
 }

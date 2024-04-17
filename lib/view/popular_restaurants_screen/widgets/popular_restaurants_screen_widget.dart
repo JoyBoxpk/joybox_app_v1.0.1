@@ -42,7 +42,7 @@ class PopularRestaurantsScreenWidget extends StatelessWidget {
                       padding: EdgeInsets.only(left: 8.w),
                       width: 200.w,
                       height: 40.h,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.amber,
                         borderRadius: BorderRadius.only(
                           topRight: Radius.circular(6.0),
@@ -64,7 +64,7 @@ class PopularRestaurantsScreenWidget extends StatelessWidget {
                       padding: EdgeInsets.only(left: 8.w),
                       width: 220.w,
                       height: 34.h,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         color: Colors.amber,
                         borderRadius: BorderRadius.only(
                           topRight: Radius.circular(6.0),
@@ -161,7 +161,7 @@ class PopularRestaurantsScreenWidget extends StatelessWidget {
                     allowHalfRating: true,
                     itemCount: 5,
                     itemPadding: EdgeInsets.symmetric(horizontal: 1.w),
-                    itemBuilder: (context, _) => Icon(
+                    itemBuilder: (context, _) => const Icon(
                       Icons.star,
                       color: Colors.amber,
                     ),
