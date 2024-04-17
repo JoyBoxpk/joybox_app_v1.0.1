@@ -5,7 +5,7 @@ import '../../../common_widgets/common_elevated_button.dart';
 import '../../../res/color.dart';
 
 class JbProItem extends StatelessWidget {
-    const JbProItem({
+  const JbProItem({
     super.key,
     required this.title,
     required this.subTitle,
@@ -73,7 +73,6 @@ class JbProItem extends StatelessWidget {
             text: "Subscribe Now",
             width: 150.w,
             height: 40.h,
-            buttonTextStyle: TextStyle(fontSize: 14.sp),
           ),
         ],
       ),

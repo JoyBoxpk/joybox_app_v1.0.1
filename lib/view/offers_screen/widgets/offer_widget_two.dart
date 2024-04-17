@@ -75,8 +75,6 @@ class OfferWidgetTwo extends StatelessWidget {
                         text: "Add to Cart",
                         height: 50.h,
                         width: 130.w,
-                        buttonTextStyle: TextStyle(
-                            fontSize: 14.sp, fontWeight: FontWeight.w600),
                       ),
                     ],
                   ),

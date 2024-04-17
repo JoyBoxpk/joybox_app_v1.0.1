@@ -35,11 +35,11 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       shape: isCircular
           ? const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20),
-          bottomRight: Radius.circular(20),
-        ),
-      )
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+              ),
+            )
           : null, // Apply circular border radius conditionally
       title: Padding(
         padding: EdgeInsets.only(left: 12.w, bottom: 4.h),
@@ -76,10 +76,10 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
             Text(
               text ?? "",
               style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                fontSize: 18.sp,
-                fontWeight: FontWeight.w600,
-                color: titleColor ?? AppColor.black,
-              ),
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.w600,
+                    color: titleColor ?? AppColor.black,
+                  ),
             )
           ],
         ),
@@ -89,6 +89,5 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize =>
-      Size.fromHeight(toolbarHeight.h);
+  Size get preferredSize => Size.fromHeight(toolbarHeight.h);
 }

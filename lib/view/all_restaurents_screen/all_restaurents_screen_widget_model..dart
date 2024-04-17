@@ -69,6 +69,7 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
             },
           ),
         ],
+        isCircular: true,
       ),
       body: SingleChildScrollView(
         child: Column(
