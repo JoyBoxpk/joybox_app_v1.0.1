@@ -128,6 +128,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       SizedBox(height: 20.h),
                       CommonElevatedButton(
+                        borderRadius: 12.0,
+                        width: 105.w,
+                        height: 50.h,
                         onPressed: _loginFunction,
                         text: "Login",
                       ),

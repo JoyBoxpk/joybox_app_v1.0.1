@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:joy_box_app/common_widgets/common_appbar.dart';
 import 'package:joy_box_app/common_widgets/common_elevated_button.dart';
+import 'package:joy_box_app/common_widgets/custom_smooth_indicator.dart';
 import 'package:joy_box_app/model/joybox_choice_widget_one_model.dart';
 import 'package:joy_box_app/model/joybox_choice_widget_two_model.dart';
 import 'package:joy_box_app/res/color.dart';
@@ -43,8 +44,11 @@ class _JoyBoxChoiceScreenState extends State<JoyBoxChoiceScreen> {
               SizedBox(height: 80.h),
               _buildSecondCarousel(),
               SizedBox(height: 35.h),
-              _buildIndicator(_activeIndex2,
-                  JoyBoxChoiceWidgetTwoModel.joyBoxChoiceItemsList.length),
+              CustomSmoothIndicator(
+                activeIndex: _activeIndex2,
+                itemCount:
+                    JoyBoxChoiceWidgetTwoModel.joyBoxChoiceItemsList.length,
+              ),
             ],
           ),
         ),
@@ -83,9 +87,10 @@ class _JoyBoxChoiceScreenState extends State<JoyBoxChoiceScreen> {
             carouselController: _carouselController1,
           ),
           SizedBox(height: 70.h),
-          _buildIndicator(
-            _activeIndex1,
-            JoyBoxChoiceWidgetOneModel.joyBoxChoiceItemsList.length,
+          CustomSmoothIndicator(
+            activeIndex: _activeIndex1,
+            itemCount: JoyBoxChoiceWidgetOneModel.joyBoxChoiceItemsList.length,
+            inactiveColor: AppColor.white,
           ),
         ],
       ),
@@ -101,7 +106,8 @@ class _JoyBoxChoiceScreenState extends State<JoyBoxChoiceScreen> {
         children: [
           Align(
               alignment: Alignment.topCenter,
-              child: Image.asset("assets/images/joybox_choice_screen_img6.png")),
+              child:
+                  Image.asset("assets/images/joybox_choice_screen_img6.png")),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 30.w),
             width: double.infinity,
@@ -161,7 +167,6 @@ class _JoyBoxChoiceScreenState extends State<JoyBoxChoiceScreen> {
       ),
     );
   }
-
 
   Widget _buildSecondCarousel() {
     return SizedBox(
