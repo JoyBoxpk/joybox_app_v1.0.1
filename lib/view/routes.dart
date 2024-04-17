@@ -2,8 +2,10 @@ import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/view/all_restaurents_screen/all_restaurents_screen_widget_model..dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
+import 'package:joy_box_app/view/resturent_near_you_screen/near_you_restaurent.dart';
 import 'package:joy_box_app/view/reviews_screen/reviews_screen.dart';
 import 'package:joy_box_app/view/splash_screen.dart';
+import 'package:joy_box_app/view/user_fav_restaurent/user_fav_restaurent_screen.dart';
 import 'Fast food/fast_food/fast_food_main/fast_food_main.dart';
 import 'Fast food/inner_fast_food_res_screen/inner_fastfood_res.dart';
 import 'Jb_pro_screen/jb_pro_screen.dart';
@@ -61,10 +63,26 @@ final List<RouteBase> appRoutes = [
         builder: (context, state) => const JoyBoxChoiceScreen(),
       ),
       GoRoute(
-        path: AllRestaurentScreen.routeName,
-        name: AllRestaurentScreen.routeName,
-        builder: (context, state) => const AllRestaurentScreen(),
-      ),
+          path: AllRestaurentScreen.routeName,
+          name: AllRestaurentScreen.routeName,
+          builder: (context, state) => const AllRestaurentScreen(),
+          routes: [
+            GoRoute(
+              path: NearYouRestaurent.routeName,
+              name: NearYouRestaurent.routeName,
+              builder: (context, state) => const NearYouRestaurent(),
+            ),
+            GoRoute(
+              path: PopularRestaurantsScreen.routeName,
+              name: PopularRestaurantsScreen.routeName,
+              builder: (context, state) => const PopularRestaurantsScreen(),
+            ),
+            GoRoute(
+              path: UserFavRestaurentScreen.routeName,
+              name: UserFavRestaurentScreen.routeName,
+              builder: (context, state) => const UserFavRestaurentScreen(),
+            ),
+          ]),
       GoRoute(
         path: ReviewsScreen.routeName,
         name: ReviewsScreen.routeName,
@@ -100,11 +118,11 @@ final List<RouteBase> appRoutes = [
         name: TransactionsScreen.routeName,
         builder: (context, state) => const TransactionsScreen(),
       ),
-      GoRoute(
-        path: PopularRestaurantsScreen.routeName,
-        name: PopularRestaurantsScreen.routeName,
-        builder: (context, state) => const PopularRestaurantsScreen(),
-      ),
+      // GoRoute(
+      //   path: PopularRestaurantsScreen.routeName,
+      //   name: PopularRestaurantsScreen.routeName,
+      //   builder: (context, state) => const PopularRestaurantsScreen(),
+      // ),
       GoRoute(
         path: OffersScreen.routeName,
         name: OffersScreen.routeName,
