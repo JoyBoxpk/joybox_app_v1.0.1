@@ -124,7 +124,6 @@ class TraditionalRestaurant extends StatelessWidget {
                 ],
               ),
             ),
-           
             Expanded(
               child: ListView.builder(
                 itemCount: restaurants.length,
