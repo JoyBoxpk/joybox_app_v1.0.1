@@ -12,7 +12,7 @@ class CommonElevatedButton extends StatelessWidget {
     this.textColor,
     this.buttonColor,
     this.fontSize,
-    this.borderRadius, // Nullable border radius property
+    this.borderRadius,
   });
 
   final VoidCallback onPressed;
@@ -39,10 +39,10 @@ class CommonElevatedButton extends StatelessWidget {
         child: Text(
           text,
           style: Theme.of(context).textTheme.bodySmall!.copyWith(
-            fontSize: fontSize ?? 15.sp,
-            color: textColor ?? AppColor.white,
-            fontWeight: FontWeight.w500,
-          ),
+                fontSize: fontSize ?? 15.sp,
+                color: textColor ?? AppColor.white,
+                fontWeight: FontWeight.w500,
+              ),
         ),
       ),
     );
