@@ -82,7 +82,7 @@ class UserFavRestuarentListWidget extends StatelessWidget {
                     width: 20.w,
                     height: 30.h,
                     buttonColor: AppColor.red2.withOpacity(0.7),
-                    fontsize: 10.sp,
+                    fontSize: 10.sp,
                     onPressed: () {},
                     text: "Order now"),
               ),
