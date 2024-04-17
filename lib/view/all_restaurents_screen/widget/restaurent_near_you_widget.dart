@@ -6,8 +6,8 @@ import 'package:joy_box_app/view/resturent_near_you_screen/model/near_you_model.
 
 import '../../../res/color.dart';
 
-class NearUserHotelListWidget extends StatelessWidget {
-  const NearUserHotelListWidget({
+class RestauentNearUserHotelListWidget extends StatelessWidget {
+  const RestauentNearUserHotelListWidget({
     super.key,
     required this.item,
   });
@@ -18,8 +18,8 @@ class NearUserHotelListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 25.h),
-      height: 370.h,
-      width: 370.w,
+      height: 360.h,
+      width: 200.w,
       child: Column(
         children: [
           Stack(
@@ -41,8 +41,8 @@ class NearUserHotelListWidget extends StatelessWidget {
                   children: [
                     Container(
                       alignment: Alignment.centerLeft,
-                      padding: EdgeInsets.only(left: 8.w),
-                      width: 200.w,
+                      padding: EdgeInsets.symmetric(horizontal: 8.0.w),
+                      width: 100.w,
                       height: 42.h,
                       decoration: const BoxDecoration(
                         color: AppColor.amber,
@@ -56,54 +56,31 @@ class NearUserHotelListWidget extends StatelessWidget {
                               .textTheme
                               .displaySmall!
                               .copyWith(
-                                fontSize: 18.sp,
+                                fontSize: 10.sp,
                                 fontWeight: FontWeight.w600,
                               )),
                     ),
                   ],
                 ),
               ),
-              Positioned(
-                bottom: 0,
-                child: Container(
-                  alignment: Alignment.centerLeft,
-                  padding: EdgeInsets.only(left: 8.w),
-                  width: 100.w,
-                  height: 34.h,
-                  decoration: const BoxDecoration(
-                    color: AppColor.amber,
-                    borderRadius: BorderRadius.only(
-                      topRight: Radius.circular(6.0),
-                      bottomRight: Radius.circular(6.0),
-                    ),
-                  ),
-                  child: Text(item.restaurantlocation,
-                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w400,
-                          )),
-                ),
-              ),
               Align(
                 alignment: Alignment.topRight,
                 child: IconButton(
                   onPressed: () {},
-                  icon: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.favorite_outline_outlined,
-                      size: 30.sp,
-                      color: Colors.white,
-                    ),
+                  icon: Icon(
+                    Icons.favorite_outline_outlined,
+                    size: 18.sp,
+                    color: Colors.white,
                   ),
                 ),
               ),
               Positioned(
-                top: 114.h,
-                left: 90.w,
-                right: 100.w,
+                top: 60.h,
+                left: 55.w,
+                right: 55.w,
                 child: SizedBox(
-                  height: 55.h,
+                  height: 40.h,
+                  width: 50.w,
                   child: ElevatedButton(
                     style: ButtonStyle(
                       shape: MaterialStatePropertyAll(RoundedRectangleBorder(
@@ -118,7 +95,7 @@ class NearUserHotelListWidget extends StatelessWidget {
                         style: Theme.of(context)
                             .textTheme
                             .displaySmall!
-                            .copyWith(fontSize: 16.sp, color: Colors.white),
+                            .copyWith(fontSize: 10.sp, color: Colors.white),
                       ),
                     ),
                   ),
@@ -159,7 +136,7 @@ class NearUserHotelListWidget extends StatelessWidget {
                 children: [
                   Text(item.restaurantName,
                       style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                            fontSize: 18.sp,
+                            fontSize: 12.sp,
                             fontWeight: FontWeight.w600,
                           )),
                   SizedBox(height: 2.h),
@@ -167,7 +144,7 @@ class NearUserHotelListWidget extends StatelessWidget {
               ),
               Text("Opening 11pm -12am",
                   style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        fontSize: 15.sp,
+                        fontSize: 9.sp,
                         fontWeight: FontWeight.w500,
                       )),
             ],
@@ -184,7 +161,7 @@ class NearUserHotelListWidget extends StatelessWidget {
                   Icon(
                     Icons.star,
                     color: AppColor.red1,
-                    size: 18.sp,
+                    size: 12.sp,
                   ),
                   RichText(
                     text: TextSpan(
@@ -195,7 +172,7 @@ class NearUserHotelListWidget extends StatelessWidget {
                               .textTheme
                               .displaySmall!
                               .copyWith(
-                                fontSize: 13.sp,
+                                fontSize: 11.sp,
                                 fontWeight: FontWeight.w600,
                                 color: AppColor.black,
                               ),
@@ -206,7 +183,7 @@ class NearUserHotelListWidget extends StatelessWidget {
                               .textTheme
                               .displaySmall!
                               .copyWith(
-                                fontSize: 13.sp,
+                                fontSize: 10.sp,
                                 fontWeight: FontWeight.normal,
                                 color: AppColor.black,
                               ),

@@ -10,7 +10,7 @@ import 'package:joy_box_app/view/resturent_near_you_screen/widgets/near_you_widg
 class NearYouRestaurent extends StatefulWidget {
   const NearYouRestaurent({super.key});
 
-  static const String routeName = "/Near-You-Restaurent";
+  static const String routeName = "Near-You-Restaurent";
 
   @override
   State<NearYouRestaurent> createState() => _NearYouRestaurentState();
