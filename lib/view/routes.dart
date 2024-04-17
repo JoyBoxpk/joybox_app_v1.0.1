@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:joy_box_app/view/all_restaurents_screen/all_restaurents_screen_widget_model..dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
 import 'package:joy_box_app/view/reviews_screen/reviews_screen.dart';
@@ -15,13 +16,13 @@ import 'checkout_presentation/checkout_screen.dart';
 import 'fast_food_restaurant_screen/fast_food_restaurant_screen.dart';
 import 'get_started_screen.dart';
 import 'home_screen/home_screen.dart';
+import 'joybox_choice/joybox_choice_screen.dart';
 import 'ordering_recording/ordering_reordering.dart';
 import 'popular_restaurants_screen/popular_restaurants_screen.dart';
 import 'settings_screen/settings_screen.dart';
 import 'support/support_screen.dart';
 import 'traditional_restaurant/traditional_restaurant_screen.dart';
 import 'transaction_screen/transactions_screen.dart';
-
 
 final List<RouteBase> appRoutes = [
   GoRoute(
@@ -52,7 +53,17 @@ final List<RouteBase> appRoutes = [
       GoRoute(
         path: TraditionalRestaurant.routeName,
         name: TraditionalRestaurant.routeName,
-        builder: (context, state) =>  TraditionalRestaurant(),
+        builder: (context, state) => TraditionalRestaurant(),
+      ),
+      GoRoute(
+        path: JoyBoxChoiceScreen.routeName,
+        name: JoyBoxChoiceScreen.routeName,
+        builder: (context, state) => const JoyBoxChoiceScreen(),
+      ),
+      GoRoute(
+        path: AllRestaurentScreen.routeName,
+        name: AllRestaurentScreen.routeName,
+        builder: (context, state) => const AllRestaurentScreen(),
       ),
       GoRoute(
         path: ReviewsScreen.routeName,
@@ -113,7 +124,7 @@ final List<RouteBase> appRoutes = [
                       path: InnerFastFoodResScreen.routeName,
                       name: InnerFastFoodResScreen.routeName,
                       builder: (context, state) =>
-                      const InnerFastFoodResScreen(),
+                          const InnerFastFoodResScreen(),
                       routes: [
                         GoRoute(
                             path: CartScreen.routeName,
