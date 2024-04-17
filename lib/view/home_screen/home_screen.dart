@@ -25,6 +25,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../../common_widgets/drawer.dart';
 import '../../model/traditional_restaurants_item_model.dart';
 import '../Fast food/fast_food/fast_food_main/fast_food_main.dart';
+import '../joybox_choice/joybox_choice_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -454,12 +455,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       .titleLarge!
                       .copyWith(color: Colors.black, fontSize: 20.sp),
                 ),
-                Text(
-                  "View all",
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelLarge!
-                      .copyWith(color: Colors.black, fontSize: 12.sp),
+                GestureDetector(
+                  onTap: () => context.goNamed(JoyBoxChoiceScreen.routeName),
+                  child: Text(
+                    "View all",
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelLarge!
+                        .copyWith(color: Colors.black, fontSize: 12.sp),
+                  ),
                 ),
               ],
             ),

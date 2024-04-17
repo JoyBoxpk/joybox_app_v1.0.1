@@ -1,10 +1,8 @@
 import 'package:go_router/go_router.dart';
-import 'package:joy_box_app/view/all_restaurents_screen/all_restaurents_screen_widget_model..dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
 import 'package:joy_box_app/view/reviews_screen/reviews_screen.dart';
 import 'package:joy_box_app/view/splash_screen.dart';
-import 'package:joy_box_app/view/user_fav_restaurent/user_fav_restaurent_screen.dart';
 import 'Fast food/fast_food/fast_food_main/fast_food_main.dart';
 import 'Fast food/inner_fast_food_res_screen/inner_fastfood_res.dart';
 import 'Jb_pro_screen/jb_pro_screen.dart';
@@ -23,6 +21,7 @@ import 'settings_screen/settings_screen.dart';
 import 'support/support_screen.dart';
 import 'traditional_restaurant/traditional_restaurant_screen.dart';
 import 'transaction_screen/transactions_screen.dart';
+
 
 final List<RouteBase> appRoutes = [
   GoRoute(
@@ -46,11 +45,6 @@ final List<RouteBase> appRoutes = [
     builder: (context, state) => const LoginScreen(),
   ),
   GoRoute(
-    path: AllRestaurentScreen.routeName,
-    name: AllRestaurentScreen.routeName,
-    builder: (context, state) => const AllRestaurentScreen(),
-  ),
-  GoRoute(
     path: HomeScreen.routeName,
     name: HomeScreen.routeName,
     builder: (context, state) => const HomeScreen(),
@@ -58,17 +52,7 @@ final List<RouteBase> appRoutes = [
       GoRoute(
         path: TraditionalRestaurant.routeName,
         name: TraditionalRestaurant.routeName,
-        builder: (context, state) => TraditionalRestaurant(),
-      ),
-      GoRoute(
-        path: UserFavRestaurentScreen.routeName,
-        name: UserFavRestaurentScreen.routeName,
-        builder: (context, state) => const UserFavRestaurentScreen(),
-      ),
-      GoRoute(
-        path: AllRestaurentScreen.routeName,
-        name: AllRestaurentScreen.routeName,
-        builder: (context, state) => const AllRestaurentScreen(),
+        builder: (context, state) =>  TraditionalRestaurant(),
       ),
       GoRoute(
         path: ReviewsScreen.routeName,
@@ -129,7 +113,7 @@ final List<RouteBase> appRoutes = [
                       path: InnerFastFoodResScreen.routeName,
                       name: InnerFastFoodResScreen.routeName,
                       builder: (context, state) =>
-                          const InnerFastFoodResScreen(),
+                      const InnerFastFoodResScreen(),
                       routes: [
                         GoRoute(
                             path: CartScreen.routeName,
