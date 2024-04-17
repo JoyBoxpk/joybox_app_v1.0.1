@@ -9,6 +9,7 @@ import 'package:joy_box_app/model/custom_item_model.dart';
 import 'package:joy_box_app/model/offer_item_model.dart';
 import 'package:joy_box_app/model/your_favourite_meal_item_model.dart';
 import 'package:joy_box_app/res/color.dart';
+import 'package:joy_box_app/view/all_restaurents_screen/all_restaurents_screen_widget_model..dart';
 import 'package:joy_box_app/view/home_screen/widgets/custom_icon_button.dart';
 import 'package:joy_box_app/view/home_screen/widgets/custom_item.dart';
 import 'package:joy_box_app/view/home_screen/widgets/menu_tab_widget.dart';
@@ -203,22 +204,34 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _popularRestaurantRow(BuildContext context) {
-     int currentIndex = 0;
-  // Sample data for the list of popular restaurants
-  List<String> popularRestaurants = ["Lachine", "Movenpick", "PC Hotel","Lachine", "Movenpick", "PC Hotel"];
+    int currentIndex = 0;
+    // Sample data for the list of popular restaurants
+    List<String> popularRestaurants = [
+      "Lachine",
+      "Movenpick",
+      "PC Hotel",
+      "Lachine",
+      "Movenpick",
+      "PC Hotel"
+    ];
 
-  return Container(
+    return Container(
       width: double.infinity,
       margin: EdgeInsets.symmetric(horizontal: 20.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            "All Restaurants",
-            style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                  fontSize: 22.sp,
-                  fontWeight: FontWeight.w600,
-                ),
+          InkWell(
+            onTap: () {
+              context.goNamed(AllRestaurentScreen.routeName);
+            },
+            child: Text(
+              "All Restaurants",
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                    fontSize: 22.sp,
+                    fontWeight: FontWeight.w600,
+                  ),
+            ),
           ),
           SizedBox(height: 20.h),
           Row(
@@ -232,7 +245,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
               ),
               GestureDetector(
-                onTap: ()=> context.goNamed(PopularRestaurantsScreen.routeName),
+                onTap: () =>
+                    context.goNamed(PopularRestaurantsScreen.routeName),
                 child: Text(
                   "See all",
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
@@ -270,142 +284,145 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: EdgeInsets.symmetric(horizontal: 140.w),
             child: LinearProgressIndicator(
               backgroundColor: Colors.grey, // Customize the background color
-              valueColor: const AlwaysStoppedAnimation<Color>(Colors.red), // Customize the progress color
-              value: (currentIndex + 2) / popularRestaurants.length, // Calculate the value based on currentIndex
+              valueColor: const AlwaysStoppedAnimation<Color>(
+                  Colors.red), // Customize the progress color
+              value: (currentIndex + 2) /
+                  popularRestaurants
+                      .length, // Calculate the value based on currentIndex
             ),
           ),
         ],
       ),
     );
-}
+  }
 
   Widget _buildCentreBlock(BuildContext context) {
-  return Stack(
-    clipBehavior: Clip.none,
-    children: [
-      Container(
-        height: 150.h,
-        width: double.infinity,
-        color: AppColor.grey,
-      ),
-      Container(
-        margin: EdgeInsets.symmetric(horizontal: 20.w),
-        width: double.infinity,
-        height: 230.h,
-        child: Column(
-          children: [
-            Row(
-              children: [
-                Expanded(
-                  child: SizedBox(
-                    height: 50.h,
-                    child: Material(
-                      borderRadius: BorderRadius.circular(12.0),
-                      elevation: 5.0,
-                      child: TextFormField(
-                        style: Theme.of(context)
-                            .textTheme
-                            .displaySmall!
-                            .copyWith(fontSize: 15.sp),
-                        decoration: InputDecoration(
-                          hintStyle: Theme.of(context)
+    return Stack(
+      clipBehavior: Clip.none,
+      children: [
+        Container(
+          height: 150.h,
+          width: double.infinity,
+          color: AppColor.grey,
+        ),
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 20.w),
+          width: double.infinity,
+          height: 230.h,
+          child: Column(
+            children: [
+              Row(
+                children: [
+                  Expanded(
+                    child: SizedBox(
+                      height: 50.h,
+                      child: Material(
+                        borderRadius: BorderRadius.circular(12.0),
+                        elevation: 5.0,
+                        child: TextFormField(
+                          style: Theme.of(context)
                               .textTheme
                               .displaySmall!
-                              .copyWith(fontSize: 12.sp),
-                          hintText: "Find what you need . . .",
-                          prefixIcon: const Icon(Icons.search),
-                          suffixIcon: const Icon(Icons.history_toggle_off),
-                          border: OutlineInputBorder(
-                            borderSide: BorderSide.none,
-                            borderRadius: BorderRadius.circular(12.0),
+                              .copyWith(fontSize: 15.sp),
+                          decoration: InputDecoration(
+                            hintStyle: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(fontSize: 12.sp),
+                            hintText: "Find what you need . . .",
+                            prefixIcon: const Icon(Icons.search),
+                            suffixIcon: const Icon(Icons.history_toggle_off),
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide.none,
+                              borderRadius: BorderRadius.circular(12.0),
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-                SizedBox(width: 5.h),
-                CustomIconButton(
-                  onPressed: () {},
-                  imagePath: "assets/images/img3_home_screen.png",
-                ),
-                CustomIconButton(
-                  onPressed: () {},
-                  imagePath: "assets/images/img4_home_screen.png",
-                ),
-                CustomIconButton(
-                  onPressed: () {},
-                  imagePath: "assets/images/img5_home_screen.png",
-                ),
-              ],
-            ),
-            SizedBox(height: 50.h),
-            Expanded(
-              child: SizedBox(
-                height: 250.h,
-                child: Stack(
-                  children: [
-                    NotificationListener<ScrollNotification>(
-                      onNotification: (scrollNotification) {
-                        if (scrollNotification is ScrollUpdateNotification) {
-                          // Calculate progress based on the scroll offset
-                          double progress = (scrollNotification.metrics.pixels /
-                                  (scrollNotification.metrics.maxScrollExtent)) *
-                              2;
-                          // Clamp the progress between 0 and 1
-                          progress = progress.clamp(0.0, 1.0);
-                          // Update the state to reflect the progress
-                          setState(() {
-                            activeIndex1 = (progress *
-                                    CustomItemModel.customItemModelList.length)
-                                .round();
-                          });
-                        }
-                        return false;
-                      },
-                      child: ListView.separated(
-                        clipBehavior: Clip.none,
-                        scrollDirection: Axis.horizontal,
-                        itemCount:
-                            CustomItemModel.customItemModelList.length,
-                        separatorBuilder: (context, index) {
-                          return SizedBox(width: 20.h);
+                  SizedBox(width: 5.h),
+                  CustomIconButton(
+                    onPressed: () {},
+                    imagePath: "assets/images/img3_home_screen.png",
+                  ),
+                  CustomIconButton(
+                    onPressed: () {},
+                    imagePath: "assets/images/img4_home_screen.png",
+                  ),
+                  CustomIconButton(
+                    onPressed: () {},
+                    imagePath: "assets/images/img5_home_screen.png",
+                  ),
+                ],
+              ),
+              SizedBox(height: 50.h),
+              Expanded(
+                child: SizedBox(
+                  height: 250.h,
+                  child: Stack(
+                    children: [
+                      NotificationListener<ScrollNotification>(
+                        onNotification: (scrollNotification) {
+                          if (scrollNotification is ScrollUpdateNotification) {
+                            // Calculate progress based on the scroll offset
+                            double progress =
+                                (scrollNotification.metrics.pixels /
+                                        (scrollNotification
+                                            .metrics.maxScrollExtent)) *
+                                    2;
+                            // Clamp the progress between 0 and 1
+                            progress = progress.clamp(0.0, 1.0);
+                            // Update the state to reflect the progress
+                            setState(() {
+                              activeIndex1 = (progress *
+                                      CustomItemModel
+                                          .customItemModelList.length)
+                                  .round();
+                            });
+                          }
+                          return false;
                         },
-                        itemBuilder: (context, index) {
-                          final item =
-                              CustomItemModel.customItemModelList[index];
-                          return CustomItem(
-                            itemModel: item,
-                            index: index,
-                          );
-                        },
-                      ),
-                    ),
-                    Container(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 140.w),
-                      child: Align(
-                        alignment: Alignment.bottomRight,
-                        child: LinearProgressIndicator(
-                          value: activeIndex1 /
-                              CustomItemModel.customItemModelList
-                                  .length,
-                          backgroundColor: Colors.black12,
-                          valueColor: const AlwaysStoppedAnimation<Color>(
-                              Colors.red),
+                        child: ListView.separated(
+                          clipBehavior: Clip.none,
+                          scrollDirection: Axis.horizontal,
+                          itemCount: CustomItemModel.customItemModelList.length,
+                          separatorBuilder: (context, index) {
+                            return SizedBox(width: 20.h);
+                          },
+                          itemBuilder: (context, index) {
+                            final item =
+                                CustomItemModel.customItemModelList[index];
+                            return CustomItem(
+                              itemModel: item,
+                              index: index,
+                            );
+                          },
                         ),
                       ),
-                    ),
-                  ],
+                      Container(
+                        padding: EdgeInsets.symmetric(horizontal: 140.w),
+                        child: Align(
+                          alignment: Alignment.bottomRight,
+                          child: LinearProgressIndicator(
+                            value: activeIndex1 /
+                                CustomItemModel.customItemModelList.length,
+                            backgroundColor: Colors.black12,
+                            valueColor:
+                                const AlwaysStoppedAnimation<Color>(Colors.red),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
-      ),
-    ],
-  );
-}
+      ],
+    );
+  }
 
   Widget _buildJoyBoxChoice(BuildContext context) {
     return Container(
@@ -459,7 +476,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          
         ],
       ),
     );
@@ -514,7 +530,6 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
           ),
-         
         ],
       ),
     );

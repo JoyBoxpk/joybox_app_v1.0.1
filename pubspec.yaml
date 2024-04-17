@@ -46,6 +46,7 @@ dependencies:
   flutter_advanced_switch: ^3.1.0
   flutter_rating_bar: ^4.0.1
   carousel_slider: ^4.2.1
+  overlapped_carousel: ^1.0.2
 
 dev_dependencies:
   flutter_test:
