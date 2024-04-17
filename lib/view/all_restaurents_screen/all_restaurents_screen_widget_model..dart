@@ -22,7 +22,7 @@ import 'package:joy_box_app/view/user_fav_restaurent/user_fav_restaurent_screen.
 class AllRestaurentScreen extends StatefulWidget {
   const AllRestaurentScreen({super.key});
 
-  static const String routeName = '/All-Restaurent-Screen';
+  static const String routeName = 'all-restaurent-screen';
 
   @override
   State<AllRestaurentScreen> createState() => _AllRestaurentScreenState();
