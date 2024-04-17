@@ -16,6 +16,7 @@ import 'package:joy_box_app/view/home_screen/widgets/offer_item_widget.dart';
 import 'package:joy_box_app/view/home_screen/widgets/popular_res_item.dart';
 import 'package:joy_box_app/view/home_screen/widgets/taditional_item_widget.dart';
 import 'package:joy_box_app/view/home_screen/widgets/your_favourite_meal_item.dart';
+import 'package:joy_box_app/view/joybox_choice/joybox_choice_screen.dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/popular_restaurants_screen/popular_restaurants_screen.dart';
 import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_screen.dart';
@@ -437,12 +438,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       .titleLarge!
                       .copyWith(color: Colors.black, fontSize: 20.sp),
                 ),
-                Text(
-                  "View all",
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelLarge!
-                      .copyWith(color: Colors.black, fontSize: 12.sp),
+                GestureDetector(
+                  onTap: () => context.goNamed(JoyBoxChoiceScreen.routeName),
+                  child: Text(
+                    "View all",
+                    style: Theme.of(context)
+                        .textTheme
+                        .labelLarge!
+                        .copyWith(color: Colors.black, fontSize: 12.sp),
+                  ),
                 ),
               ],
             ),

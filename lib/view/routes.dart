@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:joy_box_app/view/joybox_choice/joybox_choice_screen.dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
 import 'package:joy_box_app/view/reviews_screen/reviews_screen.dart';
@@ -98,6 +99,11 @@ final List<RouteBase> appRoutes = [
         path: OffersScreen.routeName,
         name: OffersScreen.routeName,
         builder: (context, state) => const OffersScreen(),
+      ),
+      GoRoute(
+        path: JoyBoxChoiceScreen.routeName,
+        name: JoyBoxChoiceScreen.routeName,
+        builder: (context, state) =>  const JoyBoxChoiceScreen(),
       ),
       GoRoute(
           path: FastFoodMainScreen.routeName,

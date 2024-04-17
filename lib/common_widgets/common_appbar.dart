@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/res/color.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -12,8 +11,9 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actionsColor,
     this.text,
     this.actions,
-    this.toolbarHeight = 80, // Specify the toolbar height here
-    this.elevation = 0, // Specify the elevation here
+    this.toolbarHeight = 80,
+    this.elevation = 0,
+    this.isCircular = false, // New property for circular corners
   });
 
   final Color? backgroundColor;
@@ -22,24 +22,25 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Color? actionsColor;
   final String? text;
   final List<Widget>? actions;
-  final double toolbarHeight; // Added toolbar height property
-  final double elevation; // Added elevation property
+  final double toolbarHeight;
+  final double elevation;
+  final bool isCircular; // New property for circular corners
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: backgroundColor ?? const Color(0xFFFFD726),
       elevation: elevation,
-      // Set the elevation
       toolbarHeight: toolbarHeight.h,
-      // Set the toolbar height
       automaticallyImplyLeading: false,
-      shape: const RoundedRectangleBorder(
+      shape: isCircular
+          ? const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(20),
           bottomRight: Radius.circular(20),
         ),
-      ),
+      )
+          : null, // Apply circular border radius conditionally
       title: Padding(
         padding: EdgeInsets.only(left: 12.w, bottom: 4.h),
         child: Row(
@@ -63,14 +64,11 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
                 iconSize: 18.sp,
                 alignment: Alignment.center,
                 icon: Icon(
-                  grade: 10.0,
                   Icons.arrow_back_sharp,
-                  weight: 20.0,
                   color: backArrowColor ?? AppColor.black,
                 ),
                 onPressed: () {
-                  context.pop();
-                  // Add your navigation logic here
+                  Navigator.pop(context);
                 },
               ),
             ),
@@ -78,10 +76,10 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
             Text(
               text ?? "",
               style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.w600,
-                    color: titleColor ?? AppColor.black,
-                  ),
+                fontSize: 18.sp,
+                fontWeight: FontWeight.w600,
+                color: titleColor ?? AppColor.black,
+              ),
             )
           ],
         ),
@@ -92,5 +90,5 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Size get preferredSize =>
-      Size.fromHeight(toolbarHeight.h); // Adjust the height as needed
+      Size.fromHeight(toolbarHeight.h);
 }

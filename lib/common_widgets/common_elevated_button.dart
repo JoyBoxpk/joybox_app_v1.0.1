@@ -18,6 +18,7 @@ class CommonElevatedButton extends StatelessWidget {
     this.height,
     this.width,
     this.color,
+    this.textColor,
     required this.text,
   });
 
@@ -34,28 +35,26 @@ class CommonElevatedButton extends StatelessWidget {
   final double? width;
   final String text;
   final Color? color;
+  final Color? textColor;
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: width ?? 105.w,
-      height: height ?? 46.h,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10.0),
-          ),
-          textStyle: buttonTextStyle ??
-              Theme.of(context).textTheme.displaySmall!.copyWith(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w500,
-                  ),
-          backgroundColor: color ?? AppColor.red1,
-          foregroundColor: AppColor.white,
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.symmetric(horizontal: width ?? 8.w, vertical: height ?? 8.h),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8.0),
         ),
-        onPressed: onPressed,
-        child: Text(text),
+        textStyle: buttonTextStyle ??
+            Theme.of(context).textTheme.displaySmall!.copyWith(
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w600,
+                ),
+        backgroundColor: color ?? AppColor.red1,
+        foregroundColor: textColor ?? AppColor.white,
       ),
+      onPressed: onPressed,
+      child: Text(text),
     );
   }
 }
