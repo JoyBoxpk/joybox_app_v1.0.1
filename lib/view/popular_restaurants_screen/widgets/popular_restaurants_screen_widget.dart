@@ -102,7 +102,7 @@ class PopularRestaurantsScreenWidget extends StatelessWidget {
                     width: 190.w,
                     onPressed: () {},
                     text: "Order Now",
-                    color: AppColor.red1.withOpacity(0.8),
+                    buttonColor: AppColor.red1.withOpacity(0.8),
                   ),
                 ),
               ),

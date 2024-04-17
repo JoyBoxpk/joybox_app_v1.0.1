@@ -26,28 +26,28 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:  CommonAppBar(
+      appBar: CommonAppBar(
         text: "Restaurant",
         actions: [
-      IconButton(
-        icon:  const Icon(
-          Icons.share,
-          color: Color(0xFFF14530),
-        ),
-        onPressed: () {
-          // Add your navigation logic here
-        },
-      ),
-      IconButton(
-        icon:  const Icon(
-          Icons.search,
-          color: Color(0xFFF14530),
-        ),
-        onPressed: () {
-          // Add your navigation logic here
-        },
-      ),
-    ],
+          IconButton(
+            icon: const Icon(
+              Icons.share,
+              color: Color(0xFFF14530),
+            ),
+            onPressed: () {
+              // Add your navigation logic here
+            },
+          ),
+          IconButton(
+            icon: const Icon(
+              Icons.search,
+              color: Color(0xFFF14530),
+            ),
+            onPressed: () {
+              // Add your navigation logic here
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -90,10 +90,6 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                             height: 52.h,
                             onPressed: () {},
                             text: 'Rs. 699',
-                            decoration: BoxDecoration(
-                              color: const Color(0xFFF14530),
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
                           ),
                         ),
                       ),
@@ -136,13 +132,6 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                               child: CommonElevatedButton(
                                 onPressed: () {},
                                 text: "Rs. 799",
-                                buttonTextStyle: Theme.of(context)
-                                    .textTheme
-                                    .displaySmall!
-                                    .copyWith(
-                                      fontSize: 13.sp,
-                                      fontWeight: FontWeight.w600,
-                                    ),
                                 height: 35.h,
                                 width: 100.w,
                               ),
@@ -201,13 +190,6 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                 child: CommonElevatedButton(
                                   onPressed: () {},
                                   text: "Rs. 1599",
-                                  buttonTextStyle: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall!
-                                      .copyWith(
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w600,
-                                      ),
                                   height: 34.h,
                                   width: 90.w,
                                 ),
@@ -263,13 +245,6 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                 child: CommonElevatedButton(
                                   onPressed: () {},
                                   text: "Rs. 1199",
-                                  buttonTextStyle: Theme.of(context)
-                                      .textTheme
-                                      .displaySmall!
-                                      .copyWith(
-                                        fontSize: 10.sp,
-                                        fontWeight: FontWeight.w600,
-                                      ),
                                   height: 34.h,
                                   width: 90.w,
                                 ),
@@ -329,7 +304,8 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                     )),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Text(
                                       "Super Saver Deal 1",
@@ -337,9 +313,9 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                           .textTheme
                                           .displaySmall!
                                           .copyWith(
-                                        fontSize: 15.sp,
-                                        fontWeight: FontWeight.w600,
-                                      ),
+                                            fontSize: 15.sp,
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                     ),
                                     // SizedBox(height: 10.v),
                                     Text(
@@ -348,21 +324,14 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                           .textTheme
                                           .displaySmall!
                                           .copyWith(
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                            fontSize: 13.sp,
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                     ),
                                     // SizedBox(height: 10.v),
                                     CommonElevatedButton(
                                       onPressed: () {},
                                       text: "Rs. 559",
-                                      buttonTextStyle: Theme.of(context)
-                                          .textTheme
-                                          .displaySmall!
-                                          .copyWith(
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w600,
-                                      ),
                                       height: 34.h,
                                       width: 95.w,
                                     ),
@@ -388,10 +357,10 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                     .textTheme
                                     .displaySmall!
                                     .copyWith(
-                                  fontSize: 10.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: AppColor.white,
-                                ),
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColor.white,
+                                    ),
                               ),
                             ),
                           ),
@@ -418,7 +387,8 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                     )),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.center,
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Text(
                                       "Super Saver Deal 2",
@@ -426,9 +396,9 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                           .textTheme
                                           .displaySmall!
                                           .copyWith(
-                                        fontSize: 15.sp,
-                                        fontWeight: FontWeight.w600,
-                                      ),
+                                            fontSize: 15.sp,
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                     ),
                                     // SizedBox(height: 10.v),
                                     Text(
@@ -437,21 +407,14 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                           .textTheme
                                           .displaySmall!
                                           .copyWith(
-                                        fontSize: 13.sp,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                                            fontSize: 13.sp,
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                     ),
                                     // SizedBox(height: 10.v),
                                     CommonElevatedButton(
                                       onPressed: () {},
                                       text: "Rs. 789",
-                                      buttonTextStyle: Theme.of(context)
-                                          .textTheme
-                                          .displaySmall!
-                                          .copyWith(
-                                        fontSize: 12.sp,
-                                        fontWeight: FontWeight.w600,
-                                      ),
                                       height: 34.h,
                                       width: 95.w,
                                     ),
@@ -477,10 +440,10 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                     .textTheme
                                     .displaySmall!
                                     .copyWith(
-                                  fontSize: 10.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: AppColor.white,
-                                ),
+                                      fontSize: 10.sp,
+                                      fontWeight: FontWeight.w600,
+                                      color: AppColor.white,
+                                    ),
                               ),
                             ),
                           ),
@@ -651,13 +614,6 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                 text: "Rs. 699",
                                 width: 100.w,
                                 height: 40.h,
-                                buttonTextStyle: Theme.of(context)
-                                    .textTheme
-                                    .displaySmall!
-                                    .copyWith(
-                                      fontSize: 12.sp,
-                                      fontWeight: FontWeight.w600,
-                                    ),
                               ),
                               // SizedBox(height: 10.v),
                             ],
@@ -787,7 +743,7 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                     ],
                   ),
                   SizedBox(height: 10.h),
-                   Divider(
+                  Divider(
                     color: AppColor.amber,
                     thickness: 1.2.h,
                   ),
@@ -805,9 +761,9 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                 .textTheme
                                 .displaySmall!
                                 .copyWith(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w600,
-                            ),
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
                           ),
                           SizedBox(height: 10.h),
                           Text(
@@ -816,9 +772,9 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                 .textTheme
                                 .displaySmall!
                                 .copyWith(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.w500,
-                            ),
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
                           SizedBox(height: 8.h),
                           Text(
@@ -827,9 +783,9 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                 .textTheme
                                 .displaySmall!
                                 .copyWith(
-                              fontSize: 13.sp,
-                              fontWeight: FontWeight.w400,
-                            ),
+                                  fontSize: 13.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
                           ),
                           SizedBox(height: 25.h),
                           Text(
@@ -838,9 +794,9 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                 .textTheme
                                 .displaySmall!
                                 .copyWith(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.w500,
-                            ),
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
                         ],
                       ),
@@ -896,9 +852,9 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                 .textTheme
                                 .displaySmall!
                                 .copyWith(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w600,
-                            ),
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
                           ),
                           SizedBox(height: 10.h),
                           Text(
@@ -907,9 +863,9 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                 .textTheme
                                 .displaySmall!
                                 .copyWith(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.w500,
-                            ),
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
                           SizedBox(height: 8.h),
                           Text(
@@ -918,9 +874,9 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                 .textTheme
                                 .displaySmall!
                                 .copyWith(
-                              fontSize: 13.sp,
-                              fontWeight: FontWeight.w400,
-                            ),
+                                  fontSize: 13.sp,
+                                  fontWeight: FontWeight.w400,
+                                ),
                           ),
                           SizedBox(height: 25.h),
                           Text(
@@ -929,9 +885,9 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                                 .textTheme
                                 .displaySmall!
                                 .copyWith(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.w500,
-                            ),
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
                         ],
                       ),

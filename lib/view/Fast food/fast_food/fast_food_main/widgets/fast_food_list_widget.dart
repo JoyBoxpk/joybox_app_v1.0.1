@@ -165,9 +165,6 @@ class FastFoodListWidget extends StatelessWidget {
               top: 20.h,
               child: Center(
                 child: CommonElevatedButton(
-                  buttonStyle: ElevatedButton.styleFrom(
-                    backgroundColor: AppColor.red2.withOpacity(0.75),
-                  ),
                   height: 60.h,
                   width: 180.w,
                   onPressed: () {

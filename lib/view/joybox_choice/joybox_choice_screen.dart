@@ -48,8 +48,8 @@ class _JoyBoxChoiceScreenState extends State<JoyBoxChoiceScreen> {
                 child: Column(
                   children: [
                     CarouselSlider.builder(
-                      itemCount:
-                          JoyBoxChoiceWidgetOneModel.joyBoxChoiceItemsList.length,
+                      itemCount: JoyBoxChoiceWidgetOneModel
+                          .joyBoxChoiceItemsList.length,
                       options: CarouselOptions(
                         clipBehavior: Clip.none,
                         viewportFraction: 0.9995,
@@ -75,8 +75,8 @@ class _JoyBoxChoiceScreenState extends State<JoyBoxChoiceScreen> {
                     SizedBox(height: 85.h),
                     AnimatedSmoothIndicator(
                       activeIndex: activeIndex1,
-                      count:
-                          JoyBoxChoiceWidgetOneModel.joyBoxChoiceItemsList.length,
+                      count: JoyBoxChoiceWidgetOneModel
+                          .joyBoxChoiceItemsList.length,
                       effect: WormEffect(
                         dotHeight: 12.h,
                         dotWidth: 12.w,
@@ -114,10 +114,6 @@ class _JoyBoxChoiceScreenState extends State<JoyBoxChoiceScreen> {
                                   text: "Add to Cart",
                                   height: 6.h,
                                   width: 12.w,
-                                  buttonTextStyle: TextStyle(
-                                    fontSize: 13.sp,
-                                    fontWeight: FontWeight.w600,
-                                  ),
                                 ),
                               ),
                             ),
@@ -136,16 +132,12 @@ class _JoyBoxChoiceScreenState extends State<JoyBoxChoiceScreen> {
                               bottom: -150.h,
                               child: Center(
                                 child: CommonElevatedButton(
-                                  color: AppColor.amber2,
+                                  buttonColor: AppColor.amber2,
                                   onPressed: () {},
                                   text: "Add to Cart",
                                   height: 10.h,
                                   width: 20.w,
                                   textColor: AppColor.black,
-                                  buttonTextStyle: TextStyle(
-                                    fontSize: 15.sp,
-                                    fontWeight: FontWeight.w700,
-                                  ),
                                 ),
                               ),
                             ),
@@ -165,8 +157,8 @@ class _JoyBoxChoiceScreenState extends State<JoyBoxChoiceScreen> {
                   Padding(
                     padding: EdgeInsets.only(left: 25.w),
                     child: CarouselSlider.builder(
-                      itemCount:
-                      JoyBoxChoiceWidgetTwoModel.joyBoxChoiceItemsList.length,
+                      itemCount: JoyBoxChoiceWidgetTwoModel
+                          .joyBoxChoiceItemsList.length,
                       options: CarouselOptions(
                         padEnds: false,
                         clipBehavior: Clip.none,
@@ -183,8 +175,8 @@ class _JoyBoxChoiceScreenState extends State<JoyBoxChoiceScreen> {
                         },
                       ),
                       itemBuilder: (context, index, realIndex) {
-                        final item =
-                        JoyBoxChoiceWidgetTwoModel.joyBoxChoiceItemsList[index];
+                        final item = JoyBoxChoiceWidgetTwoModel
+                            .joyBoxChoiceItemsList[index];
                         return JoyBoxChoiceWidgetTwo(
                           item: item,
                         );
