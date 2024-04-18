@@ -256,7 +256,7 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
                 SizedBox(height: 10.h),
                 _tradtionalRestaurantRow(),
                 SizedBox(height: 10.h),
-                _JoyboxPicksRow(),
+                _joyboxPicksRow(),
                 SizedBox(
                   height: 20.h,
                 ),
@@ -302,13 +302,13 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
           ),
         ),
         SizedBox(
-          height: 250
+          height: 280
               .h, // Height removed, since Carousel's height will be controlled by the aspect ratio
           child: CarouselSlider.builder(
             itemCount: restaurants.length,
             options: CarouselOptions(
                 clipBehavior: Clip.none,
-                height: 240.h,
+                height: 270.h,
                 viewportFraction:
                     0.4, // Adjust the fraction for overlapping effect
                 enlargeCenterPage: true,
@@ -327,141 +327,147 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
 
   Widget _buildRestaurantItem(TopRestaurantWidgetModel restaurant) {
     return SizedBox(
+      // height: 250.h,
       width: 170.w,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Stack(
-            clipBehavior: Clip.none,
-            children: [
-              Material(
-                borderRadius: BorderRadius.circular(10.h),
-                elevation: 20,
-                child: ClipRRect(
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Material(
                   borderRadius: BorderRadius.circular(10.h),
-                  child: CustomImageView(
-                    width: 170.w,
-                    height: 190.h,
-                    imagePath: restaurant.imagePath,
-                  ),
-                ),
-              ),
-              Positioned(
-                top: -12,
-                child: Container(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 20.h, vertical: 6.w),
-                  decoration: BoxDecoration(
-                    color: AppColor.amber,
-                    borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(6.h),
-                        bottomRight: Radius.circular(6.h)),
-                  ),
-                  child: Text(
-                    restaurant.name,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black,
-                      fontSize: 12.sp,
+                  elevation: 20,
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10.h),
+                    child: CustomImageView(
+                      width: 170.w,
+                      height: 190.h,
+                      imagePath: restaurant.imagePath,
                     ),
                   ),
                 ),
-              ),
-              Positioned(
-                top: 40.h,
-                child: Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 10),
-                  width: 130.w,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        restaurant.description,
-                        style: TextStyle(
-                          fontWeight: FontWeight.w600,
-                          color: Colors.white,
-                          fontSize: 12.sp,
-                        ),
-                      ),
-                      CommonRatingBar(
-                        itemCount: 5,
-                        color: AppColor.amber,
-                        initialRating: restaurant.rating.toDouble(),
-                        unselectedColor: Colors.white,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.topRight,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.favorite_outline_outlined,
-                    size: 20.sp,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              Positioned.fill(
-                top: 60.h,
-                child: Center(
-                  child: SizedBox(
-                    height: 25.h,
-                    width: 70.w,
-                    child: CommonElevatedButton(
-                        buttonColor: AppColor.red1.withOpacity(0.7),
-                        fontSize: 8.sp,
-                        onPressed: () {},
-                        text: "Order now"),
-                  ),
-                ),
-              ),
-              Positioned(
-                bottom: 6.h,
-                right: 5.w,
-                child: Image.asset(
-                  "assets/images/popular_restaurants_screen_img2.png",
-                  height: 10.h,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Positioned(
-                bottom: 0.h,
-                left: 0.w,
-                child: Center(
+                Positioned(
+                  top: -12,
                   child: Container(
-                    padding: const EdgeInsets.all(8.0),
-                    height: 28.h,
-                    width: 52.w,
-                    decoration: const BoxDecoration(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 20.h, vertical: 6.w),
+                    decoration: BoxDecoration(
+                      color: AppColor.amber,
                       borderRadius: BorderRadius.only(
-                        topRight: Radius.circular(6.0),
-                        bottomRight: Radius.circular(6.0),
-                      ),
-                      color: AppColor.white,
+                          topRight: Radius.circular(6.h),
+                          bottomRight: Radius.circular(6.h)),
                     ),
-                    child: SvgPicture.asset(
-                      "assets/images/img_settings_black_900.svg",
-                      height: 20.h,
-                      width: 10.w,
-                      fit: BoxFit.contain,
+                    child: Text(
+                      restaurant.name,
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black,
+                        fontSize: 12.sp,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
-          ),
-          SizedBox(height: 10.h),
-          Text(
-            restaurant.openingHours,
-            style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                  fontSize: 9.sp,
-                  fontWeight: FontWeight.w500,
+                Positioned(
+                  top: 40.h,
+                  child: Container(
+                    margin: const EdgeInsets.symmetric(horizontal: 10),
+                    width: 130.w,
+                    child: SingleChildScrollView(
+                      // Wrap with SingleChildScrollView
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            restaurant.description,
+                            style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              color: Colors.white,
+                              fontSize: 12.sp,
+                            ),
+                          ),
+                          CommonRatingBar(
+                            itemCount: 5,
+                            color: AppColor.amber,
+                            initialRating: restaurant.rating.toDouble(),
+                            unselectedColor: Colors.white,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
-          ),
-        ],
+                Align(
+                  alignment: Alignment.topRight,
+                  child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.favorite_outline_outlined,
+                      size: 20.sp,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                Positioned.fill(
+                  top: 60.h,
+                  child: Center(
+                    child: SizedBox(
+                      height: 25.h,
+                      width: 70.w,
+                      child: CommonElevatedButton(
+                          buttonColor: AppColor.red1.withOpacity(0.7),
+                          fontSize: 8.sp,
+                          onPressed: () {},
+                          text: "Order now"),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 6.h,
+                  right: 5.w,
+                  child: Image.asset(
+                    "assets/images/popular_restaurants_screen_img2.png",
+                    height: 10.h,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Positioned(
+                  bottom: 0.h,
+                  left: 0.w,
+                  child: Center(
+                    child: Container(
+                      padding: const EdgeInsets.all(8.0),
+                      height: 28.h,
+                      width: 52.w,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(6.0),
+                          bottomRight: Radius.circular(6.0),
+                        ),
+                        color: AppColor.white,
+                      ),
+                      child: SvgPicture.asset(
+                        "assets/images/img_settings_black_900.svg",
+                        height: 20.h,
+                        width: 10.w,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: 10.h),
+            Text(
+              restaurant.openingHours,
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    fontSize: 9.sp,
+                    fontWeight: FontWeight.w500,
+                  ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -496,28 +502,23 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
             ],
           ),
           SizedBox(
-            height: 400
+            height: 17.h,
+          ),
+          SizedBox(
+            height: 300
                 .h, // Height removed, since Carousel's height will be controlled by the aspect ratio
-            child: CarouselSlider.builder(
-              itemCount: tradtionalrestaurants.length,
-              options: CarouselOptions(
-                clipBehavior: Clip.none,
-                height: 360.h,
-                viewportFraction:
-                    0.5, // Adjust the fraction for overlapping effect
-                // enlargeCenterPage: true,
 
-                animateToClosest: true,
-              ),
-              itemBuilder: (BuildContext context, int index, int realIndex) {
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              clipBehavior: Clip.none,
+              itemCount: tradtionalrestaurants.length,
+              itemBuilder: (context, index) {
                 PopularRestaurantWidgetModel restaurant =
                     popularrestaurants[index];
                 return Stack(children: [
-                  SizedBox(
-                      child: Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: _buildPopularRestaurentItem(restaurant),
-                  ))
+                  Container(
+                      padding: EdgeInsets.symmetric(horizontal: 10.w),
+                      child: _buildPopularRestaurentItem(restaurant))
                 ]);
               },
             ),
@@ -531,9 +532,9 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
+        SizedBox(
           width: 200.w,
-          height: 320.h,
+          height: 280.h,
           child: Stack(
             clipBehavior: Clip.none,
             children: [
@@ -608,21 +609,21 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
                 ),
               ),
               Positioned.fill(
-                left: 30.w,
-                right: 30.w,
-                top: 212.h,
+                left: 40.w,
+                right: 50.w,
+                top: 172.h,
                 bottom: 70.h,
                 child: CommonElevatedButton(
                     width: 20.w,
                     height: 30.h,
-                    buttonColor: AppColor.red2.withOpacity(0.9),
+                    buttonColor: AppColor.red2.withOpacity(0.8),
                     fontSize: 10.sp,
                     onPressed: () {},
                     text: "Order now"),
               ),
               Positioned(
                 bottom: 14.h,
-                right: 5.w,
+                right: 4.w,
                 child: Image.asset(
                   "assets/images/popular_restaurants_screen_img2.png",
                   height: 10.h,
@@ -630,7 +631,7 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
                 ),
               ),
               Positioned(
-                bottom: 10.h,
+                bottom: 0.h,
                 left: 0.w,
                 child: Center(
                   child: Container(
@@ -899,12 +900,12 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
     );
   }
 
-  Widget _JoyboxPicksRow() {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.w),
-          child: Row(
+  Widget _joyboxPicksRow() {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.w),
+      child: Column(
+        children: [
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
@@ -926,34 +927,32 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
               ),
             ],
           ),
-        ),
-        SizedBox(
-          height: 400
-              .h, // Height removed, since Carousel's height will be controlled by the aspect ratio
-          child: CarouselSlider.builder(
-            itemCount: tradtionalrestaurants.length,
-            options: CarouselOptions(
-              clipBehavior: Clip.none,
-              height: 340.h,
-              viewportFraction:
-                  0.5, // Adjust the fraction for overlapping effect
-              // enlargeCenterPage: true,
-
-              animateToClosest: true,
-            ),
-            itemBuilder: (BuildContext context, int index, int realIndex) {
-              JoyboxPicksWidgetModel restaurant = joyboxpicks[index];
-              return Stack(children: [
-                SizedBox(
-                    child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: _buildJoyboxPicksItem(restaurant),
-                ))
-              ]);
-            },
+          SizedBox(
+            height: 17.h,
           ),
-        ),
-      ],
+          SizedBox(
+            height: 300
+                .h, // Height removed, since Carousel's height will be controlled by the aspect ratio
+
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              clipBehavior: Clip.none,
+              itemCount: tradtionalrestaurants.length,
+              itemBuilder: (context, index) {
+                JoyboxPicksWidgetModel restaurant = joyboxpicks[index];
+                return Stack(children: [
+                  Container(
+                      // padding: EdgeInsets.symmetric(horizontal: 10.w),
+                      child: _buildJoyboxPicksItem(restaurant))
+                ]);
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return SizedBox(width: 10.w);
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -961,9 +960,9 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Container(
+        SizedBox(
           width: 200.w,
-          height: 320.h,
+          height: 280.h,
           child: Stack(
             clipBehavior: Clip.none,
             children: [
@@ -1038,21 +1037,21 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
                 ),
               ),
               Positioned.fill(
-                left: 30.w,
-                right: 30.w,
-                top: 208.h,
+                left: 40.w,
+                right: 50.w,
+                top: 172.h,
                 bottom: 70.h,
                 child: CommonElevatedButton(
                     width: 20.w,
                     height: 30.h,
-                    buttonColor: AppColor.red2.withOpacity(0.7),
+                    buttonColor: AppColor.red2.withOpacity(0.8),
                     fontSize: 10.sp,
                     onPressed: () {},
                     text: "Order now"),
               ),
               Positioned(
                 bottom: 14.h,
-                right: 5.w,
+                right: 4.w,
                 child: Image.asset(
                   "assets/images/popular_restaurants_screen_img2.png",
                   height: 10.h,
@@ -1060,7 +1059,7 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
                 ),
               ),
               Positioned(
-                bottom: 10.h,
+                bottom: 0.h,
                 left: 0.w,
                 child: Center(
                   child: Container(
@@ -1128,8 +1127,8 @@ class _RestaurentsNearyou extends StatelessWidget {
             height: 20.h,
           ),
           SizedBox(
-            height: 300,
-            width: 500,
+            height: 250.h,
+            width: 500.w,
             child: ListView.builder(
               clipBehavior: Clip.none,
               scrollDirection: Axis.horizontal,
@@ -1196,7 +1195,7 @@ class _YourFavRestaurentWidegt extends StatelessWidget {
               color: AppColor.amber,
             ),
             SizedBox(
-              height: 250.h,
+              height: 240.h,
               child: ListView.builder(
                 clipBehavior: Clip.none,
                 scrollDirection: Axis.horizontal,
@@ -1207,7 +1206,7 @@ class _YourFavRestaurentWidegt extends StatelessWidget {
                       NearRestaurentListModel.NearRestaurantList[index];
                   return Container(
                     padding:
-                        EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.w),
+                        EdgeInsets.symmetric(vertical: 0.0, horizontal: 15.w),
                     child: UserFavRestuarentListWidget(item: item),
                   );
                 },
