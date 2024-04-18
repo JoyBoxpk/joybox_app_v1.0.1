@@ -126,7 +126,7 @@ class RestauentNearUserHotelListWidget extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(height: 10.h),
+          SizedBox(height: 5.h),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
