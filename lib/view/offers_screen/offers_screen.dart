@@ -64,7 +64,7 @@ class _OffersScreenState extends State<OffersScreen> {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20.w),
       width: double.infinity,
-      height: 210.h,
+      height: 220.h,
       child: Column(
         children: [
           Row(
@@ -189,7 +189,7 @@ class _OffersScreenState extends State<OffersScreen> {
   Widget _buildOfferWidgetList() {
     return Container(
       margin: EdgeInsets.only(left: 20.w),
-      height: 352.h,
+      height: 345.h,
       child: ListView.separated(
         clipBehavior: Clip.none,
         scrollDirection: Axis.horizontal,

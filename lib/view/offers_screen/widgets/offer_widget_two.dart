@@ -26,11 +26,11 @@ class OfferWidgetTwo extends StatelessWidget {
             flex: 3,
             child: Container(
               alignment: Alignment.center,
-              // padding: const EdgeInsets.all(8.0),
+              padding: EdgeInsets.only(bottom: 4.h),
               color: AppColor.yellow,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
+               mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Image.asset(
                     item.imageOnePath,

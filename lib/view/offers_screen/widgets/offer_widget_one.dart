@@ -15,14 +15,15 @@ class OfferWidgetOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 10.h),
-      height: 340.h,
+      padding: EdgeInsets.only(bottom: 6.h),
+      height: 320.h,
       width: 230.w,
       decoration: BoxDecoration(
         color: AppColor.yellow,
         borderRadius: BorderRadius.circular(8.0),
       ),
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Image.asset(
             item.imageOnePath,
