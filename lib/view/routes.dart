@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/view/all_restaurents_screen/all_restaurents_screen_widget_model..dart';
+import 'package:joy_box_app/view/joybox_picks_screen/joybox_picks_screen.dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
 import 'package:joy_box_app/view/resturent_near_you_screen/near_you_restaurent.dart';
@@ -71,6 +72,11 @@ final List<RouteBase> appRoutes = [
               path: NearYouRestaurent.routeName,
               name: NearYouRestaurent.routeName,
               builder: (context, state) => const NearYouRestaurent(),
+            ),
+            GoRoute(
+              path: JoyboxPicksScreen.routeName,
+              name: JoyboxPicksScreen.routeName,
+              builder: (context, state) => const JoyboxPicksScreen(),
             ),
             GoRoute(
               path: PopularRestaurantsScreen.routeName,

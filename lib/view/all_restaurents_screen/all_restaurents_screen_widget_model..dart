@@ -23,6 +23,7 @@ import 'package:joy_box_app/view/all_restaurents_screen/widget/restaurent_near_y
 import 'package:joy_box_app/view/all_restaurents_screen/widget/your_fav_restaurent_item_widget.dart';
 import 'package:joy_box_app/view/home_screen/widgets/popular_res_item.dart';
 import 'package:joy_box_app/view/joybox_choice/joybox_choice_screen.dart';
+import 'package:joy_box_app/view/joybox_picks_screen/joybox_picks_screen.dart';
 import 'package:joy_box_app/view/popular_restaurants_screen/popular_restaurants_screen.dart';
 import 'package:joy_box_app/view/resturent_near_you_screen/model/near_you_model.dart';
 import 'package:joy_box_app/view/resturent_near_you_screen/near_you_restaurent.dart';
@@ -51,9 +52,6 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
     "Rating": ["5 Stars", "4 Stars", "3 Stars", "2 Stars", "1 Star"],
     "Offers": ["Discounts", "Buy One Get One", "Happy Hours"],
   };
-  double _value = 0.0;
-  double _min = 0.0;
-  double _max = 100.0;
 
   final List<PopularRestaurantWidgetModel> popularrestaurants = [
     PopularRestaurantWidgetModel(
@@ -916,7 +914,7 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
                     ),
               ),
               GestureDetector(
-                onTap: () => context.goNamed(JoyBoxChoiceScreen.routeName),
+                onTap: () => context.goNamed(JoyboxPicksScreen.routeName),
                 child: Text(
                   "See all",
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
