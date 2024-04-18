@@ -19,7 +19,7 @@ class PopularRestaurantsScreenWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(bottom: 25.h),
-      height: 300.h,
+      height: 302.h,
       width: 370.w,
       child: Column(
         children: [
