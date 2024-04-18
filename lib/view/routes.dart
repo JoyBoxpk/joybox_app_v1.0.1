@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/view/all_restaurents_screen/all_restaurents_screen_widget_model..dart';
 import 'package:joy_box_app/view/joybox_picks_screen/joybox_picks_screen.dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
+import 'package:joy_box_app/view/payment_method/payment_method_screen.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
 import 'package:joy_box_app/view/resturent_near_you_screen/near_you_restaurent.dart';
 import 'package:joy_box_app/view/reviews_screen/reviews_screen.dart';
@@ -53,6 +54,21 @@ final List<RouteBase> appRoutes = [
     name: HomeScreen.routeName,
     builder: (context, state) => const HomeScreen(),
     routes: [
+      GoRoute(
+        path: SettingScreen.routeName,
+        name: SettingScreen.routeName,
+        builder: (context, state) => const SettingScreen(),
+      ),
+      GoRoute(
+        path: SupportScreen.routeName,
+        name: SupportScreen.routeName,
+        builder: (context, state) => const SupportScreen(),
+      ),
+      GoRoute(
+        path: PaymentMethodScreen.routeName,
+        name: PaymentMethodScreen.routeName,
+        builder: (context, state) => const PaymentMethodScreen(),
+      ),
       GoRoute(
         path: TraditionalRestaurant.routeName,
         name: TraditionalRestaurant.routeName,
@@ -163,16 +179,6 @@ final List<RouteBase> appRoutes = [
                             ]),
                       ]),
                 ]),
-            GoRoute(
-              path: SettingScreen.routeName,
-              name: SettingScreen.routeName,
-              builder: (context, state) => const SettingScreen(),
-            ),
-            GoRoute(
-              path: SupportScreen.routeName,
-              name: SupportScreen.routeName,
-              builder: (context, state) => const SupportScreen(),
-            )
           ]),
     ],
   ),

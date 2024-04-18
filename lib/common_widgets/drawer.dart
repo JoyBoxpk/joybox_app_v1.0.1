@@ -12,6 +12,8 @@ import 'package:joy_box_app/view/settings_screen/settings_screen.dart';
 import 'package:joy_box_app/view/support/support_screen.dart';
 import 'package:joy_box_app/view/transaction_screen/transactions_screen.dart';
 
+import '../view/payment_method/payment_method_screen.dart';
+
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
 
@@ -41,37 +43,17 @@ class DrawerWidget extends StatelessWidget {
                       imagePath: 'assets/images/Group_289387.svg',
                     ),
                   ),
-                  // Positioned(
-                  //   child: Column(
-                  //     children: [
-                  //       ClipRRect(
-                  //         borderRadius: BorderRadius.circular(10),
-                  //         child: SizedBox(
-                  //           height: devheight * 0.13,
-                  //           width: devwidth * 0.14,
-                  //           child: CustomImageView(
-                  //             fit: BoxFit.contain,
-                  //             imagePath:
-                  //                 'assets/images/46bed14295d9fecf2fb3de020613b62a.png',
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
                   Positioned(
                     bottom: 40,
-                    child: Container(
-                      child: Row(
-                        children: [
-                          Text(
-                            "Haris Ahmed",
-                            style: textstyle.bodyMedium?.copyWith(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                          Icon(Icons.edit)
-                        ],
-                      ),
+                    child: Row(
+                      children: [
+                        Text(
+                          "Haris Ahmed",
+                          style: textstyle.bodyMedium?.copyWith(
+                              fontSize: 16, fontWeight: FontWeight.bold),
+                        ),
+                        const Icon(Icons.edit)
+                      ],
                     ),
                   )
                 ],
@@ -210,6 +192,7 @@ void _navigateToScreen(BuildContext context, String title) {
       break;
     case "Become JB Pro":
       context.goNamed(JbProScreen.routeName);
+      break;
     case "Ordering & reordering":
       context.goNamed(OrderingReordering.routeName);
       break;
@@ -221,6 +204,9 @@ void _navigateToScreen(BuildContext context, String title) {
       break;
     case "Offers & Voucher":
       context.goNamed(OffersScreen.routeName);
+      break;
+    case "Invite friends":
+      context.goNamed(PaymentMethodScreen.routeName);
       break;
     
     // Add more cases for other screens
