@@ -35,6 +35,7 @@ class _PopularRestaurantsScreenState extends State<PopularRestaurantsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CommonAppBar(
+        isCircular: true,
         text: "Restaurant",
         actions: [
           IconButton(

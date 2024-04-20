@@ -20,7 +20,7 @@ class FastFoodListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 295.h,
       width: 400.w,
       child: Column(
@@ -41,9 +41,9 @@ class FastFoodListWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      padding: EdgeInsets.only(left: 10.w),
+                      padding: EdgeInsets.only(left: 10.w, right: 15.w),
                       alignment: Alignment.centerLeft,
-                      width: 102.w,
+                      // width: 102.w,
                       height: 30.h,
                       decoration: BoxDecoration(
                         color: AppColor.amber,
@@ -68,7 +68,7 @@ class FastFoodListWidget extends StatelessWidget {
                         alignment: Alignment.centerLeft,
                         width: 75.w,
                         height: 30.h,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                           color: AppColor.amber,
                           borderRadius: BorderRadius.only(
                             topRight: Radius.circular(6.0),

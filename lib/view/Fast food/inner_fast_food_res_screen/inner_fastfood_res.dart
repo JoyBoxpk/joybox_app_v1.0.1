@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/common_widgets/common_appbar.dart';
-import 'package:joy_box_app/view/checkout_presentation/checkout_screen.dart';
-
+import 'package:joy_box_app/view/cart_screen/cart_screen.dart';
 import '../../../common_widgets/custom_checkbox_button.dart';
 import '../../../common_widgets/custom_image_view.dart';
 import '../../../res/color.dart';
 
 class InnerFastFoodResScreen extends StatelessWidget {
-  const InnerFastFoodResScreen({Key? key}) : super(key: key);
+  const InnerFastFoodResScreen({super.key});
 
   static const String routeName = 'Innerfastfood';
 
@@ -185,7 +184,7 @@ class cart_navbar extends StatelessWidget {
                 ],
               ),
               InkWell(
-                onTap: () => context.goNamed(CheckoutScreen.routeName),
+                onTap: () => context.goNamed(CartScreen.routeName),
                 child: Container(
                   width: 160.h,
                   height: 80.w,
@@ -213,11 +212,11 @@ class cart_navbar extends StatelessWidget {
 
 class Increment_Decrement_Widget extends StatelessWidget {
   const Increment_Decrement_Widget({
-    Key? key,
+    super.key,
     this.Border_Color,
     this.Backgroundcolor,
     required this.text,
-  }) : super(key: key);
+  });
 
   final Color? Border_Color, Backgroundcolor;
   final String text;
@@ -560,11 +559,10 @@ class InstrctionsWidget extends StatelessWidget {
 
 class FrequentRowSection extends StatelessWidget {
   const FrequentRowSection(
-      {Key? key,
+      {super.key,
       required this.price,
       required this.title,
-      required this.imagpath})
-      : super(key: key);
+      required this.imagpath});
 
   final String price, title, imagpath;
 

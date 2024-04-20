@@ -1,48 +1,65 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:joy_box_app/common_widgets/common_dropdown_button.dart';
+import 'package:joy_box_app/common_widgets/common_elevated_button.dart';
 import 'package:joy_box_app/common_widgets/common_switch_widget.dart';
 import 'package:joy_box_app/common_widgets/custom_image_view.dart';
+import 'package:joy_box_app/res/color.dart';
 
 import '../../common_widgets/common_appbar.dart';
 
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
 
-  static const String routeName = 'cartscreen';
+  static const String routeName = 'cart-screen';
 
   @override
   Widget build(BuildContext context) {
-    final screenHeight = MediaQuery.of(context).size.height;
-    final screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
-      appBar: const CommonAppBar(),
+      appBar: const CommonAppBar(
+        isCircular: true,
+        text: "Cart",
+      ),
       body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: screenHeight * 0.080),
-            _buildProgressIndicator(),
-            SizedBox(height: screenHeight * 0.025),
-            _buildPaymentMethodSection(),
-            SizedBox(height: screenHeight * 0.060),
-            _buildPaymentButtons(),
-            const SizedBox(height: 25),
-            _buildCartItem(),
-            const SizedBox(height: 30),
-            _buildAdditionalItemsSection(),
-            const SizedBox(height: 100),
-            _buildFreeDeliverySection(),
-            const SizedBox(height: 30),
-            _buildSummarySection(),
-            const SizedBox(height: 25),
-            _buildPromotionalImage(),
-            const SizedBox(height: 25),
-            _buildCutlerySection(),
-            const SizedBox(height: 25),
-            _buildFooterImage(double.infinity, 600.0.h),
-            const SizedBox(height: 25),
-          ],
+        child: Container(
+          margin: EdgeInsets.only(top: 60.h, bottom: 60.h),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              _buildProgressIndicator(),
+              SizedBox(height: 15.h),
+              _buildPaymentMethodSection(),
+              SizedBox(height: 60.h),
+              _buildPaymentButtons(),
+              SizedBox(height: 30.h),
+              _buildCartItem(),
+              SizedBox(height: 30.h),
+              _buildAdditionalItemsSection(),
+              SizedBox(height: 50.h),
+              _buildFreeDeliverySection(),
+              SizedBox(height: 30.h),
+              _buildSummarySection(context),
+              SizedBox(height: 30.h),
+              _buildPromotionalImage(context),
+              SizedBox(height: 20.h),
+              _buildCutlerySection(),
+              SizedBox(height: 20.h),
+              _buildFooterImage(context),
+              SizedBox(height: 45.h),
+              Align(
+                alignment: Alignment.center,
+                child: CommonElevatedButton(
+                  borderRadius: 12.0,
+                  height: 60.h,
+                  width: 260.w,
+                  onPressed: () {},
+                  text: "Confirm payment and address",
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -50,16 +67,16 @@ class CartScreen extends StatelessWidget {
 
   Widget _buildProgressIndicator() {
     return SizedBox(
-      height: 60.0.h,
+      height: 60.h,
       child: Stack(
         clipBehavior: Clip.none,
         children: [
-          const Divider(
-            color: Color(0xFFFFD726),
+          Divider(
+            color: AppColor.amber,
             thickness: 1.2,
           ),
           Positioned.fill(
-            top: -10,
+            top: -10.h,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -80,25 +97,30 @@ class CartScreen extends StatelessWidget {
       children: [
         Container(
           alignment: Alignment.center,
-          width: 36,
-          height: 36,
+          width: 36.w,
+          height: 36.h,
           decoration: BoxDecoration(
-            color: const Color(0xFFFFD726),
+            color: title == "Checkout" ? AppColor.white : AppColor.amber,
             borderRadius: BorderRadius.circular(8.0),
+            border: title == "Checkout"
+                ? Border.all(
+                    color: AppColor.amber,
+                  )
+                : null,
           ),
           child: Text(
             step,
-            style: const TextStyle(
-              color: Colors.black,
-              fontSize: 15.0,
+            style: TextStyle(
+              color: AppColor.black,
+              fontSize: 15.sp,
               fontWeight: FontWeight.w400,
             ),
           ),
         ),
-        const SizedBox(height: 5),
+        SizedBox(height: 5.h),
         Text(
           title,
-          style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w300),
+          style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.w300),
         )
       ],
     );
@@ -111,14 +133,15 @@ class CartScreen extends StatelessWidget {
         Container(
           width: double.infinity,
           height: 155,
-          color: const Color(0xFFF14530),
+          color: AppColor.red2,
         ),
-        const Positioned(
-          top: 15.0,
-          right: 100.0,
-          left: 100.0,
-          child: Text(
-            "Payment Method",
+        Positioned(
+          top: 15.h,
+          right: 50.w,
+          left: 50.w,
+          child: const Text(
+            textAlign: TextAlign.center,
+            "Payment method",
             style: TextStyle(
               color: Colors.white,
               fontSize: 22.0,
@@ -127,15 +150,15 @@ class CartScreen extends StatelessWidget {
           ),
         ),
         Positioned(
-            bottom: -30,
-            right: -5,
-            left: -5,
+            bottom: -30.h,
+            right: -5.w,
+            left: -5.w,
             child: CustomImageView(
               imagePath: "assets/images/cart_screen_img1.svg",
             )),
         Positioned(
-            bottom: -30,
-            right: 30,
+            bottom: -30.h,
+            right: 30.w,
             child: CustomImageView(
               imagePath: "assets/images/cart_screen_img2.svg",
             )),
@@ -147,31 +170,34 @@ class CartScreen extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        _buildPaymentButton("Cash", const Color(0xFFFFD726), Colors.black),
-        _buildPaymentButton(
-            "Online", const Color(0xFFD9D9D9), const Color(0xFF67666D)),
-        _buildPaymentButton(
-            "JB Wallet", const Color(0xFFD9D9D9), const Color(0xFF67666D)),
-      ],
-    );
-  }
-
-  Widget _buildPaymentButton(String label, Color color1, Color color2) {
-    return SizedBox(
-      width: 110,
-      height: 45,
-      child: ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          elevation: 0.0,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-          backgroundColor: color1,
-          foregroundColor: color2,
+        CommonElevatedButton(
+          onPressed: () {},
+          buttonColor: AppColor.amber,
+          textColor: AppColor.black,
+          width: 108.w,
+          height: 48.h,
+          text: "Cash",
+          borderRadius: 8.0,
         ),
-        onPressed: () {},
-        child: Text(label),
-      ),
+        CommonElevatedButton(
+          onPressed: () {},
+          buttonColor: AppColor.blueGrey,
+          textColor: AppColor.grey2,
+          width: 108.w,
+          height: 48.h,
+          text: "Online",
+          borderRadius: 8.0,
+        ),
+        CommonElevatedButton(
+          onPressed: () {},
+          buttonColor: AppColor.blueGrey,
+          textColor: AppColor.grey2,
+          width: 108.w,
+          height: 48.h,
+          text: "JB Wallet",
+          borderRadius: 8.0,
+        ),
+      ],
     );
   }
 
@@ -179,16 +205,28 @@ class CartScreen extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
-        Image.asset(
-          "assets/images/car_img3.png",
-          width: 80,
-          height: 80,
-          fit: BoxFit.cover,
+        CommonDropdownButton(
+          hintText: "No.",
+          items: [
+            "1",
+            "2",
+            "3",
+          ],
         ),
-        const SizedBox(width: 10),
+        SizedBox(width: 5.w),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(8.0),
+          child: Image.asset(
+            "assets/images/Mask group.png",
+            width: 80.w,
+            height: 70.h,
+            fit: BoxFit.cover,
+          ),
+        ),
+        SizedBox(width: 5.w),
         Container(
-          width: 230,
-          height: 80,
+          width: 200.w,
+          height: 70.h,
           decoration: const BoxDecoration(
             color: Color(0xFFFFD726),
             borderRadius: BorderRadius.only(
@@ -211,146 +249,162 @@ class CartScreen extends StatelessWidget {
 
   Widget _buildAdditionalItemsSection() {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 20),
+      margin: EdgeInsets.symmetric(horizontal: 25.w),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
             "Add more items",
             style: TextStyle(
-              color: Color(0xFFF14530),
+              color: AppColor.red2,
             ),
           ),
-          const SizedBox(height: 20),
-          const Text(
+          SizedBox(height: 20.h),
+          Text(
             "Popular with your order",
-            style: TextStyle(fontWeight: FontWeight.w500),
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 18.sp,
+            ),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 20.h),
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Image.asset(
-                    "assets/images/cart_img4.png",
-                    width: 86,
-                    height: 79.03,
-                  ),
-                  Positioned(
-                    left: -35,
-                    child: Image.asset(
-                      "assets/images/cart_img5.png",
-                      width: 150,
+              Container(
+                height: 160.h,
+                width: 108.w,
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Image.asset(
+                      "assets/images/cart_screen_img4.png",
+                      width: 130.w,
+                      height: 100.h,
+                      fit: BoxFit.contain,
                     ),
-                  ),
-                  Positioned(
-                    bottom: -17,
-                    left: 58,
-                    child: Container(
-                      alignment: Alignment.center,
-                      width: 24,
-                      height: 24,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF14530),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      child: const Icon(
-                        Icons.add,
-                        color: Colors.white,
-                        size: 18.0,
+                    Positioned(
+                      top: 18.h,
+                      right: -6.w,
+                      child: Image.asset(
+                        "assets/images/cart_screen_img5.png",
+                        width: 130.w,
+                        height: 90.h,
+                        fit: BoxFit.contain,
                       ),
                     ),
-                  ),
-                  const Positioned(
-                    bottom: -55,
-                    left: -14,
-                    child: Text("Rs. 199.00\nFries"),
-                  ),
-                ],
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: 24,
+                        height: 24,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFF14530),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        child: const Icon(
+                          Icons.add,
+                          color: Colors.white,
+                          size: 18.0,
+                        ),
+                      ),
+                    ),
+                    Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Text("Rs. 199.00\nFries")),
+                  ],
+                ),
               ),
-              const SizedBox(width: 10),
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Image.asset(
-                    "assets/images/cart_img4.png",
-                    width: 86,
-                    height: 79.03,
-                  ),
-                  Positioned(
-                    left: -35,
-                    child: Image.asset(
-                      "assets/images/cart_img5.png",
-                      width: 150,
+              Container(
+                height: 160.h,
+                width: 108.w,
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Image.asset(
+                      "assets/images/cart_screen_img6.png",
+                      width: 140.w,
+                      height: 120.h,
+                      fit: BoxFit.contain,
                     ),
-                  ),
-                  Positioned(
-                    bottom: -17,
-                    left: 58,
-                    child: Container(
-                      alignment: Alignment.center,
-                      width: 24,
-                      height: 24,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF14530),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      child: const Icon(
-                        Icons.add,
-                        color: Colors.white,
-                        size: 18.0,
+                    Positioned(
+                      top: 25.h,
+                      right: -8.w,
+                      child: Image.asset(
+                        "assets/images/cart_screen_img7.png",
+                        width: 115.w,
+                        height: 75.h,
+                        fit: BoxFit.contain,
                       ),
                     ),
-                  ),
-                  const Positioned(
-                    bottom: -55,
-                    left: -14,
-                    child: Text("Rs. 199.00\nFries"),
-                  ),
-                ],
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: 24,
+                        height: 24,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFF14530),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        child: const Icon(
+                          Icons.add,
+                          color: Colors.white,
+                          size: 18.0,
+                        ),
+                      ),
+                    ),
+                    Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Text("Rs. 199.00\nWrap")),
+                  ],
+                ),
               ),
-              const SizedBox(width: 10),
-              Stack(
-                clipBehavior: Clip.none,
-                children: [
-                  Image.asset(
-                    "assets/images/cart_img4.png",
-                    width: 86,
-                    height: 79.03,
-                  ),
-                  Positioned(
-                    left: -35,
-                    child: Image.asset(
-                      "assets/images/cart_img5.png",
-                      width: 150,
+              Container(
+                height: 160.h,
+                width: 108.w,
+                child: Stack(
+                  clipBehavior: Clip.none,
+                  children: [
+                    Image.asset(
+                      "assets/images/cart_screen_img8.png",
+                      width: 130.w,
+                      height: 100.h,
+                      fit: BoxFit.contain,
                     ),
-                  ),
-                  Positioned(
-                    bottom: -17,
-                    left: 58,
-                    child: Container(
-                      alignment: Alignment.center,
-                      width: 24,
-                      height: 24,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFF14530),
-                        borderRadius: BorderRadius.circular(5.0),
-                      ),
-                      child: const Icon(
-                        Icons.add,
-                        color: Colors.white,
-                        size: 18.0,
+                    Positioned(
+                      top: 40.h,
+                      right: -10.w,
+                      child: Image.asset(
+                        "assets/images/cart_screen_img9.png",
+                        width: 120.w,
+                        height: 80.h,
+                        fit: BoxFit.contain,
                       ),
                     ),
-                  ),
-                  const Positioned(
-                    bottom: -55,
-                    left: -14,
-                    child: Text("Rs. 199.00\nFries"),
-                  ),
-                ],
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Container(
+                        alignment: Alignment.center,
+                        width: 24,
+                        height: 24,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFF14530),
+                          borderRadius: BorderRadius.circular(5.0),
+                        ),
+                        child: const Icon(
+                          Icons.add,
+                          color: Colors.white,
+                          size: 18.0,
+                        ),
+                      ),
+                    ),
+                    Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Text("Rs. 200.00\nZinger")),
+                  ],
+                ),
               ),
             ],
           ),
@@ -363,23 +417,31 @@ class CartScreen extends StatelessWidget {
     return Stack(
       clipBehavior: Clip.none,
       children: [
-        Image.asset("assets/images/cart_img10.png"),
-        Positioned.fill(
-          child: Center(
+        Material(
+          elevation: 3.0,
+          child: Container(
+            height: 80.h,
+            width: double.infinity,
+            color: Color(0xFF2099AA),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Image.asset("assets/images/cart_img11.png"),
-                const Column(
+                Image.asset(
+                  "assets/images/cart_screen_img10.png",
+                  width: 55.w,
+                  height: 55.h,
+                  fit: BoxFit.cover,
+                ),
+                Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text("Get free delivery with pro"),
-                    SizedBox(height: 10),
+                    SizedBox(height: 6.h),
                     Text("Subscribe from Rs. 150.00/\nmonth"),
                   ],
                 ),
-                const Text(
+                Text(
                   "Add to cart",
                   style: TextStyle(color: Color(0xFFFFD726)),
                 ),
@@ -387,9 +449,32 @@ class CartScreen extends StatelessWidget {
             ),
           ),
         ),
+        // const Positioned.fill(
+        //   child: Center(
+        //     child: Row(
+        //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //       children: [
+        //         // Image.asset("assets/images/cart_img11.png"),
+        //         Column(
+        //           mainAxisAlignment: MainAxisAlignment.center,
+        //           crossAxisAlignment: CrossAxisAlignment.start,
+        //           children: [
+        //             Text("Get free delivery with pro"),
+        //             SizedBox(height: 10),
+        //             Text("Subscribe from Rs. 150.00/\nmonth"),
+        //           ],
+        //         ),
+        //         Text(
+        //           "Add to cart",
+        //           style: TextStyle(color: Color(0xFFFFD726)),
+        //         ),
+        //       ],
+        //     ),
+        //   ),
+        // ),
         Positioned(
-          top: -15,
-          right: 80,
+          top: -25.h,
+          right: 70.w,
           child: Container(
             alignment: Alignment.center,
             width: 45,
@@ -408,17 +493,18 @@ class CartScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildSummarySection() {
+  Widget _buildSummarySection(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 30.0),
+      margin: EdgeInsets.symmetric(horizontal: 25.w),
       child: Column(
         children: [
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [Text("Subtotal"), Text("Rs. 1799.01")],
           ),
-          const SizedBox(height: 15),
+          SizedBox(height: 15.h),
           Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Column(
@@ -428,24 +514,39 @@ class CartScreen extends StatelessWidget {
                   Text("Welcome gift: free delivery"),
                 ],
               ),
-              Image.asset("assets/images/cart_img12.png"),
+              Container(
+                alignment: Alignment.center,
+                height: 25.h,
+                width: 60.w,
+                decoration: BoxDecoration(
+                  color: AppColor.amber,
+                  borderRadius: BorderRadius.circular(6.0),
+                ),
+                child: Text(
+                  "Free",
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                        fontSize: 12.sp,
+                        fontWeight: FontWeight.w500,
+                      ),
+                ),
+              ),
             ],
           ),
-          const SizedBox(height: 15),
-          const Row(
+          SizedBox(height: 15.h),
+          Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 children: [
                   Text("Platform Fee"),
-                  SizedBox(width: 5),
+                  SizedBox(width: 5.w),
                   Icon(Icons.info_outlined)
                 ],
               ),
-              Text("Rs. 10.00"),
+              const Text("Rs. 10.00"),
             ],
           ),
-          const SizedBox(height: 15),
+          SizedBox(height: 15.h),
           const Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -458,12 +559,62 @@ class CartScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildPromotionalImage() {
-    return Stack(
+  Widget _buildPromotionalImage(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        Image.asset("assets/images/cart_img13.png"),
-        Positioned.fill(
-            child: Center(child: Image.asset("assets/images/cart_img14.png"))),
+        InkWell(
+          onTap: () {},
+          child: Container(
+            alignment: Alignment.center,
+            height: 55.h,
+            width: 160.w,
+            decoration: const BoxDecoration(
+                color: AppColor.red2,
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(6.0),
+                  bottomRight: Radius.circular(6.0),
+                )),
+            child: Text(
+              "Apply a Voucher",
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    fontSize: 14.sp,
+                    color: AppColor.white,
+                    fontWeight: FontWeight.w500,
+                  ),
+            ),
+          ),
+        ),
+        Text(
+          "OR",
+          style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w600,
+              ),
+        ),
+        InkWell(
+          onTap: () {},
+          child: Container(
+            alignment: Alignment.center,
+            height: 55.h,
+            width: 160.w,
+            decoration: const BoxDecoration(
+                color: AppColor.red2,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(6.0),
+                  bottomLeft: Radius.circular(6.0),
+                )),
+            child: Text(
+              "Apply a Promocode",
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                    fontSize: 14.sp,
+                    color: AppColor.white,
+                    fontWeight: FontWeight.w500,
+                  ),
+            ),
+          ),
+        ),
       ],
     );
   }
@@ -482,20 +633,21 @@ class CartScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildFooterImage(screenWidth, screenHeight) {
+  Widget _buildFooterImage(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-      //margin: EdgeInsets.all(20),
-      width: screenWidth,
-      height: screenHeight * 0.080,
-      decoration: const BoxDecoration(color: Colors.amberAccent),
-      child: const Center(
-          child: Text(
+      alignment: Alignment.center,
+      width: double.infinity,
+      height: 50.h,
+      decoration: const BoxDecoration(
+        color: AppColor.amber,
+      ),
+      child: Text(
         "Total Rs. 2.059",
-        maxLines: 3,
-        style: TextStyle(
-            fontSize: 14, fontWeight: FontWeight.bold, color: Colors.black),
-      )),
+        style: Theme.of(context).textTheme.displaySmall!.copyWith(
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w700,
+            ),
+      ),
     );
   }
 }
