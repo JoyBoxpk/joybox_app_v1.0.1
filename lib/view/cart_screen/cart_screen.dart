@@ -2,11 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/common_widgets/common_dropdown_button.dart';
 import 'package:joy_box_app/common_widgets/common_elevated_button.dart';
 import 'package:joy_box_app/common_widgets/common_switch_widget.dart';
 import 'package:joy_box_app/common_widgets/custom_image_view.dart';
 import 'package:joy_box_app/res/color.dart';
+import 'package:joy_box_app/view/checkout_presentation/checkout_screen.dart';
 
 import '../../common_widgets/common_appbar.dart';
 
@@ -54,7 +56,7 @@ class CartScreen extends StatelessWidget {
                   borderRadius: 12.0,
                   height: 60.h,
                   width: 260.w,
-                  onPressed: () {},
+                  onPressed: ()=> context.goNamed(CheckoutScreen.routeName),
                   text: "Confirm payment and address",
                 ),
               ),

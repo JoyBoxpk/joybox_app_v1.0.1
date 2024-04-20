@@ -27,6 +27,7 @@ class CommonElevatedButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      borderRadius: BorderRadius.circular(borderRadius ?? 6.0),
       onTap: onPressed,
       child: Container(
         height: height ?? 20.h,
