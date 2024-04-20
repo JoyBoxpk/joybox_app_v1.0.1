@@ -39,8 +39,8 @@ class PopularRestaurantsScreenWidget extends StatelessWidget {
                   children: [
                     Container(
                       alignment: Alignment.centerLeft,
-                      padding: EdgeInsets.only(left: 8.w),
-                      width: 200.w,
+                      padding: EdgeInsets.only(left: 15.w, right: 14.w),
+                      // width: 200.w,
                       height: 40.h,
                       decoration: const BoxDecoration(
                         color: Colors.amber,
@@ -62,7 +62,7 @@ class PopularRestaurantsScreenWidget extends StatelessWidget {
                     Container(
                       alignment: Alignment.centerLeft,
                       padding: EdgeInsets.only(left: 8.w),
-                      width: 220.w,
+                      width: 210.w,
                       height: 34.h,
                       decoration: const BoxDecoration(
                         color: Colors.amber,
@@ -103,6 +103,7 @@ class PopularRestaurantsScreenWidget extends StatelessWidget {
                     onPressed: () {},
                     text: "Order Now",
                     buttonColor: AppColor.red1.withOpacity(0.8),
+                    borderRadius: 10.0,
                   ),
                 ),
               ),
@@ -173,8 +174,8 @@ class PopularRestaurantsScreenWidget extends StatelessWidget {
               ),
               Text("Opening 11pm -12am",
                   style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        fontSize: 15.sp,
-                        fontWeight: FontWeight.w500,
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.w400,
                       )),
             ],
           ),

@@ -14,10 +14,10 @@ import 'widgets/Delivery_widget.dart';
 import 'widgets/Order_summary_widget.dart';
 
 class CheckoutScreen extends StatelessWidget {
-  CheckoutScreen({Key? key}) : super(key: key);
+  CheckoutScreen({super.key});
 
 
-  static const String routeName = "checkout-scren";
+  static const String routeName = "checkout-screen";
 
   final _controller = ValueNotifier<bool>(false);
   
@@ -43,8 +43,6 @@ class CheckoutScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // SizedBox(height: screenHeight * 0.080),
-                  // SizedBox(height: screenHeight * 0.020),
                   Delivery_widget(
                       screenHeight: screenHeight,
                       screenWidth: screenWidth,

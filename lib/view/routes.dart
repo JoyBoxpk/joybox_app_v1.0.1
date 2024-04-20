@@ -55,6 +55,11 @@ final List<RouteBase> appRoutes = [
     builder: (context, state) => const HomeScreen(),
     routes: [
       GoRoute(
+        path: PopularRestaurantsScreen.routeName,
+        name: PopularRestaurantsScreen.routeName,
+        builder: (context, state) => const PopularRestaurantsScreen(),
+      ),
+      GoRoute(
         path: SettingScreen.routeName,
         name: SettingScreen.routeName,
         builder: (context, state) => const SettingScreen(),
@@ -93,11 +98,6 @@ final List<RouteBase> appRoutes = [
               path: JoyboxPicksScreen.routeName,
               name: JoyboxPicksScreen.routeName,
               builder: (context, state) => const JoyboxPicksScreen(),
-            ),
-            GoRoute(
-              path: PopularRestaurantsScreen.routeName,
-              name: PopularRestaurantsScreen.routeName,
-              builder: (context, state) => const PopularRestaurantsScreen(),
             ),
             GoRoute(
               path: UserFavRestaurentScreen.routeName,
@@ -140,11 +140,6 @@ final List<RouteBase> appRoutes = [
         name: TransactionsScreen.routeName,
         builder: (context, state) => const TransactionsScreen(),
       ),
-      // GoRoute(
-      //   path: PopularRestaurantsScreen.routeName,
-      //   name: PopularRestaurantsScreen.routeName,
-      //   builder: (context, state) => const PopularRestaurantsScreen(),
-      // ),
       GoRoute(
         path: OffersScreen.routeName,
         name: OffersScreen.routeName,
@@ -164,7 +159,7 @@ final List<RouteBase> appRoutes = [
                       path: InnerFastFoodResScreen.routeName,
                       name: InnerFastFoodResScreen.routeName,
                       builder: (context, state) =>
-                          const InnerFastFoodResScreen(),
+                      const InnerFastFoodResScreen(),
                       routes: [
                         GoRoute(
                             path: CartScreen.routeName,

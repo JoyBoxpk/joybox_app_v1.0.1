@@ -53,6 +53,7 @@ class _FastFoodMainScreenState extends State<FastFoodMainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CommonAppBar(
+        isCircular: true,
         text: "Fast Food",
       ),
       body: Container(
