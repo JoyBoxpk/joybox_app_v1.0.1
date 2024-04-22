@@ -65,24 +65,27 @@ class PaymentdetailsWidget extends StatelessWidget {
                     // });
                   },
                 ),
-                const Text("Remeber me")
+                Text(
+                  "Remeber me",
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodySmall!
+                      .copyWith(fontSize: 12.sp, fontWeight: FontWeight.w300),
+                )
               ],
             ),
-            SizedBox(
-              width: 200.w,
-              child: CommonElevatedButton(
-                onPressed: () {
-                  
-                },
-                width: screenWidth*0.8,
-                text: "Confirm address"),
-            )
+            CommonElevatedButton(
+                onPressed: () {},
+                width: screenWidth * 0.6,
+                height: 40.h,
+                text: "Confirm address")
           ],
         ),
       ),
     );
   }
 }
+
 class CustomTxtField extends StatelessWidget {
   const CustomTxtField({
     Key? key,
@@ -93,14 +96,11 @@ class CustomTxtField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Material(
       elevation: 5,
       child: SizedBox(
         child: TextFormField(
-          
-          
-            style: const TextStyle(color: Colors.black,fontSize: 15),
+            style: const TextStyle(color: Colors.black, fontSize: 15),
             cursorColor: Colors.amberAccent,
             decoration: InputDecoration(
                 hintText: hinttxt,
@@ -111,6 +111,7 @@ class CustomTxtField extends StatelessWidget {
     );
   }
 }
+
 class PaymentdetailsInnerWidget extends StatelessWidget {
   const PaymentdetailsInnerWidget({
     Key? key,
@@ -123,7 +124,7 @@ class PaymentdetailsInnerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final textstyle = Theme.of(context).textTheme;
+    final textstyle = Theme.of(context).textTheme;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -134,9 +135,7 @@ class PaymentdetailsInnerWidget extends StatelessWidget {
         ),
         Text(
           text_2,
-          style: textstyle.bodyMedium!.copyWith(
-            color: Colors.red
-          ),
+          style: textstyle.bodyMedium!.copyWith(color: Colors.red),
         )
       ],
     );

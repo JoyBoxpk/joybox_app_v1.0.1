@@ -16,11 +16,9 @@ import 'widgets/Order_summary_widget.dart';
 class CheckoutScreen extends StatelessWidget {
   CheckoutScreen({super.key});
 
-
   static const String routeName = "checkout-screen";
 
   final _controller = ValueNotifier<bool>(false);
-  
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +29,7 @@ class CheckoutScreen extends StatelessWidget {
     return Scaffold(
       appBar: const CommonAppBar(
         text: "Checkout",
+        isCircular: true,
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -86,9 +85,7 @@ class CheckoutScreen extends StatelessWidget {
           ],
         ),
       ),
-    
     );
-    
   }
 }
 
@@ -110,7 +107,8 @@ void showCustomDialogue(BuildContext context) {
               backgroundColor: Colors.transparent,
               insetPadding: const EdgeInsets.all(10),
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.7,
                 color: const Color(0XFFFFD726),
@@ -119,8 +117,8 @@ void showCustomDialogue(BuildContext context) {
                   children: [
                     Container(
                       width: MediaQuery.of(context).size.width * 0.18,
-                      padding:
-                          const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 15),
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(10),
@@ -173,7 +171,6 @@ void showCustomDialogue(BuildContext context) {
                         //   textColor: Colors.white,
                         // ),
                         CustomButtom(
-
                           txt: "Status",
                           Bordercolor: Colors.red,
                           bgColor: Colors.red,
@@ -197,7 +194,6 @@ void showCustomDialogue(BuildContext context) {
     },
   );
 }
-
 
 class CustomButtom extends StatelessWidget {
   const CustomButtom({
@@ -248,15 +244,15 @@ class TotalPayWidget extends StatelessWidget {
       width: screenWidth,
       height: screenHeight * 0.080,
       decoration: const BoxDecoration(color: Colors.amberAccent),
-      child:  Center(
+      child: Center(
           child: Text(
         "Total Rs. 2.059",
         maxLines: 3,
         style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w600,
-                    color: AppColor.black,
-                  ),
+              fontSize: 14.sp,
+              fontWeight: FontWeight.w600,
+              color: AppColor.black,
+            ),
       )),
     );
   }
@@ -294,4 +290,3 @@ class TermsAndConditionsWidget extends StatelessWidget {
     );
   }
 }
-
