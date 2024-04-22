@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/view/authentication/sign_up_screen/sign_up_screen.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import '../res/color.dart';
 
 class GetStartedScreen extends StatefulWidget {
@@ -25,19 +24,25 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
           child: Stack(
             children: [
               Positioned(
-                left: -120,
-                top: -58,
-                child: Container(
-                  width: 480.w,
-                  height: 510,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColor.blue,
-                  ),
+                right: -95.w,
+                top: -15.h,
+                // child: Container(
+                //   width: 480.w,
+                //   height: 510,
+                //   decoration: const BoxDecoration(
+                //     shape: BoxShape.circle,
+                //     color: AppColor.blue,
+                //   ),
+                // ),
+                child: Image.asset(
+                  "assets/images/get_started_screen_img1.png",
+                  height: 570.h,
+                  width: 600.w,
+                  fit: BoxFit.contain,
                 ),
               ),
               Positioned(
-                top: -44.h,
+                top: -30.h,
                 right: -30.w,
                 child: Image.asset(
                   "assets/images/img1_get_started_screen.png",
@@ -105,9 +110,9 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 child: Text(
                   "JoyBox!",
                   style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                    color: Colors.white,
-                    fontSize: 70.sp,
-                  ),
+                        color: Colors.white,
+                        fontSize: 70.sp,
+                      ),
                 ),
               ),
               Positioned(
@@ -119,15 +124,14 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                     Text(
                       "We're so glad you're here",
                       style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                        color: Colors.white,
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w400,
-                      ),
+                            color: Colors.white,
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w400,
+                          ),
                     ),
                   ],
                 ),
               ),
-              
             ],
           ),
         ),

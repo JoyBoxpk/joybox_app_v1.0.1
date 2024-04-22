@@ -1,11 +1,7 @@
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:joy_box_app/common_widgets/custom_bottom_app_bar.dart';
 import 'package:joy_box_app/model/custom_item_model.dart';
 import 'package:joy_box_app/model/offer_item_model.dart';
 import 'package:joy_box_app/model/your_favourite_meal_item_model.dart';
@@ -13,7 +9,6 @@ import 'package:joy_box_app/res/color.dart';
 import 'package:joy_box_app/view/all_restaurents_screen/all_restaurents_screen_widget_model..dart';
 import 'package:joy_box_app/view/home_screen/widgets/custom_icon_button.dart';
 import 'package:joy_box_app/view/home_screen/widgets/custom_item.dart';
-import 'package:joy_box_app/view/home_screen/widgets/menu_tab_widget.dart';
 import 'package:joy_box_app/view/home_screen/widgets/offer_item_widget.dart';
 import 'package:joy_box_app/view/home_screen/widgets/popular_res_item.dart';
 import 'package:joy_box_app/view/home_screen/widgets/taditional_item_widget.dart';
@@ -22,10 +17,8 @@ import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/popular_restaurants_screen/popular_restaurants_screen.dart';
 import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
 import '../../common_widgets/drawer.dart';
 import '../../model/traditional_restaurants_item_model.dart';
-import '../Fast food/fast_food/fast_food_main/fast_food_main.dart';
 import '../joybox_choice/joybox_choice_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -42,13 +35,17 @@ class _HomeScreenState extends State<HomeScreen> {
   final CarouselController _carouselController6 = CarouselController();
   int activeIndex1 = 0;
   int activeIndex6 = 0;
+  int _currentIndex1 = 0;
   bool showProgressBar = true;
 
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   activeIndex1 = 0; // Initialize active index
-  // }
+  final List<String> tabList = [
+    "Fast Food",
+    "Pakistani Food",
+    "Chinese",
+    "Italian",
+    "Thai Food",
+  ];
+
 
   @override
   Widget build(BuildContext context) {
@@ -578,23 +575,65 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           SizedBox(height: 20.h),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InkWell(
-                  onTap: () => context.goNamed(FastFoodMainScreen.routeName),
-                  child: const MenuTabWidget(
-                    tabName: 'Fast Food',
-                    tabColor: AppColor.amber2,
+          // SingleChildScrollView(
+          //   scrollDirection: Axis.horizontal,
+          //   child: Row(
+          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //     children: [
+          //       InkWell(
+          //         onTap: () => context.goNamed(FastFoodMainScreen.routeName),
+          //         child: const MenuTabWidget(
+          //           tabName: 'Fast Food',
+          //           tabColor: AppColor.amber2,
+          //         ),
+          //       ),
+          //       const MenuTabWidget(tabName: 'Pakistani Food'),
+          //       const MenuTabWidget(tabName: "Chinese"),
+          //       const MenuTabWidget(tabName: "Italian"),
+          //       const MenuTabWidget(tabName: "Thai Food"),
+          //     ],
+          //   ),
+          // ),
+          SizedBox(
+            height: 44.h,
+            child: ListView.separated(
+              itemCount: tabList.length,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _currentIndex1 = index;
+                    });
+                  },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(horizontal: 10.w),
+                    decoration: BoxDecoration(
+                      color: _currentIndex1 == index
+                          ? AppColor.amber
+                          : Colors.transparent,
+                      borderRadius: BorderRadius.circular(6.0),
+                    ),
+                    alignment: Alignment.center,
+                    height: 20.h,
+                    // Adjusted height
+                    child: Text(
+                      tabList[index],
+                      style: Theme.of(context)
+                          .textTheme
+                          .displaySmall!
+                          .copyWith(
+                        fontSize:
+                        _currentIndex1 == index ? 15.sp : 13.sp,
+                        fontWeight: _currentIndex1 == index
+                            ? FontWeight.w500
+                            : FontWeight.w300,
+                      ),
+                    ),
                   ),
-                ),
-                const MenuTabWidget(tabName: 'Pakistani Food'),
-                const MenuTabWidget(tabName: "Chinese"),
-                const MenuTabWidget(tabName: "Italian"),
-                const MenuTabWidget(tabName: "Thai Food"),
-              ],
+                );
+              },
+              separatorBuilder: (context, index) => SizedBox(width: 2.w),
             ),
           ),
           SizedBox(height: 20.h),
@@ -632,6 +671,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
+
 
   Widget _buildAppBar() {
     return Container(
