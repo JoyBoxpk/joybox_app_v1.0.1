@@ -18,29 +18,29 @@ class InnerFastFoodResScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: CommonAppBar(
+        isCircular: true,
         backgroundColor: Colors.red,
         backArrowColor: Colors.red,
-        
         actions: [
-      IconButton(
-        icon: const Icon(
-          Icons.share,
-          color: Colors.white,
-        ),
-        onPressed: () {
-          // Add your navigation logic here
-        },
-      ),
-      IconButton(
-        icon: const Icon(
-          Icons.search,
-          color: Colors.white,
-        ),
-        onPressed: () {
-          // Add your navigation logic here
-        },
-      ),
-    ],
+          IconButton(
+            icon: const Icon(
+              Icons.share,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              // Add your navigation logic here
+            },
+          ),
+          IconButton(
+            icon: const Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
+            onPressed: () {
+              // Add your navigation logic here
+            },
+          ),
+        ],
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -65,13 +65,13 @@ class InnerFastFoodResScreen extends StatelessWidget {
                     children: [
                       Text(
                         'Sliders Party in the Box',
-                        style: textstyle.bodyMedium
-                            !.copyWith(fontWeight: FontWeight.bold),
+                        style: textstyle.bodyMedium!
+                            .copyWith(fontWeight: FontWeight.bold),
                       ),
                       Text(
                         "RS. 1599.00",
-                        style: textstyle.bodyMedium
-                            !.copyWith(fontWeight: FontWeight.bold),
+                        style: textstyle.bodyMedium!
+                            .copyWith(fontWeight: FontWeight.bold),
                       )
                     ],
                   ),
@@ -232,12 +232,12 @@ class Increment_Decrement_Widget extends StatelessWidget {
           border: Border.all(color: Border_Color!, strokeAlign: 1)),
       child: Center(
           child: Text(
-        text,style: 
-        Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          //fontSize: 14.sp,
-                          fontWeight: FontWeight.bold,
-                          color: AppColor.white,
-                        ),
+        text,
+        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+              //fontSize: 14.sp,
+              fontWeight: FontWeight.bold,
+              color: AppColor.white,
+            ),
       )),
     );
   }
@@ -269,15 +269,17 @@ class RemoveProductWidget extends StatelessWidget {
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.amberAccent),
                 borderRadius: BorderRadius.circular(5)),
-            child:  Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("Remove it from my order",
-                 style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.normal,
-                    color: AppColor.black,
-                  ),),
+                Text(
+                  "Remove it from my order",
+                  style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                        fontSize: 14.sp,
+                        fontWeight: FontWeight.normal,
+                        color: AppColor.black,
+                      ),
+                ),
                 const Icon(
                   Icons.arrow_right_sharp,
                   color: Colors.amberAccent,
@@ -392,21 +394,23 @@ class PurchuseDetailsSection extends StatelessWidget {
         children: [
           Row(
             children: [
-               CustomCheckboxButton(
+              CustomCheckboxButton(
                 checkColor: isCompleted ? AppColor.amber : AppColor.red1,
                 bordercolor: Colors.white,
-              initialValue: false, // Set initial value of checkbox
-              onChanged: (value) {
-                // Handle checkbox value change here
-                print('Checkbox value: $value');
-              },
-            ),
-            SizedBox(width: 5.w,),
+                initialValue: false, // Set initial value of checkbox
+                onChanged: (value) {
+                  // Handle checkbox value change here
+                  print('Checkbox value: $value');
+                },
+              ),
+              SizedBox(
+                width: 5.w,
+              ),
               Text(
                 text,
                 style: isCompleted
-                    ? textstyle.bodyMedium
-                        !.copyWith(color: Colors.white, fontSize: 12.h)
+                    ? textstyle.bodyMedium!
+                        .copyWith(color: Colors.white, fontSize: 12.h)
                     : textstyle.bodyMedium!.copyWith(fontSize: 12.h),
                 maxLines: 2,
               )
@@ -415,8 +419,8 @@ class PurchuseDetailsSection extends StatelessWidget {
           Text(
             "Free",
             style: isCompleted
-                ? textstyle.bodyMedium
-                    !.copyWith(color: Colors.white, fontSize: 12.h)
+                ? textstyle.bodyMedium!
+                    .copyWith(color: Colors.white, fontSize: 12.h)
                 : textstyle.bodyMedium!.copyWith(fontSize: 12.h),
           )
         ],
@@ -453,11 +457,11 @@ class Frequently_bought extends StatelessWidget {
                   ),
                   child: Text(
                     "Optional",
-                     style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.normal,
-                    color: AppColor.white,
-                  ),
+                    style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.normal,
+                          color: AppColor.white,
+                        ),
                   ),
                 ),
               )
@@ -482,7 +486,7 @@ class Frequently_bought extends StatelessWidget {
           SizedBox(
             height: 20.w,
           ),
-           Row(
+          Row(
             children: [
               const Icon(
                 Icons.arrow_drop_down,
@@ -493,11 +497,11 @@ class Frequently_bought extends StatelessWidget {
               ),
               Text(
                 "View 7 more",
-                 style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.normal,
-                    color: AppColor.red1,
-                  ),
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.normal,
+                      color: AppColor.red1,
+                    ),
               ),
             ],
           ),
@@ -530,12 +534,13 @@ class InstrctionsWidget extends StatelessWidget {
           SizedBox(
             height: 20.w,
           ),
-           Text(
-            "Please let us know if you are allergic to anything or if we need to avoid anything", style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.normal,
-                    color: AppColor.black,
-                  ),
+          Text(
+            "Please let us know if you are allergic to anything or if we need to avoid anything",
+            style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.normal,
+                  color: AppColor.black,
+                ),
             maxLines: 2,
           ),
           SizedBox(
@@ -574,7 +579,7 @@ class FrequentRowSection extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-             CustomCheckboxButton(
+            CustomCheckboxButton(
               checkColor: AppColor.amber,
               bordercolor: Colors.red,
               initialValue: false, // Set initial value of checkbox
@@ -583,7 +588,9 @@ class FrequentRowSection extends StatelessWidget {
                 print('Checkbox value: $value');
               },
             ),
-            SizedBox(width: 5.w,),
+            SizedBox(
+              width: 5.w,
+            ),
             CustomImageView(
               imagePath: imagpath,
               fit: BoxFit.cover,

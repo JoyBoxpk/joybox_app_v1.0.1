@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/view/all_restaurents_screen/all_restaurents_screen_widget_model..dart';
 import 'package:joy_box_app/view/joybox_picks_screen/joybox_picks_screen.dart';
+import 'package:joy_box_app/view/notificaion_screen/notification_screen.dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/payment_method/payment_method_screen.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
@@ -38,6 +39,11 @@ final List<RouteBase> appRoutes = [
     path: GetStartedScreen.routeName,
     name: GetStartedScreen.routeName,
     builder: (context, state) => const GetStartedScreen(),
+  ),
+  GoRoute(
+    path: NotificationScreen.routeName,
+    name: NotificationScreen.routeName,
+    builder: (context, state) => const NotificationScreen(),
   ),
   GoRoute(
     path: SignUpScreen.routeName,
@@ -159,7 +165,7 @@ final List<RouteBase> appRoutes = [
                       path: InnerFastFoodResScreen.routeName,
                       name: InnerFastFoodResScreen.routeName,
                       builder: (context, state) =>
-                      const InnerFastFoodResScreen(),
+                          const InnerFastFoodResScreen(),
                       routes: [
                         GoRoute(
                             path: CartScreen.routeName,
