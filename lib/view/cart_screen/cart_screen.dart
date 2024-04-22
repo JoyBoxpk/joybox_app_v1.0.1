@@ -21,6 +21,7 @@ class CartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const CommonAppBar(
+        showBackButton: false,
         isCircular: true,
         text: "Cart",
       ),

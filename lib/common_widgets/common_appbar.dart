@@ -14,7 +14,8 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     this.toolbarHeight = 80,
     this.elevation = 0,
-    this.isCircular = false, // New property for circular corners
+    this.isCircular = false,
+    this.showBackButton = true,// New property for circular corners
   });
 
   final Color? backgroundColor;
@@ -25,7 +26,8 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
   final List<Widget>? actions;
   final double toolbarHeight;
   final double elevation;
-  final bool isCircular; // New property for circular corners
+  final bool isCircular;
+  final bool showBackButton;
 
   @override
   Widget build(BuildContext context) {
@@ -36,18 +38,18 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       shape: isCircular
           ? const RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(20),
-                bottomRight: Radius.circular(20),
-              ),
-            )
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+        ),
+      )
           : null, // Apply circular border radius conditionally
       title: Padding(
         padding: EdgeInsets.only(left: 12.w, bottom: 4.h),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
+            showBackButton ? Container(
               height: 39.h,
               width: 38.w,
               decoration: BoxDecoration(
@@ -72,16 +74,16 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
                   Navigator.pop(context);
                 },
               ),
-            ),
+            ) : const SizedBox(),
             SizedBox(width: 10.w),
             FittedBox(
               child: Text(
                 text ?? "",
                 style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w600,
-                      color: titleColor ?? AppColor.black,
-                    ),
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.w600,
+                  color: titleColor ?? AppColor.black,
+                ),
               ),
             )
           ],
