@@ -226,7 +226,7 @@ class _OffersScreenState extends State<OffersScreen> {
               clipBehavior: Clip.none,
               enlargeCenterPage: true,
               viewportFraction: 0.9999,
-              height: 220.h,
+              height: 210.h,
               autoPlay: false,
               enableInfiniteScroll: true,
               onPageChanged: (index, reason) {

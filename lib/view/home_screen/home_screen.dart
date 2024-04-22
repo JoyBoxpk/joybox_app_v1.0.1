@@ -137,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildOfferRow(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 25.w),
+      margin: EdgeInsets.symmetric(horizontal: 18.w),
       width: double.infinity,
       height: 270.h,
       child: Column(
@@ -166,7 +166,7 @@ class _HomeScreenState extends State<HomeScreen> {
             itemCount: OfferItemModel.offerItemList.length,
             options: CarouselOptions(
               clipBehavior: Clip.none,
-              viewportFraction: 0.9995,
+              viewportFraction: 0.9997,
               height: 210.h,
               autoPlay: false,
               enlargeCenterPage: true,

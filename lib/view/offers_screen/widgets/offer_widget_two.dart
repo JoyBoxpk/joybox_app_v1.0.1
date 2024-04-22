@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:joy_box_app/model/offer_widget_two_model.dart';
@@ -19,18 +18,17 @@ class OfferWidgetTwo extends StatelessWidget {
     return Container(
       clipBehavior: Clip.none,
       width: 350.w,
-      height: 220.h,
+      height: 210.h,
+      color: Colors.blue,
       child: Row(
         children: [
           Expanded(
             flex: 3,
             child: Container(
               alignment: Alignment.center,
-              padding: EdgeInsets.only(bottom: 4.h),
               color: AppColor.yellow,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-               mainAxisAlignment: MainAxisAlignment.end,
+              child: ListView(
+                padding: EdgeInsets.only(top: 14.h, right: 8.w, left: 8.w),
                 children: [
                   Image.asset(
                     item.imageOnePath,
@@ -62,22 +60,23 @@ class OfferWidgetTwo extends StatelessWidget {
                           fontWeight: FontWeight.w400,
                         ),
                       ),
+                      SizedBox(height: 3.h),
+                      Text(
+                        "Rs.${item.price.toString()}",
+                        style:
+                        Theme.of(context).textTheme.displaySmall!.copyWith(
+                          fontSize: 18.sp,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ],
                   ),
-                  Text(
-                    "Rs.${item.price.toString()}",
-                    style:
-                    Theme.of(context).textTheme.displaySmall!.copyWith(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  SizedBox(height: 15.h),
+                  SizedBox(height: 5.h),
                   CommonElevatedButton(
                     onPressed: () {},
                     text: "Add to Cart",
                     height: 50.h,
-                    width: 120.w,
+                    width: 100.w,
                     fontSize: 17.sp,
                   ),
                 ],
