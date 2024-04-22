@@ -8,6 +8,7 @@ import 'package:joy_box_app/view/authentication/widgets/common_password_textfiel
 import 'package:joy_box_app/view/authentication/widgets/social_buttons.dart';
 import 'package:joy_box_app/view/authentication/widgets/switch_screen_option.dart';
 import 'package:joy_box_app/view/home_screen/home_screen.dart';
+import 'package:joy_box_app/view/main_screen/main_screen.dart';
 
 import '../../../common_widgets/common_elevated_button.dart';
 import '../../../res/color.dart';
@@ -42,7 +43,8 @@ class _LoginScreenState extends State<LoginScreen> {
         _isButtonPressed = true; // Set the button pressed state to true
       });
       try {
-        context.goNamed(HomeScreen.routeName);
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const MainScreen()));
       } catch (e) {
         // Catch all other unexpected errors
         print('Unexpected Error: $e');
@@ -100,10 +102,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       Text(
                         "Login",
                         style: Theme.of(context).textTheme.headline6!.copyWith(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 38.sp,
-                        ),
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 38.sp,
+                            ),
                       ),
                       SizedBox(height: 40.h),
                       _buildFieldText("Email address"),
@@ -160,14 +162,17 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   //Common text widget
-  Widget _buildFieldText(String text, {Alignment alignment = Alignment.centerLeft}) {
+  Widget _buildFieldText(String text,
+      {Alignment alignment = Alignment.centerLeft}) {
     return Align(
       alignment: alignment,
       child: Text(
         text,
         style: TextStyle(
           color: Colors.black,
-          fontSize: _isButtonPressed ? 12.sp : 14.sp, // Adjust font size based on button press
+          fontSize: _isButtonPressed
+              ? 12.sp
+              : 14.sp, // Adjust font size based on button press
           fontWeight: FontWeight.w400,
         ),
       ),

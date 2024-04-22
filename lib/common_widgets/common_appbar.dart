@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:joy_box_app/res/color.dart';
@@ -72,14 +73,16 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
                 },
               ),
             ),
-            SizedBox(width: 20.w),
-            Text(
-              text ?? "",
-              style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.w600,
-                    color: titleColor ?? AppColor.black,
-                  ),
+            SizedBox(width: 10.w),
+            FittedBox(
+              child: Text(
+                text ?? "",
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.w600,
+                      color: titleColor ?? AppColor.black,
+                    ),
+              ),
             )
           ],
         ),
