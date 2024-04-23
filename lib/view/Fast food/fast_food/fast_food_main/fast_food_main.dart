@@ -11,7 +11,7 @@ import '../../../../common_widgets/common_dropdown_button.dart';
 class FastFoodMainScreen extends StatefulWidget {
   const FastFoodMainScreen({super.key});
 
-  static const String routeName = 'fast-food-main';
+  static const String routeName = '/fast-food';
 
   @override
   State<FastFoodMainScreen> createState() => _FastFoodMainScreenState();

@@ -24,7 +24,7 @@ import '../joybox_choice/joybox_choice_screen.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
-  static const String routeName = "/home-screen";
+  static const String routeName = "/home-page";
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();

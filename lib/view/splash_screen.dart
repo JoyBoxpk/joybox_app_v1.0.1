@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:joy_box_app/view/notificaion_screen/notification_screen.dart';
-import 'get_started_screen.dart';
+import 'package:joy_box_app/view/get_started_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(milliseconds: 3000), () {
-      context.goNamed(NotificationScreen.routeName);
+      Navigator.pushReplacementNamed(context, GetStartedScreen.routeName);
     });
   }
 
