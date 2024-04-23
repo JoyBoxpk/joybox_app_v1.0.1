@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 
 import '../../../common_widgets/common_switch_widget.dart';
 import '../../../common_widgets/custom_image_view.dart';

@@ -39,7 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
         _isButtonPressed = true; // Set the button pressed state to true
       });
       try {
-        Navigator.pushReplacementNamed(context, RoutePaths.home);
+        Navigator.pushReplacementNamed(context, RoutePaths.mainPage);
       } catch (e) {
         // Catch all other unexpected errors
         print('Unexpected Error: $e');

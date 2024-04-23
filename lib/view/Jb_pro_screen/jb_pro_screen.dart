@@ -10,7 +10,7 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 class JbProScreen extends StatefulWidget {
   const JbProScreen({super.key});
 
-  static const String routeName = "jb-pro-screen";
+  static const String routeName = "JB-PRO";
 
   @override
   State<JbProScreen> createState() => _JbProScreenState();
@@ -66,8 +66,9 @@ class _JbProScreenState extends State<JbProScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CommonAppBar(
+      appBar: const CommonAppBar(
         text: "Joybox",
+        isCircular: true,
       ),
       body: SingleChildScrollView(
         child: Stack(

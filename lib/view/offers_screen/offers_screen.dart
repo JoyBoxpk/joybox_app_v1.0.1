@@ -15,7 +15,7 @@ import 'package:joy_box_app/view/offers_screen/widgets/offer_widget_two.dart';
 class OffersScreen extends StatefulWidget {
   const OffersScreen({super.key});
 
-  static const String routeName = 'offers-screen';
+  static const String routeName = 'offers';
 
   @override
   State<OffersScreen> createState() => _OffersScreenState();

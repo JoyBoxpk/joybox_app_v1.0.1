@@ -11,7 +11,7 @@ import '../../common_widgets/common_dropdown_button.dart';
 class PopularRestaurantsScreen extends StatefulWidget {
   const PopularRestaurantsScreen({super.key});
 
-  static const String routeName = "popular-restaurants-screen";
+  static const String routeName = "/popular-restaurants";
 
   @override
   State<PopularRestaurantsScreen> createState() => _PopularRestaurantsScreenState();

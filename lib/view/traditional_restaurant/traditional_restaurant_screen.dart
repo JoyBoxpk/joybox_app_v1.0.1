@@ -9,10 +9,10 @@ import 'package:joy_box_app/core/utils/image_constant.dart';
 import 'package:joy_box_app/res/color.dart';
 import 'package:joy_box_app/view/traditional_restaurant/model/traditional_restaurant_model.dart';
 
-class TraditionalRestaurant extends StatelessWidget {
-  TraditionalRestaurant({super.key});
+class TraditionalRestaurantScreen extends StatelessWidget {
+  TraditionalRestaurantScreen({super.key});
 
-  static const String routeName = 'Traditional-Restaurant-Screen';
+  static const String routeName = 'Traditional-restaurants';
 
   final List<String> tablist = [
     "Sort",

@@ -1,25 +1,23 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/model/custom_item_model.dart';
 import 'package:joy_box_app/model/offer_item_model.dart';
 import 'package:joy_box_app/model/your_favourite_meal_item_model.dart';
 import 'package:joy_box_app/res/color.dart';
-import 'package:joy_box_app/view/all_restaurents_screen/all_restaurents_screen_widget_model..dart';
 import 'package:joy_box_app/view/home_screen/widgets/custom_icon_button.dart';
 import 'package:joy_box_app/view/home_screen/widgets/custom_item.dart';
 import 'package:joy_box_app/view/home_screen/widgets/offer_item_widget.dart';
 import 'package:joy_box_app/view/home_screen/widgets/popular_res_item.dart';
 import 'package:joy_box_app/view/home_screen/widgets/taditional_item_widget.dart';
 import 'package:joy_box_app/view/home_screen/widgets/your_favourite_meal_item.dart';
-import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
-import 'package:joy_box_app/view/popular_restaurants_screen/popular_restaurants_screen.dart';
+import 'package:joy_box_app/view/routes.dart';
 import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
 import '../../common_widgets/drawer.dart';
 import '../../model/traditional_restaurants_item_model.dart';
-import '../joybox_choice/joybox_choice_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -46,7 +44,6 @@ class _HomeScreenState extends State<HomeScreen> {
     "Thai Food",
   ];
 
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -61,14 +58,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(height: 28.h),
                 Text(
                   "What would you like to order",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodySmall!
-                      .copyWith(fontSize: 20.sp),
+                  style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                        fontSize: 22.sp,
+                        fontWeight: FontWeight.w400,
+                      ),
                 ),
-                SizedBox(height: 20.h),
+                SizedBox(height: 50.h),
                 _buildCentreBlock(context),
-                SizedBox(height: 40.h),
+                SizedBox(height: 120.h),
                 _popularRestaurantRow(context),
                 SizedBox(height: 60.h),
                 _buildMenu(context),
@@ -152,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       .titleLarge!
                       .copyWith(color: Colors.black, fontSize: 20.sp)),
               GestureDetector(
-                onTap: () => context.goNamed(OffersScreen.routeName),
+                onTap: () => Navigator.pushNamed(context, RoutePaths.offers),
                 child: Text("View all",
                     style: Theme.of(context)
                         .textTheme
@@ -220,9 +217,9 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          InkWell(
+          GestureDetector(
             onTap: () {
-              context.goNamed(AllRestaurentScreen.routeName);
+              Navigator.pushNamed(context, RoutePaths.allRestaurants);
             },
             child: Text(
               "All Restaurants",
@@ -245,7 +242,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               GestureDetector(
                 onTap: () =>
-                    context.goNamed(PopularRestaurantsScreen.routeName),
+                    Navigator.pushNamed(context, RoutePaths.popularRestaurants),
                 child: Text(
                   "See all",
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
@@ -304,119 +301,128 @@ class _HomeScreenState extends State<HomeScreen> {
           width: double.infinity,
           color: AppColor.grey,
         ),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: 20.w),
-          width: double.infinity,
-          height: 230.h,
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Expanded(
-                    child: SizedBox(
-                      height: 50.h,
-                      child: Material(
-                        borderRadius: BorderRadius.circular(12.0),
-                        elevation: 5.0,
-                        child: TextFormField(
-                          style: Theme.of(context)
+        Positioned(
+          top: -30.h,
+          left: 0, // Align with the left edge
+          right: 0, // Align with the right edge
+          child: Container(
+            margin: EdgeInsets.symmetric(horizontal: 20.w),
+            height: 60.h,
+            child: Row(
+              children: [
+                Expanded(
+                  child: SizedBox(
+                    height: 50.h,
+                    child: Material(
+                      borderRadius: BorderRadius.circular(12.0),
+                      elevation: 5.0,
+                      child: TextFormField(
+                        style: Theme.of(context)
+                            .textTheme
+                            .displaySmall!
+                            .copyWith(fontSize: 15.sp),
+                        decoration: InputDecoration(
+                          hintStyle: Theme.of(context)
                               .textTheme
                               .displaySmall!
-                              .copyWith(fontSize: 15.sp),
-                          decoration: InputDecoration(
-                            hintStyle: Theme.of(context)
-                                .textTheme
-                                .displaySmall!
-                                .copyWith(fontSize: 12.sp),
-                            hintText: "Find what you need . . .",
-                            prefixIcon: const Icon(Icons.search),
-                            suffixIcon: const Icon(Icons.history_toggle_off),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                              borderRadius: BorderRadius.circular(12.0),
+                              .copyWith(fontSize: 12.sp),
+                          hintText: "Find what you need . . .",
+                          prefixIcon: const Icon(Icons.search),
+                          suffixIconColor: AppColor.red2,
+                          suffixIcon: Padding(
+                            padding: const EdgeInsets.all(11.0),
+                            child: Image.asset(
+                              "assets/images/focus_icon.png",
                             ),
+                          ),
+                          border: OutlineInputBorder(
+                            borderSide: BorderSide.none,
+                            borderRadius: BorderRadius.circular(12.0),
                           ),
                         ),
                       ),
                     ),
                   ),
-                  SizedBox(width: 5.h),
-                  CustomIconButton(
-                    onPressed: () {},
-                    imagePath: "assets/images/img3_home_screen.png",
-                  ),
-                  CustomIconButton(
-                    onPressed: () {},
-                    imagePath: "assets/images/img4_home_screen.png",
-                  ),
-                  CustomIconButton(
-                    onPressed: () {},
-                    imagePath: "assets/images/img5_home_screen.png",
-                  ),
-                ],
-              ),
-              SizedBox(height: 50.h),
-              Expanded(
-                child: SizedBox(
-                  height: 250.h,
-                  child: Stack(
-                    children: [
-                      NotificationListener<ScrollNotification>(
-                        onNotification: (scrollNotification) {
-                          if (scrollNotification is ScrollUpdateNotification) {
-                            // Calculate progress based on the scroll offset
-                            double progress =
-                                (scrollNotification.metrics.pixels /
-                                        (scrollNotification
-                                            .metrics.maxScrollExtent)) *
-                                    2;
-                            // Clamp the progress between 0 and 1
-                            progress = progress.clamp(0.0, 1.0);
-                            // Update the state to reflect the progress
-                            setState(() {
-                              activeIndex1 = (progress *
-                                      CustomItemModel
-                                          .customItemModelList.length)
-                                  .round();
-                            });
-                          }
-                          return false;
-                        },
-                        child: ListView.separated(
-                          clipBehavior: Clip.none,
-                          scrollDirection: Axis.horizontal,
-                          itemCount: CustomItemModel.customItemModelList.length,
-                          separatorBuilder: (context, index) {
-                            return SizedBox(width: 20.h);
-                          },
-                          itemBuilder: (context, index) {
-                            final item =
-                                CustomItemModel.customItemModelList[index];
-                            return CustomItem(
-                              itemModel: item,
-                              index: index,
-                            );
-                          },
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.symmetric(horizontal: 140.w),
-                        child: Align(
-                          alignment: Alignment.bottomRight,
-                          child: LinearProgressIndicator(
-                            value: activeIndex1 /
-                                CustomItemModel.customItemModelList.length,
-                            backgroundColor: Colors.black12,
-                            valueColor:
-                                const AlwaysStoppedAnimation<Color>(Colors.red),
-                          ),
-                        ),
-                      ),
-                    ],
+                ),
+                SizedBox(width: 5.h),
+                CustomIconButton(
+                  onPressed: () {},
+                  imagePath: "assets/images/img3_home_screen.png",
+                ),
+                CustomIconButton(
+                  onPressed: () {},
+                  imagePath: "assets/images/img4_home_screen.png",
+                ),
+                CustomIconButton(
+                  onPressed: () {},
+                  imagePath: "assets/images/img5_home_screen.png",
+                ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: -40.h, // Adjust this value as needed
+          left: 0,
+          right: 0,
+          child: Container(
+            margin: EdgeInsets.only(left: 20.w),
+            height: 100.h,
+            child: Stack(
+              children: [
+                NotificationListener<ScrollNotification>(
+                  onNotification: (scrollNotification) {
+                    if (scrollNotification is ScrollUpdateNotification) {
+                      // Calculate progress based on the scroll offset
+                      double progress = (scrollNotification.metrics.pixels /
+                              (scrollNotification.metrics.maxScrollExtent)) *
+                          2;
+                      // Clamp the progress between 0 and 1
+                      progress = progress.clamp(0.0, 1.0);
+                      // Update the state to reflect the progress
+                      setState(() {
+                        activeIndex1 = (progress *
+                                CustomItemModel.customItemModelList.length)
+                            .round();
+                      });
+                    }
+                    return false;
+                  },
+                  child: ListView.separated(
+                    clipBehavior: Clip.none,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: CustomItemModel.customItemModelList.length,
+                    separatorBuilder: (context, index) {
+                      return SizedBox(width: 20.h);
+                    },
+                    itemBuilder: (context, index) {
+                      final item = CustomItemModel.customItemModelList[index];
+                      return CustomItem(
+                        itemModel: item,
+                        index: index,
+                      );
+                    },
                   ),
                 ),
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          bottom: -65.h, // Adjust this value as needed
+          left: 0,
+          right: 0,
+          child: Container(
+            padding: EdgeInsets.symmetric(horizontal: 140.w),
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: LinearProgressIndicator(
+                value:
+                    activeIndex1 / CustomItemModel.customItemModelList.length,
+                backgroundColor: Colors.black12,
+                valueColor: const AlwaysStoppedAnimation<Color>(Colors.red),
               ),
-            ],
+            ),
           ),
         ),
       ],
@@ -454,7 +460,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       .copyWith(color: Colors.black, fontSize: 20.sp),
                 ),
                 GestureDetector(
-                  onTap: () => context.goNamed(JoyBoxChoiceScreen.routeName),
+                  onTap: () =>
+                      Navigator.pushNamed(context, RoutePaths.joyboxChoice),
                   child: Text(
                     "View all",
                     style: Theme.of(context)
@@ -502,9 +509,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
               ),
               GestureDetector(
-                onTap: () {
-                  context.goNamed(TraditionalRestaurant.routeName);
-                },
+                onTap: () => Navigator.pushNamed(
+                    context, TraditionalRestaurantScreen.routeName),
                 child: Text(
                   "See all",
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
@@ -575,25 +581,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
           SizedBox(height: 20.h),
-          // SingleChildScrollView(
-          //   scrollDirection: Axis.horizontal,
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       InkWell(
-          //         onTap: () => context.goNamed(FastFoodMainScreen.routeName),
-          //         child: const MenuTabWidget(
-          //           tabName: 'Fast Food',
-          //           tabColor: AppColor.amber2,
-          //         ),
-          //       ),
-          //       const MenuTabWidget(tabName: 'Pakistani Food'),
-          //       const MenuTabWidget(tabName: "Chinese"),
-          //       const MenuTabWidget(tabName: "Italian"),
-          //       const MenuTabWidget(tabName: "Thai Food"),
-          //     ],
-          //   ),
-          // ),
           SizedBox(
             height: 44.h,
             child: ListView.separated(
@@ -619,16 +606,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     // Adjusted height
                     child: Text(
                       tabList[index],
-                      style: Theme.of(context)
-                          .textTheme
-                          .displaySmall!
-                          .copyWith(
-                        fontSize:
-                        _currentIndex1 == index ? 15.sp : 13.sp,
-                        fontWeight: _currentIndex1 == index
-                            ? FontWeight.w500
-                            : FontWeight.w300,
-                      ),
+                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                            fontSize: _currentIndex1 == index ? 15.sp : 13.sp,
+                            fontWeight: _currentIndex1 == index
+                                ? FontWeight.w500
+                                : FontWeight.w300,
+                          ),
                     ),
                   ),
                 );
@@ -672,7 +655,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-
   Widget _buildAppBar() {
     return Container(
       width: double.infinity,
@@ -693,12 +675,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   Text(
                     "Deliver to",
                     style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          fontSize: 14.sp,
+                          fontSize: 15.sp,
                           color: AppColor.red1,
+                          fontWeight: FontWeight.w400,
                         ),
                   ),
                   const Icon(
-                    Icons.arrow_drop_down,
+                    Icons.arrow_drop_down_outlined,
                     color: AppColor.red1,
                   ),
                 ],

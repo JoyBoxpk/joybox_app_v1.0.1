@@ -8,7 +8,6 @@ import 'package:joy_box_app/view/routes.dart';
 
 import '../../../common_widgets/common_elevated_button.dart';
 import '../../../res/color.dart';
-import '../login_screen/login_screen.dart';
 import '../widgets/social_buttons.dart';
 
 class SignUpScreen extends StatefulWidget {

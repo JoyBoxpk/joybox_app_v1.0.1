@@ -1,6 +1,4 @@
-import 'dart:ui';
 
-import '../res/color.dart';
 
 class YourFavouriteMealItemModel {
   final String title;

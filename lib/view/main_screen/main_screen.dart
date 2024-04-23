@@ -12,6 +12,8 @@ import '../home_screen/home_screen.dart';
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
 
+  static const String routeName = '/main-screen';
+
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
@@ -37,18 +39,18 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        floatingActionButtonLocation:
-            FloatingActionButtonLocation.miniCenterDocked,
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: AppColor.amber,
-          shape: const CircleBorder(),
-          elevation: 0.0,
-          onPressed: () {},
-          child: Icon(
-            Icons.shopping_bag_outlined,
-            size: 35.sp,
-          ),
-        ),
+        // floatingActionButtonLocation:
+        //     FloatingActionButtonLocation.miniCenterDocked,
+        // floatingActionButton: FloatingActionButton(
+        //   backgroundColor: AppColor.amber,
+        //   shape: const CircleBorder(),
+        //   elevation: 0.0,
+        //   onPressed: () {},
+        //   child: Icon(
+        //     Icons.shopping_bag_outlined,
+        //     size: 35.sp,
+        //   ),
+        // ),
         bottomNavigationBar: CommonBottomNavBar(
           onItemTapped: (value) {
             setState(() {
