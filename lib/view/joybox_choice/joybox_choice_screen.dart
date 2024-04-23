@@ -11,9 +11,9 @@ import 'package:joy_box_app/view/joybox_choice/widgets/joybox_choice_widget_one.
 import 'package:joy_box_app/view/joybox_choice/widgets/joybox_choice_widget_two.dart';
 
 class JoyBoxChoiceScreen extends StatefulWidget {
-  const JoyBoxChoiceScreen({super.key});
+   const JoyBoxChoiceScreen({super.key});
 
-  static const String routeName = 'joybox-choice-screen';
+  static const String routeName = 'Joybox-Choice';
 
   @override
   State<JoyBoxChoiceScreen> createState() => _JoyBoxChoiceScreenState();

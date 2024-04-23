@@ -8,10 +8,10 @@ class CommonBottomNavBar extends StatelessWidget {
   final Function(int) onItemTapped;
 
   const CommonBottomNavBar({
-    Key? key,
+    super.key,
     required this.selectedIndex,
     required this.onItemTapped,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,14 +22,16 @@ class CommonBottomNavBar extends StatelessWidget {
         borderRadius:
             BorderRadius.circular(12.0), // Clip content to circular border
         child: BottomNavigationBar(
+          fixedColor: AppColor.white,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           unselectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
           iconSize: 25.sp,
           elevation: 8,
-          backgroundColor: AppColor.blue, // Make the background transparent
+          backgroundColor: AppColor.blue,
+          // Make the background transparent
           unselectedItemColor: AppColor.white,
-          selectedItemColor: AppColor.red1,
+          // selectedItemColor: AppColor.red1,
           type: BottomNavigationBarType.fixed,
           items: const [
             BottomNavigationBarItem(
@@ -41,7 +43,10 @@ class CommonBottomNavBar extends StatelessWidget {
               label: '', // Remove the label
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_bag_outlined),
+              icon: Icon(
+                Icons.shopping_bag_outlined,
+                color: AppColor.black,
+              ),
               label: '', // Remove the label
             ),
             BottomNavigationBarItem(

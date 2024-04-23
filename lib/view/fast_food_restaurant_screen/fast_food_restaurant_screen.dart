@@ -10,7 +10,6 @@ import 'package:joy_box_app/view/fast_food_restaurant_screen/model/fast_food_res
 import 'package:joy_box_app/view/fast_food_restaurant_screen/widgets/fast_food_restaurant_tab.dart';
 
 import '../../common_widgets/common_elevated_button.dart';
-import '../Fast food/fast_food/fast_food_main/fast_food_main.dart';
 
 class FastFoodRestaurantScreen extends StatefulWidget {
   const FastFoodRestaurantScreen({super.key});

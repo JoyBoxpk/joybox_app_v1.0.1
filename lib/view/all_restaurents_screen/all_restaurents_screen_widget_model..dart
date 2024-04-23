@@ -1,10 +1,5 @@
-import 'package:carousel_slider/carousel_options.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
@@ -21,26 +16,23 @@ import 'package:joy_box_app/view/all_restaurents_screen/model/top_restaurent.dar
 import 'package:joy_box_app/view/all_restaurents_screen/model/tradtional_restaurent_widget_model.dart';
 import 'package:joy_box_app/view/all_restaurents_screen/widget/restaurent_near_you_widget.dart';
 import 'package:joy_box_app/view/all_restaurents_screen/widget/your_fav_restaurent_item_widget.dart';
-import 'package:joy_box_app/view/home_screen/widgets/popular_res_item.dart';
-import 'package:joy_box_app/view/joybox_choice/joybox_choice_screen.dart';
 import 'package:joy_box_app/view/joybox_picks_screen/joybox_picks_screen.dart';
 import 'package:joy_box_app/view/popular_restaurants_screen/popular_restaurants_screen.dart';
 import 'package:joy_box_app/view/resturent_near_you_screen/model/near_you_model.dart';
 import 'package:joy_box_app/view/resturent_near_you_screen/near_you_restaurent.dart';
-import 'package:joy_box_app/view/resturent_near_you_screen/widgets/near_you_widget.dart';
 import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_screen.dart';
 import 'package:joy_box_app/view/user_fav_restaurent/user_fav_restaurent_screen.dart';
 
-class AllRestaurentScreen extends StatefulWidget {
-  const AllRestaurentScreen({super.key});
+class AllRestaurantScreen extends StatefulWidget {
+  const AllRestaurantScreen({super.key});
 
   static const String routeName = 'all-restaurent-screen';
 
   @override
-  State<AllRestaurentScreen> createState() => _AllRestaurentScreenState();
+  State<AllRestaurantScreen> createState() => _AllRestaurantScreenState();
 }
 
-class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
+class _AllRestaurantScreenState extends State<AllRestaurantScreen> {
   final List<String> tablist = [
     "Sort",
     "Rating",
@@ -682,7 +674,7 @@ class _AllRestaurentScreenState extends State<AllRestaurentScreen> {
                     ),
               ),
               GestureDetector(
-                onTap: () => context.goNamed(TraditionalRestaurant.routeName),
+                onTap: () => context.goNamed(TraditionalRestaurantScreen.routeName),
                 child: Text(
                   "See all",
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(

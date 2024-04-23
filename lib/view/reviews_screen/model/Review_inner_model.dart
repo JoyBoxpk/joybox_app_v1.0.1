@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 
 // Step 1: Create a ReviewsInnerModel model
 class ReviewsInnerModel {

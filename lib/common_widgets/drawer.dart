@@ -191,7 +191,7 @@ void _navigateToScreen(BuildContext context, String title) {
       context.goNamed(ProfileScreen.routeName);
       break;
     case "Become JB Pro":
-      context.goNamed(JbProScreen.routeName);
+      Navigator.pushNamed(context, JbProScreen.routeName);
       break;
     case "Ordering & reordering":
       context.goNamed(OrderingReordering.routeName);

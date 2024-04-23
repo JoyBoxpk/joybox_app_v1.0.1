@@ -1,11 +1,18 @@
 
 import 'package:flutter/material.dart';
 import 'package:joy_box_app/view/Fast%20food/fast_food/fast_food_main/fast_food_main.dart';
+import 'package:joy_box_app/view/Jb_pro_screen/jb_pro_screen.dart';
+import 'package:joy_box_app/view/all_restaurents_screen/all_restaurents_screen_widget_model..dart';
 import 'package:joy_box_app/view/authentication/login_screen/login_screen.dart';
 import 'package:joy_box_app/view/authentication/sign_up_screen/sign_up_screen.dart';
 import 'package:joy_box_app/view/get_started_screen.dart';
 import 'package:joy_box_app/view/home_screen/home_screen.dart';
+import 'package:joy_box_app/view/joybox_choice/joybox_choice_screen.dart';
+import 'package:joy_box_app/view/main_screen/main_screen.dart';
+import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
+import 'package:joy_box_app/view/popular_restaurants_screen/popular_restaurants_screen.dart';
 import 'package:joy_box_app/view/splash_screen.dart';
+import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_screen.dart';
 
 // Define your route names as constants (optional)
 class RoutePaths {
@@ -13,8 +20,15 @@ class RoutePaths {
   static const String getStarted = GetStartedScreen.routeName;
   static const String login = LoginScreen.routeName;
   static const String signUp = SignUpScreen.routeName;
+  static const String mainPage = MainScreen.routeName;
   static const String home = HomeScreen.routeName;
+  static const String allRestaurants = AllRestaurantScreen.routeName;
+  static const String popularRestaurants = PopularRestaurantsScreen.routeName;
+  static const String traditionalRestaurants = TraditionalRestaurantScreen.routeName;
+  static const String joyboxChoice = JoyBoxChoiceScreen.routeName;
+  static const String offers = OffersScreen.routeName;
   static const String fastFoodMain = FastFoodMainScreen.routeName;
+  static const String jbPro = JbProScreen.routeName;
 }
 
 // Define your routes as a Map
@@ -23,8 +37,15 @@ final Map<String, WidgetBuilder> appRoutes = {
   RoutePaths.getStarted: (context) => const GetStartedScreen(),
   RoutePaths.login: (context) => const LoginScreen(),
   RoutePaths.signUp: (context) => const SignUpScreen(),
+  RoutePaths.mainPage: (context) => const MainScreen(),
   RoutePaths.home: (context) => const HomeScreen(),
+  RoutePaths.allRestaurants: (context) => const AllRestaurantScreen(),
+  RoutePaths.popularRestaurants: (context) => const PopularRestaurantsScreen(),
+  RoutePaths.traditionalRestaurants: (context) => TraditionalRestaurantScreen(),
+  RoutePaths.joyboxChoice: (context) => const JoyBoxChoiceScreen(),
+  RoutePaths.offers: (context) => const OffersScreen(),
   RoutePaths.fastFoodMain: (context) => const FastFoodMainScreen(),
+  RoutePaths.jbPro: (context) => const JbProScreen(),
 };
 
 // final List<RouteBase> appRoutes = [

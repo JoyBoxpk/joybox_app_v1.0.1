@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:joy_box_app/res/app_theme.dart';
 import 'package:joy_box_app/res/color.dart';
 
 class CommonRatingBar extends StatelessWidget {
