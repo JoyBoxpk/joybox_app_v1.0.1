@@ -40,7 +40,7 @@ class SwitchScreenOption extends StatelessWidget {
               fontWeight: FontWeight.w600,
             ),
             recognizer: TapGestureRecognizer()
-              ..onTap = () => context.goNamed(routeName),
+              ..onTap = () => Navigator.pushReplacementNamed(context, routeName),
           ),
         ],
       ),
