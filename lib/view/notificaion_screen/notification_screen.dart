@@ -19,8 +19,6 @@ class NotificationScreen extends StatefulWidget {
 }
 
 class _NotificationScreenState extends State<NotificationScreen> {
-  int _selectedIndex = 0; // Track selected index
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,112 +31,136 @@ class _NotificationScreenState extends State<NotificationScreen> {
           )
         ],
       ),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 10.h),
-            child: Row(
-              children: [
-                Expanded(
-                  child: SizedBox(
-                    height: 80.h, // Adjust the height as needed
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: notificationOptions.length,
-                      itemBuilder: (context, index) {
-                        return GestureDetector(
-                          onTap: () {
-                            setState(() {
-                              _selectedIndex = index; // Update selected index
-                            });
-                          },
-                          child: Container(
-                            padding: EdgeInsets.symmetric(horizontal: 20.w),
-                            color: _selectedIndex == index
-                                ? Colors.grey.withOpacity(
-                                    0.1) // Change the color for selected item
-                                : Colors.transparent,
-                            child: Center(
-                              child: Text(
-                                notificationOptions[index].optionType,
-                                style: TextStyle(
-                                  color: Colors.black,
-                                ),
-                              ),
-                            ),
-                          ),
-                        );
+      body: const Column(
+        children: [_BuildOptionsTab(), _BuildNotificationContextWidget()],
+      ),
+    );
+  }
+}
+
+class _BuildNotificationContextWidget extends StatefulWidget {
+  const _BuildNotificationContextWidget({super.key});
+
+  @override
+  State<_BuildNotificationContextWidget> createState() =>
+      __BuildNotificationContextWidgetState();
+}
+
+class __BuildNotificationContextWidgetState
+    extends State<_BuildNotificationContextWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Expanded(
+        child: Container(
+          height: 640.h,
+          color: AppColor.amber4,
+          child: Column(
+            children: [
+              SizedBox(
+                height: 10.h,
+              ),
+              Expanded(
+                  child: ListView.builder(
+                itemCount: notifications.length,
+                itemBuilder: (context, index) {
+                  final notification = notifications[index];
+                  return Padding(
+                    padding: EdgeInsets.symmetric(vertical: 4.w),
+                    child: NotificationItem(
+                      notification: notification,
+                      onDismissed: (dismissedNotification) {
+                        setState(() {
+                          notifications.remove(dismissedNotification);
+                        });
+                        // You can add additional logic here, such as marking the notification as read, etc.
                       },
+                    ),
+                  );
+                },
+              ))
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _BuildOptionsTab extends StatefulWidget {
+  const _BuildOptionsTab({super.key});
+
+  @override
+  State<_BuildOptionsTab> createState() => __buildOptionsTabState();
+}
+
+class __buildOptionsTabState extends State<_BuildOptionsTab> {
+  int _selectedIndex = 0; // Track selected index
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 10.h, horizontal: 20.h),
+      child: Row(
+        children: [
+          Expanded(
+            child: SizedBox(
+              height: 70.h, // Adjust the height as needed
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: notificationOptions.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      setState(() {
+                        _selectedIndex = index; // Update selected index
+                      });
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 5.w),
+                      child: Center(
+                        child: Text(
+                          notificationOptions[index].optionType,
+                          style: const TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
+          ),
+          Stack(
+            clipBehavior: Clip.none,
+            children: [
+              Container(
+                height: 60.h,
+                width: 70.w,
+                color: AppColor.blue,
+              ),
+              Positioned(
+                right: 0,
+                bottom: 12.w,
+                child: Container(
+                  height: 60.h,
+                  width: 60.w,
+                  color: AppColor.red1,
+                  child: Center(
+                    child: Text(
+                      "15",
+                      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                          fontWeight: FontWeight.w100,
+                          fontSize: 20.sp,
+                          color: Colors.white),
                     ),
                   ),
                 ),
-                Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    Container(
-                      height: 60.h,
-                      width: 70.w,
-                      color: AppColor.blue,
-                    ),
-                    Positioned(
-                      right: 0,
-                      bottom: 12.w,
-                      child: Container(
-                        height: 60.h,
-                        width: 60.w,
-                        color: AppColor.red1,
-                        child: FittedBox(
-                            child: Text(
-                          "15",
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall!
-                              .copyWith(
-                                  fontWeight: FontWeight.w100,
-                                  fontSize: 1.sp,
-                                  color: Colors.white),
-                        )),
-                      ),
-                    ),
-                  ],
-                )
-                // Add another widget here
-              ],
-            ),
-          ),
-          SingleChildScrollView(
-            child: Container(
-              color: AppColor.amber4,
-              child: Expanded(
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: 10.h,
-                    ),
-                    Expanded(
-                        child: ListView.builder(
-                      itemCount: notifications.length,
-                      itemBuilder: (context, index) {
-                        final notification = notifications[index];
-                        return Padding(
-                          padding: EdgeInsets.symmetric(vertical: 10.w),
-                          child: NotificationItem(
-                            notification: notification,
-                            onDismissed: (dismissedNotification) {
-                              setState(() {
-                                notifications.remove(dismissedNotification);
-                              });
-                              // You can add additional logic here, such as marking the notification as read, etc.
-                            },
-                          ),
-                        );
-                      },
-                    ))
-                  ],
-                ),
               ),
-            ),
+            ],
           )
+          // Add another widget here
         ],
       ),
     );
