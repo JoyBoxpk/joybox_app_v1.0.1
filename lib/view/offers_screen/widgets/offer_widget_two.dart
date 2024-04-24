@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:joy_box_app/model/offer_widget_two_model.dart';
-
 import '../../../common_widgets/common_elevated_button.dart';
 import '../../../res/color.dart';
 

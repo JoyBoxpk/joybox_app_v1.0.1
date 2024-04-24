@@ -544,116 +544,159 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildMenu(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 25.w, vertical: 15.h),
-      width: double.infinity,
+    List<List<String>> foodImages = [
+      [
+        "assets/images/img13_home_screen.png",
+        "assets/images/img14_home_screen.png",
+        "assets/images/img15_home_screen.png"
+      ],
+      [
+        "assets/images/img26_home_screen.png",
+        "assets/images/img27_home_screen.png",
+        "assets/images/img28_home_screen.jpg"
+      ],
+      [
+        "image1_italian_food.jpg",
+        "image2_italian_food.jpg",
+        "image3_italian_food.jpg"
+      ],
+      ["image1_thai_food.jpg", "image2_thai_food.jpg", "image3_thai_food.jpg"],
+    ];
+
+    return SizedBox(
       height: 360.h,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            AppColor.red1,
-            Colors.red.withOpacity(0.02),
-          ],
-        ),
-      ),
-      child: Column(
+      child: Stack(
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                "Menu",
-                style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                    color: AppColor.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 20.sp),
-              ),
-              Text(
-                "See all",
-                style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                    color: AppColor.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14.sp),
-              )
-            ],
+          Image.asset(
+            "assets/images/home_screen_img26.jpeg",
+            height: 360.h,
+            width: double.infinity,
+            fit: BoxFit.contain,
           ),
-          SizedBox(height: 20.h),
-          SizedBox(
-            height: 44.h,
-            child: ListView.separated(
-              itemCount: tabList.length,
-              scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _currentIndex1 = index;
-                    });
-                  },
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 10.w),
-                    decoration: BoxDecoration(
-                      color: _currentIndex1 == index
-                          ? AppColor.amber
-                          : Colors.transparent,
-                      borderRadius: BorderRadius.circular(6.0),
-                    ),
-                    alignment: Alignment.center,
-                    height: 20.h,
-                    // Adjusted height
-                    child: Text(
-                      tabList[index],
-                      style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                            fontSize: _currentIndex1 == index ? 15.sp : 13.sp,
-                            fontWeight: _currentIndex1 == index
-                                ? FontWeight.w500
-                                : FontWeight.w300,
+          Positioned(
+            top: 65.h,
+            left: 0,
+            right: 0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 20.w),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Menu",
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                          color: AppColor.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 18.sp,
+                        ),
+                      ),
+                      Text(
+                        "See all",
+                        style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          color: AppColor.white,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14.sp,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10.h),
+                Padding(
+                  padding: EdgeInsets.only(left: 14.w),
+                  child: SizedBox(
+                    height: 40.h,
+                    child: ListView.separated(
+                      itemCount: tabList.length,
+                      scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _currentIndex1 = index;
+                            });
+                          },
+                          child: Container(
+                            padding: EdgeInsets.symmetric(horizontal: 8.w),
+                            decoration: BoxDecoration(
+                              color: _currentIndex1 == index
+                                  ? AppColor.amber
+                                  : Colors.transparent,
+                              borderRadius: BorderRadius.circular(6.0),
+                            ),
+                            alignment: Alignment.center,
+                            child: Text(
+                              tabList[index],
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .displaySmall!
+                                  .copyWith(
+                                fontSize:
+                                _currentIndex1 == index ? 15.sp : 13.sp,
+                                fontWeight: _currentIndex1 == index
+                                    ? FontWeight.w500
+                                    : FontWeight.w400,
+                              ),
+                            ),
                           ),
+                        );
+                      },
+                      separatorBuilder: (context, index) => SizedBox(width: 1.w),
                     ),
                   ),
-                );
-              },
-              separatorBuilder: (context, index) => SizedBox(width: 2.w),
-            ),
-          ),
-          SizedBox(height: 20.h),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                Image.asset("assets/images/img13_home_screen.png",
-                    width: 130.w, height: 155.h, fit: BoxFit.cover),
-                SizedBox(width: 10.w),
-                Image.asset("assets/images/img14_home_screen.png",
-                    width: 130.w, height: 155.h, fit: BoxFit.cover),
-                SizedBox(width: 10.w),
-                Image.asset("assets/images/img15_home_screen.png",
-                    width: 130.w, height: 155.h, fit: BoxFit.cover),
+                ),
               ],
             ),
           ),
-          SizedBox(height: 40.h),
-          // SizedBox(
-          //   height: 9.h,
-          //   child: AnimatedSmoothIndicator(
-          //     activeIndex: 0,
-          //     count: 3,
-          //     effect: ScrollingDotsEffect(
-          //       spacing: 7,
-          //       activeDotColor: AppColor.amber,
-          //       dotColor: AppColor.blueGrey,
-          //       dotHeight: 9.h,
-          //       dotWidth: 9.w,
-          //     ),
-          //   ),
-          // ),
+          Positioned(
+            // Display selected food images
+            top: 156.h,
+            left: 0,
+            right: 0,
+            child: Container(
+              color: Colors.blue.withOpacity(0.5),
+              height: 150.h,
+              width: double.infinity,
+              margin: EdgeInsets.only(left: 20.w, right: 15.w),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: foodImages[_currentIndex1].map((imagePath) {
+                  return Expanded(
+                    child: Image.asset(
+                      imagePath,
+                      fit: BoxFit.contain,
+                    ),
+                  );
+                }).toList(),
+              ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: AnimatedSmoothIndicator(
+              activeIndex: 0,
+              count: 3,
+              effect: ScrollingDotsEffect(
+                spacing: 7,
+                activeDotColor: AppColor.amber,
+                dotColor: AppColor.blueGrey,
+                dotHeight: 9.h,
+                dotWidth: 9.w,
+              ),
+            ),
+          ),
         ],
       ),
     );
   }
+
+
+
+
+
 
   Widget _buildAppBar() {
     return Container(
