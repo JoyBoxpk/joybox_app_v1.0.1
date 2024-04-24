@@ -26,6 +26,7 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CommonAppBar(
+        isCircular: true,
         text: "Restaurant",
         actions: [
           IconButton(
@@ -928,7 +929,8 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
               ),
             ),
             InkWell(
-                onTap: () => context.goNamed(InnerFastFoodResScreen.routeName),
+                onTap: () => Navigator.pushNamed(
+                    context, InnerFastFoodResScreen.routeName),
                 child: Image.asset(
                     "assets/images/img21_fast_food_restaurant.png")),
           ],

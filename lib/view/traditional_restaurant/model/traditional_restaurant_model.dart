@@ -15,3 +15,31 @@ class TraditionalRestaurantModel {
     required this.imageUrl,
   });
 }
+
+final List<TraditionalRestaurantModel> restaurants = [
+  TraditionalRestaurantModel(
+    name: 'LalQila',
+    rating: 4.9,
+    reviewCount: 3000,
+    isFree: true,
+    imageAsset: "assets/images/lal-qila-restaurant-in.jpg",
+    imageUrl: "https://example.com/lalqila_image.jpg",
+  ),
+  TraditionalRestaurantModel(
+    name: 'LalQila',
+    rating: 4.9,
+    reviewCount: 3000,
+    isFree: true,
+    imageAsset: "assets/images/lal-qila-restaurant-in.jpg",
+    imageUrl: "https://example.com/lalqila_image.jpg",
+  ),
+  TraditionalRestaurantModel(
+    name: 'LalQila',
+    rating: 4.9,
+    reviewCount: 3000,
+    isFree: true,
+    imageAsset: "assets/images/lal-qila-restaurant-in.jpg",
+    imageUrl: "https://example.com/lalqila_image.jpg",
+  ),
+  // Add more restaurants here
+];

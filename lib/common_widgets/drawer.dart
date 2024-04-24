@@ -15,7 +15,8 @@ import 'package:joy_box_app/view/transaction_screen/transactions_screen.dart';
 import '../view/payment_method/payment_method_screen.dart';
 
 class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({super.key});
+  const DrawerWidget(
+      {super.key, required void Function(bool isOpen) onDrawerStateChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -188,27 +189,30 @@ void _navigateToScreen(BuildContext context, String title) {
       context.goNamed(TransactionsScreen.routeName);
       break;
     case "Profile":
-      context.goNamed(ProfileScreen.routeName);
+      Navigator.pushNamed(context, ProfileScreen.routeName);
       break;
     case "Become JB Pro":
       Navigator.pushNamed(context, JbProScreen.routeName);
       break;
     case "Ordering & reordering":
-      context.goNamed(OrderingReordering.routeName);
+      Navigator.pushNamed(context, OrderingReordering.routeName);
+
       break;
     case "Inbox":
-      context.goNamed(ChatScreen.routeName);
+      Navigator.pushNamed(context, ChatScreen.routeName);
       break;
     case "Language":
-      context.goNamed(ReviewsScreen.routeName);
+      // context.goNamed(ReviewsScreen.routeName);
       break;
     case "Offers & Voucher":
-      context.goNamed(OffersScreen.routeName);
+      Navigator.pushNamed(context, OffersScreen.routeName);
+
       break;
     case "Invite friends":
-      context.goNamed(PaymentMethodScreen.routeName);
+      Navigator.pushNamed(context, PaymentMethodScreen.routeName);
+
       break;
-    
+
     // Add more cases for other screens
     default:
       // Do nothing or handle other cases

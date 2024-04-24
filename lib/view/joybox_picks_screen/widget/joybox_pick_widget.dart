@@ -138,7 +138,7 @@ class JoyboxPickWidget extends StatelessWidget {
                               .displaySmall!
                               .copyWith(
                                 fontSize: 11.sp,
-                                fontWeight: FontWeight.w600,
+                                fontWeight: FontWeight.w400,
                               )),
                     ),
                   ),
@@ -149,7 +149,7 @@ class JoyboxPickWidget extends StatelessWidget {
           CustomImageView(
             width: 150.w,
             height: 120.h,
-            radius: BorderRadius.circular(12),
+            radius: BorderRadius.circular(13),
             imagePath: joyboxPick.imagePath,
           ),
           Positioned(

@@ -36,9 +36,10 @@ class ProfileScreen extends StatelessWidget {
                   ],
                 ),
                 Positioned(
-                  top: 180,
-                  left: 60, // Align left edge with the left edge of the screen
-                  right: 60,
+                  top: 180.h,
+                  left:
+                      60.w, // Align left edge with the left edge of the screen
+                  right: 60.w,
                   child: Profile_Stack_widget(
                       screenWidth: screenWidth, screenHeight: screenHeight),
                 ),
@@ -64,7 +65,7 @@ class _MyPhotosWidget extends StatefulWidget {
 }
 
 class _MyPhotosWidgetState extends State<_MyPhotosWidget> {
-  String selectedOption = "";
+  String selectedOption = "Location";
   // State variable for selected option
   @override
   Widget build(BuildContext context) {
@@ -135,7 +136,13 @@ class _MyPhotosWidgetState extends State<_MyPhotosWidget> {
                           selectedOption = "Location";
                         });
                       },
-                      child: Text('Location'),
+                      child: Text(
+                        'Location',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14.sp,
+                            ),
+                      ),
                     ),
                     const SizedBox(width: 20),
                     InkWell(
@@ -144,7 +151,13 @@ class _MyPhotosWidgetState extends State<_MyPhotosWidget> {
                           selectedOption = "Contact";
                         });
                       },
-                      child: Text('Contact'),
+                      child: Text(
+                        'Contact',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14.sp,
+                            ),
+                      ),
                     ),
                     const SizedBox(width: 20),
                     InkWell(
@@ -153,7 +166,13 @@ class _MyPhotosWidgetState extends State<_MyPhotosWidget> {
                           selectedOption = "My orders";
                         });
                       },
-                      child: Text('My orders'),
+                      child: Text(
+                        'My orders',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14.sp,
+                            ),
+                      ),
                     ),
                     const SizedBox(width: 20),
                     InkWell(
@@ -162,7 +181,13 @@ class _MyPhotosWidgetState extends State<_MyPhotosWidget> {
                           selectedOption = "Payment methods";
                         });
                       },
-                      child: Text('Payment methods'),
+                      child: Text(
+                        'Payment methods',
+                        style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14.sp,
+                            ),
+                      ),
                     ),
                   ],
                 ),
@@ -171,9 +196,10 @@ class _MyPhotosWidgetState extends State<_MyPhotosWidget> {
               if (selectedOption == "Location") _locationWidget(),
               if (selectedOption == "Contact") _contactWidget(),
               if (selectedOption == "My orders")
-                _MyOrdersWidget(), // Replace with your widget for orders
+                _MyOrdersWidget(context), // Replace with your widget for orders
               if (selectedOption == "Payment methods")
-                _PaymentMethodsWidget(), // Replace with your widget for methods
+                _PaymentMethodsWidget(
+                    context), // Replace with your widget for methods
             ],
           ),
         ],
@@ -240,14 +266,35 @@ class _buildProfileTextFeildWidget extends StatelessWidget {
   }
 }
 
-Widget _MyOrdersWidget() {
-  return Container();
-}
-
-Widget _PaymentMethodsWidget() {
+Widget _MyOrdersWidget(BuildContext context) {
   return Container(
     color: AppColor.amber,
     height: 80.h,
+    width: double.infinity,
+    padding: EdgeInsets.all(10),
+    child: Text(
+      "No Data Available",
+      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+            fontWeight: FontWeight.w500,
+            fontSize: 14.sp,
+          ),
+    ),
+  );
+}
+
+Widget _PaymentMethodsWidget(BuildContext context) {
+  return Container(
+    color: AppColor.amber,
+    height: 80.h,
+    width: double.infinity,
+    padding: EdgeInsets.all(10),
+    child: Text(
+      "No Payment method Added",
+      style: Theme.of(context).textTheme.bodySmall!.copyWith(
+            fontWeight: FontWeight.w500,
+            fontSize: 14.sp,
+          ),
+    ),
   );
 }
 

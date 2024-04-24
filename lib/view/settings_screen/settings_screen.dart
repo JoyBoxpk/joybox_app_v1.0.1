@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../common_widgets/common_appbar.dart';
 import '../../common_widgets/common_switch_widget.dart';
@@ -15,6 +16,7 @@ class SettingScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: const CommonAppBar(
+        isCircular: true,
         text: "Settings",
       ),
       body: SingleChildScrollView(
@@ -103,11 +105,10 @@ class SettingColumnItemButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final textstyle = Theme.of(context).textTheme;
+    final textstyle = Theme.of(context).textTheme;
 
-    
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 40.0),
+      margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 40.0),
       //padding: EdgeInsets.symmetric(vertical: 10),
       child: Column(
         children: [
@@ -116,8 +117,14 @@ class SettingColumnItemButton extends StatelessWidget {
               CustomImageView(
                 imagePath: settingiconimg,
               ),
-              const SizedBox(width: 20),
-              Text(main_settingtitle,style: textstyle.bodyMedium,),
+              SizedBox(width: 20),
+              Text(
+                main_settingtitle,
+                style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 14.sp,
+                    ),
+              ),
             ],
           ),
           const SizedBox(height: 10),
@@ -138,14 +145,13 @@ class SettingColumnItemButton extends StatelessWidget {
 }
 
 class SettingsRowItemButton extends StatelessWidget {
-  
   final SettingsItem item;
 
   const SettingsRowItemButton({Key? key, required this.item}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-        final textstyle = Theme.of(context).textTheme;
+    final textstyle = Theme.of(context).textTheme;
 
     final _controller = ValueNotifier<bool>(false);
 
@@ -154,7 +160,13 @@ class SettingsRowItemButton extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(item.text,style: textstyle.bodyMedium,),
+          Text(
+            item.text,
+            style: Theme.of(context).textTheme.bodySmall!.copyWith(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14.sp,
+                ),
+          ),
 
           // Display either an icon or a switch based on the 'hasSwitch' property
           item.hasSwitch

@@ -28,6 +28,7 @@ class TopRestaurentScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CommonAppBar(
+        isCircular: true,
         text: "Top restaurants",
         actions: [
           IconButton(
@@ -62,7 +63,10 @@ class TopRestaurentScreen extends StatelessWidget {
               sliver: SliverList(
                 delegate: SliverChildBuilderDelegate(
                   (BuildContext context, int index) {
-                    return RestaurantCard(restaurant: restaurants[index]);
+                    return Padding(
+                      padding: EdgeInsets.symmetric(vertical: 10.h),
+                      child: RestaurantCard(restaurant: restaurants[index]),
+                    );
                   },
                   childCount: restaurants.length,
                 ),
