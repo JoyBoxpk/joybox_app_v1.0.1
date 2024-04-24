@@ -26,38 +26,11 @@ class TraditionalRestaurantScreen extends StatelessWidget {
     "Offers": ["Discounts", "Buy One Get One", "Happy Hours"],
   };
 
-  final List<TraditionalRestaurantModel> restaurants = [
-    TraditionalRestaurantModel(
-      name: 'LalQila',
-      rating: 4.9,
-      reviewCount: 3000,
-      isFree: true,
-      imageAsset: "assets/images/lal-qila-restaurant-in.jpg",
-      imageUrl: "https://example.com/lalqila_image.jpg",
-    ),
-    TraditionalRestaurantModel(
-      name: 'LalQila',
-      rating: 4.9,
-      reviewCount: 3000,
-      isFree: true,
-      imageAsset: "assets/images/lal-qila-restaurant-in.jpg",
-      imageUrl: "https://example.com/lalqila_image.jpg",
-    ),
-    TraditionalRestaurantModel(
-      name: 'LalQila',
-      rating: 4.9,
-      reviewCount: 3000,
-      isFree: true,
-      imageAsset: "assets/images/lal-qila-restaurant-in.jpg",
-      imageUrl: "https://example.com/lalqila_image.jpg",
-    ),
-    // Add more restaurants here
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CommonAppBar(
+        isCircular: true,
         text: "Traditional Restaurant",
         actions: [
           IconButton(
@@ -81,55 +54,20 @@ class TraditionalRestaurantScreen extends StatelessWidget {
         ],
       ),
       body: Container(
-        margin: const EdgeInsets.all(20),
-        child: Column(
-          children: [
-            Container(
-              width: double.infinity,
-              height: 50.h,
-              margin: EdgeInsets.symmetric(horizontal: 15.w),
-              child: CustomScrollView(
-                slivers: <Widget>[
-                  SliverToBoxAdapter(
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          Container(
-                            alignment: Alignment.center,
-                            width: 65.w,
-                            height: 48.h,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(6.0),
-                              border: Border.all(
-                                color: const Color(0xFFB3B3B3),
-                                width: 1,
-                              ),
-                            ),
-                            child: SvgPicture.asset(
-                                "assets/images/fast_food_screen_img1.svg"),
-                          ),
-                          SizedBox(width: 5.w),
-                          for (String hintText in tablist)
-                            Container(
-                                padding: EdgeInsets.symmetric(horizontal: 3.w),
-                                child: CommonDropdownButton(
-                                  hintText: hintText,
-                                  items: dropdownItems[hintText]!,
-                                )),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: restaurants.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return _buildRestaurantCard(restaurants[index], context);
+        margin: EdgeInsets.symmetric(vertical: 20.h, horizontal: 20.w),
+        child: CustomScrollView(
+          slivers: [
+            _buildTabbar(tablist: tablist, dropdownItems: dropdownItems),
+            SliverToBoxAdapter(child: SizedBox(height: 20.h)),
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  return _buildRestaurantCard(
+                    restaurants[index],
+                    context,
+                  );
                 },
+                childCount: restaurants.length,
               ),
             ),
           ],
@@ -139,7 +77,9 @@ class TraditionalRestaurantScreen extends StatelessWidget {
   }
 
   Widget _buildRestaurantCard(
-      TraditionalRestaurantModel restaurant, BuildContext context) {
+    TraditionalRestaurantModel restaurant,
+    BuildContext context,
+  ) {
     return Container(
       height: 240.h,
       width: 400.w,
@@ -168,7 +108,9 @@ class TraditionalRestaurantScreen extends StatelessWidget {
   }
 
   Widget _buildRestaurantDetails(
-      TraditionalRestaurantModel restaurant, BuildContext context) {
+    TraditionalRestaurantModel restaurant,
+    BuildContext context,
+  ) {
     return Container(
       child: Align(
         alignment: Alignment.centerLeft,
@@ -286,6 +228,57 @@ class TraditionalRestaurantScreen extends StatelessWidget {
   }
 }
 
+class _buildTabbar extends StatelessWidget {
+  const _buildTabbar({
+    super.key,
+    required this.tablist,
+    required this.dropdownItems,
+  });
+
+  final List<String> tablist;
+  final Map<String, List<String>> dropdownItems;
+
+  @override
+  Widget build(BuildContext context) {
+    return SliverToBoxAdapter(
+      child: Container(
+        width: double.infinity,
+        height: 50.h,
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              Container(
+                alignment: Alignment.center,
+                width: 65.w,
+                height: 48.h,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(6.0),
+                  border: Border.all(
+                    color: const Color(0xFFB3B3B3),
+                    width: 1,
+                  ),
+                ),
+                child:
+                    SvgPicture.asset("assets/images/fast_food_screen_img1.svg"),
+              ),
+              SizedBox(width: 5.w),
+              for (String hintText in tablist)
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 3.w),
+                  child: CommonDropdownButton(
+                    hintText: hintText,
+                    items: dropdownItems[hintText]!,
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _OrderButtonWidget extends StatelessWidget {
   const _OrderButtonWidget({
     Key? key,
@@ -301,12 +294,13 @@ class _OrderButtonWidget extends StatelessWidget {
         ),
         ElevatedButton(
           style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
-              shape: MaterialStateProperty.all<OutlinedBorder>(
-                RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              )),
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+            shape: MaterialStateProperty.all<OutlinedBorder>(
+              RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+              ),
+            ),
+          ),
           onPressed: () {},
           child: const Text(
             "Order now",

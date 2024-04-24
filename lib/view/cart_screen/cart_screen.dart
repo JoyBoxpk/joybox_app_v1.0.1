@@ -57,7 +57,8 @@ class CartScreen extends StatelessWidget {
                   borderRadius: 12.0,
                   height: 60.h,
                   width: 260.w,
-                  onPressed: ()=> context.goNamed(CheckoutScreen.routeName),
+                  onPressed: () =>
+                      Navigator.pushNamed(context, CheckoutScreen.routeName),
                   text: "Confirm payment and address",
                 ),
               ),

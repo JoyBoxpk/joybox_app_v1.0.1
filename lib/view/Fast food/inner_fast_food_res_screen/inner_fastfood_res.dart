@@ -19,6 +19,7 @@ class InnerFastFoodResScreen extends StatelessWidget {
     return Scaffold(
       appBar: CommonAppBar(
         isCircular: true,
+        text: "",
         backgroundColor: Colors.red,
         backArrowColor: Colors.red,
         actions: [
@@ -184,7 +185,7 @@ class cart_navbar extends StatelessWidget {
                 ],
               ),
               InkWell(
-                onTap: () => context.goNamed(CartScreen.routeName),
+                onTap: () => Navigator.pushNamed(context, CartScreen.routeName),
                 child: Container(
                   width: 160.h,
                   height: 80.w,

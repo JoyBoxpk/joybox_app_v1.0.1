@@ -20,6 +20,7 @@ import 'package:joy_box_app/view/joybox_picks_screen/joybox_picks_screen.dart';
 import 'package:joy_box_app/view/popular_restaurants_screen/popular_restaurants_screen.dart';
 import 'package:joy_box_app/view/resturent_near_you_screen/model/near_you_model.dart';
 import 'package:joy_box_app/view/resturent_near_you_screen/near_you_restaurent.dart';
+import 'package:joy_box_app/view/top_restaurent/top_restauent_screen.dart';
 import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_screen.dart';
 import 'package:joy_box_app/view/user_fav_restaurent/user_fav_restaurent_screen.dart';
 
@@ -279,7 +280,8 @@ class _AllRestaurantScreenState extends State<AllRestaurantScreen> {
                     ),
               ),
               GestureDetector(
-                onTap: () => context.goNamed(UserFavRestaurentScreen.routeName),
+                onTap: () =>
+                    Navigator.pushNamed(context, TopRestaurentScreen.routeName),
                 child: Text(
                   "See all",
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
@@ -479,8 +481,8 @@ class _AllRestaurantScreenState extends State<AllRestaurantScreen> {
                     ),
               ),
               GestureDetector(
-                onTap: () =>
-                    context.goNamed(PopularRestaurantsScreen.routeName),
+                onTap: () => Navigator.pushNamed(
+                    context, PopularRestaurantsScreen.routeName),
                 child: Text(
                   "See all",
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
@@ -674,7 +676,8 @@ class _AllRestaurantScreenState extends State<AllRestaurantScreen> {
                     ),
               ),
               GestureDetector(
-                onTap: () => context.goNamed(TraditionalRestaurantScreen.routeName),
+                onTap: () => Navigator.pushNamed(
+                    context, TraditionalRestaurantScreen.routeName),
                 child: Text(
                   "See all",
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
@@ -906,7 +909,8 @@ class _AllRestaurantScreenState extends State<AllRestaurantScreen> {
                     ),
               ),
               GestureDetector(
-                onTap: () => context.goNamed(JoyboxPicksScreen.routeName),
+                onTap: () =>
+                    Navigator.pushNamed(context, JoyboxPicksScreen.routeName),
                 child: Text(
                   "See all",
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
@@ -1102,7 +1106,8 @@ class _RestaurentsNearyou extends StatelessWidget {
                     ),
               ),
               GestureDetector(
-                onTap: () => context.goNamed(NearYouRestaurent.routeName),
+                onTap: () =>
+                    Navigator.pushNamed(context, NearYouRestaurent.routeName),
                 child: Text(
                   "See all",
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
@@ -1161,7 +1166,8 @@ class _YourFavRestaurentWidegt extends StatelessWidget {
                     ),
               ),
               GestureDetector(
-                onTap: () => context.goNamed(UserFavRestaurentScreen.routeName),
+                onTap: () => Navigator.pushNamed(
+                    context, UserFavRestaurentScreen.routeName),
                 child: Text(
                   "See all",
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(

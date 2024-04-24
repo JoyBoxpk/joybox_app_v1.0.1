@@ -6,6 +6,8 @@ import 'package:joy_box_app/model/custom_item_model.dart';
 import 'package:joy_box_app/model/offer_item_model.dart';
 import 'package:joy_box_app/model/your_favourite_meal_item_model.dart';
 import 'package:joy_box_app/res/color.dart';
+import 'package:joy_box_app/view/Fast%20food/fast_food/fast_food_main/fast_food_main.dart';
+import 'package:joy_box_app/view/fast_food_restaurant_screen/fast_food_restaurant_screen.dart';
 import 'package:joy_box_app/view/home_screen/widgets/custom_icon_button.dart';
 import 'package:joy_box_app/view/home_screen/widgets/custom_item.dart';
 import 'package:joy_box_app/view/home_screen/widgets/offer_item_widget.dart';
@@ -54,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
             margin: const EdgeInsets.symmetric(vertical: 10),
             child: Column(
               children: [
-                _buildAppBar(),
+                // _buildAppBar(),
                 SizedBox(height: 28.h),
                 Text(
                   "What would you like to order",
@@ -80,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        drawer: const DrawerWidget(),
+        // drawer: const DrawerWidget(),
       ),
     );
   }
@@ -571,12 +573,16 @@ class _HomeScreenState extends State<HomeScreen> {
                     fontWeight: FontWeight.w500,
                     fontSize: 20.sp),
               ),
-              Text(
-                "See all",
-                style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                    color: AppColor.white,
-                    fontWeight: FontWeight.w500,
-                    fontSize: 14.sp),
+              InkWell(
+                onTap: () =>
+                    Navigator.pushNamed(context, FastFoodMainScreen.routeName),
+                child: Text(
+                  "See all",
+                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      color: AppColor.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 14.sp),
+                ),
               )
             ],
           ),
@@ -655,52 +661,52 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildAppBar() {
-    return Container(
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 15.w),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CustomIconButton(
-              onPressed: () {
-                _scaffoldKey.currentState?.openDrawer();
-              },
-              imagePath: "assets/images/img1_home_screen.png"),
-          Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Deliver to",
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          fontSize: 15.sp,
-                          color: AppColor.red1,
-                          fontWeight: FontWeight.w400,
-                        ),
-                  ),
-                  const Icon(
-                    Icons.arrow_drop_down_outlined,
-                    color: AppColor.red1,
-                  ),
-                ],
-              ),
-              Text(
-                "4102 Pretty View Lane",
-                style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
-                    ),
-              ),
-            ],
-          ),
-          CustomIconButton(
-            onPressed: () {},
-            imagePath: "assets/images/img2_home_screen.jpg",
-          ),
-        ],
-      ),
-    );
-  }
+  // Widget _buildAppBar() {
+  //   return Container(
+  //     width: double.infinity,
+  //     margin: EdgeInsets.symmetric(horizontal: 15.w),
+  //     child: Row(
+  //       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+  //       children: [
+  //         CustomIconButton(
+  //             onPressed: () {
+  //               _scaffoldKey.currentState?.openDrawer();
+  //             },
+  //             imagePath: "assets/images/img1_home_screen.png"),
+  //         Column(
+  //           children: [
+  //             Row(
+  //               mainAxisAlignment: MainAxisAlignment.center,
+  //               children: [
+  //                 Text(
+  //                   "Deliver to",
+  //                   style: Theme.of(context).textTheme.bodySmall!.copyWith(
+  //                         fontSize: 15.sp,
+  //                         color: AppColor.red1,
+  //                         fontWeight: FontWeight.w400,
+  //                       ),
+  //                 ),
+  //                 const Icon(
+  //                   Icons.arrow_drop_down_outlined,
+  //                   color: AppColor.red1,
+  //                 ),
+  //               ],
+  //             ),
+  //             Text(
+  //               "4102 Pretty View Lane",
+  //               style: Theme.of(context).textTheme.bodySmall!.copyWith(
+  //                     fontSize: 14.sp,
+  //                     fontWeight: FontWeight.w400,
+  //                   ),
+  //             ),
+  //           ],
+  //         ),
+  //         CustomIconButton(
+  //           onPressed: () {},
+  //           imagePath: "assets/images/img2_home_screen.jpg",
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 }

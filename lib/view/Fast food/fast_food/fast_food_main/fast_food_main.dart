@@ -95,12 +95,12 @@ class _FastFoodMainScreenState extends State<FastFoodMainScreen> {
                                 .textTheme
                                 .displaySmall!
                                 .copyWith(
-                              fontSize:
-                              _currentIndex == index ? 16.sp : 14.sp,
-                              fontWeight: _currentIndex == index
-                                  ? FontWeight.w600
-                                  : FontWeight.w200,
-                            ),
+                                  fontSize:
+                                      _currentIndex == index ? 16.sp : 14.sp,
+                                  fontWeight: _currentIndex == index
+                                      ? FontWeight.w600
+                                      : FontWeight.w200,
+                                ),
                           ),
                         ),
                       );
@@ -146,7 +146,7 @@ class _FastFoodMainScreenState extends State<FastFoodMainScreen> {
             ),
             SliverList(
               delegate: SliverChildBuilderDelegate(
-                    (BuildContext context, int index) {
+                (BuildContext context, int index) {
                   final item = tabLists[_currentIndex][index];
                   return Padding(
                     padding: EdgeInsets.only(bottom: 35.h),

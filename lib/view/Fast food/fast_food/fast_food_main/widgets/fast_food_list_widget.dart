@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/view/Fast%20food/fast_food/fast_food_main/model/tab_list_model.dart';
+import 'package:joy_box_app/view/fast_food_restaurant_screen/fast_food_restaurant_screen.dart';
 
 import '../../../../../common_widgets/common_elevated_button.dart';
 import '../../../../../common_widgets/custom_image_view.dart';
@@ -165,7 +166,8 @@ class FastFoodListWidget extends StatelessWidget {
                     height: 60.h,
                     width: 170.w,
                     onPressed: () {
-                      context.goNamed(InnerFastFoodResScreen.routeName);
+                      Navigator.pushNamed(
+                          context, FastFoodRestaurantScreen.routeName);
                     },
                     text: "Order now",
                   ),
