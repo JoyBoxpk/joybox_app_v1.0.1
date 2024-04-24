@@ -44,8 +44,7 @@ class NotificationItem extends StatelessWidget {
         ),
       ),
       secondaryBackground: Container(
-        color: AppColor
-            .blue, // Background color when swiping to dismiss from right
+        color: AppColor.blue, ////
         alignment: Alignment.centerRight,
         padding: EdgeInsets.symmetric(horizontal: 20.w),
         child: Column(
