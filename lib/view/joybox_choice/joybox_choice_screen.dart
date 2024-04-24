@@ -9,12 +9,11 @@ import 'package:joy_box_app/model/joybox_choice_widget_two_model.dart';
 import 'package:joy_box_app/res/color.dart';
 import 'package:joy_box_app/view/joybox_choice/widgets/joybox_choice_widget_one.dart';
 import 'package:joy_box_app/view/joybox_choice/widgets/joybox_choice_widget_two.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class JoyBoxChoiceScreen extends StatefulWidget {
-  const JoyBoxChoiceScreen({super.key});
+   const JoyBoxChoiceScreen({super.key});
 
-  static const String routeName = 'joybox-choice-screen';
+  static const String routeName = 'Joybox-Choice';
 
   @override
   State<JoyBoxChoiceScreen> createState() => _JoyBoxChoiceScreenState();
@@ -213,15 +212,4 @@ class _JoyBoxChoiceScreenState extends State<JoyBoxChoiceScreen> {
     );
   }
 
-  Widget _buildIndicator(int activeIndex, int count) {
-    return AnimatedSmoothIndicator(
-      activeIndex: activeIndex,
-      count: count,
-      effect: WormEffect(
-        dotHeight: 12.h,
-        dotWidth: 12.w,
-        activeDotColor: AppColor.red2,
-      ),
-    );
-  }
 }

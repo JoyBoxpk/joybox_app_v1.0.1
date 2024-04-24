@@ -5,9 +5,6 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:joy_box_app/common_widgets/common_dropdown_button.dart';
-import 'package:joy_box_app/common_widgets/common_elevated_button.dart';
-import 'package:joy_box_app/common_widgets/custom_image_view.dart';
-import 'package:joy_box_app/res/color.dart';
 import 'package:joy_box_app/view/joybox_picks_screen/model/joybox_pick_model.dart';
 import 'package:joy_box_app/view/joybox_picks_screen/widget/joybox_pick_widget.dart';
 

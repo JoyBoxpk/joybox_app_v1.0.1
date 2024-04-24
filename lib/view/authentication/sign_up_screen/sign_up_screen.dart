@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/core/utils/field_validator.dart';
 import 'package:joy_box_app/view/authentication/widgets/common_email_textfield.dart';
 import 'package:joy_box_app/view/authentication/widgets/common_password_textfield.dart';
 import 'package:joy_box_app/view/authentication/widgets/switch_screen_option.dart';
+import 'package:joy_box_app/view/routes.dart';
+
 import '../../../common_widgets/common_elevated_button.dart';
 import '../../../res/color.dart';
-import '../login_screen/login_screen.dart';
 import '../widgets/social_buttons.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -36,7 +36,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   void _singUpFunction() {
     if (_formKey.currentState!.validate()) {
       try {
-        context.goNamed(LoginScreen.routeName);
+        Navigator.pushReplacementNamed(context, RoutePaths.login);
       } catch (e) {
         // Catch all other unexpected errors
         print('Unexpected Error: $e');
@@ -181,7 +181,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           const SwitchScreenOption(
                             text1: "Already have an account?",
                             text2: "Log in",
-                            routeName: LoginScreen.routeName,
+                            routeName: RoutePaths.login,
                           ),
                         ],
                       ),

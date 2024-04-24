@@ -15,7 +15,7 @@ import 'package:joy_box_app/view/offers_screen/widgets/offer_widget_two.dart';
 class OffersScreen extends StatefulWidget {
   const OffersScreen({super.key});
 
-  static const String routeName = 'offers-screen';
+  static const String routeName = 'offers';
 
   @override
   State<OffersScreen> createState() => _OffersScreenState();
@@ -226,7 +226,7 @@ class _OffersScreenState extends State<OffersScreen> {
               clipBehavior: Clip.none,
               enlargeCenterPage: true,
               viewportFraction: 0.9999,
-              height: 220.h,
+              height: 210.h,
               autoPlay: false,
               enableInfiniteScroll: true,
               onPageChanged: (index, reason) {

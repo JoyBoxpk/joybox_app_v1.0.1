@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:joy_box_app/common_widgets/common_appbar.dart';
-import 'package:joy_box_app/common_widgets/custom_image_view.dart';
 import 'package:joy_box_app/res/color.dart';
 import 'package:joy_box_app/view/notificaion_screen/model/notification_model.dart';
 import 'package:joy_box_app/view/notificaion_screen/widget/notification_item_widget.dart';

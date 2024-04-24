@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/core/utils/field_validator.dart';
 import 'package:joy_box_app/view/authentication/widgets/common_email_textfield.dart';
 import 'package:joy_box_app/view/authentication/widgets/common_password_textfield.dart';
 import 'package:joy_box_app/view/authentication/widgets/social_buttons.dart';
 import 'package:joy_box_app/view/authentication/widgets/switch_screen_option.dart';
-import 'package:joy_box_app/view/home_screen/home_screen.dart';
-import 'package:joy_box_app/view/main_screen/main_screen.dart';
-
 import '../../../common_widgets/common_elevated_button.dart';
 import '../../../res/color.dart';
-import '../sign_up_screen/sign_up_screen.dart';
+import '../../routes.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -43,8 +39,7 @@ class _LoginScreenState extends State<LoginScreen> {
         _isButtonPressed = true; // Set the button pressed state to true
       });
       try {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const MainScreen()));
+        Navigator.pushReplacementNamed(context, RoutePaths.mainPage);
       } catch (e) {
         // Catch all other unexpected errors
         print('Unexpected Error: $e');
@@ -140,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       const SwitchScreenOption(
                         text1: "Don't have an account?",
                         text2: "Sign up",
-                        routeName: SignUpScreen.routeName,
+                        routeName: RoutePaths.signUp,
                       ),
                       SizedBox(height: 30.h),
                       const SocialButtons(),

@@ -1,4 +1,3 @@
-import 'package:joy_box_app/res/color.dart';
 
 class OfferWidgetOneModel {
   final String restaurantName;

@@ -1,11 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:joy_box_app/common_widgets/common_elevated_button.dart';
 import 'package:joy_box_app/res/color.dart';
 
 class PaymentMethodScreen extends StatefulWidget {
-  const PaymentMethodScreen({Key? key});
+  const PaymentMethodScreen({super.key});
 
   static const String routeName = 'payment-method-screen';
 

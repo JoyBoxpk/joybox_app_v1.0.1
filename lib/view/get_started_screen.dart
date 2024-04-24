@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
-import 'package:joy_box_app/view/authentication/sign_up_screen/sign_up_screen.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:joy_box_app/view/routes.dart';
 import '../res/color.dart';
 
 class GetStartedScreen extends StatefulWidget {
@@ -25,20 +23,18 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
           child: Stack(
             children: [
               Positioned(
-                left: -120,
-                top: -58,
-                child: Container(
-                  width: 480.w,
-                  height: 510,
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: AppColor.blue,
-                  ),
+                right: -85.w,
+                top: -15.h,
+                child: Image.asset(
+                  "assets/images/get_started_screen_img1.png",
+                  height: 570.h,
+                  width: 600.w,
+                  fit: BoxFit.contain,
                 ),
               ),
               Positioned(
-                top: -44.h,
-                right: -30.w,
+                top: -20.h,
+                right: -25.w,
                 child: Image.asset(
                   "assets/images/img1_get_started_screen.png",
                   width: 200.w,
@@ -69,7 +65,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 right: 20.w,
                 bottom: 50.h,
                 child: InkWell(
-                  onTap: () => context.goNamed(SignUpScreen.routeName),
+                  onTap: () => Navigator.pushReplacementNamed(context, RoutePaths.login),
                   child: Container(
                     padding: const EdgeInsets.all(16.0),
                     alignment: Alignment.center,
@@ -105,29 +101,28 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 child: Text(
                   "JoyBox!",
                   style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                    color: Colors.white,
-                    fontSize: 70.sp,
-                  ),
+                        color: Colors.white,
+                        fontSize: 70.sp,
+                      ),
                 ),
               ),
               Positioned(
-                left: 25.w,
-                top: 390.h,
+                left: 40.w,
+                top: 420.h,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
                       "We're so glad you're here",
                       style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                        color: Colors.white,
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.w400,
-                      ),
+                            color: Colors.white,
+                            fontSize: 18.sp,
+                            fontWeight: FontWeight.w400,
+                          ),
                     ),
                   ],
                 ),
               ),
-              
             ],
           ),
         ),
