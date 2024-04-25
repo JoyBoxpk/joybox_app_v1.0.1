@@ -6,6 +6,7 @@ import 'package:joy_box_app/model/custom_item_model.dart';
 import 'package:joy_box_app/model/offer_item_model.dart';
 import 'package:joy_box_app/model/your_favourite_meal_item_model.dart';
 import 'package:joy_box_app/res/color.dart';
+import 'package:joy_box_app/view/home_screen/sections/joybox_section.dart';
 import 'package:joy_box_app/view/home_screen/widgets/custom_icon_button.dart';
 import 'package:joy_box_app/view/home_screen/widgets/custom_item.dart';
 import 'package:joy_box_app/view/home_screen/widgets/offer_item_widget.dart';
@@ -70,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 _buildMenu(context),
                 SizedBox(height: 50.h),
                 _traditionalRestaurant(context),
-                _buildJoyBoxChoice(context),
+                const JoyBoxSection(),
                 SizedBox(height: 20.h),
                 _buildOfferRow(context),
                 SizedBox(height: 30.h),
@@ -79,7 +80,6 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        // drawer: const DrawerWidget(),
       ),
     );
   }
@@ -425,67 +425,6 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ],
-    );
-  }
-
-  Widget _buildJoyBoxChoice(BuildContext context) {
-    return Container(
-      height: 480.h,
-      padding: EdgeInsets.symmetric(vertical: 20.h),
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-          colors: [
-            // Colors.red.withOpacity(0.02),
-            AppColor.white,
-            AppColor.blue,
-          ],
-        ),
-      ),
-      child: Column(
-        children: [
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 20.w),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "JoyBox Choice",
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge!
-                      .copyWith(color: Colors.black, fontSize: 20.sp),
-                ),
-                GestureDetector(
-                  onTap: () =>
-                      Navigator.pushNamed(context, RoutePaths.joyboxChoice),
-                  child: Text(
-                    "View all",
-                    style: Theme.of(context)
-                        .textTheme
-                        .labelLarge!
-                        .copyWith(color: Colors.black, fontSize: 12.sp),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 10.h),
-          SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: Row(
-              children: [
-                Image.asset("assets/images/img19_home_screen.png"),
-                Image.asset("assets/images/img20_home_screen.png.png"),
-                Image.asset("assets/images/img19_home_screen.png"),
-                Image.asset("assets/images/img20_home_screen.png.png"),
-              ],
-            ),
-          ),
-        ],
-      ),
     );
   }
 

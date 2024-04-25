@@ -24,7 +24,7 @@ class JoyBoxSectionWidget extends StatelessWidget {
             elevation: 4.0,
             borderRadius: BorderRadius.circular(6.0),
             child: Container(
-              padding: EdgeInsets.only(right: 20.w, left: 20.w, top: 20.h),
+              padding: EdgeInsets.only(right: 20.w, left: 20.w, top: 15.h),
               height: 320.h,
               decoration: BoxDecoration(
                 color: AppColor.amber,
@@ -84,7 +84,7 @@ class JoyBoxSectionWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 6.h,
+            top: 2.h,
             right: -5.w,
             child: IconButton(
               onPressed: () {},
