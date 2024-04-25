@@ -1,18 +1,35 @@
-
 import 'package:flutter/material.dart';
 import 'package:joy_box_app/view/Fast%20food/fast_food/fast_food_main/fast_food_main.dart';
+import 'package:joy_box_app/view/Fast%20food/inner_fast_food_res_screen/inner_fastfood_res.dart';
 import 'package:joy_box_app/view/Jb_pro_screen/jb_pro_screen.dart';
+import 'package:joy_box_app/view/aboutus_screen/about_us_screen.dart';
 import 'package:joy_box_app/view/all_restaurents_screen/all_restaurents_screen_widget_model..dart';
 import 'package:joy_box_app/view/authentication/login_screen/login_screen.dart';
 import 'package:joy_box_app/view/authentication/sign_up_screen/sign_up_screen.dart';
+import 'package:joy_box_app/view/cart_screen/cart_screen.dart';
+import 'package:joy_box_app/view/chat_screen/chat_screen.dart';
+import 'package:joy_box_app/view/checkout_presentation/checkout_screen.dart';
+import 'package:joy_box_app/view/fast_food_restaurant_screen/fast_food_restaurant_screen.dart';
 import 'package:joy_box_app/view/get_started_screen.dart';
 import 'package:joy_box_app/view/home_screen/home_screen.dart';
 import 'package:joy_box_app/view/joybox_choice/joybox_choice_screen.dart';
+import 'package:joy_box_app/view/joybox_picks_screen/joybox_picks_screen.dart';
 import 'package:joy_box_app/view/main_screen/main_screen.dart';
+import 'package:joy_box_app/view/notificaion_screen/notification_screen.dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
+import 'package:joy_box_app/view/ordering_recording/ordering_reordering.dart';
+import 'package:joy_box_app/view/payment_method/payment_method_screen.dart';
 import 'package:joy_box_app/view/popular_restaurants_screen/popular_restaurants_screen.dart';
+import 'package:joy_box_app/view/profile_screen/Profile.dart';
+import 'package:joy_box_app/view/resturent_near_you_screen/near_you_restaurent.dart';
+import 'package:joy_box_app/view/reviews_screen/reviews_screen.dart';
+import 'package:joy_box_app/view/settings_screen/settings_screen.dart';
 import 'package:joy_box_app/view/splash_screen.dart';
+import 'package:joy_box_app/view/support/support_screen.dart';
+import 'package:joy_box_app/view/top_restaurent/top_restauent_screen.dart';
 import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_screen.dart';
+import 'package:joy_box_app/view/transaction_screen/transactions_screen.dart';
+import 'package:joy_box_app/view/user_fav_restaurent/user_fav_restaurent_screen.dart';
 
 // Define your route names as constants (optional)
 class RoutePaths {
@@ -24,11 +41,34 @@ class RoutePaths {
   static const String home = HomeScreen.routeName;
   static const String allRestaurants = AllRestaurantScreen.routeName;
   static const String popularRestaurants = PopularRestaurantsScreen.routeName;
-  static const String traditionalRestaurants = TraditionalRestaurantScreen.routeName;
+  static const String traditionalRestaurants =
+      TraditionalRestaurantScreen.routeName;
   static const String joyboxChoice = JoyBoxChoiceScreen.routeName;
   static const String offers = OffersScreen.routeName;
   static const String fastFoodMain = FastFoodMainScreen.routeName;
+
   static const String jbPro = JbProScreen.routeName;
+  static const String profile = ProfileScreen.routeName;
+  static const String transactions = TransactionsScreen.routeName;
+
+  static const String orderReordering = OrderingReordering.routeName;
+
+  static const String review = ReviewsScreen.routeName;
+  static const String topRestaurent = TopRestaurentScreen.routeName;
+  static const String userFavRestaurent = UserFavRestaurentScreen.routeName;
+  static const String nearYouRestaurent = NearYouRestaurent.routeName;
+
+  static const String paymentMethod = PaymentMethodScreen.routeName;
+  static const String joyboxPicks = JoyboxPicksScreen.routeName;
+  static const String fastFoodRestaurent = FastFoodRestaurantScreen.routeName;
+  static const String fastFoodRestaurentInner =
+      InnerFastFoodResScreen.routeName;
+  static const String cart = CartScreen.routeName;
+  static const String checkout = CheckoutScreen.routeName;
+  static const String notification = NotificationScreen.routeName;
+  static const String helpCenter = SupportScreen.routeName;
+  static const String aboutUs = AboutUsScreen.routeName;
+  static const String chatScreen = ChatScreen.routeName;
 }
 
 // Define your routes as a Map
@@ -46,7 +86,37 @@ final Map<String, WidgetBuilder> appRoutes = {
   RoutePaths.offers: (context) => const OffersScreen(),
   RoutePaths.fastFoodMain: (context) => const FastFoodMainScreen(),
   RoutePaths.jbPro: (context) => const JbProScreen(),
+  RoutePaths.profile: (context) => ProfileScreen(),
+  RoutePaths.orderReordering: (context) => OrderingReordering(),
+  RoutePaths.transactions: (context) => const TransactionsScreen(),
+  RoutePaths.review: (context) => const ReviewsScreen(),
+  RoutePaths.paymentMethod: (context) => const PaymentMethodScreen(),
+  RoutePaths.topRestaurent: (context) => TopRestaurentScreen(),
+  RoutePaths.userFavRestaurent: (context) => const UserFavRestaurentScreen(),
+  RoutePaths.nearYouRestaurent: (context) => const NearYouRestaurent(),
+  RoutePaths.joyboxPicks: (context) => JoyboxPicksScreen(),
+  RoutePaths.fastFoodRestaurent: (context) => const FastFoodRestaurantScreen(),
+  RoutePaths.fastFoodRestaurentInner: (context) =>
+      const InnerFastFoodResScreen(),
+  RoutePaths.checkout: (context) => CheckoutScreen(),
+  RoutePaths.cart: (context) => const CartScreen(),
+  RoutePaths.notification: (context) => const NotificationScreen(),
+  RoutePaths.helpCenter: (context) => const SupportScreen(),
+  RoutePaths.aboutUs: (context) => const AboutUsScreen(),
+  RoutePaths.chatScreen: (context) => const ChatScreen(),
 };
+
+
+  // static const String fastFoodRestaurent = FastFoodRestaurantScreen.routeName;
+  // static const String fastFoodRestaurentInner =
+  //     InnerFastFoodResScreen.routeName;
+  // static const String cart = CartScreen.routeName;
+  // static const String checkout = CheckoutScreen.routeName;
+  // static const String notification = NotificationScreen.routeName;
+  // static const String helpCenter = SupportScreen.routeName;
+  // static const String aboutUs = AboutUsScreen.routeName;
+  // static const String chatScreen = ChatScreen.routeName;
+
 
 // final List<RouteBase> appRoutes = [
 //   GoRoute(

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:joy_box_app/common_widgets/custom_bottom_app_bar.dart';
+import 'package:joy_box_app/common_widgets/drawer.dart';
 import 'package:joy_box_app/view/cart_screen/cart_screen.dart';
+import 'package:joy_box_app/view/home_screen/widgets/custom_icon_button.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
 import 'package:joy_box_app/view/settings_screen/settings_screen.dart';
 import 'package:joy_box_app/view/user_fav_restaurent/user_fav_restaurent_screen.dart';
@@ -10,7 +12,7 @@ import '../../res/color.dart';
 import '../home_screen/home_screen.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  const MainScreen({Key? key}) : super(key: key);
 
   static const String routeName = '/main-screen';
 
@@ -20,37 +22,26 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   int selectedIndex = 0;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   List<Widget> screens = [
     const HomeScreen(),
     const UserFavRestaurentScreen(),
     const CartScreen(),
-    const ProfileScreen(),
+    ProfileScreen(),
     const SettingScreen(),
   ];
-
-  void onItemTapped(int index) {
-    setState(() {
-      selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // floatingActionButtonLocation:
-        //     FloatingActionButtonLocation.miniCenterDocked,
-        // floatingActionButton: FloatingActionButton(
-        //   backgroundColor: AppColor.amber,
-        //   shape: const CircleBorder(),
-        //   elevation: 0.0,
-        //   onPressed: () {},
-        //   child: Icon(
-        //     Icons.shopping_bag_outlined,
-        //     size: 35.sp,
-        //   ),
-        // ),
+        key: _scaffoldKey,
+        drawer: selectedIndex == 0
+            ? DrawerWidget(
+                onDrawerStateChanged: (bool isOpen) {},
+              )
+            : null,
         bottomNavigationBar: CommonBottomNavBar(
           onItemTapped: (value) {
             setState(() {
@@ -59,8 +50,55 @@ class _MainScreenState extends State<MainScreen> {
           },
           selectedIndex: selectedIndex,
         ),
-        body: screens[selectedIndex],
+        body: NestedScrollView(
+          floatHeaderSlivers: true,
+          headerSliverBuilder: (context, innerBoxIsScrolled) => [
+            if (selectedIndex == 0) _buildAppBar(),
+          ],
+          body: screens[selectedIndex],
+        ),
       ),
+    );
+  }
+
+  SliverAppBar _buildAppBar() {
+    return SliverAppBar(
+      floating: true,
+      backgroundColor: Colors.transparent,
+      elevation: 0,
+      leading: CustomIconButton(
+        onPressed: () {
+          print("tabed");
+          _scaffoldKey.currentState?.openDrawer();
+        },
+        imagePath: "assets/images/img1_home_screen.png",
+      ),
+      title: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            "Deliver to",
+            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  fontSize: 15.sp,
+                  color: AppColor.red1,
+                  fontWeight: FontWeight.w400,
+                ),
+          ),
+          Text(
+            "4102 Pretty View Lane",
+            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w400,
+                ),
+          ),
+        ],
+      ),
+      actions: [
+        CustomIconButton(
+          onPressed: () {},
+          imagePath: "assets/images/img2_home_screen.jpg",
+        ),
+      ],
     );
   }
 }

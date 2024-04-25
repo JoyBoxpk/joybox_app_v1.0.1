@@ -70,6 +70,8 @@ class _UserFavRestaurentScreenState extends State<UserFavRestaurentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CommonAppBar(
+        isCircular: true,
+        showBackButton: false,
         text: "Your Favourite Restaurant",
         actions: [
           IconButton(

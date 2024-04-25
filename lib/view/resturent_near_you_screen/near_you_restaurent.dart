@@ -33,6 +33,7 @@ class _NearYouRestaurentState extends State<NearYouRestaurent> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CommonAppBar(
+        isCircular: true,
         text: "Restaurant Near you",
         actions: [
           IconButton(
