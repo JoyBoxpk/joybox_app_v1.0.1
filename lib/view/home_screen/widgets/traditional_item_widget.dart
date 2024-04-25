@@ -14,7 +14,7 @@ class TraditionalItemWidget extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Material(
-          elevation: 2.0,
+          elevation: 4.0,
           borderRadius: BorderRadius.circular(8.0),
           child: Container(
             padding: const EdgeInsets.only(bottom: 8.0),

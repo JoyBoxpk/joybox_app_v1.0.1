@@ -1,29 +1,22 @@
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:joy_box_app/model/custom_item_model.dart';
-import 'package:joy_box_app/model/offer_item_model.dart';
-import 'package:joy_box_app/model/your_favourite_meal_item_model.dart';
 import 'package:joy_box_app/res/color.dart';
-import 'package:joy_box_app/view/home_screen/sections/joybox_section.dart';
+import 'package:joy_box_app/view/home_screen/sections/joybox_choice_section.dart';
+import 'package:joy_box_app/view/home_screen/sections/offers_section.dart';
+import 'package:joy_box_app/view/home_screen/sections/traditional_restaurants_section.dart';
 import 'package:joy_box_app/view/home_screen/widgets/custom_icon_button.dart';
 import 'package:joy_box_app/view/home_screen/widgets/custom_item.dart';
-import 'package:joy_box_app/view/home_screen/widgets/offer_item_widget.dart';
 import 'package:joy_box_app/view/home_screen/widgets/popular_res_item.dart';
-import 'package:joy_box_app/view/home_screen/widgets/taditional_item_widget.dart';
-import 'package:joy_box_app/view/home_screen/widgets/your_favourite_meal_item.dart';
 import 'package:joy_box_app/view/routes.dart';
-import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_screen.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../model/traditional_restaurants_item_model.dart';
+import 'sections/favourite_meal_section.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
   static const String routeName = "/home-page";
-  /////Hafeez Loru
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -31,9 +24,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
-  final CarouselController _carouselController6 = CarouselController();
   int activeIndex1 = 0;
-  int activeIndex6 = 0;
   int _currentIndex1 = 0;
   bool showProgressBar = true;
 
@@ -70,12 +61,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(height: 60.h),
                 _buildMenu(context),
                 SizedBox(height: 50.h),
-                _traditionalRestaurant(context),
-                const JoyBoxSection(),
-                SizedBox(height: 20.h),
-                _buildOfferRow(context),
+                const TraditionalRestaurantsSection(),
                 SizedBox(height: 30.h),
-                _favMealRow(context),
+                const JoyBoxChoiceSection(),
+                SizedBox(height: 40.h),
+                const OffersSection(),
+                SizedBox(height: 30.h),
+                FavouriteMealSection(),
               ],
             ),
           ),
@@ -84,119 +76,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _favMealRow(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 310.h,
-      margin: EdgeInsets.symmetric(horizontal: 25.w),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text("Your Favourite meal",
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge!
-                      .copyWith(color: Colors.black, fontSize: 20.sp)),
-              Text("View all",
-                  style: Theme.of(context)
-                      .textTheme
-                      .labelLarge!
-                      .copyWith(color: Colors.black, fontSize: 12.sp))
-            ],
-          ),
-          SizedBox(height: 20.h),
-          Expanded(
-            child: ListView.separated(
-              clipBehavior: Clip.none,
-              scrollDirection: Axis.horizontal,
-              itemCount: YourFavouriteMealItemModel.favouriteItemList.length,
-              separatorBuilder: (context, index) {
-                return SizedBox(width: 4.h);
-              },
-              itemBuilder: (context, index) {
-                final item =
-                    YourFavouriteMealItemModel.favouriteItemList[index];
-                return YourFavouriteMealItem(
-                  itemModel: item,
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildOfferRow(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.symmetric(horizontal: 18.w),
-      width: double.infinity,
-      height: 270.h,
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text("Offers",
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge!
-                      .copyWith(color: Colors.black, fontSize: 20.sp)),
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(context, RoutePaths.offers),
-                child: Text("View all",
-                    style: Theme.of(context)
-                        .textTheme
-                        .labelLarge!
-                        .copyWith(color: Colors.black, fontSize: 12.sp)),
-              )
-            ],
-          ),
-          SizedBox(height: 10.h),
-          CarouselSlider.builder(
-            itemCount: OfferItemModel.offerItemList.length,
-            options: CarouselOptions(
-              clipBehavior: Clip.none,
-              viewportFraction: 0.9997,
-              height: 210.h,
-              autoPlay: false,
-              enlargeCenterPage: true,
-              enableInfiniteScroll: true,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  activeIndex6 = index;
-                });
-              },
-            ),
-            itemBuilder: (context, index, realIndex) {
-              final item = OfferItemModel.offerItemList[index];
-              return OfferItemWidget(
-                offerItem: item,
-              );
-            },
-            carouselController: _carouselController6,
-          ),
-          Align(
-            alignment: Alignment.center,
-            child: AnimatedSmoothIndicator(
-              activeIndex: activeIndex6,
-              count: OfferItemModel.offerItemList.length,
-              effect: WormEffect(
-                dotHeight: 12.h,
-                dotWidth: 12.w,
-                activeDotColor: AppColor.red2,
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
 
   Widget _popularRestaurantRow(BuildContext context) {
     int currentIndex = 0;
@@ -428,59 +307,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _traditionalRestaurant(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      height: 250.h,
-      margin: EdgeInsets.symmetric(horizontal: 20.w),
-      child: Column(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Text(
-                "Traditional Restaurants",
-                style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                      color: Colors.black,
-                      fontSize: 20.sp,
-                    ),
-              ),
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(
-                    context, TraditionalRestaurantScreen.routeName),
-                child: Text(
-                  "See all",
-                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                        color: Colors.black,
-                        fontSize: 12.sp,
-                      ),
-                ),
-              )
-            ],
-          ),
-          SizedBox(height: 80.h),
-          Expanded(
-            child: ListView.separated(
-              clipBehavior: Clip.none,
-              scrollDirection: Axis.horizontal,
-              itemCount: TraditionalRestaurantsItemModel.itemsList.length,
-              separatorBuilder: (context, index) {
-                return SizedBox(width: 20.h);
-              },
-              itemBuilder: (context, index) {
-                final item = TraditionalRestaurantsItemModel.itemsList[index];
-                return TraditionalItemWidget(
-                  traditionalItem: item,
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
   Widget _buildMenu(BuildContext context) {
     List<List<String>> foodImages = [
       [
@@ -531,13 +357,16 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 18.sp,
                             ),
                       ),
-                      Text(
-                        "See all",
-                        style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                              color: AppColor.white,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 14.sp,
-                            ),
+                      GestureDetector(
+                        onTap: ()=> Navigator.pushNamed(context, RoutePaths.fastFoodMain),
+                        child: Text(
+                          "See all",
+                          style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                                color: AppColor.white,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 14.sp,
+                              ),
+                        ),
                       ),
                     ],
                   ),

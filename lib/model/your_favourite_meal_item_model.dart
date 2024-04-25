@@ -24,13 +24,13 @@ class YourFavouriteMealItemModel {
       imageUrl: "assets/images/img25_home_screen.png",
     ),
     YourFavouriteMealItemModel(
-      title: "Kababjess",
+      title: "Kababjees",
       subTitle: "Jauhar",
       imageUrl: "assets/images/img24_home_screen.png",
     ),
     YourFavouriteMealItemModel(
       title: "Hardees",
-      subTitle: "UNiversity Road",
+      subTitle: "University Road",
       imageUrl: "assets/images/img25_home_screen.png",
     ),
   ];

@@ -19,23 +19,23 @@ class YourFavouriteMealItem extends StatelessWidget {
       clipBehavior: Clip.none,
       children: [
         Image.asset(
-          "assets/images/img23_home_screen.png.png",
+          "assets/images/img23_home_screen.png",
           width: 200.w,
           height: 300.h,
         ),
         Positioned(
-          left: -12,
+          left: 10.w,
           bottom: 35,
           child: Image.asset(
             itemModel.imageUrl,
-            width: 155.w,
-            height: 135.h,
-            fit: BoxFit.cover,
+            width: 145.w,
+            height: 145.h,
+            fit: BoxFit.contain,
           ),
         ),
         Positioned(
           top: 18,
-          left: 40,
+          left: 55.w,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -46,9 +46,13 @@ class YourFavouriteMealItem extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
               ),
-              Text(itemModel.subTitle),
+              Text(itemModel.subTitle, style: Theme.of(context).textTheme.displayLarge!.copyWith(
+                fontSize: 15.sp,
+                fontWeight: FontWeight.w300,
+              )),
+              SizedBox(height: 5.h),
               RatingBar.builder(
-                itemSize: 18.sp,
+                itemSize: 16.sp,
                 initialRating: 3,
                 minRating: 1,
                 direction: Axis.horizontal,
@@ -67,24 +71,24 @@ class YourFavouriteMealItem extends StatelessWidget {
           ),
         ),
         Positioned(
-          bottom: -8,
-          right: 18,
+          bottom: 2.h,
+          right: 20.w,
           child: Row(
             children: [
               Text(
                 "Rs.599",
                 style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                      fontSize: 20.sp,
+                      fontSize: 17.sp,
                       fontWeight: FontWeight.w600,
                     ),
               ),
-              SizedBox(width: 10.w),
+              SizedBox(width: 14.w),
               IconButton(
                 onPressed: () {},
                 icon: Icon(
                   Icons.shopping_cart,
                   color: AppColor.red2,
-                  size: 30.sp,
+                  size: 24.sp,
                 ),
               ),
             ],

@@ -28,8 +28,8 @@ class CustomSmoothIndicator extends StatelessWidget {
         controller: PageController(initialPage: activeIndex),
         count: itemCount,
         effect: WormEffect(
-          dotHeight: height ?? 11.0,
-          dotWidth: width ?? 11.0,
+          dotHeight: height ?? 9.0,
+          dotWidth: width ?? 9.0,
           activeDotColor: activeColor ?? Colors.red,
 
           paintStyle: PaintingStyle.fill,
