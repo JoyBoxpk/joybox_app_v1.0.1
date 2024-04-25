@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/common_widgets/custom_image_view.dart';
 import 'package:joy_box_app/view/Jb_pro_screen/jb_pro_screen.dart';
 import 'package:joy_box_app/view/chat_screen/chat_screen.dart';
+import 'package:joy_box_app/view/notificaion_screen/notification_screen.dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/ordering_recording/ordering_reordering.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
@@ -183,10 +184,10 @@ class DrawerWidget extends StatelessWidget {
 void _navigateToScreen(BuildContext context, String title) {
   switch (title) {
     case "Support":
-      context.goNamed(SupportScreen.routeName);
+      Navigator.pushNamed(context, SupportScreen.routeName);
       break;
     case "Transactions":
-      context.goNamed(TransactionsScreen.routeName);
+      Navigator.pushNamed(context, TransactionsScreen.routeName);
       break;
     case "Profile":
       Navigator.pushNamed(context, ProfileScreen.routeName);
@@ -210,6 +211,11 @@ void _navigateToScreen(BuildContext context, String title) {
       break;
     case "Invite friends":
       Navigator.pushNamed(context, PaymentMethodScreen.routeName);
+
+      break;
+
+    case "Notifications":
+      Navigator.pushNamed(context, NotificationScreen.routeName);
 
       break;
 
