@@ -526,18 +526,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       Text(
                         "Menu",
                         style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                          color: AppColor.white,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18.sp,
-                        ),
+                              color: AppColor.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 18.sp,
+                            ),
                       ),
                       Text(
                         "See all",
                         style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                          color: AppColor.white,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14.sp,
-                        ),
+                              color: AppColor.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14.sp,
+                            ),
                       ),
                     ],
                   ),
@@ -572,17 +572,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                   .textTheme
                                   .displaySmall!
                                   .copyWith(
-                                fontSize:
-                                _currentIndex1 == index ? 15.sp : 13.sp,
-                                fontWeight: _currentIndex1 == index
-                                    ? FontWeight.w500
-                                    : FontWeight.w400,
-                              ),
+                                    fontSize:
+                                        _currentIndex1 == index ? 15.sp : 13.sp,
+                                    fontWeight: _currentIndex1 == index
+                                        ? FontWeight.w500
+                                        : FontWeight.w400,
+                                  ),
                             ),
                           ),
                         );
                       },
-                      separatorBuilder: (context, index) => SizedBox(width: 1.w),
+                      separatorBuilder: (context, index) =>
+                          SizedBox(width: 1.w),
                     ),
                   ),
                 ),
@@ -630,5 +631,4 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
   }
-
 }
