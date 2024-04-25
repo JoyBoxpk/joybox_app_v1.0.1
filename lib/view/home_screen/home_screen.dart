@@ -54,7 +54,6 @@ class _HomeScreenState extends State<HomeScreen> {
             margin: const EdgeInsets.symmetric(vertical: 10),
             child: Column(
               children: [
-                _buildAppBar(),
                 SizedBox(height: 28.h),
                 Text(
                   "What would you like to order",
@@ -80,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-        drawer: const DrawerWidget(),
+        // drawer: const DrawerWidget(),
       ),
     );
   }
@@ -588,18 +587,18 @@ class _HomeScreenState extends State<HomeScreen> {
                       Text(
                         "Menu",
                         style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                          color: AppColor.white,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 18.sp,
-                        ),
+                              color: AppColor.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 18.sp,
+                            ),
                       ),
                       Text(
                         "See all",
                         style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                          color: AppColor.white,
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14.sp,
-                        ),
+                              color: AppColor.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14.sp,
+                            ),
                       ),
                     ],
                   ),
@@ -634,17 +633,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                   .textTheme
                                   .displaySmall!
                                   .copyWith(
-                                fontSize:
-                                _currentIndex1 == index ? 15.sp : 13.sp,
-                                fontWeight: _currentIndex1 == index
-                                    ? FontWeight.w500
-                                    : FontWeight.w400,
-                              ),
+                                    fontSize:
+                                        _currentIndex1 == index ? 15.sp : 13.sp,
+                                    fontWeight: _currentIndex1 == index
+                                        ? FontWeight.w500
+                                        : FontWeight.w400,
+                                  ),
                             ),
                           ),
                         );
                       },
-                      separatorBuilder: (context, index) => SizedBox(width: 1.w),
+                      separatorBuilder: (context, index) =>
+                          SizedBox(width: 1.w),
                     ),
                   ),
                 ),
@@ -687,60 +687,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 dotWidth: 9.w,
               ),
             ),
-          ),
-        ],
-      ),
-    );
-  }
-
-
-
-
-
-
-  Widget _buildAppBar() {
-    return Container(
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 15.w),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CustomIconButton(
-              onPressed: () {
-                _scaffoldKey.currentState?.openDrawer();
-              },
-              imagePath: "assets/images/img1_home_screen.png"),
-          Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    "Deliver to",
-                    style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                          fontSize: 15.sp,
-                          color: AppColor.red1,
-                          fontWeight: FontWeight.w400,
-                        ),
-                  ),
-                  const Icon(
-                    Icons.arrow_drop_down_outlined,
-                    color: AppColor.red1,
-                  ),
-                ],
-              ),
-              Text(
-                "4102 Pretty View Lane",
-                style: Theme.of(context).textTheme.bodySmall!.copyWith(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
-                    ),
-              ),
-            ],
-          ),
-          CustomIconButton(
-            onPressed: () {},
-            imagePath: "assets/images/img2_home_screen.jpg",
           ),
         ],
       ),
