@@ -94,14 +94,14 @@ class RestaurantInfo extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  "LalQila Restaurant",
+                  restaurant.restaurant.name,
                   style: Theme.of(context)
                       .textTheme
                       .bodySmall!
                       .copyWith(fontSize: 14.sp),
                 ),
                 Text(
-                  "Opening 12pm - 12am",
+                  restaurant.restaurant.openingHours,
                   style: Theme.of(context)
                       .textTheme
                       .bodySmall!
@@ -110,7 +110,7 @@ class RestaurantInfo extends StatelessWidget {
               ],
             ),
             Text(
-              "A Mughal Buffet restaurant",
+              restaurant.restaurant.description,
               style: Theme.of(context)
                   .textTheme
                   .bodySmall!

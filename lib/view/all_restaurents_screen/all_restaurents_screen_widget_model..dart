@@ -821,29 +821,9 @@ class _AllRestaurantScreenState extends State<AllRestaurantScreen> {
               top: 60.h,
               child: Center(
                 child: SizedBox(
-                  height: 25.h,
-                  child: ElevatedButton(
-                    style: ButtonStyle(
-                      shape: MaterialStatePropertyAll(
-                        RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(6.w),
-                        ),
-                      ),
-                      backgroundColor: MaterialStatePropertyAll(
-                        AppColor.red1.withOpacity(0.7),
-                      ),
-                    ),
-                    onPressed: () {},
-                    child: Text(
-                      "Order now",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 8.sp,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
+                    height: 25.h,
+                    child: CommonElevatedButton(
+                        onPressed: () {}, text: "Order now")),
               ),
             ),
             Positioned(
@@ -1122,7 +1102,7 @@ class _RestaurentsNearyou extends StatelessWidget {
             height: 20.h,
           ),
           SizedBox(
-            height: 250.h,
+            height: 260.h,
             width: 500.w,
             child: ListView.builder(
               clipBehavior: Clip.none,

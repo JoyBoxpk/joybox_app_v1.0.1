@@ -5,9 +5,24 @@ import 'package:joy_box_app/common_widgets/common_appbar.dart';
 import 'package:joy_box_app/common_widgets/custom_image_view.dart';
 import 'package:joy_box_app/res/color.dart';
 
-class TransactionsScreen extends StatelessWidget {
+class TransactionsScreen extends StatefulWidget {
   const TransactionsScreen({super.key});
   static const String routeName = 'Transactions-screen';
+
+  @override
+  State<TransactionsScreen> createState() => _TransactionsScreenState();
+}
+
+class _TransactionsScreenState extends State<TransactionsScreen> {
+  int selectedIndex = 0;
+  int selectedTransactionIndex = 0;
+
+  final List items = [
+    "All",
+    "Earned",
+    "Spend"
+    // Add more items as needed
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -37,17 +52,20 @@ class TransactionsScreen extends StatelessWidget {
                         .displaySmall!
                         .copyWith(fontSize: 16.sp, fontWeight: FontWeight.w600),
                   ),
+                  SizedBox(
+                    height: 20.h,
+                  ),
                   Container(
-                    color: const Color(0XFFD9D9D9),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        buildTabItem("All", context),
-                        //SizedBox(width: 10), // Add space between tabs
-                        buildTabItem("Earned", context),
-                        //SizedBox(width: 10), // Add space between tabs
-                        buildTabItem("Spend", context),
-                      ],
+                    height: 40.h,
+                    width: 400.w,
+                    color: AppColor.black.withOpacity(0.1),
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: items.length,
+                      itemBuilder: (context, index) {
+                        final item = items[index];
+                        return buildTransactionTabItem(item, context, index);
+                      },
                     ),
                   ),
                   const TransactionInnerWidet(),
@@ -59,6 +77,83 @@ class TransactionsScreen extends StatelessWidget {
               ),
             )
           ],
+        ),
+      ),
+    );
+  }
+
+  Widget BuildTabs(BuildContext context) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+        child: Row(
+          children: [
+            Container(
+              child: buildTopTabItem("Card", context, selectedIndex == 0, 0),
+            ),
+            const SizedBox(width: 10), // Add space between tabs
+            buildTopTabItem("JB Wallet", context, selectedIndex == 1, 1),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget buildTopTabItem(
+      String text, BuildContext context, bool isSelected, int index) {
+    bool isSelected = index == selectedIndex;
+
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          // Handle tab selection
+          selectedIndex = index;
+          print("Tabbed");
+        });
+      },
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(6),
+          color: selectedIndex == index ? AppColor.amber : null,
+        ),
+        child: Text(
+          text,
+          style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                color: isSelected ? Colors.white : Colors.black,
+                fontWeight: FontWeight.normal,
+                fontSize: 14.sp,
+              ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildTransactionTabItem(String text, BuildContext context, int index) {
+    bool isSelected = index == selectedTransactionIndex;
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectedTransactionIndex = index;
+          print("Tabbed");
+        });
+      },
+      child: Container(
+        width: 120.w,
+        decoration: BoxDecoration(
+          color: isSelected ? Colors.red : null,
+          borderRadius: BorderRadius.circular(6),
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                  color: isSelected ? Colors.white : Colors.black,
+                  fontWeight: FontWeight.normal,
+                  fontSize: 14.sp,
+                ),
+          ),
         ),
       ),
     );
@@ -75,8 +170,7 @@ class TransactionBalanceWidget extends StatelessWidget {
     return Row(
       children: [
         Container(
-          padding:
-              const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 20),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             boxShadow: const [
@@ -104,28 +198,22 @@ class TransactionBalanceWidget extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: 'RS .',
-                      style: Theme.of(context)
-                          .textTheme
-                          .bodyMedium!
-                          .copyWith(
+                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                             // fontSize: 14.sp,
                             fontWeight: FontWeight.w400,
                           ),
                     ),
                     TextSpan(
                       text: ' 130.000',
-                      style: Theme.of(context)
-                          .textTheme
-                          .displayMedium!
-                          .copyWith(
-                            // fontSize: 14.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
+                      style:
+                          Theme.of(context).textTheme.displayMedium!.copyWith(
+                                // fontSize: 14.sp,
+                                fontWeight: FontWeight.w400,
+                              ),
                     ),
                   ],
                 ),
               )
-            
             ],
           ),
         ),
@@ -142,8 +230,7 @@ class TransactionBalanceWidget extends StatelessWidget {
                   ),
             ),
             Container(
-              padding: EdgeInsets.symmetric(
-                  horizontal: 20.w, vertical: 20.h),
+              padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 20.h),
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.amberAccent),
                   borderRadius: BorderRadius.circular(6.h)),
@@ -216,59 +303,4 @@ class TransactionInnerWidet extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget BuildTabs(BuildContext context) {
-  return SingleChildScrollView(
-    scrollDirection: Axis.horizontal,
-    child: Padding(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-      child: Row(
-        children: [
-          Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(6),
-                  color: AppColor.amber),
-              child: buildTabItem("Card", context)),
-          const SizedBox(width: 10), // Add space between tabs
-          buildTabItem("JB Wallet", context),
-          // Add space between tabs
-        ],
-      ),
-    ),
-  );
-}
-
-Widget buildTabItem(String text, BuildContext context) {
-  bool isSelected = false; // Set this to true for selected tab
-  return GestureDetector(
-    onTap: () {
-      // Handle tab selection
-    },
-    child: Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      decoration: BoxDecoration(
-        color: isSelected
-            ? const Color(0xFFFFD726)
-            : null, // Set selected background color
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Text(
-        text,
-        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-              color: isSelected
-                  // ignore: dead_code
-                  ? Colors.white
-                  : Colors.black, // Set text color based on selection
-              fontWeight: FontWeight.normal,
-              fontSize: 14.sp,
-
-              // color: isSelected
-              //     ? Colors.white
-              //     : Colors.black, // Set text color based on selection
-              // fontWeight: FontWeight.bold,
-            ),
-      ),
-    ),
-  );
 }
