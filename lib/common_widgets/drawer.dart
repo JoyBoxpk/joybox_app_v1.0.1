@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/common_widgets/custom_image_view.dart';
 import 'package:joy_box_app/view/Jb_pro_screen/jb_pro_screen.dart';
+import 'package:joy_box_app/view/aboutus_screen/about_us_screen.dart';
 import 'package:joy_box_app/view/chat_screen/chat_screen.dart';
 import 'package:joy_box_app/view/notificaion_screen/notification_screen.dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
@@ -148,7 +149,8 @@ class DrawerWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   InkWell(
-                    onTap: () => context.goNamed(SettingScreen.routeName),
+                    onTap: () =>
+                        Navigator.pushNamed(context, SettingScreen.routeName),
                     child: Text(
                       "Settings",
                       style: textstyle.bodyMedium?.copyWith(
@@ -157,11 +159,15 @@ class DrawerWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Text(
-                    "Terms & Conditions / Privacy",
-                    style: textstyle.bodyMedium?.copyWith(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14.sp,
+                  InkWell(
+                    onTap: () =>
+                        Navigator.pushNamed(context, AboutUsScreen.routeName),
+                    child: Text(
+                      "Terms & Conditions / Privacy",
+                      style: textstyle.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14.sp,
+                      ),
                     ),
                   ),
                   Text(
