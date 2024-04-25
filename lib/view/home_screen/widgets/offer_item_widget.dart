@@ -67,12 +67,12 @@ class OfferItemWidget extends StatelessWidget {
           ),
         ),
         Positioned(
-          right: -20.w,
+          right: -16.w,
           top: -20.h,
           child: Image.asset(
             offerItem.imageUrl,
-            width: 225.w,
-            height: 225.h,
+            width: 222.w,
+            height: 222.h,
             fit: BoxFit.cover,
           ),
         ),

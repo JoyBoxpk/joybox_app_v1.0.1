@@ -6,14 +6,14 @@ import '../../../model/joybox_section_model.dart';
 import '../../routes.dart';
 import '../widgets/joybox_section_widget.dart';
 
-class JoyBoxSection extends StatefulWidget {
-  const JoyBoxSection({super.key});
+class JoyBoxChoiceSection extends StatefulWidget {
+  const JoyBoxChoiceSection({super.key});
 
   @override
-  State<JoyBoxSection> createState() => _JoyBoxSectionState();
+  State<JoyBoxChoiceSection> createState() => _JoyBoxChoiceSectionState();
 }
 
-class _JoyBoxSectionState extends State<JoyBoxSection> {
+class _JoyBoxChoiceSectionState extends State<JoyBoxChoiceSection> {
   int _activeIndex1 = 0;
   final _carouselController1 = CarouselController();
 
@@ -22,6 +22,7 @@ class _JoyBoxSectionState extends State<JoyBoxSection> {
     return SizedBox(
       height: 477.h,
       child: Stack(
+        clipBehavior: Clip.none,
         children: [
           Image.asset(
             "assets/images/img29_home_screen.jpeg",
@@ -32,7 +33,7 @@ class _JoyBoxSectionState extends State<JoyBoxSection> {
           Positioned(
             left: 0,
             right: 0,
-            top: 2.h,
+            top: -10.h,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
               child: Row(
@@ -43,17 +44,18 @@ class _JoyBoxSectionState extends State<JoyBoxSection> {
                     style: Theme.of(context)
                         .textTheme
                         .titleLarge!
-                        .copyWith(color: Colors.black, fontSize: 20.sp),
+                        .copyWith(color: Colors.black, fontSize: 22.sp)
                   ),
                   GestureDetector(
                     onTap: () =>
                         Navigator.pushNamed(context, RoutePaths.joyboxChoice),
                     child: Text(
                       "View all",
-                      style: Theme.of(context)
-                          .textTheme
-                          .labelLarge!
-                          .copyWith(color: Colors.black, fontSize: 12.sp),
+                      style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                        color: Colors.black,
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.w400,
+                      )
                     ),
                   ),
                 ],
@@ -62,14 +64,14 @@ class _JoyBoxSectionState extends State<JoyBoxSection> {
           ),
           Positioned(
             right: 0,
-            left: 0,
+            left: 0.w,
             top: 42.h,
             child: CarouselSlider.builder(
               itemCount: JoyBoxSectionModel.joyBoxSectionItemsList.length,
               options: CarouselOptions(
                 padEnds: false,
                 clipBehavior: Clip.none,
-                viewportFraction: 0.7,
+                viewportFraction: 0.666,
                 // Adjust this value to control spacing between items
                 height: 300.h,
                 autoPlay: false,
