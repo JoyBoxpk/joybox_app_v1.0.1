@@ -16,6 +16,7 @@ import 'package:joy_box_app/view/home_screen/home_screen.dart';
 import 'package:joy_box_app/view/joybox_choice/joybox_choice_screen.dart';
 import 'package:joy_box_app/view/joybox_picks_screen/joybox_picks_screen.dart';
 import 'package:joy_box_app/view/main_screen/main_screen.dart';
+import 'package:joy_box_app/view/notificaion_screen/edit_notification/edit_notification_screen.dart';
 import 'package:joy_box_app/view/notificaion_screen/notification_screen.dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/ordering_recording/ordering_reordering.dart';
@@ -31,7 +32,6 @@ import 'package:joy_box_app/view/top_restaurent/top_restauent_screen.dart';
 import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_screen.dart';
 import 'package:joy_box_app/view/transaction_screen/transactions_screen.dart';
 import 'package:joy_box_app/view/user_fav_restaurent/user_fav_restaurent_screen.dart';
-
 
 class RoutePaths {
   static const String splash = SplashScreen.routeName;
@@ -71,6 +71,7 @@ class RoutePaths {
   static const String aboutUs = AboutUsScreen.routeName;
   static const String chatScreen = ChatScreen.routeName;
   static const String favMeal = FavMealScreen.routeName;
+  static const String editNotification = EditNotification.routeName;
 }
 
 // Define your routes as a Map
@@ -107,6 +108,7 @@ final Map<String, WidgetBuilder> appRoutes = {
   RoutePaths.aboutUs: (context) => const AboutUsScreen(),
   RoutePaths.chatScreen: (context) => const ChatScreen(),
   RoutePaths.favMeal: (context) => const FavMealScreen(),
+  RoutePaths.editNotification: (context) => EditNotification()
 };
 
 
