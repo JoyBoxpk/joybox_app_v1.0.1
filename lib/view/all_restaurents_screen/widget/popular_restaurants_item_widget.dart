@@ -29,7 +29,7 @@ class PopularRestaurantsItemWidget extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: CustomImageView(
-                  width: 160.w,
+                  width: 165.w,
                   height: 280.h,
                   fit: BoxFit.cover,
                   imagePath: item.imagePath,
@@ -102,7 +102,7 @@ class PopularRestaurantsItemWidget extends StatelessWidget {
               child: CommonElevatedButton(
                 borderRadius: 12.0,
                 width: 128.w,
-                height: 38.h,
+                height: 35.h,
                 buttonColor: AppColor.red2.withOpacity(0.8),
                 fontSize: 13.sp,
                 onPressed: () {},
