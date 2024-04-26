@@ -1,7 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../model/your_favourite_meal_item_model.dart';
+import '../../routes.dart';
 import '../widgets/your_favourite_meal_item.dart';
 
 class FavouriteMealSection extends StatelessWidget {
@@ -25,12 +27,15 @@ class FavouriteMealSection extends StatelessWidget {
                       .textTheme
                       .titleLarge!
                       .copyWith(color: Colors.black, fontSize: 22.sp)),
-              Text("View all",
-                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                    color: Colors.black,
-                    fontSize: 13.sp,
-                    fontWeight: FontWeight.w400,
-                  ))
+              GestureDetector(
+                onTap: ()=> Navigator.pushNamed(context, RoutePaths.favMeal),
+                child: Text("View all",
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      color: Colors.black,
+                      fontSize: 13.sp,
+                      fontWeight: FontWeight.w400,
+                    )),
+              )
             ],
           ),
           SizedBox(height: 20.h),

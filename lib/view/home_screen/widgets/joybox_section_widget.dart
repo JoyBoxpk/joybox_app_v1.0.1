@@ -21,7 +21,7 @@ class JoyBoxSectionWidget extends StatelessWidget {
         clipBehavior: Clip.none,
         children: [
           Material(
-            elevation: 4.0,
+            elevation: 5.0,
             borderRadius: BorderRadius.circular(6.0),
             child: Container(
               padding: EdgeInsets.only(right: 20.w, left: 20.w, top: 15.h),
@@ -62,6 +62,7 @@ class JoyBoxSectionWidget extends StatelessWidget {
                   Align(
                     alignment: Alignment.center,
                     child: CommonElevatedButton(
+                      buttonElevation: 4.0,
                       onPressed: () {},
                       text: "Add to cart",
                       width: 170.w,

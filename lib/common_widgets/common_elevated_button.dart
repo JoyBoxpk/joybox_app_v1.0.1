@@ -13,6 +13,7 @@ class CommonElevatedButton extends StatelessWidget {
     this.buttonColor,
     this.fontSize,
     this.borderRadius,
+    this.buttonElevation,
   }); // Corrected super constructor call
 
   final VoidCallback onPressed;
@@ -23,10 +24,12 @@ class CommonElevatedButton extends StatelessWidget {
   final Color? textColor;
   final double? fontSize;
   final double? borderRadius;
+  final double? buttonElevation;
 
   @override
   Widget build(BuildContext context) {
     return Material(
+      elevation: buttonElevation ?? 0.0,
       borderRadius: BorderRadius.circular(borderRadius ?? 6.0),
       color: Colors.transparent, // Set color to transparent
       child: InkWell(

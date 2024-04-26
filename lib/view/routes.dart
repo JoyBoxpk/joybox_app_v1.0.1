@@ -10,6 +10,7 @@ import 'package:joy_box_app/view/cart_screen/cart_screen.dart';
 import 'package:joy_box_app/view/chat_screen/chat_screen.dart';
 import 'package:joy_box_app/view/checkout_presentation/checkout_screen.dart';
 import 'package:joy_box_app/view/fast_food_restaurant_screen/fast_food_restaurant_screen.dart';
+import 'package:joy_box_app/view/fav_meal/fav_meal_screen.dart';
 import 'package:joy_box_app/view/get_started_screen.dart';
 import 'package:joy_box_app/view/home_screen/home_screen.dart';
 import 'package:joy_box_app/view/joybox_choice/joybox_choice_screen.dart';
@@ -31,7 +32,7 @@ import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_s
 import 'package:joy_box_app/view/transaction_screen/transactions_screen.dart';
 import 'package:joy_box_app/view/user_fav_restaurent/user_fav_restaurent_screen.dart';
 
-// Define your route names as constants (optional)
+
 class RoutePaths {
   static const String splash = SplashScreen.routeName;
   static const String getStarted = GetStartedScreen.routeName;
@@ -54,14 +55,14 @@ class RoutePaths {
   static const String orderReordering = OrderingReordering.routeName;
 
   static const String review = ReviewsScreen.routeName;
-  static const String topRestaurent = TopRestaurentScreen.routeName;
-  static const String userFavRestaurent = UserFavRestaurentScreen.routeName;
-  static const String nearYouRestaurent = NearYouRestaurent.routeName;
+  static const String topRestaurant = TopRestaurentScreen.routeName;
+  static const String userFavRestaurant = UserFavRestaurentScreen.routeName;
+  static const String nearYouRestaurant = NearYouRestaurent.routeName;
 
   static const String paymentMethod = PaymentMethodScreen.routeName;
   static const String joyboxPicks = JoyboxPicksScreen.routeName;
-  static const String fastFoodRestaurent = FastFoodRestaurantScreen.routeName;
-  static const String fastFoodRestaurentInner =
+  static const String fastFoodRestaurant = FastFoodRestaurantScreen.routeName;
+  static const String fastFoodRestaurantInner =
       InnerFastFoodResScreen.routeName;
   static const String cart = CartScreen.routeName;
   static const String checkout = CheckoutScreen.routeName;
@@ -69,6 +70,7 @@ class RoutePaths {
   static const String helpCenter = SupportScreen.routeName;
   static const String aboutUs = AboutUsScreen.routeName;
   static const String chatScreen = ChatScreen.routeName;
+  static const String favMeal = FavMealScreen.routeName;
 }
 
 // Define your routes as a Map
@@ -91,12 +93,12 @@ final Map<String, WidgetBuilder> appRoutes = {
   RoutePaths.transactions: (context) => const TransactionsScreen(),
   RoutePaths.review: (context) => const ReviewsScreen(),
   RoutePaths.paymentMethod: (context) => const PaymentMethodScreen(),
-  RoutePaths.topRestaurent: (context) => TopRestaurentScreen(),
-  RoutePaths.userFavRestaurent: (context) => const UserFavRestaurentScreen(),
-  RoutePaths.nearYouRestaurent: (context) => const NearYouRestaurent(),
+  RoutePaths.topRestaurant: (context) => TopRestaurentScreen(),
+  RoutePaths.userFavRestaurant: (context) => const UserFavRestaurentScreen(),
+  RoutePaths.nearYouRestaurant: (context) => const NearYouRestaurent(),
   RoutePaths.joyboxPicks: (context) => JoyboxPicksScreen(),
-  RoutePaths.fastFoodRestaurent: (context) => const FastFoodRestaurantScreen(),
-  RoutePaths.fastFoodRestaurentInner: (context) =>
+  RoutePaths.fastFoodRestaurant: (context) => const FastFoodRestaurantScreen(),
+  RoutePaths.fastFoodRestaurantInner: (context) =>
       const InnerFastFoodResScreen(),
   RoutePaths.checkout: (context) => CheckoutScreen(),
   RoutePaths.cart: (context) => const CartScreen(),
@@ -104,18 +106,9 @@ final Map<String, WidgetBuilder> appRoutes = {
   RoutePaths.helpCenter: (context) => const SupportScreen(),
   RoutePaths.aboutUs: (context) => const AboutUsScreen(),
   RoutePaths.chatScreen: (context) => const ChatScreen(),
+  RoutePaths.favMeal: (context) => const FavMealScreen(),
 };
 
-
-  // static const String fastFoodRestaurent = FastFoodRestaurantScreen.routeName;
-  // static const String fastFoodRestaurentInner =
-  //     InnerFastFoodResScreen.routeName;
-  // static const String cart = CartScreen.routeName;
-  // static const String checkout = CheckoutScreen.routeName;
-  // static const String notification = NotificationScreen.routeName;
-  // static const String helpCenter = SupportScreen.routeName;
-  // static const String aboutUs = AboutUsScreen.routeName;
-  // static const String chatScreen = ChatScreen.routeName;
 
 
 // final List<RouteBase> appRoutes = [
