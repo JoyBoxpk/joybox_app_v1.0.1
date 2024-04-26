@@ -13,7 +13,7 @@ import 'package:joy_box_app/view/fav_meal/widgets/meal_carousel_widget.dart';
 class FavMealScreen extends StatefulWidget {
   const FavMealScreen({super.key});
 
-  static const String routeName = '/fav-meal-screen';
+  static const String routeName = '/Fav-Meal';
 
   @override
   State<FavMealScreen> createState() => _FavMealScreenState();
@@ -27,17 +27,17 @@ class _FavMealScreenState extends State<FavMealScreen> {
         name: "Matka Biryani",
         imagePath: "assets/images/fav_meal_img3.png",
         price: "RS 999.0",
-        hotelimgPath: "assets/images/fav_meal_img5.png"),
+        hotelImgPath: "assets/images/fav_meal_img5.png"),
     FavoriteMealModel(
         name: "Nali Nihari",
         imagePath: "assets/images/fav_meal_img3.png",
         price: "RS 999.0",
-        hotelimgPath: "assets/images/fav_meal_img5.png"),
+        hotelImgPath: "assets/images/fav_meal_img5.png"),
     FavoriteMealModel(
-        name: "Matka Biryani",
+        name: "Matka\nBiryani",
         imagePath: "assets/images/fav_meal_img3.png",
         price: "RS 999.0",
-        hotelimgPath: "assets/images/fav_meal_img5.png"),
+        hotelImgPath: "assets/images/fav_meal_img5.png"),
     // Add more favorite meals as needed
   ];
   List<MealCarouselModel> mealCarouselItems = [
@@ -290,7 +290,7 @@ class _buildFavMealWidget extends StatelessWidget {
                 itemBuilder: (context, index) {
                   FavoriteMealModel meal = favoriteMeals[index];
                   return FavoriteMealWidget(
-                    hotelImg: meal.hotelimgPath,
+                    hotelImg: meal.hotelImgPath,
                     name: meal.name,
                     imagePath: meal.imagePath,
                     price: meal.price,
