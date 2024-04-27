@@ -1,14 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:joy_box_app/common_widgets/common_appbar.dart';
 import 'package:joy_box_app/common_widgets/common_dropdown_button.dart';
-import 'package:joy_box_app/common_widgets/common_elevated_button.dart';
 import 'package:joy_box_app/common_widgets/custom_image_view.dart';
-import 'package:joy_box_app/common_widgets/custom_rating_bar.dart';
 import 'package:joy_box_app/core/utils/padding_extension.dart';
 import 'package:joy_box_app/res/color.dart';
 import 'package:joy_box_app/view/all_restaurents_screen/model/joybox_picks_widget_model.dart';
@@ -16,7 +13,7 @@ import 'package:joy_box_app/view/all_restaurents_screen/model/popular_restaurent
 import 'package:joy_box_app/view/all_restaurents_screen/model/resturaent_near_you_widget_model.dart';
 import 'package:joy_box_app/view/all_restaurents_screen/model/top_restaurent.dart';
 import 'package:joy_box_app/view/all_restaurents_screen/model/tradtional_restaurent_widget_model.dart';
-import 'package:joy_box_app/view/all_restaurents_screen/widget/popular_restaurants_item_widget.dart';
+import 'package:joy_box_app/view/home_screen/widgets/popular_restaurants_item_widget.dart';
 import 'package:joy_box_app/view/all_restaurents_screen/widget/restaurent_near_you_widget.dart';
 import 'package:joy_box_app/view/all_restaurents_screen/widget/your_fav_restaurent_item_widget.dart';
 import 'package:joy_box_app/view/joybox_picks_screen/joybox_picks_screen.dart';
@@ -27,6 +24,7 @@ import 'package:joy_box_app/view/top_restaurent/top_restauent_screen.dart';
 import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_screen.dart';
 import 'package:joy_box_app/view/user_fav_restaurent/user_fav_restaurent_screen.dart';
 
+import 'model/your_favourite_item_widget_model.dart';
 import 'widget/joybox_picks_item_widget.dart';
 import 'widget/top_restaurants_item_widget.dart';
 import 'widget/traditional_restaurants_item_widget.dart';
@@ -128,18 +126,16 @@ class _AllRestaurantScreenState extends State<AllRestaurantScreen> {
               ),
               SizedBox(height: 50.h),
               _popularRestaurantsRow(),
-              SizedBox(height: 20.h),
+              SizedBox(height: 25.h),
               _topRestaurantRow(),
               SizedBox(height: 30.h),
               _traditionalRestaurantsRow(),
               SizedBox(height: 30.h),
               _joyBoxPicksRow(),
+              SizedBox(height: 40.h),
+              _yourFavouriteRow(),
               SizedBox(
-                height: 20.h,
-              ),
-              const _YourFavRestaurentWidegt(),
-              SizedBox(
-                height: 20.h,
+                height: 40.h,
               ),
               const _RestaurentsNearyou()
             ],
@@ -177,7 +173,7 @@ class _AllRestaurantScreenState extends State<AllRestaurantScreen> {
           itemCount: TopRestaurantWidgetModel.topRestaurantsList.length,
           options: CarouselOptions(
             clipBehavior: Clip.none,
-            height: 215.h,
+            height: 220.h,
             viewportFraction: 0.4,
             // Adjust the fraction for overlapping effect
             enlargeCenterPage: true,
@@ -218,7 +214,7 @@ class _AllRestaurantScreenState extends State<AllRestaurantScreen> {
           ],
         ).paddingHorizontal(20.w),
         SizedBox(
-          height: 30.h,
+          height: 35.h,
         ),
         Container(
           margin: EdgeInsets.only(left: 20.w),
@@ -226,8 +222,9 @@ class _AllRestaurantScreenState extends State<AllRestaurantScreen> {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             clipBehavior: Clip.none,
-            itemCount: PopularRestaurantWidgetModel.popularRestaurantsList.length,
-            separatorBuilder: (context, index) => SizedBox(width: 12.w),
+            itemCount:
+                PopularRestaurantWidgetModel.popularRestaurantsList.length,
+            separatorBuilder: (context, index) => SizedBox(width: 18.w),
             itemBuilder: (context, index) {
               final item =
                   PopularRestaurantWidgetModel.popularRestaurantsList[index];
@@ -245,28 +242,24 @@ class _AllRestaurantScreenState extends State<AllRestaurantScreen> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              "Traditional Restaurants",
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(color: Colors.black, fontSize: 17.sp)
-            ),
+            Text("Traditional Restaurants",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(color: Colors.black, fontSize: 17.sp)),
             GestureDetector(
               onTap: () => Navigator.pushNamed(
                   context, TraditionalRestaurantScreen.routeName),
-              child: Text(
-                "See all",
-                style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                  color: Colors.black,
-                  fontSize: 13.sp,
-                  fontWeight: FontWeight.w400,
-                )
-              ),
+              child: Text("See all",
+                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                        color: Colors.black,
+                        fontSize: 13.sp,
+                        fontWeight: FontWeight.w400,
+                      )),
             ),
           ],
         ).paddingHorizontal(20.w),
-        SizedBox(height: 25.h),
+        SizedBox(height: 20.h),
         Container(
           clipBehavior: Clip.none,
           height: 240.h,
@@ -289,7 +282,8 @@ class _AllRestaurantScreenState extends State<AllRestaurantScreen> {
               Container(
                 alignment: Alignment.center,
                 child: CarouselSlider.builder(
-                  itemCount: TraditionalRestaurantsWidgetModel.traditionalRestaurantsLists.length,
+                  itemCount: TraditionalRestaurantsWidgetModel
+                      .traditionalRestaurantsLists.length,
                   options: CarouselOptions(
                     clipBehavior: Clip.none,
                     height: 240.h,
@@ -299,8 +293,10 @@ class _AllRestaurantScreenState extends State<AllRestaurantScreen> {
 
                     animateToClosest: true,
                   ),
-                  itemBuilder: (BuildContext context, int index, int realIndex) {
-                    final item = TraditionalRestaurantsWidgetModel.traditionalRestaurantsLists[index];
+                  itemBuilder:
+                      (BuildContext context, int index, int realIndex) {
+                    final item = TraditionalRestaurantsWidgetModel
+                        .traditionalRestaurantsLists[index];
                     return TraditionalRestaurantsItemWidget(item: item);
                   },
                 ),
@@ -312,54 +308,131 @@ class _AllRestaurantScreenState extends State<AllRestaurantScreen> {
     );
   }
 
+  Widget _yourFavouriteRow(){
+    return Container(
+      height: 272.h,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Your Favourite",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge!
+                    .copyWith(color: Colors.black, fontSize: 17.sp)
+              ),
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(
+                    context, UserFavRestaurentScreen.routeName),
+                child: Text(
+                  "See all",
+                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                    color: Colors.black,
+                    fontSize: 13.sp,
+                    fontWeight: FontWeight.w400,
+                  )
+                ),
+              ),
+            ],
+          ).paddingHorizontal(20.w),
+          Stack(
+            clipBehavior: Clip.none,
+            alignment: Alignment.bottomCenter,
+            children: [
+              Container(
+                height: 130.h,
+                width: double.infinity,
+                color: AppColor.amber,
+              ),
+              Positioned(
+                top : -90.h,
+                right: 0,
+                left: 0,
+                child: Container(
+                  margin: EdgeInsets.only(left: 20.w),
+                  height: 206.h,
+                  child: ListView.separated(
+                    clipBehavior: Clip.none,
+                    scrollDirection: Axis.horizontal,
+                    itemCount:
+                    YourFavouriteItemWidgetModel.yourFavouriteList.length,
+                    separatorBuilder: (context,index) => SizedBox(width: 10.w),
+                    itemBuilder: (context, index) {
+                      final item =
+                      YourFavouriteItemWidgetModel.yourFavouriteList[index];
+                      return YourFavouriteItemWidget(item: item);
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 
   Widget _joyBoxPicksRow() {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "JoyBox Pick’s",
-              style: Theme.of(context)
-                  .textTheme
-                  .titleLarge!
-                  .copyWith(color: Colors.black, fontSize: 17.sp)
-            ),
-            GestureDetector(
-              onTap: () =>
-                  Navigator.pushNamed(context, JoyboxPicksScreen.routeName),
-              child: Text(
-                "See all",
-                style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                  color: Colors.black,
-                  fontSize: 13.sp,
-                  fontWeight: FontWeight.w400,
-                )
-              ),
-            ),
+    return Container(
+      padding: EdgeInsets.only(top: 28.h),
+      height: 374.h,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            AppColor.grey3.withOpacity(0.5),
+            AppColor.white,
+            AppColor.white,
           ],
-        ).paddingHorizontal(20.w),
-        SizedBox(
-          height: 30.h,
         ),
-        Container(
-          margin: EdgeInsets.only(left: 20.w),
-          height: 285.h,
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            clipBehavior: Clip.none,
-            itemCount: JoyBoxPicksWidgetModel.joyBoxPicksList.length,
-            itemBuilder: (context, index) {
-              final item = JoyBoxPicksWidgetModel.joyBoxPicksList[index];
-              return JoyBoxPicksItemWidget(item: item);
-            },
-            separatorBuilder: (BuildContext context, int index) {
-              return SizedBox(width: 10.w);
-            },
+      ),
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text("JoyBox Pick’s",
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge!
+                      .copyWith(color: Colors.black, fontSize: 17.sp)),
+              GestureDetector(
+                onTap: () =>
+                    Navigator.pushNamed(context, JoyboxPicksScreen.routeName),
+                child: Text("See all",
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                          color: Colors.black,
+                          fontSize: 13.sp,
+                          fontWeight: FontWeight.w400,
+                        )),
+              ),
+            ],
+          ).paddingHorizontal(20.w),
+          SizedBox(
+            height: 35.h,
           ),
-        ),
-      ],
+          Container(
+            margin: EdgeInsets.only(left: 20.w),
+            height: 285.h,
+            child: ListView.separated(
+              scrollDirection: Axis.horizontal,
+              clipBehavior: Clip.none,
+              itemCount: JoyBoxPicksWidgetModel.joyBoxPicksList.length,
+              itemBuilder: (context, index) {
+                final item = JoyBoxPicksWidgetModel.joyBoxPicksList[index];
+                return JoyBoxPicksItemWidget(item: item);
+              },
+              separatorBuilder: (BuildContext context, int index) {
+                return SizedBox(width: 10.w);
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -424,73 +497,3 @@ class _RestaurentsNearyou extends StatelessWidget {
   }
 }
 
-class _YourFavRestaurentWidegt extends StatelessWidget {
-  const _YourFavRestaurentWidegt({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 0.0, horizontal: 20.w),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                "Your Favourite",
-                style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                    ),
-              ),
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(
-                    context, UserFavRestaurentScreen.routeName),
-                child: Text(
-                  "See all",
-                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(
-          height: 20.h,
-        ),
-        Stack(
-          alignment: Alignment.bottomCenter,
-          children: [
-            Container(
-              height: 140,
-              width: double.infinity,
-              color: AppColor.amber,
-            ),
-            SizedBox(
-              height: 240.h,
-              child: ListView.builder(
-                clipBehavior: Clip.none,
-                scrollDirection: Axis.horizontal,
-                itemCount:
-                    NearRestaurentListWidegtModel.NearRestaurantList.length,
-                itemBuilder: (context, index) {
-                  final item =
-                      NearRestaurentListModel.NearRestaurantList[index];
-                  return Container(
-                    padding:
-                        EdgeInsets.symmetric(vertical: 0.0, horizontal: 15.w),
-                    child: UserFavRestuarentListWidget(item: item),
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      ],
-    );
-  }
-}

@@ -50,3 +50,31 @@ extension PaddingExtension on Widget {
     );
   }
 }
+
+extension PaddingExtensions on Widget {
+  Widget applyPadding({
+    double? all,
+    double? horizontal,
+    double? vertical,
+    double? left,
+    double? right,
+    double? top,
+    double? bottom,
+  }) {
+    return Padding(
+      padding: EdgeInsets.only(
+        left: left ?? 0.0,
+        right: right ?? 0.0,
+        top: top ?? 0.0,
+        bottom: bottom ?? 0.0,
+      ) +
+          EdgeInsets.symmetric(
+            horizontal: horizontal ?? 0.0,
+            vertical: vertical ?? 0.0,
+          ) +
+          EdgeInsets.all(all ?? 0.0),
+      child: this,
+    );
+  }
+}
+

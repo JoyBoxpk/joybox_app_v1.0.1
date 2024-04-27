@@ -102,9 +102,9 @@ class TraditionalRestaurantsItemWidget extends StatelessWidget {
               child: Center(
                 child: CommonElevatedButton(
                     borderRadius: 10.0,
-                    buttonColor: AppColor.red2.withOpacity(0.6),
+                    buttonColor: AppColor.red2.withOpacity(0.8),
                     fontSize: 12.sp,
-                    height: 32.h,
+                    height: 34.h,
                     width: 120.w,
                     onPressed: () {},
                     text: "Order now"),

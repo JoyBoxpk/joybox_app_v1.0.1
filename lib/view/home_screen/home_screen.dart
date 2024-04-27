@@ -7,11 +7,13 @@ import 'package:joy_box_app/view/home_screen/sections/offers_section.dart';
 import 'package:joy_box_app/view/home_screen/sections/traditional_restaurants_section.dart';
 import 'package:joy_box_app/view/home_screen/widgets/custom_icon_button.dart';
 import 'package:joy_box_app/view/home_screen/widgets/custom_item.dart';
-import 'package:joy_box_app/view/home_screen/widgets/popular_res_item.dart';
 import 'package:joy_box_app/view/routes.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../all_restaurents_screen/model/popular_restaurent_widget_model.dart';
+import '../popular_restaurants_screen/popular_restaurants_screen.dart';
 import 'sections/favourite_meal_section.dart';
+import 'widgets/popular_restaurants_item_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -58,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 _buildCentreBlock(context),
                 SizedBox(height: 120.h),
                 _popularRestaurantRow(context),
-                SizedBox(height: 60.h),
+                SizedBox(height: 30.h),
                 _buildMenu(context),
                 SizedBox(height: 50.h),
                 const TraditionalRestaurantsSection(),
@@ -79,15 +81,6 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _popularRestaurantRow(BuildContext context) {
     int currentIndex = 0;
-    // Sample data for the list of popular restaurants
-    List<String> popularRestaurants = [
-      "Lachine",
-      "Movenpick",
-      "PC Hotel",
-      "Lachine",
-      "Movenpick",
-      "PC Hotel"
-    ];
 
     return Container(
       width: double.infinity,
@@ -111,48 +104,42 @@ class _HomeScreenState extends State<HomeScreen> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "Popular Restaurants",
-                style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                      fontSize: 22.sp,
-                      fontWeight: FontWeight.w600,
-                    ),
-              ),
+              Text("Popular Restaurants",
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleLarge!
+                      .copyWith(color: Colors.black, fontSize: 22.sp)),
               GestureDetector(
-                onTap: () =>
-                    Navigator.pushNamed(context, RoutePaths.popularRestaurants),
-                child: Text(
-                  "See all",
-                  style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                      ),
-                ),
+                onTap: () => Navigator.pushNamed(
+                    context, PopularRestaurantsScreen.routeName),
+                child: Text("See all",
+                    style: Theme.of(context).textTheme.labelLarge!.copyWith(
+                      color: Colors.black,
+                      fontSize: 13.sp,
+                      fontWeight: FontWeight.w400,
+                    )),
               ),
             ],
           ),
-          SizedBox(height: 30.h),
           SizedBox(
-            height: 400.h, // Adjust the height as needed
-            child: ListView.builder(
+            height: 40.h,
+          ),
+          Container(
+            height: 310.h,
+            child: ListView.separated(
               scrollDirection: Axis.horizontal,
-              itemCount: popularRestaurants.length,
+              clipBehavior: Clip.none,
+              itemCount: PopularRestaurantWidgetModel.popularRestaurantsList.length,
+              separatorBuilder: (context, index) => SizedBox(width: 15.w),
               itemBuilder: (context, index) {
-                return GestureDetector(
-                  // On tap, update the current index
-                  onTap: () {
-                    setState(() {
-                      currentIndex = index;
-                      print(currentIndex);
-                    });
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.only(right: 10.w),
-                    child: PopularResItem(title: popularRestaurants[index]),
-                  ),
-                );
+                final item =
+                PopularRestaurantWidgetModel.popularRestaurantsList[index];
+                return PopularRestaurantsItemWidget(item: item);
               },
             ),
+          ),
+          SizedBox(
+            height: 15.h,
           ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 140.w),
@@ -161,8 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
               valueColor: const AlwaysStoppedAnimation<Color>(
                   Colors.red), // Customize the progress color
               value: (currentIndex + 2) /
-                  popularRestaurants
-                      .length, // Calculate the value based on currentIndex
+                  PopularRestaurantWidgetModel.popularRestaurantsList.length, // Calculate the value based on currentIndex
             ),
           ),
         ],

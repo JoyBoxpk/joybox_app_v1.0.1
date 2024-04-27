@@ -30,7 +30,7 @@ class TopRestaurantsItemWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10.h),
                 child: CustomImageView(
                   width: 170.w,
-                  height: 190.h,
+                  height: 195.h,
                   imagePath: item.imagePath,
                 ),
               ),
@@ -39,8 +39,8 @@ class TopRestaurantsItemWidget extends StatelessWidget {
               top: -8.h,
               child: Container(
                 height: 30.h,
-                alignment: Alignment.centerLeft,
-                padding: EdgeInsets.only(left: 12.w, right: 16.w),
+                alignment: Alignment.bottomLeft,
+                padding: EdgeInsets.only(left: 8.w, right: 18.w, bottom: 3.h),
                 decoration: BoxDecoration(
                   color: AppColor.amber,
                   borderRadius: BorderRadius.only(
@@ -60,7 +60,7 @@ class TopRestaurantsItemWidget extends StatelessWidget {
             Positioned(
               top: 30.h,
               child: Container(
-                margin: const EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.symmetric(horizontal: 8.w),
                 width: 130.w,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,7 +84,7 @@ class TopRestaurantsItemWidget extends StatelessWidget {
               ),
             ),
             Positioned(
-              top: -8.h,
+              top: -6.h,
               right: -8.w,
               child: IconButton(
                 onPressed: () {},
@@ -95,17 +95,19 @@ class TopRestaurantsItemWidget extends StatelessWidget {
                 ),
               ),
             ),
-            Positioned(
-              bottom: 50.h,
-              left: 40.w,
-              child: CommonElevatedButton(
-                  borderRadius: 7.0,
-                  width: 92.w,
-                  height: 26.h,
-                  buttonColor: AppColor.red1.withOpacity(0.7),
-                  fontSize: 9.sp,
+            Positioned.fill(
+              top: 50.h,
+              child: Center(
+                child: CommonElevatedButton(
+                  borderRadius: 10.0,
+                  width: 120.w,
+                  height: 35.h,
+                  buttonColor: AppColor.red2.withOpacity(0.8),
+                  fontSize: 12.sp,
                   onPressed: () {},
-                  text: "Order now"),
+                  text: "Order now",
+                ),
+              ),
             ),
             Positioned(
               bottom: 6.h,
@@ -121,9 +123,9 @@ class TopRestaurantsItemWidget extends StatelessWidget {
               left: 0.w,
               child: Center(
                 child: Container(
-                  padding: const EdgeInsets.all(5.0),
+                  padding: const EdgeInsets.all(4.0),
                   height: 28.h,
-                  width: 52.w,
+                  width: 55.w,
                   decoration: const BoxDecoration(
                     borderRadius: BorderRadius.only(
                       topRight: Radius.circular(5.0),
