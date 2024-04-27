@@ -16,28 +16,28 @@ class PopularRestaurantWidgetModel {
   static final List<PopularRestaurantWidgetModel> popularRestaurantsList = [
     PopularRestaurantWidgetModel(
       rating: 4,
-      name: "Bam-Bou",
+      name: "Lachine",
       imagePath: "assets/images/top_restaurent_widget_img1.png",
       openingHours: "Opening 11pm - 12am",
       description: 'Lebanese restaurant & an Italian eatery',
     ),
     PopularRestaurantWidgetModel(
       rating: 4,
-      name: "Bam-Bou",
+      name: "Movenpick",
       imagePath: "assets/images/top_restaurent_widget_img1.png",
       openingHours: "Opening 11pm - 12am",
       description: 'Lebanese restaurant & an Italian eatery',
     ),
     PopularRestaurantWidgetModel(
       rating: 3,
-      name: "Bam-Bou",
+      name: "Mehran Hotel",
       imagePath: "assets/images/top_restaurent_widget_img1.png",
       openingHours: "Opening 11pm - 12am",
       description: 'Lebanese restaurant & an Italian eatery',
     ),
     PopularRestaurantWidgetModel(
       rating: 3,
-      name: "Bam-Bou",
+      name: "PC Hotel",
       imagePath: "assets/images/top_restaurent_widget_img1.png",
       openingHours: "Opening 11pm - 12am",
       description: 'Lebanese restaurant & an Italian eatery',

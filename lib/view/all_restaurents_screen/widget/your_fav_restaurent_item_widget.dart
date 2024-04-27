@@ -1,85 +1,79 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:joy_box_app/common_widgets/common_elevated_button.dart';
 import 'package:joy_box_app/common_widgets/custom_image_view.dart';
-import 'package:joy_box_app/view/resturent_near_you_screen/model/near_you_model.dart';
+import 'package:joy_box_app/core/utils/padding_extension.dart';
 
 import '../../../res/color.dart';
+import '../model/your_favourite_item_widget_model.dart';
 
-class UserFavRestuarentListWidget extends StatelessWidget {
-  const UserFavRestuarentListWidget({
+class YourFavouriteItemWidget extends StatelessWidget {
+  const YourFavouriteItemWidget({
     super.key,
     required this.item,
   });
 
-  final NearRestaurentListModel item;
+  final YourFavouriteItemWidgetModel item;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 160.w,
+      width: 162.w,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            width: 160.w,
-            child: Stack(
-              clipBehavior: Clip.none,
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    "assets/images/restaurants_near_you_img1.png",
-                    fit: BoxFit.cover,
-                  ),
-                ),
-                Positioned(
-                  right: 50.w,
-                  // top: -18.h,
-                  bottom: -40.h,
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [],
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.topRight,
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.favorite,
-                      size: 18.sp,
-                      color: Colors.red,
+          Align(
+            alignment: Alignment.topRight,
+            child: SizedBox(
+              width: 150.w,
+              height: 120.h,
+              child: Stack(
+                clipBehavior: Clip.none,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(
+                      "assets/images/restaurants_near_you_img1.png",
+                      // fit: BoxFit.cover,
                     ),
                   ),
-                ),
-                Positioned(
-                  top: 60.h,
-                  left: 40.w,
-                  right: 40.w,
-                  child: CommonElevatedButton(
-                      width: 20.w,
-                      height: 30.h,
-                      buttonColor: AppColor.red2.withOpacity(0.7),
-                      fontSize: 10.sp,
+                  Positioned(
+                    top: -3.h,
+                    right: -3.w,
+                    child: IconButton(
                       onPressed: () {},
-                      text: "Order now"),
-                ),
-                Positioned(
-                  bottom: 18.h,
-                  right: -1.w,
-                  child: Center(
+                      icon: Icon(
+                        Icons.favorite,
+                        size: 18.sp,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ),
+                  Positioned.fill(
+                    child: Center(
+                      child: CommonElevatedButton(
+                          width: 80.w,
+                          height: 34.h,
+                          buttonColor: AppColor.red2.withOpacity(0.7),
+                          fontSize: 10.sp,
+                          onPressed: () {},
+                          text: "Order now"),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 16.h,
+                    right: 0.w,
                     child: Container(
-                      padding: const EdgeInsets.all(8.0),
+                      alignment: Alignment.center,
+                      padding: const EdgeInsets.all(5.0),
                       height: 25.h,
-                      width: 32.w,
+                      width: 35.w,
                       decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(6.0),
-                            bottomLeft: Radius.circular(6.0),
+                            topLeft: Radius.circular(5.0),
+                            bottomLeft: Radius.circular(5.0),
                           ),
                           color: AppColor.white),
                       child: SvgPicture.asset(
@@ -88,18 +82,18 @@ class UserFavRestuarentListWidget extends StatelessWidget {
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
           Container(
-            alignment: Alignment.centerLeft,
-            padding: EdgeInsets.symmetric(horizontal: 15.w),
-            width: 100.w,
-            height: 42.h,
-            decoration: const BoxDecoration(
-                color: Colors.black54,
-                borderRadius: BorderRadius.all(Radius.circular(6.0))),
+            alignment: Alignment.center,
+            padding: EdgeInsets.symmetric(horizontal: 2.w),
+            height: 35.h,
+            width: 120.w,
+            decoration:  BoxDecoration(
+                color: Colors.black87.withOpacity(0.6),
+                borderRadius: BorderRadius.all(Radius.circular(4.0))),
             child: Text(
               item.restaurantName,
               style: Theme.of(context).textTheme.displaySmall!.copyWith(
@@ -119,20 +113,22 @@ class UserFavRestuarentListWidget extends StatelessWidget {
               ),
               Text("Opening 11pm -12am",
                   style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                        fontSize: 9.sp,
+                        fontSize: 10.sp,
                         fontWeight: FontWeight.w500,
                       )),
+              SizedBox(height: 2.h),
               RichText(
                 text: TextSpan(
                   children: [
                     TextSpan(
-                      text: "3.9 ",
+                      text: "${item.restaurantRating}\t",
                       style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                            fontSize: 11.sp,
+                            fontSize: 10.sp,
                             fontWeight: FontWeight.w600,
                             color: AppColor.black,
                           ),
                     ),
+
                     TextSpan(
                       text: "(3000+)",
                       style: Theme.of(context).textTheme.displaySmall!.copyWith(
@@ -145,7 +141,7 @@ class UserFavRestuarentListWidget extends StatelessWidget {
                 ),
               ),
             ],
-          ),
+          ).paddingLeft(12.w),
         ],
       ),
     );
