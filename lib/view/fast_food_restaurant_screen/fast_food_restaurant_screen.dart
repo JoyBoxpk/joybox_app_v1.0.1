@@ -4,17 +4,17 @@ import 'package:joy_box_app/common_widgets/common_appbar.dart';
 import 'package:joy_box_app/res/color.dart';
 import 'package:joy_box_app/view/fast_food_restaurant_screen/model/cart_item_model.dart';
 import 'package:joy_box_app/view/fast_food_restaurant_screen/model/fast_food_rest_tab_model.dart';
+import 'package:joy_box_app/view/fast_food_restaurant_screen/model/food_item_deal_model.dart';
+import 'package:joy_box_app/view/fast_food_restaurant_screen/model/most_ordered_item_model.dart';
 import 'package:joy_box_app/view/fast_food_restaurant_screen/model/slider_party_item_model.dart';
 import 'package:joy_box_app/view/fast_food_restaurant_screen/widgets/cart_item_widget.dart';
 import 'package:joy_box_app/view/fast_food_restaurant_screen/widgets/cricket_craze_deals_widget.dart';
-import 'package:joy_box_app/view/fast_food_restaurant_screen/widgets/fast_food_restaurant_tab.dart';
 import 'package:joy_box_app/view/fast_food_restaurant_screen/widgets/foodies_review_widget.dart';
 import 'package:joy_box_app/view/fast_food_restaurant_screen/widgets/most_ordered_food_widget.dart';
 import 'package:joy_box_app/view/fast_food_restaurant_screen/widgets/slider_party_widget.dart';
-import 'package:joy_box_app/view/fast_food_restaurant_screen/widgets/super_deals_widgrt.dart';
 
 class FastFoodRestaurantScreen extends StatefulWidget {
-  const FastFoodRestaurantScreen({super.key});
+  const FastFoodRestaurantScreen({Key? key});
 
   static const String routeName = "Restaurant-Screen";
 
@@ -24,6 +24,8 @@ class FastFoodRestaurantScreen extends StatefulWidget {
 }
 
 class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
+  int _selectedTabIndex = 0; // Variable to track selected tab index
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,46 +74,44 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
                   _buildSecondRow(context),
                   SizedBox(height: 20.h),
                   _buildTabs(),
-                  MostOrderedFoodWidget(),
-                  SuperDealsWidget(),
+                  // Conditionally render content based on selected tab index
+                  _buildTabContent(),
                   SizedBox(height: 20.h),
                 ],
               ),
             ),
             FoodiesReviewWidget(),
             SizedBox(height: 30.h),
-            SingleChildScrollView(
-              child: Container(
-                width: double.infinity,
-                margin: EdgeInsets.symmetric(horizontal: 25.w),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    CricketCrazeDealWidget(),
-                    SizedBox(height: 30.h),
-                    SizedBox(
-                      height: 160,
-                      child: ListView.builder(
-                        itemCount: sliderlist.length,
-                        itemBuilder: (context, index) {
-                          final item = sliderlist[index];
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SlidersPartyItemWidget(item: item),
-                              SizedBox(height: 10.h),
-                              Divider(
-                                color: AppColor.amber,
-                                thickness: 1.2.h,
-                              ),
-                              SizedBox(height: 35.h),
-                            ],
-                          );
-                        },
-                      ),
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 25.w),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CricketCrazeDealWidget(),
+                  SizedBox(height: 30.h),
+                  SizedBox(
+                    height: 160,
+                    child: ListView.builder(
+                      itemCount: sliderlist.length,
+                      itemBuilder: (context, index) {
+                        final item = sliderlist[index];
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            SlidersPartyItemWidget(item: item),
+                            SizedBox(height: 10.h),
+                            Divider(
+                              color: AppColor.amber,
+                              thickness: 1.2.h,
+                            ),
+                            SizedBox(height: 35.h),
+                          ],
+                        );
+                      },
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
 
@@ -123,6 +123,51 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
         ),
       ),
     );
+  }
+
+  Widget _buildTabContent() {
+    // Conditionally render content based on selected tab index
+    switch (_selectedTabIndex) {
+      case 0:
+        return MostOrderedFoodWidget(
+          foodItemDealModel: popularFoodItemDealModelList,
+          mostOrderitemModel: MostOrderedItemModel(
+              imgPath: "assets/images/img2_fast_food_restaurant.png",
+              Price: "Rs. 699"),
+        );
+      case 1:
+        return Container(
+          // Replace this with content for "Pizza" tab
+          child: MostOrderedFoodWidget(
+            mostOrderitemModel: MostOrderedItemModel(
+                imgPath: "assets/images/pizza_banner_img1.png",
+                Price: "Rs. 999"),
+            foodItemDealModel: pizzaFoodItemDealModelList,
+          ),
+        );
+      case 2:
+        return Container(
+          // Replace this with content for "Wings" tab
+          child: Text("Wings Tab Content"),
+        );
+      case 3:
+        return Container(
+          // Replace this with content for "Rolls" tab
+          child: Text("Rolls Tab Content"),
+        );
+      case 4:
+        return Container(
+          // Replace this with content for "Sandwich" tab
+          child: Text("Sandwich Tab Content"),
+        );
+      case 5:
+        return Container(
+          // Replace this with content for "Nuggets" tab
+          child: Text("Nuggets Tab Content"),
+        );
+      default:
+        return Container();
+    }
   }
 
   Widget _buildSecondRow(BuildContext context) {
@@ -234,25 +279,71 @@ class _FastFoodRestaurantScreenState extends State<FastFoodRestaurantScreen> {
       ],
     );
   }
+
+  Widget _buildTabs() {
+    return SizedBox(
+      height: 50.h,
+      width: double.infinity,
+      child: ListView.separated(
+        scrollDirection: Axis.horizontal,
+        itemCount: FastFoodRestaurantTabModel.fastFoodItemList.length,
+        separatorBuilder: (context, index) {
+          return SizedBox(width: 5.h);
+        },
+        itemBuilder: (context, index) {
+          final tab = FastFoodRestaurantTabModel.fastFoodItemList[index];
+          return FastFoodRestaurantTab(
+            index: index,
+            tab: tab,
+            isSelected: index == _selectedTabIndex,
+            onTap: () {
+              setState(() {
+                _selectedTabIndex = index; // Update selected tab index
+              });
+            },
+          );
+        },
+      ),
+    );
+  }
 }
 
-Widget _buildTabs() {
-  return SizedBox(
-    height: 50.h,
-    width: double.infinity,
-    child: ListView.separated(
-      scrollDirection: Axis.horizontal,
-      itemCount: FastFoodRestaurantTabModel.fastFoodItemList.length,
-      separatorBuilder: (context, index) {
-        return SizedBox(width: 5.h);
-      },
-      itemBuilder: (context, index) {
-        final tab = FastFoodRestaurantTabModel.fastFoodItemList[index];
-        return FastFoodRestaurantTab(
-          index: index,
-          tab: tab,
-        );
-      },
-    ),
-  );
+class FastFoodRestaurantTab extends StatelessWidget {
+  final int index;
+  final FastFoodRestaurantTabModel tab;
+  final bool isSelected;
+  final VoidCallback onTap;
+
+  const FastFoodRestaurantTab({
+    required this.index,
+    required this.tab,
+    required this.isSelected,
+    required this.onTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 20.w, vertical: 10.h),
+        decoration: BoxDecoration(
+          color: isSelected ? AppColor.amber : Colors.transparent,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: FittedBox(
+          alignment: Alignment.center,
+          fit: BoxFit.none,
+          child: Text(
+            tab.title,
+            style: TextStyle(
+              color: isSelected ? Colors.black : Colors.grey,
+              fontWeight: FontWeight.bold,
+              fontSize: 16.sp,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

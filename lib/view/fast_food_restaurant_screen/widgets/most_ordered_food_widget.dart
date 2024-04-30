@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:joy_box_app/common_widgets/common_elevated_button.dart';
+import 'package:joy_box_app/view/fast_food_restaurant_screen/model/food_item_deal_model.dart';
+import 'package:joy_box_app/view/fast_food_restaurant_screen/model/most_ordered_item_model.dart';
 
 class MostOrderedFoodWidget extends StatelessWidget {
-  const MostOrderedFoodWidget({
-    super.key,
-  });
+  MostOrderedItemModel mostOrderitemModel;
+  List<FoodItemDealModel>? foodItemDealModel;
+
+  MostOrderedFoodWidget(
+      {super.key, this.foodItemDealModel, required this.mostOrderitemModel});
 
   @override
   Widget build(BuildContext context) {
@@ -23,14 +27,14 @@ class MostOrderedFoodWidget extends StatelessWidget {
         SizedBox(height: 15.h),
         Stack(
           children: [
-            Image.asset("assets/images/img2_fast_food_restaurant.png"),
+            Image.asset(mostOrderitemModel.imgPath),
             Positioned.fill(
               child: Center(
                 child: CommonElevatedButton(
                   width: 180.w,
                   height: 52.h,
                   onPressed: () {},
-                  text: 'Rs. 699',
+                  text: mostOrderitemModel.Price,
                 ),
               ),
             ),
@@ -44,7 +48,7 @@ class MostOrderedFoodWidget extends StatelessWidget {
               clipBehavior: Clip.none,
               children: [
                 Image.asset(
-                  "assets/images/img3_fast_food_restaurant.png",
+                  "assets/images/img6_fast_food_restaurant.png",
                   width: 200.w,
                   height: 310.h,
                   fit: BoxFit.cover,
@@ -63,7 +67,7 @@ class MostOrderedFoodWidget extends StatelessWidget {
                   bottom: -12.h,
                   right: -25.w,
                   child: Image.asset(
-                    "assets/images/img5_fast_food_restaurant.png",
+                    foodItemDealModel![0].imagePath,
                     width: 240.w,
                     height: 240.h,
                   ),
@@ -72,7 +76,7 @@ class MostOrderedFoodWidget extends StatelessWidget {
                   child: Center(
                     child: CommonElevatedButton(
                       onPressed: () {},
-                      text: "Rs. 799",
+                      text: foodItemDealModel![0].price,
                       height: 35.h,
                       width: 100.w,
                     ),
@@ -82,7 +86,7 @@ class MostOrderedFoodWidget extends StatelessWidget {
                   top: 10.h,
                   left: 16.w,
                   child: Text(
-                    "Deal 1",
+                    foodItemDealModel![0].dealTitle.toString(),
                     style: Theme.of(context).textTheme.displaySmall!.copyWith(
                           fontSize: 15.sp,
                           fontWeight: FontWeight.w600,
@@ -116,7 +120,7 @@ class MostOrderedFoodWidget extends StatelessWidget {
                     Positioned(
                       bottom: -40.h,
                       child: Image.asset(
-                        "assets/images/img8_fast_food_restaurant.png",
+                        foodItemDealModel![1].imagePath,
                         width: 135.w,
                         height: 135.h,
                         fit: BoxFit.contain,
@@ -127,7 +131,7 @@ class MostOrderedFoodWidget extends StatelessWidget {
                       left: 20.w,
                       child: CommonElevatedButton(
                         onPressed: () {},
-                        text: "Rs. 1599",
+                        text: foodItemDealModel![1].price,
                         height: 34.h,
                         width: 90.w,
                       ),
@@ -136,7 +140,7 @@ class MostOrderedFoodWidget extends StatelessWidget {
                       top: 10.h,
                       left: 16.w,
                       child: Text(
-                        "Deal 2",
+                        foodItemDealModel![1].dealTitle.toString(),
                         style:
                             Theme.of(context).textTheme.displaySmall!.copyWith(
                                   fontSize: 15.sp,
@@ -169,7 +173,7 @@ class MostOrderedFoodWidget extends StatelessWidget {
                     Positioned(
                       bottom: -40.h,
                       child: Image.asset(
-                        "assets/images/img9_fast_food_restaurant.png",
+                        foodItemDealModel![2].imagePath,
                         width: 135.w,
                         height: 135.h,
                         fit: BoxFit.contain,
@@ -180,7 +184,7 @@ class MostOrderedFoodWidget extends StatelessWidget {
                       left: 20.w,
                       child: CommonElevatedButton(
                         onPressed: () {},
-                        text: "Rs. 1199",
+                        text: foodItemDealModel![2].price,
                         height: 34.h,
                         width: 90.w,
                       ),
@@ -189,7 +193,7 @@ class MostOrderedFoodWidget extends StatelessWidget {
                       top: 10.h,
                       left: 16.w,
                       child: Text(
-                        "Deal 3",
+                        foodItemDealModel![2].dealTitle.toString(),
                         style:
                             Theme.of(context).textTheme.displaySmall!.copyWith(
                                   fontSize: 15.sp,
