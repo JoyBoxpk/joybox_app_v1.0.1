@@ -9,6 +9,7 @@ import 'package:joy_box_app/view/authentication/sign_up_screen/sign_up_screen.da
 import 'package:joy_box_app/view/cart_screen/cart_screen.dart';
 import 'package:joy_box_app/view/chat_screen/chat_screen.dart';
 import 'package:joy_box_app/view/checkout_presentation/checkout_screen.dart';
+import 'package:joy_box_app/view/dashboard_screen/dashboard_screen.dart';
 import 'package:joy_box_app/view/fast_food_restaurant_screen/fast_food_restaurant_screen.dart';
 import 'package:joy_box_app/view/fav_meal/fav_meal_screen.dart';
 import 'package:joy_box_app/view/get_started_screen.dart';
@@ -25,7 +26,6 @@ import 'package:joy_box_app/view/popular_restaurants_screen/popular_restaurants_
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
 import 'package:joy_box_app/view/resturent_near_you_screen/near_you_restaurent.dart';
 import 'package:joy_box_app/view/reviews_screen/reviews_screen.dart';
-import 'package:joy_box_app/view/settings_screen/settings_screen.dart';
 import 'package:joy_box_app/view/splash_screen.dart';
 import 'package:joy_box_app/view/support/support_screen.dart';
 import 'package:joy_box_app/view/top_restaurent/top_restauent_screen.dart';
@@ -72,6 +72,7 @@ class RoutePaths {
   static const String chatScreen = ChatScreen.routeName;
   static const String favMeal = FavMealScreen.routeName;
   static const String editNotification = EditNotification.routeName;
+  static const String dashboard = DashboardScreen.routeName;
 }
 
 // Define your routes as a Map
@@ -108,7 +109,8 @@ final Map<String, WidgetBuilder> appRoutes = {
   RoutePaths.aboutUs: (context) => const AboutUsScreen(),
   RoutePaths.chatScreen: (context) => const ChatScreen(),
   RoutePaths.favMeal: (context) => const FavMealScreen(),
-  RoutePaths.editNotification: (context) => EditNotification()
+  RoutePaths.editNotification: (context) => EditNotification(),
+  RoutePaths.dashboard: (context) => DashboardScreen()
 };
 
 
