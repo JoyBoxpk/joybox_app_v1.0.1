@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:go_router/go_router.dart';
 import 'package:joy_box_app/common_widgets/custom_image_view.dart';
 import 'package:joy_box_app/view/Jb_pro_screen/jb_pro_screen.dart';
 import 'package:joy_box_app/view/aboutus_screen/about_us_screen.dart';
 import 'package:joy_box_app/view/chat_screen/chat_screen.dart';
+import 'package:joy_box_app/view/dashboard_screen/dashboard_screen.dart';
 import 'package:joy_box_app/view/notificaion_screen/notification_screen.dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/ordering_recording/ordering_reordering.dart';
 import 'package:joy_box_app/view/profile_screen/Profile.dart';
-import 'package:joy_box_app/view/reviews_screen/reviews_screen.dart';
 import 'package:joy_box_app/view/settings_screen/settings_screen.dart';
 import 'package:joy_box_app/view/support/support_screen.dart';
 import 'package:joy_box_app/view/transaction_screen/transactions_screen.dart';
@@ -201,28 +200,30 @@ void _navigateToScreen(BuildContext context, String title) {
     case "Become JB Pro":
       Navigator.pushNamed(context, JbProScreen.routeName);
       break;
+
     case "Ordering & reordering":
       Navigator.pushNamed(context, OrderingReordering.routeName);
-
       break;
+
     case "Inbox":
       Navigator.pushNamed(context, ChatScreen.routeName);
       break;
+
     case "Language":
-      // context.goNamed(ReviewsScreen.routeName);
+      Navigator.pop(context);
+      Navigator.pushNamed(context, DashboardScreen.routeName);
       break;
+
     case "Offers & Voucher":
       Navigator.pushNamed(context, OffersScreen.routeName);
-
       break;
+
     case "Invite friends":
       Navigator.pushNamed(context, PaymentMethodScreen.routeName);
-
       break;
 
     case "Notifications":
       Navigator.pushNamed(context, NotificationScreen.routeName);
-
       break;
 
     // Add more cases for other screens
