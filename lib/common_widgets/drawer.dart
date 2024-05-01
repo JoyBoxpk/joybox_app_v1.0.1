@@ -14,6 +14,7 @@ import 'package:joy_box_app/view/support/support_screen.dart';
 import 'package:joy_box_app/view/transaction_screen/transactions_screen.dart';
 
 import '../view/payment_method/payment_method_screen.dart';
+import '../view/withdraw_your_wallet/withdraw_your_wallet_screen.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget(
@@ -194,6 +195,9 @@ void _navigateToScreen(BuildContext context, String title) {
     case "Transactions":
       Navigator.pushNamed(context, TransactionsScreen.routeName);
       break;
+    case "Withdraw your wallet":
+      Navigator.pushNamed(context, WidthdrawYourWalletScreen.routeName);
+      break;
     case "Profile":
       Navigator.pushNamed(context, ProfileScreen.routeName);
       break;
@@ -270,6 +274,10 @@ class DrawerSettingItem {
     DrawerSettingItem(
       iconpath: "assets/images/drawer_img_7.svg",
       title: 'Transactions',
+    ),
+    DrawerSettingItem(
+      iconpath: "assets/images/drawer_img_7.svg",
+      title: 'Withdraw your wallet',
     ),
     DrawerSettingItem(
       iconpath: "assets/images/drawer_img_8.svg",

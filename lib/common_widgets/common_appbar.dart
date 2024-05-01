@@ -75,7 +75,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
                 },
               ),
             ) : const SizedBox(),
-            SizedBox(width: 10.w),
+            SizedBox(width: 20.w),
             FittedBox(
               child: Text(
                 text ?? "",
