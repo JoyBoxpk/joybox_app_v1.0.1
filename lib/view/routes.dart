@@ -18,6 +18,7 @@ import 'package:joy_box_app/view/jb_rewards/jb_reward_screen.dart';
 import 'package:joy_box_app/view/joybox_choice/joybox_choice_screen.dart';
 import 'package:joy_box_app/view/joybox_picks_screen/joybox_picks_screen.dart';
 import 'package:joy_box_app/view/main_screen/main_screen.dart';
+import 'package:joy_box_app/view/my_referrals/my_referrals_screen.dart';
 import 'package:joy_box_app/view/notificaion_screen/edit_notification/edit_notification_screen.dart';
 import 'package:joy_box_app/view/notificaion_screen/notification_screen.dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
@@ -75,6 +76,7 @@ class RoutePaths {
   static const String editNotification = EditNotification.routeName;
   static const String dashboard = DashboardScreen.routeName;
   static const String jbRewards = JBRewardsScreen.routeName;
+  static const String myreferrals = MyReferralScreen.routeName;
 }
 
 // Define your routes as a Map
@@ -113,7 +115,8 @@ final Map<String, WidgetBuilder> appRoutes = {
   RoutePaths.favMeal: (context) => const FavMealScreen(),
   RoutePaths.editNotification: (context) => EditNotification(),
   RoutePaths.dashboard: (context) => DashboardScreen(),
-  RoutePaths.jbRewards: (context) => JBRewardsScreen()
+  RoutePaths.jbRewards: (context) => JBRewardsScreen(),
+  RoutePaths.myreferrals: (context) => MyReferralScreen()
 };
 
 
