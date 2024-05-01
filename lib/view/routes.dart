@@ -32,6 +32,7 @@ import 'package:joy_box_app/view/top_restaurent/top_restauent_screen.dart';
 import 'package:joy_box_app/view/traditional_restaurant/traditional_restaurant_screen.dart';
 import 'package:joy_box_app/view/transaction_screen/transactions_screen.dart';
 import 'package:joy_box_app/view/user_fav_restaurent/user_fav_restaurent_screen.dart';
+import 'package:joy_box_app/view/withdraw_your_wallet/withdraw_your_wallet_screen.dart';
 
 class RoutePaths {
   static const String splash = SplashScreen.routeName;
@@ -73,6 +74,7 @@ class RoutePaths {
   static const String favMeal = FavMealScreen.routeName;
   static const String editNotification = EditNotification.routeName;
   static const String dashboard = DashboardScreen.routeName;
+  static const String withdrawYourWallet = WidthdrawYourWalletScreen.routeName;
 }
 
 // Define your routes as a Map
@@ -110,7 +112,8 @@ final Map<String, WidgetBuilder> appRoutes = {
   RoutePaths.chatScreen: (context) => const ChatScreen(),
   RoutePaths.favMeal: (context) => const FavMealScreen(),
   RoutePaths.editNotification: (context) => EditNotification(),
-  RoutePaths.dashboard: (context) => DashboardScreen()
+  RoutePaths.dashboard: (context) => DashboardScreen(),
+  RoutePaths.withdrawYourWallet: (context) => WidthdrawYourWalletScreen(),
 };
 
 

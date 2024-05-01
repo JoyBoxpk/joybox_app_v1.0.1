@@ -49,6 +49,9 @@ dependencies:
   overlapped_carousel: ^1.0.2
   timeago: ^3.6.1
   fl_chart: ^0.67.0
+  card_slider: ^1.0.5
+  flutter_card_swiper: ^7.0.0
+  flutter_swiper_view: ^1.1.8
 
 dev_dependencies:
   flutter_test:
