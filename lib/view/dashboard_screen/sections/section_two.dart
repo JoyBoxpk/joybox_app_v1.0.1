@@ -21,7 +21,7 @@ class _SectionTwoState extends State<SectionTwo> {
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 25.w),
-      height: 332.h,
+      height: 335.h,
       child: Column(
         children: [
           Row(
@@ -77,14 +77,12 @@ class _SectionTwoState extends State<SectionTwo> {
             elevation: 1.0,
             borderRadius: BorderRadius.circular(8.0),
             child: Container(
-              padding: EdgeInsets.only(
-                top: 24.h,
-                bottom: 24.h,
-                left: 15.w,
-                right: 15.w,
+              padding: EdgeInsets.symmetric(
+                vertical: 22.h,
+                horizontal: 15.w,
               ),
               width: double.infinity,
-              height: 292.h,
+              height: 295.h,
               decoration: BoxDecoration(
                 color: Colors.white60,
                 borderRadius: BorderRadius.circular(8.0),
@@ -101,29 +99,38 @@ class _SectionTwoState extends State<SectionTwo> {
                         children: [
                           Text(
                             "Balance Detail",
-                            style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                              fontSize: 14.sp,
-                              color: AppColor.grey5,
-                              fontWeight: FontWeight.w500,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                                  fontSize: 14.sp,
+                                  color: AppColor.grey5,
+                                  fontWeight: FontWeight.w500,
+                                ),
                           ),
                           SizedBox(height: 10.h),
                           RichText(
                             text: TextSpan(children: [
                               TextSpan(
                                 text: isCardSelected ? "1734.24" : "1924.75",
-                                style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                                  fontSize: 25.sp,
-                                  fontWeight: FontWeight.w600,
-                                ),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displaySmall!
+                                    .copyWith(
+                                      fontSize: 25.sp,
+                                      fontWeight: FontWeight.w600,
+                                    ),
                               ),
                               TextSpan(text: "  "),
                               TextSpan(
                                 text: "PKR",
-                                style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                                  fontSize: 19.sp,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displaySmall!
+                                    .copyWith(
+                                      fontSize: 19.sp,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                               ),
                             ]),
                           ),
@@ -135,17 +142,23 @@ class _SectionTwoState extends State<SectionTwo> {
                         children: [
                           Text(
                             "Active cards",
-                            style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                              fontSize: 12.sp,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                                  fontSize: 12.sp,
+                                ),
                           ),
                           SizedBox(height: 15.h),
                           Text(
                             "2",
-                            style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.w600,
-                            ),
+                            style: Theme.of(context)
+                                .textTheme
+                                .displaySmall!
+                                .copyWith(
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
                           ),
                         ],
                       ),
@@ -159,7 +172,8 @@ class _SectionTwoState extends State<SectionTwo> {
                         containerColor: Colors.blue,
                         iconColor: Colors.blue,
                         iconData: Icons.arrow_downward_rounded,
-                        amountText: isCardSelected ? "Rs.1734.24" : "Rs.1924.75",
+                        amountText:
+                            isCardSelected ? "Rs.1734.24" : "Rs.1924.75",
                         labelText: "Income",
                         buttonColor: Colors.blue,
                         onPressed: () {
@@ -168,12 +182,19 @@ class _SectionTwoState extends State<SectionTwo> {
                         buttonText: "RECEIVE",
                       ),
                       SectionTwoWidgetOne(
-                        containerColor: isCardSelected ? AppColor.red1 : Colors.green, // Adjust color based on selection
-                        iconColor: isCardSelected ? AppColor.red1 : Colors.green, // Adjust color based on selection
+                        containerColor:
+                            isCardSelected ? AppColor.red1 : Colors.green,
+                        // Adjust color based on selection
+                        iconColor:
+                            isCardSelected ? AppColor.red1 : Colors.green,
+                        // Adjust color based on selection
                         iconData: Icons.arrow_upward_rounded,
-                        amountText: isCardSelected ? "Rs.1850.24" : "Rs.2020.53",
+                        amountText:
+                            isCardSelected ? "Rs.1850.24" : "Rs.2020.53",
                         labelText: "Expense",
-                        buttonColor: isCardSelected ? AppColor.red1 : Colors.green, // Adjust color based on selection
+                        buttonColor:
+                            isCardSelected ? AppColor.red1 : Colors.green,
+                        // Adjust color based on selection
                         onPressed: () {
                           // Add your onPressed logic here
                         },

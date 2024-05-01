@@ -78,7 +78,7 @@ class SectionOne extends StatelessWidget {
             child: Material(
               borderRadius: BorderRadius.circular(6.0),
               elevation: 3.0,
-              child: TextFormField(
+              child: TextField(
                 style: TextStyle(
                     fontSize: 15.sp, fontWeight: FontWeight.w500),
                 decoration: InputDecoration(
