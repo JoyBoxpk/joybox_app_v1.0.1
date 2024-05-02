@@ -117,7 +117,7 @@ class DrawerWidget extends StatelessWidget {
                   return ListTile(
                     leading: CustomImageView(
                       fit: BoxFit.contain,
-                      imagePath: item.iconpath,
+                      imagePath: item.iconPath,
                       height: 22.h,
                       width: 22.w,
                     ),
@@ -190,9 +190,11 @@ class DrawerWidget extends StatelessWidget {
 void _navigateToScreen(BuildContext context, String title) {
   switch (title) {
     case "Support":
+      Navigator.pop(context);
       Navigator.pushNamed(context, SupportScreen.routeName);
       break;
     case "Transactions":
+      Navigator.pop(context);
       Navigator.pushNamed(context, TransactionsScreen.routeName);
       break;
     case "Withdraw your wallet":
@@ -200,21 +202,26 @@ void _navigateToScreen(BuildContext context, String title) {
       Navigator.pushNamed(context, WidthdrawYourWalletScreen.routeName);
       break;
     case "Profile":
+      Navigator.pop(context);
       Navigator.pushNamed(context, ProfileScreen.routeName);
       break;
     case "Become JB Pro":
+      Navigator.pop(context);
       Navigator.pushNamed(context, JbProScreen.routeName);
       break;
 
     case "Ordering & reordering":
+      Navigator.pop(context);
       Navigator.pushNamed(context, OrderingReordering.routeName);
       break;
 
     case "Inbox":
+      Navigator.pop(context);
       Navigator.pushNamed(context, ChatScreen.routeName);
       break;
 
     case "Language":
+      Navigator.pop(context);
       Navigator.pop(context);
       Navigator.pushNamed(context, DashboardScreen.routeName);
       break;
@@ -224,10 +231,12 @@ void _navigateToScreen(BuildContext context, String title) {
       break;
 
     case "Invite friends":
+      Navigator.pop(context);
       Navigator.pushNamed(context, PaymentMethodScreen.routeName);
       break;
 
     case "Notifications":
+      Navigator.pop(context);
       Navigator.pushNamed(context, NotificationScreen.routeName);
       break;
 
@@ -239,65 +248,65 @@ void _navigateToScreen(BuildContext context, String title) {
 }
 
 class DrawerSettingItem {
-  final iconpath;
+  final iconPath;
   final String title;
 
   DrawerSettingItem({
-    required this.iconpath,
+    required this.iconPath,
     required this.title,
   });
 
   static final List<DrawerSettingItem> drawerItems = [
     DrawerSettingItem(
-      iconpath: "assets/images/drawer_notiification_img.svg",
+      iconPath: "assets/images/drawer_notiification_img.svg",
       title: 'Notifications',
     ),
     DrawerSettingItem(
-      iconpath: "assets/images/drawer_img_2.svg",
+      iconPath: "assets/images/drawer_img_2.svg",
       title: 'Ordering & reordering',
     ),
     DrawerSettingItem(
-      iconpath: "assets/images/drawer_img_3.svg",
+      iconPath: "assets/images/drawer_img_3.svg",
       title: 'Offers & Voucher',
     ),
     DrawerSettingItem(
-      iconpath: "assets/images/drawer_img_4.svg",
+      iconPath: "assets/images/drawer_img_4.svg",
       title: 'Become JB Pro',
     ),
     DrawerSettingItem(
-      iconpath: "assets/images/drawer_img_5.svg",
+      iconPath: "assets/images/drawer_img_5.svg",
       title: 'Profile',
     ),
     DrawerSettingItem(
-      iconpath: "assets/images/drawer_img_6.svg",
+      iconPath: "assets/images/drawer_img_6.svg",
       title: 'Inbox',
     ),
     DrawerSettingItem(
-      iconpath: "assets/images/drawer_img_7.svg",
+      iconPath: "assets/images/drawer_img_7.svg",
       title: 'Transactions',
     ),
     DrawerSettingItem(
-      iconpath: "assets/images/drawer_img_7.svg",
+      iconPath: "assets/images/drawer_img_7.svg",
       title: 'Withdraw your wallet',
     ),
     DrawerSettingItem(
-      iconpath: "assets/images/drawer_img_8.svg",
+      iconPath: "assets/images/drawer_img_8.svg",
       title: 'JB rewards',
     ),
     DrawerSettingItem(
-      iconpath: "assets/images/drawer_img_9.svg",
+      iconPath: "assets/images/drawer_img_9.svg",
       title: 'JB memberships',
     ),
     DrawerSettingItem(
-      iconpath: "assets/images/drawer_img_10.svg",
+      iconPath: "assets/images/drawer_img_10.svg",
       title: 'Support',
     ),
     DrawerSettingItem(
-      iconpath: "assets/images/drawer_img_11.svg",
+      iconPath: "assets/images/drawer_img_11.svg",
       title: 'Invite friends',
     ),
     DrawerSettingItem(
-      iconpath: "assets/images/drawer_img_12.svg",
+      iconPath: "assets/images/drawer_img_12.svg",
       title: 'Language',
     ),
     // Add more items as needed
