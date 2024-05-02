@@ -189,22 +189,31 @@ class DrawerWidget extends StatelessWidget {
 
 void _navigateToScreen(BuildContext context, String title) {
   switch (title) {
+    case "Dashboard Screen":
+      Navigator.pop(context);
+      Navigator.pushNamed(context, DashboardScreen.routeName);
+      break;
+
     case "Support":
       Navigator.pop(context);
       Navigator.pushNamed(context, SupportScreen.routeName);
       break;
+
     case "Transactions":
       Navigator.pop(context);
       Navigator.pushNamed(context, TransactionsScreen.routeName);
       break;
+
     case "Withdraw your wallet":
       Navigator.pop(context);
       Navigator.pushNamed(context, WidthdrawYourWalletScreen.routeName);
       break;
+
     case "Profile":
       Navigator.pop(context);
       Navigator.pushNamed(context, ProfileScreen.routeName);
       break;
+
     case "Become JB Pro":
       Navigator.pop(context);
       Navigator.pushNamed(context, JbProScreen.routeName);
@@ -222,8 +231,7 @@ void _navigateToScreen(BuildContext context, String title) {
 
     case "Language":
       Navigator.pop(context);
-      Navigator.pop(context);
-      Navigator.pushNamed(context, DashboardScreen.routeName);
+      // Navigator.pushNamed(context, DashboardScreen.routeName);
       break;
 
     case "Offers & Voucher":
@@ -257,6 +265,10 @@ class DrawerSettingItem {
   });
 
   static final List<DrawerSettingItem> drawerItems = [
+    DrawerSettingItem(
+      iconPath: "assets/images/drawer_notiification_img.svg",
+      title: 'Dashboard Screen',
+    ),
     DrawerSettingItem(
       iconPath: "assets/images/drawer_notiification_img.svg",
       title: 'Notifications',
