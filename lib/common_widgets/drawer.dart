@@ -196,6 +196,7 @@ void _navigateToScreen(BuildContext context, String title) {
       Navigator.pushNamed(context, TransactionsScreen.routeName);
       break;
     case "Withdraw your wallet":
+      Navigator.pop(context);
       Navigator.pushNamed(context, WidthdrawYourWalletScreen.routeName);
       break;
     case "Profile":

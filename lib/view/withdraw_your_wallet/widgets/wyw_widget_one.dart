@@ -21,7 +21,7 @@ class WYWWidgetOne extends StatelessWidget {
           decoration: InputDecoration(
             errorStyle: TextStyle(fontSize: 13.sp, fontWeight: FontWeight.w500),
             contentPadding:
-                EdgeInsets.symmetric(vertical: 12.h, horizontal: 12.w),
+                EdgeInsets.symmetric(vertical: 12.h, horizontal: 2.w),
             hintStyle: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.w300),
             prefixIcon: preFixIcon != null
                 ? Padding(
