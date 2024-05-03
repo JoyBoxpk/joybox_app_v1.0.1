@@ -3,8 +3,8 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:joy_box_app/res/color.dart';
 
-class CommonRatingBar extends StatelessWidget {
-  CommonRatingBar({
+class CustomRatingBar extends StatelessWidget {
+  CustomRatingBar({
     Key? key,
     this.alignment,
     this.ignoreGestures,

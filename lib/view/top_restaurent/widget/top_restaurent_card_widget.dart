@@ -124,7 +124,7 @@ class RestaurantInfo extends StatelessWidget {
               children: [
                 Row(
                   children: [
-                    CommonRatingBar(
+                    CustomRatingBar(
                       itemCount: 1,
                       itemSize: 15.h,
                       color: AppColor.red1,

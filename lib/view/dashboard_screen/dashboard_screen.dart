@@ -1,10 +1,9 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:joy_box_app/common_widgets/common_elevated_button.dart';
-import 'package:joy_box_app/common_widgets/common_payment_method_widget.dart';
 import 'package:joy_box_app/core/utils/padding_extension.dart';
 import 'package:joy_box_app/res/color.dart';
+
 import '../../common_widgets/custom_image_view.dart';
 import 'sections/section_five.dart';
 import 'sections/section_one.dart';

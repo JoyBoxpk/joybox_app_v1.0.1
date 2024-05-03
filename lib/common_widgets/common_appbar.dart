@@ -45,7 +45,7 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
       )
           : null, // Apply circular border radius conditionally
       title: Padding(
-        padding: EdgeInsets.only(left: 12.w, bottom: 4.h),
+        padding: EdgeInsets.only(left: 10.w, bottom: 10.h),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [

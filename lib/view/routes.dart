@@ -37,6 +37,8 @@ import 'package:joy_box_app/view/transaction_screen/transactions_screen.dart';
 import 'package:joy_box_app/view/user_fav_restaurent/user_fav_restaurent_screen.dart';
 import 'package:joy_box_app/view/withdraw_your_wallet/withdraw_your_wallet_screen.dart';
 
+import 'memberships/memberships_screen.dart';
+
 class RoutePaths {
   static const String splash = SplashScreen.routeName;
   static const String getStarted = GetStartedScreen.routeName;
@@ -77,8 +79,8 @@ class RoutePaths {
   static const String favMeal = FavMealScreen.routeName;
   static const String editNotification = EditNotification.routeName;
   static const String dashboard = DashboardScreen.routeName;
-  static const String withdrawalwallet = WidthdrawYourWalletScreen.routeName;
-  static const String invoice = InvoiceScreen.routeName;
+  static const String withdrawYourWallet = WidthdrawYourWalletScreen.routeName;
+  static const String memberships = MembershipsScreen.routeName;
 }
 
 // Define your routes as a Map
@@ -117,8 +119,8 @@ final Map<String, WidgetBuilder> appRoutes = {
   RoutePaths.favMeal: (context) => const FavMealScreen(),
   RoutePaths.editNotification: (context) => EditNotification(),
   RoutePaths.dashboard: (context) => DashboardScreen(),
-  RoutePaths.withdrawalwallet: (context) => WidthdrawYourWalletScreen(),
-  RoutePaths.invoice: (context) => InvoiceScreen()
+  RoutePaths.withdrawYourWallet: (context) => WidthdrawYourWalletScreen(),
+  RoutePaths.memberships: (context) => MembershipsScreen(),
 };
 
 
