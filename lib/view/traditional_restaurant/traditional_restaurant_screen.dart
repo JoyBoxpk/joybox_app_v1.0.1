@@ -135,7 +135,7 @@ class TraditionalRestaurantScreen extends StatelessWidget {
             SizedBox(height: 10.h),
             Row(
               children: [
-                CommonRatingBar(
+                CustomRatingBar(
                   itemCount: 1,
                   itemSize: 15.h,
                   color: AppColor.red1,
