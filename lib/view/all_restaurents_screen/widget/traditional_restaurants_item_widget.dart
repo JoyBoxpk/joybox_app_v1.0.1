@@ -75,7 +75,7 @@ class TraditionalRestaurantsItemWidget extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 3.h),
-                    CommonRatingBar(
+                    CustomRatingBar(
                       itemCount: 5,
                       color: AppColor.amber,
                       initialRating: item.rating.toDouble(),

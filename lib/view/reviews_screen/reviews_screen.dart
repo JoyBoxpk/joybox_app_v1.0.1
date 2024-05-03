@@ -270,7 +270,7 @@ class ReviewsSectionWidget extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      CommonRatingBar(
+                      CustomRatingBar(
                         color: Colors.red,
                         itemCount: 5,
                         initialRating: review.rating.toDouble(),

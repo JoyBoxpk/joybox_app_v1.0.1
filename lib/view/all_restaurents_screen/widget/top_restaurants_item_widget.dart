@@ -73,7 +73,7 @@ class TopRestaurantsItemWidget extends StatelessWidget {
                         fontSize: 10.sp,
                       ),
                     ),
-                    CommonRatingBar(
+                    CustomRatingBar(
                       itemCount: 5,
                       color: AppColor.amber,
                       initialRating: item.rating.toDouble(),
