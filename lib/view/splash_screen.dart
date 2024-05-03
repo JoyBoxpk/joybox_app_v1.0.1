@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:joy_box_app/view/get_started_screen.dart';
+import 'package:joy_box_app/view/my_referrals/my_referrals_screen.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(milliseconds: 3000), () {
-      Navigator.pushReplacementNamed(context, GetStartedScreen.routeName);
+      Navigator.pushReplacementNamed(context, MyReferralScreen.routeName);
     });
   }
 

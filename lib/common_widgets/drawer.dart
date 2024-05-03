@@ -5,6 +5,7 @@ import 'package:joy_box_app/view/Jb_pro_screen/jb_pro_screen.dart';
 import 'package:joy_box_app/view/aboutus_screen/about_us_screen.dart';
 import 'package:joy_box_app/view/chat_screen/chat_screen.dart';
 import 'package:joy_box_app/view/dashboard_screen/dashboard_screen.dart';
+import 'package:joy_box_app/view/jb_rewards/jb_reward_screen.dart';
 import 'package:joy_box_app/view/notificaion_screen/notification_screen.dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/ordering_recording/ordering_reordering.dart';
@@ -246,6 +247,10 @@ void _navigateToScreen(BuildContext context, String title) {
     case "Notifications":
       Navigator.pop(context);
       Navigator.pushNamed(context, NotificationScreen.routeName);
+      break;
+
+    case "JB rewards":
+      Navigator.pushNamed(context, JBRewardsScreen.routeName);
       break;
 
     // Add more cases for other screens
