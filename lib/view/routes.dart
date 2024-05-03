@@ -76,6 +76,7 @@ class RoutePaths {
   static const String favMeal = FavMealScreen.routeName;
   static const String editNotification = EditNotification.routeName;
   static const String dashboard = DashboardScreen.routeName;
+  static const String withdrawalwallet = WidthdrawYourWalletScreen.routeName;
 }
 
 // Define your routes as a Map
@@ -113,7 +114,8 @@ final Map<String, WidgetBuilder> appRoutes = {
   RoutePaths.chatScreen: (context) => const ChatScreen(),
   RoutePaths.favMeal: (context) => const FavMealScreen(),
   RoutePaths.editNotification: (context) => EditNotification(),
-  RoutePaths.dashboard: (context) => DashboardScreen()
+  RoutePaths.dashboard: (context) => DashboardScreen(),
+  RoutePaths.withdrawalwallet: (context) => WidthdrawYourWalletScreen()
 };
 
 
