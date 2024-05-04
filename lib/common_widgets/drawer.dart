@@ -5,6 +5,7 @@ import 'package:joy_box_app/view/Jb_pro_screen/jb_pro_screen.dart';
 import 'package:joy_box_app/view/aboutus_screen/about_us_screen.dart';
 import 'package:joy_box_app/view/chat_screen/chat_screen.dart';
 import 'package:joy_box_app/view/dashboard_screen/dashboard_screen.dart';
+import 'package:joy_box_app/view/invoice_screen/invoice_screen.dart';
 import 'package:joy_box_app/view/jb_rewards/jb_reward_screen.dart';
 import 'package:joy_box_app/view/notificaion_screen/notification_screen.dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
@@ -245,6 +246,9 @@ void _navigateToScreen(BuildContext context, String title) {
       Navigator.pushNamed(context, OffersScreen.routeName);
       break;
 
+    case "Invoice":
+      Navigator.pushNamed(context, InvoiceScreen.routeName);
+      break;
     case "Invite friends":
       Navigator.pop(context);
       Navigator.pushNamed(context, PaymentMethodScreen.routeName);
@@ -327,6 +331,10 @@ class DrawerSettingItem {
     DrawerSettingItem(
       iconPath: "assets/images/drawer_img_10.svg",
       title: 'Support',
+    ),
+    DrawerSettingItem(
+      iconPath: "assets/images/invoice.svg",
+      title: 'Invoice',
     ),
     DrawerSettingItem(
       iconPath: "assets/images/drawer_img_11.svg",
