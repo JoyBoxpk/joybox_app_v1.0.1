@@ -19,6 +19,7 @@ import 'package:joy_box_app/view/jb_rewards/jb_reward_screen.dart';
 import 'package:joy_box_app/view/joybox_choice/joybox_choice_screen.dart';
 import 'package:joy_box_app/view/joybox_picks_screen/joybox_picks_screen.dart';
 import 'package:joy_box_app/view/main_screen/main_screen.dart';
+import 'package:joy_box_app/view/member_genealogy/member_genealogy.dart';
 import 'package:joy_box_app/view/my_referrals/my_referrals_screen.dart';
 import 'package:joy_box_app/view/notificaion_screen/edit_notification/edit_notification_screen.dart';
 import 'package:joy_box_app/view/notificaion_screen/notification_screen.dart';
@@ -82,7 +83,12 @@ class RoutePaths {
   static const String dashboard = DashboardScreen.routeName;
   static const String withdrawYourWallet = WidthdrawYourWalletScreen.routeName;
   static const String memberships = MembershipsScreen.routeName;
+
   static const String myOrders = MyOrdersScreen.routeName;
+
+  static const String invoice = InvoiceScreen.routeName;
+  static const String memberGenealogy = MembershipsScreen.routeName;
+  static const String myReferrals = MyReferralScreen.routeName;
 }
 
 // Define your routes as a Map
@@ -124,6 +130,10 @@ final Map<String, WidgetBuilder> appRoutes = {
   RoutePaths.withdrawYourWallet: (context) => WidthdrawYourWalletScreen(),
   RoutePaths.memberships: (context) => MembershipsScreen(),
   RoutePaths.myOrders: (context) => MyOrdersScreen(),
+  RoutePaths.invoice: (context) => InvoiceScreen(),
+  RoutePaths.memberGenealogy: (context) => MemberGenealogy(),
+  RoutePaths.myReferrals: (context) => MyReferralScreen(),
+
 };
 
 
