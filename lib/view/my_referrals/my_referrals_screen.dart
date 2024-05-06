@@ -1,24 +1,36 @@
 import 'dart:math';
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:joy_box_app/common_widgets/custom_image_view.dart';
+import 'package:joy_box_app/common_widgets/custom_smooth_indicator.dart';
+import 'package:joy_box_app/core/utils/padding_extension.dart';
 import 'package:joy_box_app/res/color.dart';
 import 'package:joy_box_app/view/my_referrals/model/level_count_model.dart';
+import 'package:joy_box_app/view/my_referrals/model/reward_points_model.dart';
 import 'package:joy_box_app/view/my_referrals/sections/section_two.dart';
+import 'package:joy_box_app/view/my_referrals/widgets/reward_points_widget.dart';
 
 import '../../common_widgets/gradient_circular_progress_indicator.dart';
 import 'sections/section_one.dart';
 import 'widgets/level_count_widget.dart';
 import 'widgets/refer_link_widget.dart';
 
-class MyReferralScreen extends StatelessWidget {
-  const MyReferralScreen({super.key});
+class MyReferralScreen extends StatefulWidget {
+  MyReferralScreen({super.key});
 
   static const String routeName = "my-referrals-screen";
+
+  @override
+  State<MyReferralScreen> createState() => _MyReferralScreenState();
+}
+
+class _MyReferralScreenState extends State<MyReferralScreen> {
+  int activeindex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -96,53 +108,50 @@ class MyReferralScreen extends StatelessWidget {
                   ],
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
-                      width: 130.w,
-                      height: 190.h,
-                      decoration: BoxDecoration(
-                        border: Border.all(color: AppColor.red1),
-                        borderRadius: BorderRadius.circular(5),
+                    Text(
+                      'Reward Points',
+                      style: TextStyle(
+                        color: Color(0xFF303030),
+                        fontSize: 20,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w600,
+                        height: 0,
+                        letterSpacing: -1,
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          CustomImageView(
-                            imagePath:
-                                "assets/images/my_referrals_screen_img2.svg",
-                          ),
-                          Text(
-                            '800',
-                            style: TextStyle(
-                              color: Color(0xFF202126),
-                              fontSize: 20,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w700,
-                              height: 0,
-                            ),
-                          ),
-                          Text(
-                            'Points \nPending',
-                            style: TextStyle(
-                              color: Color(0xFF202126),
-                              fontSize: 10,
-                              fontFamily: 'Montserrat',
-                              fontWeight: FontWeight.w500,
-                              height: 0,
-                            ),
-                          ),
-                          SizedBox(
-                            height: 3.h,
-                          ),
-                          CustomImageView(
-                            height: 70.h,
-                            width: 300,
-                            imagePath:
-                                "assets/images/my_referrals_screen_img4.svg",
-                          )
-                        ],
+                    ).paddingAll(10).paddingLeft(10),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    CarouselSlider.builder(
+                      itemCount: rewardpointslist.length,
+                      itemBuilder: (context, index, realIndex) {
+                        return RewardPointsWidget(
+                            rewardPointsModel: rewardpointslist[index]);
+                      },
+                      options: CarouselOptions(
+                        onPageChanged: (index, reason) {
+                          setState(() {
+                            activeindex = index;
+                          });
+                        },
+                        aspectRatio: 16 / 9,
+                        viewportFraction: 0.4,
+                        initialPage: 0,
+                        reverse: false,
+                        autoPlayInterval: Duration(seconds: 3),
+                        autoPlayAnimationDuration: Duration(milliseconds: 800),
+                        autoPlayCurve: Curves.fastOutSlowIn,
+                        scrollDirection: Axis.horizontal,
                       ),
                     ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    CustomSmoothIndicator(
+                        activeIndex: activeindex,
+                        itemCount: rewardpointslist.length)
                   ],
                 ),
               )
