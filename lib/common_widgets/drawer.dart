@@ -7,6 +7,7 @@ import 'package:joy_box_app/view/chat_screen/chat_screen.dart';
 import 'package:joy_box_app/view/dashboard_screen/dashboard_screen.dart';
 import 'package:joy_box_app/view/invoice_screen/invoice_screen.dart';
 import 'package:joy_box_app/view/jb_rewards/jb_reward_screen.dart';
+import 'package:joy_box_app/view/my_referrals/my_referrals_screen.dart';
 import 'package:joy_box_app/view/notificaion_screen/notification_screen.dart';
 import 'package:joy_box_app/view/offers_screen/offers_screen.dart';
 import 'package:joy_box_app/view/ordering_recording/ordering_reordering.dart';
@@ -259,8 +260,17 @@ void _navigateToScreen(BuildContext context, String title) {
       Navigator.pushNamed(context, NotificationScreen.routeName);
       break;
 
+    case "My Referrals":
+      Navigator.pop(context);
+      Navigator.pushNamed(context, MyReferralScreen.routeName);
+      break;
+
     case "JB rewards":
       Navigator.pushNamed(context, JBRewardsScreen.routeName);
+      break;
+
+    case "Member Genealogy":
+      Navigator.pushNamed(context, MembershipsScreen.routeName);
       break;
 
     // Add more cases for other screens
@@ -321,9 +331,14 @@ class DrawerSettingItem {
       title: 'JB rewards',
     ),
     DrawerSettingItem(
+      iconPath: "assets/images/my_referrals_icon.svg",
+      title: 'My Referrals',
+    ),
+    DrawerSettingItem(
       iconPath: "assets/images/drawer_img_8.svg",
       title: 'Memberships',
     ),
+
     DrawerSettingItem(
       iconPath: "assets/images/drawer_img_9.svg",
       title: 'JB memberships',
@@ -331,6 +346,10 @@ class DrawerSettingItem {
     DrawerSettingItem(
       iconPath: "assets/images/drawer_img_10.svg",
       title: 'Support',
+    ),
+    DrawerSettingItem(
+      iconPath: "assets/images/member_genealogy_icon.svg",
+      title: 'Member Genealogy',
     ),
     DrawerSettingItem(
       iconPath: "assets/images/invoice.svg",
