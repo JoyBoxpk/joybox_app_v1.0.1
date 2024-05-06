@@ -39,6 +39,7 @@ import 'package:joy_box_app/view/user_fav_restaurent/user_fav_restaurent_screen.
 import 'package:joy_box_app/view/withdraw_your_wallet/withdraw_your_wallet_screen.dart';
 
 import 'memberships/memberships_screen.dart';
+import 'my_orders/my_orders_screen.dart';
 
 class RoutePaths {
   static const String splash = SplashScreen.routeName;
@@ -82,6 +83,9 @@ class RoutePaths {
   static const String dashboard = DashboardScreen.routeName;
   static const String withdrawYourWallet = WidthdrawYourWalletScreen.routeName;
   static const String memberships = MembershipsScreen.routeName;
+
+  static const String myOrders = MyOrdersScreen.routeName;
+
   static const String invoice = InvoiceScreen.routeName;
   static const String memberGenealogy = MembershipsScreen.routeName;
   static const String myReferrals = MyReferralScreen.routeName;
@@ -125,9 +129,11 @@ final Map<String, WidgetBuilder> appRoutes = {
   RoutePaths.dashboard: (context) => DashboardScreen(),
   RoutePaths.withdrawYourWallet: (context) => WidthdrawYourWalletScreen(),
   RoutePaths.memberships: (context) => MembershipsScreen(),
+  RoutePaths.myOrders: (context) => MyOrdersScreen(),
   RoutePaths.invoice: (context) => InvoiceScreen(),
   RoutePaths.memberGenealogy: (context) => MemberGenealogy(),
   RoutePaths.myReferrals: (context) => MyReferralScreen(),
+
 };
 
 
