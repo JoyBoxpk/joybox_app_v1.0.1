@@ -16,6 +16,7 @@ import 'package:joy_box_app/view/support/support_screen.dart';
 import 'package:joy_box_app/view/transaction_screen/transactions_screen.dart';
 
 import '../view/memberships/memberships_screen.dart';
+import '../view/my_orders/my_orders_screen.dart';
 import '../view/payment_method/payment_method_screen.dart';
 import '../view/withdraw_your_wallet/withdraw_your_wallet_screen.dart';
 
@@ -232,6 +233,11 @@ void _navigateToScreen(BuildContext context, String title) {
       Navigator.pushNamed(context, OrderingReordering.routeName);
       break;
 
+    case "My Orders":
+      Navigator.pop(context);
+      Navigator.pushNamed(context, MyOrdersScreen.routeName);
+      break;
+
     case "Inbox":
       Navigator.pop(context);
       Navigator.pushNamed(context, ChatScreen.routeName);
@@ -291,6 +297,10 @@ class DrawerSettingItem {
     DrawerSettingItem(
       iconPath: "assets/images/drawer_img_2.svg",
       title: 'Ordering & reordering',
+    ),
+    DrawerSettingItem(
+      iconPath: "assets/images/drawer_img_2.svg",
+      title: 'My Orders',
     ),
     DrawerSettingItem(
       iconPath: "assets/images/drawer_img_3.svg",

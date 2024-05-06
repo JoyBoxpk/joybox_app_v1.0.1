@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:joy_box_app/core/utils/padding_extension.dart';
 import 'package:joy_box_app/res/color.dart';
 
 class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -44,51 +45,48 @@ class CommonAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       )
           : null, // Apply circular border radius conditionally
-      title: Padding(
-        padding: EdgeInsets.only(left: 10.w, bottom: 10.h),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            showBackButton ? Container(
-              height: 39.h,
-              width: 38.w,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10.0),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.black26,
-                    spreadRadius: 1,
-                    blurRadius: 2,
-                  )
-                ],
+      title: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          showBackButton ? Container(
+            height: 42.h,
+            width: 38.w,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(10.0),
+              boxShadow: const [
+                BoxShadow(
+                  color: Colors.black26,
+                  spreadRadius: 1,
+                  blurRadius: 2,
+                )
+              ],
+            ),
+            child: IconButton(
+              iconSize: 18.sp,
+              alignment: Alignment.center,
+              icon: Icon(
+                Icons.arrow_back_sharp,
+                color: backArrowColor ?? AppColor.black,
               ),
-              child: IconButton(
-                iconSize: 18.sp,
-                alignment: Alignment.center,
-                icon: Icon(
-                  Icons.arrow_back_sharp,
-                  color: backArrowColor ?? AppColor.black,
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ) : const SizedBox(),
+          SizedBox(width: 20.w),
+          FittedBox(
+            child: Text(
+              text ?? "",
+              style: Theme.of(context).textTheme.displaySmall!.copyWith(
+                fontSize: 18.sp,
+                fontWeight: FontWeight.w600,
+                color: titleColor ?? AppColor.black,
               ),
-            ) : const SizedBox(),
-            SizedBox(width: 20.w),
-            FittedBox(
-              child: Text(
-                text ?? "",
-                style: Theme.of(context).textTheme.displaySmall!.copyWith(
-                  fontSize: 18.sp,
-                  fontWeight: FontWeight.w600,
-                  color: titleColor ?? AppColor.black,
-                ),
-              ),
-            )
-          ],
-        ),
-      ),
+            ),
+          )
+        ],
+      ).paddingLeft(12.w).paddingBottom(11.h),
       actions: actions ?? [],
     );
   }
